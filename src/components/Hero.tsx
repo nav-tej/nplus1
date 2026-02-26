@@ -33,7 +33,7 @@ export default function Hero() {
             <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-bold tracking-tight leading-[1.05] mb-7">
               Your growth.
               <br />
-              <span className="bg-gradient-to-r from-accent to-[#d4e842] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-accent to-[#27AE60] bg-clip-text text-transparent">
                 Strategized.
               </span>
             </h1>
@@ -45,7 +45,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href={SITE_CONFIG.calendarLink}
-                className="inline-flex items-center justify-center gap-2.5 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#04040A] hover:shadow-[0_0_30px_rgba(231,254,59,0.3)] hover:brightness-110 transition-all duration-300 group"
+                className="inline-flex items-center justify-center gap-2.5 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#0B1221] hover:shadow-[0_0_30px_rgba(46,204,113,0.3)] hover:brightness-110 transition-all duration-300 group"
               >
                 Start a project
                 <svg

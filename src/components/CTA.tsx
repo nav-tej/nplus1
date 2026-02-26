@@ -13,7 +13,7 @@ export default function CTA() {
           <br />
           Better Conversions.
           <br />
-          <span className="bg-gradient-to-r from-accent to-[#d4e842] bg-clip-text text-transparent italic">
+          <span className="bg-gradient-to-r from-accent to-[#27AE60] bg-clip-text text-transparent italic">
             Real ROI.
           </span>
         </h2>
@@ -23,7 +23,7 @@ export default function CTA() {
         </p>
         <Link
           href={SITE_CONFIG.calendarLink}
-          className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#04040A] hover:shadow-[0_0_30px_rgba(231,254,59,0.3)] hover:brightness-110 transition-all duration-300 group"
+          className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#0B1221] hover:shadow-[0_0_30px_rgba(46,204,113,0.3)] hover:brightness-110 transition-all duration-300 group"
         >
           Book a Call
           <svg

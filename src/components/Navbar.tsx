@@ -19,7 +19,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#04040A]/90 backdrop-blur-md border-b border-white/5"
+          ? "bg-[#0B1221]/90 backdrop-blur-md border-b border-white/5"
           : "bg-transparent"
       }`}
     >
@@ -50,7 +50,7 @@ export default function Navbar() {
             ))}
             <Link
               href={SITE_CONFIG.calendarLink}
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-[#04040A] hover:brightness-110 transition-all duration-200"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-[#0B1221] hover:brightness-110 transition-all duration-200"
             >
               Book a Call
               <svg
@@ -113,7 +113,7 @@ export default function Navbar() {
             <Link
               href={SITE_CONFIG.calendarLink}
               onClick={() => setMobileOpen(false)}
-              className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-[#04040A]"
+              className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-[#0B1221]"
             >
               Book a Call
             </Link>

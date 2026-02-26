@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #04040A;
-  --foreground: #E6E6E6;
-  --accent: #E7FE3B;
-  --muted: #888888;
-  --card-bg: #111116;
+  --background: #0B1221;
+  --foreground: #FFFFFF;
+  --accent: #2ECC71;
+  --muted: #A0A0A0;
+  --card-bg: #1A1D23;
   --border: rgba(255, 255, 255, 0.08);
 }
 
@@ -32,7 +32,7 @@ html {
 
 ::selection {
   background: var(--accent);
-  color: #04040A;
+  color: #0B1221;
 }
 
 /* Custom scrollbar */

@@ -57,7 +57,7 @@ export default function FAQ() {
 
           {/* Right — CTA Card */}
           <div className="lg:sticky lg:top-32 lg:self-start">
-            <div className="rounded-2xl bg-[#16161B] border border-white/[0.06] p-8">
+            <div className="rounded-2xl bg-[#1A1D23] border border-white/[0.06] p-8">
               <h3 className="text-xl font-semibold mb-3">
                 Need more answers?
               </h3>
@@ -67,7 +67,7 @@ export default function FAQ() {
               </p>
               <Link
                 href={SITE_CONFIG.calendarLink}
-                className="inline-flex items-center justify-center gap-2 w-full rounded-full bg-accent px-6 py-3 text-sm font-semibold text-[#04040A] hover:brightness-110 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 w-full rounded-full bg-accent px-6 py-3 text-sm font-semibold text-[#0B1221] hover:brightness-110 transition-all duration-200"
               >
                 Book a Call
               </Link>

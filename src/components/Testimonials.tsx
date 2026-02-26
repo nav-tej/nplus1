@@ -30,7 +30,7 @@ export default function Testimonials() {
                 onClick={() => setActive(i)}
                 className={`w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 cursor-pointer ${
                   active === i
-                    ? "bg-accent text-[#04040A] scale-110"
+                    ? "bg-accent text-[#0B1221] scale-110"
                     : "bg-white/[0.06] text-muted hover:bg-white/10"
                 }`}
                 aria-label={`View testimonial from ${t.name}`}
