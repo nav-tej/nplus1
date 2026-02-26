@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
   name: "nPlus1 Ventures",
   domain: "nplus1ventures.com",
-  tagline: "Go-To-Market Strategy, Amplified.",
+  tagline: "Your Growth, Catalyzed.",
   description:
     "nPlus1 Ventures helps ambitious B2B companies build and execute repeatable go-to-market strategies that drive revenue growth.",
   email: "hello@nplus1ventures.com",

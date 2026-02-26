@@ -34,7 +34,7 @@ export default function Hero() {
               Your growth.
               <br />
               <span className="bg-gradient-to-r from-accent to-[#27AE60] bg-clip-text text-transparent">
-                Strategized.
+                Catalyzed.
               </span>
             </h1>
 
