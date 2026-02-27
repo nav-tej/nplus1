@@ -1,12 +1,7 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import { FAQS, SITE_CONFIG } from "@/lib/constants";
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   return (
     <section id="faq" className="py-24 lg:py-32 border-t border-white/5">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -24,33 +19,24 @@ export default function FAQ() {
 
             <div className="space-y-3">
               {FAQS.map((faq, i) => (
-                <div
+                <details
                   key={i}
-                  className="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden"
+                  className="group rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden"
                 >
-                  <button
-                    onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                    className="flex w-full items-center justify-between p-5 lg:p-6 text-left cursor-pointer"
-                  >
-                    <span className="font-medium pr-4">{faq.question}</span>
-                    <span
-                      className={`text-accent text-xl flex-shrink-0 transition-transform duration-300 ${
-                        openIndex === i ? "rotate-45" : ""
-                      }`}
-                    >
+                  <summary className="flex w-full items-center justify-between p-5 lg:p-6 text-left cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                    <h3 className="font-medium pr-4">{faq.question}</h3>
+                    <span className="text-accent text-xl flex-shrink-0 transition-transform duration-300 group-open:rotate-45">
                       +
                     </span>
-                  </button>
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                      openIndex === i ? "max-h-60" : "max-h-0"
-                    }`}
-                  >
-                    <p className="px-5 lg:px-6 pb-5 lg:pb-6 text-muted leading-relaxed">
-                      {faq.answer}
-                    </p>
+                  </summary>
+                  <div className="grid grid-rows-[0fr] group-open:grid-rows-[1fr] transition-[grid-template-rows] duration-300">
+                    <div className="overflow-hidden">
+                      <p className="px-5 lg:px-6 pb-5 lg:pb-6 text-muted leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </details>
               ))}
             </div>
           </div>

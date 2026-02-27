@@ -11,7 +11,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -28,7 +28,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-1">
             <Image
-              src="/logo.png"
+              src="/logo-sm.webp"
               alt="nPlus1 Ventures"
               width={120}
               height={48}
@@ -76,6 +76,7 @@ export default function Navbar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 text-foreground"
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               {mobileOpen ? (

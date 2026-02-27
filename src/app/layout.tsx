@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import PostHogProvider from "@/components/PostHogProvider";
+import PostHogLoader from "@/components/PostHogLoader";
 import "./globals.css";
 
 const inter = Inter({
-  variable: "--font-geist-sans",
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     "pipeline growth",
   ],
   authors: [{ name: "nPlus1 Ventures" }],
+  alternates: {
+    canonical: "https://nplus1ventures.com",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -83,10 +86,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="canonical" href="https://nplus1ventures.com" />
+        <link rel="preconnect" href="https://us.i.posthog.com" />
+        <link rel="dns-prefetch" href="https://us.i.posthog.com" />
       </head>
       <body className={`${inter.variable} antialiased`}>
-        <PostHogProvider>{children}</PostHogProvider>
+        <PostHogLoader>{children}</PostHogLoader>
       </body>
     </html>
   );

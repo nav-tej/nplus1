@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-block">
               <Image
-                src="/logo.png"
+                src="/logo-sm.webp"
                 alt="nPlus1 Ventures"
                 width={120}
                 height={48}

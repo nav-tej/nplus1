@@ -24,9 +24,8 @@ const icons: Record<string, React.ReactNode> = {
   ),
   sales: (
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <rect x="4" y="14" width="5" height="10" rx="1" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="11.5" y="10" width="5" height="14" rx="1" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="19" y="5" width="5" height="19" rx="1" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="14" cy="14" r="10" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M14 7.5v13M17 10.5c0-1.1-1.3-2-3-2s-3 .9-3 2 1.3 2 3 2 3 .9 3 2-1.3 2-3 2-3-.9-3-2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   revops: (

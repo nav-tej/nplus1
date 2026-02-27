@@ -113,23 +113,17 @@ export const FAQS = [
 export const TESTIMONIALS = [
   {
     quote:
-      "nPlus1 helped us completely rethink our go-to-market approach. Within 6 months, we tripled our pipeline and cut our sales cycle in half.",
-    name: "Sarah Chen",
-    title: "VP of Marketing",
-    company: "TechScale",
+      "Partnered with nPlus1 to develop a comprehensive GTM strategy for new market expansion. They mapped our ideal customer segments, built a multi-channel launch playbook, and helped us accelerate pipeline growth across three new verticals.",
+    company: "HeyGen",
   },
   {
     quote:
-      "Their strategic clarity and execution speed is unmatched. They didn't just advise — they rolled up their sleeves and built alongside us.",
-    name: "Marcus Rodriguez",
-    title: "CEO & Co-Founder",
-    company: "DataBridge",
+      "nPlus1 designed and executed a developer-focused demand generation engine from the ground up. They built targeted campaigns, optimized our content funnel, and delivered measurable pipeline growth that compounded quarter over quarter.",
+    company: "Semgrep",
   },
   {
     quote:
-      "We went from scattered marketing efforts to a unified GTM machine. The frameworks they built are still driving results a year later.",
-    name: "Emily Park",
-    title: "Head of Growth",
-    company: "CloudSync",
+      "Brought in nPlus1 to overhaul our sales enablement and revenue operations. They built new playbooks, aligned our CRM workflows, and created dashboards that gave leadership real-time visibility into deal progression and forecast accuracy.",
+    company: "Egnyte",
   },
 ];

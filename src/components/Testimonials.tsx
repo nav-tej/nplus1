@@ -21,24 +21,21 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-[80px_1fr] gap-8 lg:gap-12">
-          {/* Avatars / Selector */}
+        <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-12">
+          {/* Company Selector */}
           <div className="flex lg:flex-col gap-3">
             {TESTIMONIALS.map((t, i) => (
               <button
-                key={t.name}
+                key={t.company}
                 onClick={() => setActive(i)}
-                className={`w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 cursor-pointer ${
+                className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 cursor-pointer ${
                   active === i
-                    ? "bg-accent text-[#0B1221] scale-110"
+                    ? "bg-accent text-[#0B1221]"
                     : "bg-white/[0.06] text-muted hover:bg-white/10"
                 }`}
-                aria-label={`View testimonial from ${t.name}`}
+                aria-label={`View work with ${t.company}`}
               >
-                {t.name
-                  .split(" ")
-                  .map((n) => n[0])
-                  .join("")}
+                {t.company}
               </button>
             ))}
           </div>
@@ -60,11 +57,8 @@ export default function Testimonials() {
             <blockquote className="text-xl lg:text-2xl font-medium leading-relaxed mb-8">
               &ldquo;{TESTIMONIALS[active].quote}&rdquo;
             </blockquote>
-            <div>
-              <div className="font-semibold">{TESTIMONIALS[active].name}</div>
-              <div className="text-sm text-muted">
-                {TESTIMONIALS[active].title} @ {TESTIMONIALS[active].company}
-              </div>
+            <div className="font-semibold text-accent">
+              {TESTIMONIALS[active].company}
             </div>
           </div>
         </div>
