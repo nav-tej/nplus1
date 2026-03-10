@@ -52,7 +52,7 @@ export default function Navbar() {
               href={SITE_CONFIG.calendarLink}
               className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-[#0B1221] hover:brightness-110 transition-all duration-200"
             >
-              Book a Call
+              Get in Touch
               <svg
                 width="14"
                 height="14"
@@ -116,7 +116,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-[#0B1221]"
             >
-              Book a Call
+              Get in Touch
             </Link>
           </div>
         )}

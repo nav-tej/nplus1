@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { TESTIMONIALS } from "@/lib/constants";
 
 export default function Testimonials() {
@@ -42,18 +43,29 @@ export default function Testimonials() {
 
           {/* Quote */}
           <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 lg:p-12">
-            <svg
-              width="40"
-              height="40"
-              viewBox="0 0 40 40"
-              fill="none"
-              className="text-accent/30 mb-6"
-            >
-              <path
-                d="M10 20c-3.3 0-6-2.7-6-6s2.7-6 6-6c5 0 8 4 8 12 0 6-3 12-8 14l-1-2c3-2 5-5 5-8-1 .6-2.5 1-4 1zm18 0c-3.3 0-6-2.7-6-6s2.7-6 6-6c5 0 8 4 8 12 0 6-3 12-8 14l-1-2c3-2 5-5 5-8-1 .6-2.5 1-4 1z"
-                fill="currentColor"
-              />
-            </svg>
+            <div className="flex items-center justify-between mb-6">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                className="text-accent/30"
+              >
+                <path
+                  d="M10 20c-3.3 0-6-2.7-6-6s2.7-6 6-6c5 0 8 4 8 12 0 6-3 12-8 14l-1-2c3-2 5-5 5-8-1 .6-2.5 1-4 1zm18 0c-3.3 0-6-2.7-6-6s2.7-6 6-6c5 0 8 4 8 12 0 6-3 12-8 14l-1-2c3-2 5-5 5-8-1 .6-2.5 1-4 1z"
+                  fill="currentColor"
+                />
+              </svg>
+              {TESTIMONIALS[active].logo && (
+                <Image
+                  src={TESTIMONIALS[active].logo}
+                  alt={`${TESTIMONIALS[active].company} logo`}
+                  width={120}
+                  height={32}
+                  className="h-8 w-auto opacity-70"
+                />
+              )}
+            </div>
             <blockquote className="text-xl lg:text-2xl font-medium leading-relaxed mb-8">
               &ldquo;{TESTIMONIALS[active].quote}&rdquo;
             </blockquote>

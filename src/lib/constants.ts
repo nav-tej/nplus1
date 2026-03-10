@@ -115,15 +115,24 @@ export const TESTIMONIALS = [
     quote:
       "Partnered with nPlus1 to develop a comprehensive GTM strategy for new market expansion. They mapped our ideal customer segments, built a multi-channel launch playbook, and helped us accelerate pipeline growth across three new verticals.",
     company: "HeyGen",
+    logo: "/logos/heygen.svg",
   },
   {
     quote:
       "nPlus1 designed and executed a developer-focused demand generation engine from the ground up. They built targeted campaigns, optimized our content funnel, and delivered measurable pipeline growth that compounded quarter over quarter.",
     company: "Semgrep",
+    logo: "/logos/semgrep.svg",
   },
   {
     quote:
       "Brought in nPlus1 to overhaul our sales enablement and revenue operations. They built new playbooks, aligned our CRM workflows, and created dashboards that gave leadership real-time visibility into deal progression and forecast accuracy.",
     company: "Egnyte",
+    logo: "/logos/egnyte.svg",
+  },
+  {
+    quote:
+      "nPlus1 helped us craft a go-to-market strategy for our blockchain infrastructure platform. They identified key developer communities, built targeted outreach programs, and created a content engine that positioned us as a thought leader in the Web3 space.",
+    company: "OpenBlock",
+    logo: "/logos/openblock.svg",
   },
 ];
