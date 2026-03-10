@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -17,18 +17,21 @@ export async function POST(request: Request) {
     }
 
     // Log to Supabase
-    const { error: dbError } = await supabase
-      .from("contact_submissions")
-      .insert({
-        first_name: firstName,
-        last_name: lastName,
-        email,
-        company: company || null,
-        message,
-      });
+    const supabase = getSupabase();
+    if (supabase) {
+      const { error: dbError } = await supabase
+        .from("contact_submissions")
+        .insert({
+          first_name: firstName,
+          last_name: lastName,
+          email,
+          company: company || null,
+          message,
+        });
 
-    if (dbError) {
-      console.error("Supabase error:", dbError);
+      if (dbError) {
+        console.error("Supabase error:", dbError);
+      }
     }
 
     // Send email notification via Resend
