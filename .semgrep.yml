@@ -1,0 +1,52 @@
+rules:
+  - id: eval-usage
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: Function(...)
+    message: "Avoid using eval() or Function() as it can execute arbitrary code"
+    languages: [typescript, javascript]
+    severity: WARNING
+
+  - id: sql-injection-risk
+    pattern-either:
+      - pattern: |
+          $QUERY = "..." + ...
+      - pattern: |
+          query("..." + ...)
+    message: "Potential SQL injection - avoid string concatenation for queries"
+    languages: [typescript, javascript]
+    severity: ERROR
+
+  - id: hardcoded-secrets
+    pattern-either:
+      - pattern: |
+          password = "..."
+      - pattern: |
+          api_key = "..."
+      - pattern: |
+          secret = "..."
+      - pattern: |
+          token = "..."
+    message: "Hardcoded secrets detected - use environment variables instead"
+    languages: [typescript, javascript]
+    severity: WARNING
+
+  - id: insecure-deserialization
+    pattern-either:
+      - pattern: |
+          JSON.parse($INPUT)
+      - pattern: |
+          eval($DATA)
+    message: "Insecure deserialization - validate input data"
+    languages: [typescript, javascript]
+    severity: WARNING
+
+  - id: missing-input-validation
+    pattern-either:
+      - pattern: |
+          fetch($URL)
+      - pattern: |
+          require($MODULE)
+    message: "Missing input validation"
+    languages: [typescript, javascript]
+    severity: INFO
