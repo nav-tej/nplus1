@@ -131,8 +131,8 @@ export const TESTIMONIALS = [
   },
   {
     quote:
-      "nPlus1 helped us craft a go-to-market strategy for our blockchain infrastructure platform. They identified key developer communities, built targeted outreach programs, and created a content engine that positioned us as a thought leader in the Web3 space.",
-    company: "OpenBlock",
+      "nPlus1 has been instrumental in shaping our product launch strategy and building a growth analytics framework from the ground up. They helped us define our go-to-market motion, set up the data infrastructure to track what matters, and delivered actionable insights that accelerated our early traction.",
+    company: "OpenBlock Labs",
     logo: "/logos/openblock.svg",
   },
 ];
