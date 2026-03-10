@@ -1,0 +1,103 @@
+rules:
+  # Security Issues
+  - id: dangerous-eval
+    patterns:
+      - pattern-either:
+          - pattern: eval(...)
+          - pattern: Function(...)
+    message: "Avoid using eval() or Function() as it can execute arbitrary code"
+    languages: [typescript, javascript]
+    severity: ERROR
+
+  - id: hardcoded-secrets
+    patterns:
+      - pattern-either:
+          - pattern: |
+              password = "..."
+          - pattern: |
+              api_key = "..."
+          - pattern: |
+              apiKey = "..."
+    message: "Hardcoded secrets detected - use environment variables instead"
+    languages: [typescript, javascript]
+    severity: WARNING
+
+  - id: xss-vulnerability
+    patterns:
+      - pattern-either:
+          - pattern: "dangerouslySetInnerHTML"
+          - pattern: "innerHTML = $VALUE"
+    message: "XSS vulnerability - avoid using dangerouslySetInnerHTML or innerHTML with untrusted data"
+    languages: [typescript, javascript]
+    severity: WARNING
+
+  - id: sql-injection
+    patterns:
+      - pattern-either:
+          - pattern: "execute($QUERY + ...)"
+          - pattern: "query($QUERY + ...)"
+    message: "Potential SQL injection - avoid string concatenation for database queries"
+    languages: [typescript, javascript]
+    severity: ERROR
+
+  - id: unsafe-require
+    patterns:
+      - pattern-either:
+          - pattern: "require($VARIABLE)"
+    message: "Dynamic require can be dangerous - use static imports when possible"
+    languages: [typescript, javascript]
+    severity: WARNING
+
+  - id: insecure-randomness
+    patterns:
+      - pattern-either:
+          - pattern: "Math.random()"
+    message: "Math.random is not cryptographically secure - use crypto.getRandomValues for sensitive operations"
+    languages: [typescript, javascript]
+    severity: WARNING
+
+  - id: open-redirect-vulnerability
+    patterns:
+      - pattern-either:
+          - pattern: "window.location = $URL"
+          - pattern: "window.location.href = $URL"
+          - pattern: "redirect($URL)"
+    message: "Potential open redirect vulnerability - validate redirect URLs"
+    languages: [typescript, javascript]
+    severity: WARNING
+
+  - id: sensitive-data-logging
+    patterns:
+      - pattern-either:
+          - pattern-regex: "console\\.(log|error|warn).*password"
+          - pattern-regex: "console\\.(log|error|warn).*token"
+          - pattern-regex: "console\\.(log|error|warn).*secret"
+    message: "Sensitive data should not be logged"
+    languages: [typescript, javascript]
+    severity: WARNING
+
+  - id: missing-input-validation
+    patterns:
+      - pattern-either:
+          - pattern: "dangerouslySetInnerHTML"
+          - pattern: "innerHTML = $VALUE"
+    message: "User input should be validated and sanitized before use"
+    languages: [typescript, javascript]
+    severity: WARNING
+
+  - id: missing-cors-headers
+    patterns:
+      - pattern-either:
+          - pattern-regex: "res\\.set\\(.*Access-Control"
+    message: "CORS configuration should be explicitly defined"
+    languages: [typescript, javascript]
+    severity: INFO
+
+  - id: weak-crypto-algorithm
+    patterns:
+      - pattern-either:
+          - pattern: "createHash('md5')"
+          - pattern: "createHash('sha1')"
+    message: "Weak cryptographic algorithm detected - use SHA-256 or stronger"
+    languages: [typescript, javascript]
+    severity: ERROR

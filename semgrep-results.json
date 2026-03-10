@@ -1,0 +1,21 @@
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 19 files tracked by git with 5 Code rules:
+  Scanning 18 files with 5 ts rules.
+{"version":"1.154.0","results":[],"errors":[],"paths":{"scanned":["src/app/layout.tsx","src/app/manifest.ts","src/app/page.tsx","src/app/robots.ts","src/app/sitemap.ts","src/components/About.tsx","src/components/CTA.tsx","src/components/FAQ.tsx","src/components/Footer.tsx","src/components/Hero.tsx","src/components/JsonLd.tsx","src/components/Navbar.tsx","src/components/PostHogLoader.tsx","src/components/PostHogProvider.tsx","src/components/Process.tsx","src/components/Services.tsx","src/components/Testimonials.tsx","src/lib/constants.ts"]},"time":{"rules":[],"rules_parse_time":0.0046041011810302734,"profiling_times":{"config_time":0.11407709121704102,"core_time":0.31752872467041016,"ignores_time":7.581710815429688e-05,"total_time":0.4387807846069336},"parsing_time":{"total_time":0.0,"per_file_time":{"mean":0.0,"std_dev":0.0},"very_slow_stats":{"time_ratio":0.0,"count_ratio":0.0},"very_slow_files":[]},"scanning_time":{"total_time":0.1178281307220459,"per_file_time":{"mean":0.0065460072623358834,"std_dev":3.6279112372642566e-05},"very_slow_stats":{"time_ratio":0.0,"count_ratio":0.0},"very_slow_files":[]},"matching_time":{"total_time":0.0,"per_file_and_rule_time":{"mean":0.0,"std_dev":0.0},"very_slow_stats":{"time_ratio":0.0,"count_ratio":0.0},"very_slow_rules_on_files":[]},"tainting_time":{"total_time":0.0,"per_def_and_rule_time":{"mean":0.0,"std_dev":0.0},"very_slow_stats":{"time_ratio":0.0,"count_ratio":0.0},"very_slow_rules_on_defs":[]},"fixpoint_timeouts":[],"prefiltering":{"project_level_time":0.0,"file_level_time":0.0,"rules_with_project_prefilters_ratio":0.0,"rules_with_file_prefilters_ratio":0.6,"rules_selected_ratio":0.4,"rules_matched_ratio":0.4},"targets":[],"total_bytes":0,"max_memory_bytes":116705536},"engine_requested":"OSS","skipped_rules":[],"profiling_results":[]}
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+✅ Scan completed successfully.
+ • Findings: 0 (0 blocking)
+ • Rules run: 5
+ • Targets scanned: 18
+ • Parsed lines: ~100.0%
+ • Scan was limited to files tracked by git
+ • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
+Ran 5 rules on 18 files: 0 findings.
