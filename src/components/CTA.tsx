@@ -32,6 +32,7 @@ export default function CTA() {
                 height="16"
                 viewBox="0 0 16 16"
                 fill="none"
+                aria-hidden="true"
                 className="text-accent flex-shrink-0"
               >
                 <path

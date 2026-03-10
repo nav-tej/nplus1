@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
       },
       {
         source:
-          "/:path(logo-sm\\.webp|logo-md\\.webp|favicon\\.png|icon-192\\.png|icon-512\\.png|apple-touch-icon\\.png)",
+          "/:path(logo-sm\\.webp|logo-md\\.webp|favicon\\.png|favicon\\.svg|icon-192\\.png|icon-512\\.png|apple-touch-icon\\.png)",
         headers: [
           {
             key: "Cache-Control",
@@ -30,7 +30,17 @@ const nextConfig: NextConfig = {
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "DENY" },
-          { key: "Referrer-Policy", value: "origin-when-cross-origin" },
+          { key: "X-XSS-Protection", value: "1; mode=block" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          {
+            key: "Permissions-Policy",
+            value:
+              "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
         ],
       },
     ];

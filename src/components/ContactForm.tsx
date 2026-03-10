@@ -55,7 +55,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label
@@ -159,16 +159,18 @@ export default function ContactForm() {
         {status === "sending" ? "Sending..." : "Get in Touch"}
       </button>
 
-      {status === "sent" && (
-        <p className="text-accent text-sm text-center">
-          Thanks! We&apos;ll be in touch shortly.
-        </p>
-      )}
-      {status === "error" && (
-        <p className="text-red-400 text-sm text-center">
-          Something went wrong. Please try again or email us directly.
-        </p>
-      )}
+      <div aria-live="polite" role="status">
+        {status === "sent" && (
+          <p className="text-accent text-sm text-center">
+            Thanks! We&apos;ll be in touch shortly.
+          </p>
+        )}
+        {status === "error" && (
+          <p className="text-red-400 text-sm text-center" role="alert">
+            Something went wrong. Please try again or email us directly.
+          </p>
+        )}
+      </div>
     </form>
   );
 }
