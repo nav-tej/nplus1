@@ -4,7 +4,7 @@ import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 py-12">
+    <footer aria-label="Site footer" className="border-t border-white/5 py-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           {/* Brand */}

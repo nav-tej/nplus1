@@ -35,6 +35,12 @@ html {
   color: #0B1221;
 }
 
+/* Focus visible indicator for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

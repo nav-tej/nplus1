@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background -->
+  <rect width="64" height="64" rx="14" fill="#0B1221"/>
+
+  <!-- Combined rocket + "1" shape -->
+  <!-- The "1" forms the body/trail, the rocket tip is integrated at the top -->
+
+  <!-- Rocket body / "1" stem - angled upward to the right -->
+  <path d="M34 52V22" stroke="url(#grad1)" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- "1" serif/base -->
+  <path d="M26 52h16" stroke="url(#grad1)" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- "1" top angle -->
+  <path d="M24 28l10-10" stroke="url(#grad1)" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Rocket nose cone at top of "1" -->
+  <path d="M34 8l-6 14h12L34 8z" fill="url(#grad2)"/>
+
+  <!-- Rocket flame at base -->
+  <path d="M30 52c0 4 4 7 4 7s4-3 4-7" fill="#FF6B35" opacity="0.9"/>
+  <path d="M31.5 52c0 3 2.5 5 2.5 5s2.5-2 2.5-5" fill="#FFD93D" opacity="0.9"/>
+
+  <!-- Small fins on the "1" stem -->
+  <path d="M27 42l-4 6h4" fill="url(#grad1)" opacity="0.7"/>
+  <path d="M41 42l4 6h-4" fill="url(#grad1)" opacity="0.7"/>
+
+  <!-- Window/porthole on rocket body -->
+  <circle cx="34" cy="30" r="3" fill="#0B1221" stroke="#2ECC71" stroke-width="1.5"/>
+
+  <defs>
+    <linearGradient id="grad1" x1="34" y1="12" x2="34" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2ECC71"/>
+      <stop offset="100%" stop-color="#27AE60"/>
+    </linearGradient>
+    <linearGradient id="grad2" x1="34" y1="8" x2="34" y2="22" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#2ECC71"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <JsonLd />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <Services />
         <Process />

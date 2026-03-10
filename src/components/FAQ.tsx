@@ -55,7 +55,7 @@ export default function FAQ() {
                 href={SITE_CONFIG.calendarLink}
                 className="inline-flex items-center justify-center gap-2 w-full rounded-full bg-accent px-6 py-3 text-sm font-semibold text-[#0B1221] hover:brightness-110 transition-all duration-200"
               >
-                Book a Call
+                Get in Touch
               </Link>
               <p className="text-xs text-muted text-center mt-4">
                 or email us at{" "}

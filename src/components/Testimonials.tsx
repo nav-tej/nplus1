@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { TESTIMONIALS } from "@/lib/constants";
 
 export default function Testimonials() {
@@ -23,7 +24,7 @@ export default function Testimonials() {
 
         <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-12">
           {/* Company Selector */}
-          <div className="flex lg:flex-col gap-3">
+          <div className="flex lg:flex-col gap-3" role="tablist" aria-label="Select company testimonial">
             {TESTIMONIALS.map((t, i) => (
               <button
                 key={t.company}
@@ -33,7 +34,9 @@ export default function Testimonials() {
                     ? "bg-accent text-[#0B1221]"
                     : "bg-white/[0.06] text-muted hover:bg-white/10"
                 }`}
-                aria-label={`View work with ${t.company}`}
+                role="tab"
+                aria-selected={active === i}
+                aria-controls="testimonial-panel"
               >
                 {t.company}
               </button>
@@ -41,19 +44,31 @@ export default function Testimonials() {
           </div>
 
           {/* Quote */}
-          <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 lg:p-12">
-            <svg
-              width="40"
-              height="40"
-              viewBox="0 0 40 40"
-              fill="none"
-              className="text-accent/30 mb-6"
-            >
-              <path
-                d="M10 20c-3.3 0-6-2.7-6-6s2.7-6 6-6c5 0 8 4 8 12 0 6-3 12-8 14l-1-2c3-2 5-5 5-8-1 .6-2.5 1-4 1zm18 0c-3.3 0-6-2.7-6-6s2.7-6 6-6c5 0 8 4 8 12 0 6-3 12-8 14l-1-2c3-2 5-5 5-8-1 .6-2.5 1-4 1z"
-                fill="currentColor"
-              />
-            </svg>
+          <div id="testimonial-panel" role="tabpanel" className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 lg:p-12">
+            <div className="flex items-center justify-between mb-6">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                aria-hidden="true"
+                className="text-accent/30"
+              >
+                <path
+                  d="M10 20c-3.3 0-6-2.7-6-6s2.7-6 6-6c5 0 8 4 8 12 0 6-3 12-8 14l-1-2c3-2 5-5 5-8-1 .6-2.5 1-4 1zm18 0c-3.3 0-6-2.7-6-6s2.7-6 6-6c5 0 8 4 8 12 0 6-3 12-8 14l-1-2c3-2 5-5 5-8-1 .6-2.5 1-4 1z"
+                  fill="currentColor"
+                />
+              </svg>
+              {TESTIMONIALS[active].logo && (
+                <Image
+                  src={TESTIMONIALS[active].logo}
+                  alt={`${TESTIMONIALS[active].company} logo`}
+                  width={120}
+                  height={32}
+                  className="h-8 w-auto opacity-70"
+                />
+              )}
+            </div>
             <blockquote className="text-xl lg:text-2xl font-medium leading-relaxed mb-8">
               &ldquo;{TESTIMONIALS[active].quote}&rdquo;
             </blockquote>
