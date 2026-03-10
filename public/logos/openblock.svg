@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 32" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 32" fill="none">
   <rect x="2" y="6" width="20" height="20" rx="3" stroke="#6C5CE7" stroke-width="2.5" fill="none"/>
   <rect x="8" y="12" width="8" height="8" rx="1.5" fill="#6C5CE7"/>
-  <text x="28" y="23" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="600" fill="white">OpenBlock</text>
+  <text x="28" y="23" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="600" fill="white">OpenBlock Labs</text>
 </svg>
