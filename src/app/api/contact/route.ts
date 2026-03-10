@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { supabase } from "@/lib/supabase";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { getSupabase } from "@/lib/supabase";
 
 export async function POST(request: Request) {
   try {
@@ -17,53 +15,67 @@ export async function POST(request: Request) {
     }
 
     // Log to Supabase
-    const { error: dbError } = await supabase
-      .from("contact_submissions")
-      .insert({
-        first_name: firstName,
-        last_name: lastName,
-        email,
-        company: company || null,
-        message,
-      });
+    try {
+      const supabase = getSupabase();
+      const { error: dbError } = await supabase
+        .from("contact_submissions")
+        .insert({
+          first_name: firstName,
+          last_name: lastName,
+          email,
+          company: company || null,
+          message,
+        });
 
-    if (dbError) {
-      console.error("Supabase error:", dbError);
+      if (dbError) {
+        console.error("Supabase error:", dbError);
+      }
+    } catch (e) {
+      console.error("Supabase not configured:", e);
     }
 
     // Send email notification via Resend
-    const { error: emailError } = await resend.emails.send({
-      from: "nPlus1 Ventures <onboarding@resend.dev>",
-      to: "hello@nplus1ventures.com",
-      subject: `New Contact: ${firstName} ${lastName}${company ? ` from ${company}` : ""}`,
-      replyTo: email,
-      html: `
-        <div style="font-family: sans-serif; max-width: 600px;">
-          <h2 style="color: #0B1221;">New Contact Form Submission</h2>
-          <table style="width: 100%; border-collapse: collapse;">
-            <tr>
-              <td style="padding: 8px 12px; font-weight: bold; color: #555;">Name</td>
-              <td style="padding: 8px 12px;">${firstName} ${lastName}</td>
-            </tr>
-            <tr style="background: #f9f9f9;">
-              <td style="padding: 8px 12px; font-weight: bold; color: #555;">Email</td>
-              <td style="padding: 8px 12px;"><a href="mailto:${email}">${email}</a></td>
-            </tr>
-            ${company ? `<tr><td style="padding: 8px 12px; font-weight: bold; color: #555;">Company</td><td style="padding: 8px 12px;">${company}</td></tr>` : ""}
-            <tr style="background: #f9f9f9;">
-              <td style="padding: 8px 12px; font-weight: bold; color: #555; vertical-align: top;">Message</td>
-              <td style="padding: 8px 12px; white-space: pre-wrap;">${message}</td>
-            </tr>
-          </table>
-          <p style="margin-top: 24px; font-size: 12px; color: #999;">
-            Sent from nplus1ventures.com contact form
-          </p>
-        </div>
-      `,
-    });
+    if (process.env.RESEND_API_KEY) {
+      try {
+        const resend = new Resend(process.env.RESEND_API_KEY);
+        const { error: emailError } = await resend.emails.send({
+          from: "nPlus1 Ventures <onboarding@resend.dev>",
+          to: "hello@nplus1ventures.com",
+          subject: `New Contact: ${firstName} ${lastName}${company ? ` from ${company}` : ""}`,
+          replyTo: email,
+          html: `
+            <div style="font-family: sans-serif; max-width: 600px;">
+              <h2 style="color: #0B1221;">New Contact Form Submission</h2>
+              <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                  <td style="padding: 8px 12px; font-weight: bold; color: #555;">Name</td>
+                  <td style="padding: 8px 12px;">${firstName} ${lastName}</td>
+                </tr>
+                <tr style="background: #f9f9f9;">
+                  <td style="padding: 8px 12px; font-weight: bold; color: #555;">Email</td>
+                  <td style="padding: 8px 12px;"><a href="mailto:${email}">${email}</a></td>
+                </tr>
+                ${company ? `<tr><td style="padding: 8px 12px; font-weight: bold; color: #555;">Company</td><td style="padding: 8px 12px;">${company}</td></tr>` : ""}
+                <tr style="background: #f9f9f9;">
+                  <td style="padding: 8px 12px; font-weight: bold; color: #555; vertical-align: top;">Message</td>
+                  <td style="padding: 8px 12px; white-space: pre-wrap;">${message}</td>
+                </tr>
+              </table>
+              <p style="margin-top: 24px; font-size: 12px; color: #999;">
+                Sent from nplus1ventures.com contact form
+              </p>
+            </div>
+          `,
+        });
 
-    if (emailError) {
-      console.error("Resend error:", emailError);
+        if (emailError) {
+          console.error("Resend error:", emailError);
+        }
+      } catch (e) {
+        console.error("Resend email failed:", e);
+      }
+    } else {
+      console.warn("RESEND_API_KEY not set, skipping email notification");
     }
 
     return NextResponse.json({ success: true });
