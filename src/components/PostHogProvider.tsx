@@ -31,8 +31,8 @@ export default function PostHogProvider({
 
   useEffect(() => {
     if (!initialized.current) {
-      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-        api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!.trim(), {
+        api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST?.trim(),
         person_profiles: "always",
         autocapture: true,
         capture_pageview: false,
