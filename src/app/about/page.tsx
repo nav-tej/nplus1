@@ -32,21 +32,12 @@ export const metadata: Metadata = {
     title: "Nav Singh — Founder, nPlus1 Ventures | GTM Consulting",
     description:
       "San Francisco-based GTM executive. 10+ years, $500M+ revenue growth, $400M+ pipeline generated across HeyGen, Semgrep, Egnyte, and a16z portfolio companies.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Nav Singh — Founder, nPlus1 Ventures",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Nav Singh — Founder, nPlus1 Ventures",
     description:
       "San Francisco-based GTM executive. 10+ years, $500M+ revenue growth across HeyGen, Semgrep, Egnyte, and a16z.",
-    images: ["/og-image.png"],
   },
 };
 

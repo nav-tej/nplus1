@@ -49,21 +49,12 @@ export const metadata: Metadata = {
     title: "nPlus1 Ventures | Go-To-Market Consulting",
     description:
       "Expert go-to-market consulting for ambitious B2B teams. Strategy, execution, and growth — all under one roof.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "nPlus1 Ventures — Go-To-Market Consulting",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "nPlus1 Ventures | Go-To-Market Consulting",
     description:
       "Expert go-to-market consulting for ambitious B2B teams. Strategy, execution, and growth — all under one roof.",
-    images: ["/og-image.png"],
   },
   robots: {
     index: true,
