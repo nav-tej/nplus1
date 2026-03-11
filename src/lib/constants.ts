@@ -115,7 +115,7 @@ export const TESTIMONIALS = [
     quote:
       "Partnered with nPlus1 to develop a comprehensive GTM strategy for new market expansion. They mapped our ideal customer segments, built a multi-channel launch playbook, and helped us accelerate pipeline growth across three new verticals.",
     company: "HeyGen",
-    logo: "/logos/heygen.svg",
+    logo: "/logos/heygen.png",
   },
   {
     quote:

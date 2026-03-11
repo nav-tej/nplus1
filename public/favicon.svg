@@ -2,40 +2,27 @@
   <!-- Background -->
   <rect width="64" height="64" rx="14" fill="#0B1221"/>
 
-  <!-- Combined rocket + "1" shape -->
-  <!-- The "1" forms the body/trail, the rocket tip is integrated at the top -->
-
-  <!-- Rocket body / "1" stem - angled upward to the right -->
-  <path d="M34 52V22" stroke="url(#grad1)" stroke-width="7" stroke-linecap="round"/>
-
-  <!-- "1" serif/base -->
-  <path d="M26 52h16" stroke="url(#grad1)" stroke-width="5" stroke-linecap="round"/>
-
-  <!-- "1" top angle -->
-  <path d="M24 28l10-10" stroke="url(#grad1)" stroke-width="5" stroke-linecap="round"/>
-
-  <!-- Rocket nose cone at top of "1" -->
-  <path d="M34 8l-6 14h12L34 8z" fill="url(#grad2)"/>
-
-  <!-- Rocket flame at base -->
-  <path d="M30 52c0 4 4 7 4 7s4-3 4-7" fill="#FF6B35" opacity="0.9"/>
-  <path d="M31.5 52c0 3 2.5 5 2.5 5s2.5-2 2.5-5" fill="#FFD93D" opacity="0.9"/>
-
-  <!-- Small fins on the "1" stem -->
-  <path d="M27 42l-4 6h4" fill="url(#grad1)" opacity="0.7"/>
-  <path d="M41 42l4 6h-4" fill="url(#grad1)" opacity="0.7"/>
-
-  <!-- Window/porthole on rocket body -->
-  <circle cx="34" cy="30" r="3" fill="#0B1221" stroke="#2ECC71" stroke-width="1.5"/>
-
   <defs>
-    <linearGradient id="grad1" x1="34" y1="12" x2="34" y2="52" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#2ECC71"/>
-      <stop offset="100%" stop-color="#27AE60"/>
-    </linearGradient>
-    <linearGradient id="grad2" x1="34" y1="8" x2="34" y2="22" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#2ECC71"/>
+    <!-- Arrow gradient: orange (base) → blue (tip) -->
+    <linearGradient id="ag" x1="14" y1="52" x2="50" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F97316"/>
+      <stop offset="55%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
     </linearGradient>
   </defs>
+
+  <!-- Arrow shaft -->
+  <line x1="14" y1="52" x2="40" y2="21" stroke="url(#ag)" stroke-width="7.5" stroke-linecap="round"/>
+
+  <!-- Arrowhead (tip at upper-right: 50,10) -->
+  <polygon points="50,10 46,26 36,16" fill="url(#ag)"/>
+
+  <!-- Outer orange swoosh arc -->
+  <path d="M 5 48 C 15 56 36 53 53 41" stroke="#F97316" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Inner orange swoosh arc -->
+  <path d="M 9 42 C 18 49 36 47 50 36" stroke="#F97316" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Orange dot at arrow tip -->
+  <circle cx="50" cy="10" r="5.5" fill="#F97316"/>
 </svg>
