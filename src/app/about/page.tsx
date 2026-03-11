@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { FOUNDER, TESTIMONIALS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Nav Singh — Founder | nPlus1 Ventures",
+  title: "Nav Singh, Founder | nPlus1 Ventures",
   description:
     "Nav Singh (Navtej Singh) is the founder of nPlus1 Ventures, a San Francisco-based B2B GTM consulting firm. 10+ years driving $500M+ in revenue growth across HeyGen, Semgrep, Egnyte, and a16z.",
   keywords: [
@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://nplus1ventures.com/about",
     siteName: "nPlus1 Ventures",
-    title: "Nav Singh — Founder, nPlus1 Ventures | GTM Consulting",
+    title: "Nav Singh, Founder | nPlus1 Ventures | GTM Consulting",
     description:
       "San Francisco-based GTM executive. 10+ years, $500M+ revenue growth, $400M+ pipeline generated across HeyGen, Semgrep, Egnyte, and a16z portfolio companies.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nav Singh — Founder, nPlus1 Ventures",
+    title: "Nav Singh, Founder | nPlus1 Ventures",
     description:
       "San Francisco-based GTM executive. 10+ years, $500M+ revenue growth across HeyGen, Semgrep, Egnyte, and a16z.",
   },
@@ -349,7 +349,7 @@ export default function AboutPage() {
                     &rdquo;
                   </p>
                   <footer className="text-sm font-semibold text-foreground">
-                    — {t.company}
+                    {t.company}
                   </footer>
                 </blockquote>
               ))}

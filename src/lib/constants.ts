@@ -21,7 +21,7 @@ export const SERVICES = [
     step: 1,
     title: "GTM Strategy",
     description:
-      "We build a data-driven go-to-market strategy tailored to your product, market, and growth stage — from ICP definition to channel prioritization.",
+      "We build a data-driven go-to-market strategy tailored to your product, market, and growth stage. From ICP definition to channel prioritization.",
     icon: "strategy",
   },
   {
@@ -78,7 +78,7 @@ export const PROCESS_STEPS = [
     number: "03",
     title: "Execution Sprint",
     description:
-      "Rapidly implement high-impact initiatives — from campaign launches to sales process optimization — with measurable milestones.",
+      "Rapidly implement high-impact initiatives, from campaign launches to sales process optimization, with clear and measurable milestones.",
   },
   {
     number: "04",
@@ -102,12 +102,12 @@ export const FAQS = [
   {
     question: "What makes nPlus1 different from other consultancies?",
     answer:
-      "We're operators, not just advisors. Our team has built and scaled GTM functions at high-growth companies. We bring frameworks that are battle-tested, not theoretical — and we stay hands-on through execution.",
+      "We're operators, not just advisors. Our team has built and scaled GTM functions at high-growth companies. We bring frameworks that are battle-tested, not theoretical, and we stay hands-on through execution.",
   },
   {
     question: "What are the next steps to get started?",
     answer:
-      "Book a call with us to discuss your current challenges and goals. We'll assess fit, share relevant case studies, and outline a potential engagement scope — no commitment required.",
+      "Book a call with us to discuss your current challenges and goals. We'll assess fit, share relevant case studies, and outline a potential engagement scope. No commitment required.",
   },
 ];
 

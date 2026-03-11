@@ -30,7 +30,9 @@ export default function PostHogProvider({
   const initialized = useRef(false);
 
   useEffect(() => {
-    if (!initialized.current) {
+    if (initialized.current) return;
+
+    const init = () => {
       posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!.trim(), {
         api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST?.trim(),
         person_profiles: "always",
@@ -39,6 +41,14 @@ export default function PostHogProvider({
         capture_pageleave: true,
       });
       initialized.current = true;
+    };
+
+    // Defer until the browser is idle so analytics never competes with
+    // rendering or user interaction. Falls back to setTimeout on Safari.
+    if (typeof window.requestIdleCallback !== "undefined") {
+      window.requestIdleCallback(init, { timeout: 4000 });
+    } else {
+      setTimeout(init, 1);
     }
   }, []);
 

@@ -20,7 +20,7 @@ export default function About() {
             </p>
             <p className="text-lg text-muted leading-relaxed">
               We believe great GTM strategy is useless without flawless
-              execution. That&apos;s why we don&apos;t just deliver a deck — we
+              execution. That&apos;s why we don&apos;t just deliver a deck. We
               embed with your team, build the systems, and stay accountable to
               the outcomes.
             </p>

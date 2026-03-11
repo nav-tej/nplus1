@@ -89,7 +89,7 @@ export default function JsonLd() {
           "@id": "https://nplus1ventures.com/#organization",
         },
         description:
-          "Expert go-to-market consulting for ambitious B2B teams. Strategy, execution, and growth — all under one roof.",
+          "Expert go-to-market consulting for ambitious B2B teams. Strategy, execution, and growth, all under one roof.",
       },
       {
         "@type": "FAQPage",

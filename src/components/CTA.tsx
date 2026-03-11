@@ -1,4 +1,7 @@
-import ContactForm from "./ContactForm";
+import dynamic from "next/dynamic";
+
+// Lazy-load the form — it depends on posthog-js/react which adds weight
+const ContactForm = dynamic(() => import("./ContactForm"));
 
 export default function CTA() {
   return (
