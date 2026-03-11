@@ -35,12 +35,13 @@ export async function POST(request: Request) {
     }
 
     // Send email notification via Resend
+    let emailSent = false;
     if (process.env.RESEND_API_KEY) {
       try {
         const resend = new Resend(process.env.RESEND_API_KEY);
-        const { error: emailError } = await resend.emails.send({
-          from: "nPlus1 Ventures <onboarding@resend.dev>",
-          to: "hello@nplus1ventures.com",
+        const { data, error: emailError } = await resend.emails.send({
+          from: process.env.RESEND_FROM_EMAIL ?? "nPlus1 Ventures <onboarding@resend.dev>",
+          to: process.env.CONTACT_EMAIL ?? "hello@nplus1ventures.com",
           subject: `New Contact: ${firstName} ${lastName}${company ? ` from ${company}` : ""}`,
           replyTo: email,
           html: `
@@ -69,7 +70,10 @@ export async function POST(request: Request) {
         });
 
         if (emailError) {
-          console.error("Resend error:", emailError);
+          console.error("Resend error:", JSON.stringify(emailError));
+        } else {
+          emailSent = true;
+          console.log("Email sent successfully, id:", data?.id);
         }
       } catch (e) {
         console.error("Resend email failed:", e);
@@ -78,7 +82,7 @@ export async function POST(request: Request) {
       console.warn("RESEND_API_KEY not set, skipping email notification");
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, emailSent });
   } catch (error) {
     console.error("Contact form error:", error);
     return NextResponse.json(

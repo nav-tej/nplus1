@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
 
 export default function Navbar() {
@@ -53,15 +53,29 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="flex h-18 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-1" aria-label="nPlus1 Ventures — Home">
-            <Image
-              src="/logo-sm.webp"
-              alt="nPlus1 Ventures"
-              width={120}
-              height={48}
-              className="h-9 w-auto"
-              priority
-            />
+          <Link href="/" className="flex items-center gap-2.5" aria-label="nPlus1 Ventures — Home">
+            <svg width="36" height="36" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="navAg" x1="14" y1="52" x2="50" y2="10" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#F97316"/>
+                  <stop offset="55%" stopColor="#2563EB"/>
+                  <stop offset="100%" stopColor="#60A5FA"/>
+                </linearGradient>
+              </defs>
+              <line x1="14" y1="52" x2="40" y2="21" stroke="url(#navAg)" strokeWidth="7.5" strokeLinecap="round"/>
+              <polygon points="50,10 46,26 36,16" fill="url(#navAg)"/>
+              <path d="M 5 48 C 15 56 36 53 53 41" stroke="#F97316" strokeWidth="4.5" fill="none" strokeLinecap="round"/>
+              <path d="M 9 42 C 18 49 36 47 50 36" stroke="#F97316" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.7"/>
+              <circle cx="50" cy="10" r="5.5" fill="#F97316"/>
+            </svg>
+            <div className="flex flex-col leading-none">
+              <span className="text-[17px] font-extrabold text-white tracking-tight">
+                nPlus<span className="text-orange-400">1</span>
+              </span>
+              <span className="text-[8.5px] font-semibold text-white/50 tracking-[0.28em] uppercase mt-0.5">
+                Ventures
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
