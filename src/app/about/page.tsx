@@ -160,8 +160,8 @@ export default function AboutPage() {
               costs by 40%. At{" "}
               <strong className="text-foreground">Egnyte</strong>, he built a
               15-person marketing operations team and grew marketing-sourced
-              pipeline from $50M to $250M. Earlier in his career, Nav spent two
-              years as a Partner at{" "}
+              pipeline from $50M to $250M. Earlier in his career, Nav spent
+              several years as a Partner at{" "}
               <strong className="text-foreground">
                 Andreessen Horowitz&nbsp;(a16z)
               </strong>
