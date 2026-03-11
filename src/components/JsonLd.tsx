@@ -28,6 +28,7 @@ export default function JsonLd() {
           "Demand Generation",
           "Revenue Operations",
         ],
+        founder: { "@id": "https://nplus1ventures.com/about#navsingh" },
       },
       {
         "@type": "ProfessionalService",
@@ -100,6 +101,33 @@ export default function JsonLd() {
             text: faq.answer,
           },
         })),
+      },
+      {
+        "@type": "Person",
+        "@id": "https://nplus1ventures.com/about#navsingh",
+        name: "Nav Singh",
+        alternateName: "Navtej Singh",
+        jobTitle: "Founder & Managing Partner",
+        url: "https://nplus1ventures.com/about",
+        image: "https://nplus1ventures.com/nav-singh.jpg",
+        sameAs: [
+          "https://www.linkedin.com/in/navtejs",
+          "https://x.com/navtejs",
+        ],
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "San Francisco",
+          addressRegion: "CA",
+          addressCountry: "US",
+        },
+        worksFor: { "@id": "https://nplus1ventures.com/#organization" },
+        knowsAbout: [
+          "Go-To-Market Strategy",
+          "B2B SaaS Marketing",
+          "Demand Generation",
+          "Revenue Operations",
+          "Marketing Analytics",
+        ],
       },
     ],
   };

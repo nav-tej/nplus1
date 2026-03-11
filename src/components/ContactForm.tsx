@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { usePostHog } from "posthog-js/react";
 
 type FormData = {
   firstName: string;
@@ -21,16 +22,23 @@ export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
+  const ph = usePostHog();
+  const started = useRef(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    if (!started.current) {
+      started.current = true;
+      ph?.capture("contact_form_started");
+    }
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
+    ph?.capture("contact_form_submitted", { has_company: !!form.company });
 
     try {
       const res = await fetch("/api/contact", {
@@ -41,6 +49,8 @@ export default function ContactForm() {
 
       if (!res.ok) throw new Error("Failed to submit");
 
+      const data: { success?: boolean; emailSent?: boolean } = await res.json();
+      ph?.capture("contact_form_success", { email_sent: !!data.emailSent });
       setStatus("sent");
       setForm({
         firstName: "",
@@ -50,6 +60,7 @@ export default function ContactForm() {
         message: "",
       });
     } catch {
+      ph?.capture("contact_form_error");
       setStatus("error");
     }
   };

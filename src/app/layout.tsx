@@ -16,8 +16,14 @@ export const metadata: Metadata = {
     template: "%s | nPlus1 Ventures",
   },
   description:
-    "nPlus1 Ventures helps ambitious B2B companies build and execute repeatable go-to-market strategies that drive revenue growth. GTM strategy, demand generation, sales enablement, and revenue operations.",
+    "nPlus1 Ventures, founded by Nav Singh in San Francisco, helps ambitious B2B companies build and execute repeatable go-to-market strategies that drive revenue growth.",
   keywords: [
+    "Nav Singh",
+    "Navtej Singh",
+    "Nav Singh San Francisco",
+    "Nav Singh tech executive",
+    "Nav Singh marketing executive",
+    "Nav Singh startups San Francisco",
     "go-to-market consulting",
     "GTM strategy",
     "B2B growth",
@@ -28,6 +34,8 @@ export const metadata: Metadata = {
     "startup consulting",
     "SaaS growth",
     "pipeline growth",
+    "San Francisco marketing consultant",
+    "nPlus1 Ventures",
   ],
   authors: [{ name: "nPlus1 Ventures" }],
   alternates: {

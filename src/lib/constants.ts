@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
 export const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -109,6 +109,68 @@ export const FAQS = [
       "Book a call with us to discuss your current challenges and goals. We'll assess fit, share relevant case studies, and outline a potential engagement scope — no commitment required.",
   },
 ];
+
+export const FOUNDER = {
+  name: "Nav Singh",
+  alternateName: "Navtej Singh",
+  title: "Founder & Managing Partner",
+  location: "San Francisco, California",
+  linkedin: "https://www.linkedin.com/in/navtejs",
+  twitter: "https://x.com/navtejs",
+  stats: [
+    { value: "$500M+", label: "Revenue Growth" },
+    { value: "$400M+", label: "Pipeline Generated" },
+    { value: "20+", label: "Companies Advised" },
+    { value: "5×", label: "Avg ARR Growth" },
+  ],
+  experience: [
+    {
+      company: "HeyGen",
+      role: "Head of Revenue Operations",
+      period: "Apr 2024–Present",
+      location: "San Francisco, CA",
+      highlight: "$20M → $100M+ ARR",
+      description:
+        "Drove 5× ARR growth from $20M to $100M+. Built SEO program, 100K+ member community platform, and $25M ABM enterprise pipeline. Reported directly to CEO.",
+    },
+    {
+      company: "Semgrep",
+      role: "Head of Revenue Operations",
+      period: "May 2022–Jan 2024",
+      location: "San Francisco, CA",
+      highlight: "5× Revenue YoY",
+      description:
+        "Achieved 5× year-over-year revenue growth. Built PLG onboarding reducing CAC by 40%. Integrated MarTech stack including Marketo and Metadata.io.",
+    },
+    {
+      company: "Egnyte",
+      role: "Sr. Director, Marketing Operations",
+      period: "Nov 2019–May 2022",
+      location: "Mountain View, CA",
+      highlight: "$50M → $250M Pipeline",
+      description:
+        "Led 15-person marketing operations team. Grew marketing-sourced pipeline 5× from $50M to $250M. Spearheaded complete brand refresh.",
+    },
+    {
+      company: "a16z",
+      role: "Partner",
+      period: "Jul 2017–Nov 2019",
+      location: "San Francisco, CA",
+      highlight: "20+ Portfolio Companies",
+      description:
+        "Advised 20+ portfolio companies on GTM strategy. Produced 200+ events including the a16z Summit. Recipient of a16z Above & Beyond Award (2017).",
+    },
+  ],
+  certifications: [
+    "Marketo",
+    "Salesforce",
+    "HubSpot",
+    "Google Analytics",
+    "6Sense",
+    "LinkedIn Ads",
+  ],
+  advisory: ["Akasa", "Skydio", "Pylon", "Cast.app", "Gradual"],
+};
 
 export const TESTIMONIALS = [
   {
