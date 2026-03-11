@@ -174,7 +174,7 @@ export const FOUNDER = {
     "Polytomic",
     "Snowflake",
     "Clay",
-    "Clause",
+    "Claude",
   ],
   advisory: ["Akasa", "Skydio", "Pylon", "Cast.app", "Gradual"],
 };
