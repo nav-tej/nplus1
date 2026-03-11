@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -63,15 +64,14 @@ export default function AboutPage() {
         >
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <div className="flex flex-col sm:flex-row gap-10 items-start">
-              {/* Monogram avatar — swap for <Image> once nav-singh.jpg is uploaded */}
-              <div
-                className="flex-shrink-0 w-24 h-24 rounded-full bg-gradient-to-br from-orange-500 to-blue-500 flex items-center justify-center"
-                aria-hidden="true"
-              >
-                <span className="text-3xl font-extrabold text-white tracking-tight select-none">
-                  NS
-                </span>
-              </div>
+              <Image
+                src="/nav-singh.jpg"
+                alt="Nav Singh, Founder & Managing Partner of nPlus1 Ventures"
+                width={96}
+                height={96}
+                className="flex-shrink-0 w-24 h-24 rounded-full object-cover ring-2 ring-white/10"
+                priority
+              />
 
               {/* Identity */}
               <div className="flex-1">
@@ -151,38 +151,34 @@ export default function AboutPage() {
               and growth-stage companies.
             </p>
             <p>
-              Nav has held senior leadership roles at some of the
-              fastest-growing companies in tech — most recently as Head of
-              Revenue Operations at{" "}
+              Most recently, Nav served as Head of Revenue Operations at{" "}
               <strong className="text-foreground">HeyGen</strong>, where he
-              drove 5× ARR growth from $20M to over $100M, reporting directly
-              to the CEO. Prior to HeyGen, Nav led revenue operations at{" "}
-              <strong className="text-foreground">Semgrep</strong>, achieving
-              5× year-over-year revenue growth and reducing customer acquisition
+              drove 5× ARR growth from $20M to over $100M and reported directly
+              to the CEO. Before that, he led revenue operations at{" "}
+              <strong className="text-foreground">Semgrep</strong>, hitting 5×
+              year-over-year revenue growth and cutting customer acquisition
               costs by 40%. At{" "}
-              <strong className="text-foreground">Egnyte</strong>, he built and
-              managed a 15-person marketing operations team, scaling
-              marketing-sourced pipeline from $50M to $250M. Earlier in his
-              career, Nav spent two years as a Partner at{" "}
+              <strong className="text-foreground">Egnyte</strong>, he built a
+              15-person marketing operations team and grew marketing-sourced
+              pipeline from $50M to $250M. Earlier in his career, Nav spent two
+              years as a Partner at{" "}
               <strong className="text-foreground">
                 Andreessen Horowitz&nbsp;(a16z)
               </strong>
-              , advising more than 20 portfolio companies on go-to-market
-              strategy.
+              , working directly with more than 20 portfolio companies on their
+              go-to-market strategy.
             </p>
             <p>
-              Navtej Singh founded nPlus1 Ventures to give venture-backed
-              startups and PE portfolio companies access to the same caliber of
-              GTM strategy that helped scale category leaders. He works directly
+              Navtej Singh started nPlus1 Ventures to give venture-backed
+              startups and PE portfolio companies access to the same GTM
+              playbook that helped scale category leaders. He works directly
               with{" "}
               <strong className="text-foreground">startup founders</strong>,{" "}
               <strong className="text-foreground">venture investors</strong>,
               and{" "}
-              <strong className="text-foreground">
-                private equity teams
-              </strong>{" "}
-              to build revenue engines that compound — not just campaigns that
-              spend.
+              <strong className="text-foreground">private equity teams</strong>{" "}
+              to build revenue engines that grow over time, not just campaigns
+              that burn through budget.
             </p>
           </div>
         </section>
