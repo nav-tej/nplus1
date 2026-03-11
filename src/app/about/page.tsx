@@ -301,8 +301,8 @@ export default function AboutPage() {
               Building Revenue Engines from $0–$200M+
             </h2>
             <p className="text-muted mb-10 max-w-2xl">
-              What makes working with Nav different — operators who have lived
-              it, not advisors who theorize about it.
+              What makes working with Nav different: operators who have done it,
+              not advisors who theorize about it.
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               {[
@@ -375,7 +375,7 @@ export default function AboutPage() {
             </h2>
             <p className="text-muted text-lg mb-8 max-w-xl mx-auto">
               Nav works directly with founders, investors, and executive teams.
-              No pitch decks — just a conversation about fit.
+              No pitch decks, just a conversation about fit.
             </p>
             <Link
               href="/#contact"
