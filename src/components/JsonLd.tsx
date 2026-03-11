@@ -17,7 +17,7 @@ export default function JsonLd() {
         },
         email: "hello@nplus1ventures.com",
         description:
-          "Go-to-market consulting for ambitious B2B companies. GTM strategy, demand generation, sales enablement, and revenue operations.",
+          "Fractional VP Marketing and Revenue Operations consulting for B2B SaaS companies. GTM strategy, demand generation, sales enablement, and revenue operations.",
         areaServed: "Worldwide",
         knowsAbout: [
           "B2B SaaS",
@@ -35,18 +35,26 @@ export default function JsonLd() {
         "@id": "https://nplus1ventures.com/#service",
         name: "nPlus1 Ventures",
         url: "https://nplus1ventures.com",
+        description:
+          "Fractional VP Marketing and Revenue Operations consulting for B2B SaaS companies",
         provider: {
           "@id": "https://nplus1ventures.com/#organization",
         },
+        founder: {
+          "@id": "https://nplus1ventures.com/about#navsingh",
+        },
         serviceType: [
+          "Fractional VP Marketing",
           "Go-To-Market Strategy",
           "Market Positioning",
           "Demand Generation",
           "Sales Enablement",
           "Revenue Operations",
           "Growth Analytics",
+          "Product-Led Growth",
+          "Account-Based Marketing",
         ],
-        areaServed: "Worldwide",
+        areaServed: "US",
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: "5",
@@ -107,7 +115,8 @@ export default function JsonLd() {
         "@id": "https://nplus1ventures.com/about#navsingh",
         name: "Nav Singh",
         alternateName: "Navtej Singh",
-        jobTitle: "Founder & Managing Partner",
+        jobTitle:
+          "Fractional VP Marketing & Revenue Operations Consultant",
         url: "https://nplus1ventures.com/about",
         image: "https://nplus1ventures.com/nav-singh.jpg",
         sameAs: [
@@ -122,10 +131,13 @@ export default function JsonLd() {
         },
         worksFor: { "@id": "https://nplus1ventures.com/#organization" },
         knowsAbout: [
-          "Go-To-Market Strategy",
           "B2B SaaS Marketing",
-          "Demand Generation",
           "Revenue Operations",
+          "Product-Led Growth",
+          "Demand Generation",
+          "Go-to-Market Strategy",
+          "ABM",
+          "Marketing Automation",
           "Marketing Analytics",
         ],
       },

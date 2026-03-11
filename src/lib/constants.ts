@@ -10,10 +10,27 @@ export const SITE_CONFIG = {
 
 export const NAV_LINKS = [
   { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
+  { label: "Case Studies", href: "/case-studies/heygen" },
   { label: "About", href: "/about" },
-  { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
+];
+
+export const SERVICE_PAGES = [
+  {
+    label: "Growth Marketing",
+    href: "/services/growth-marketing",
+    description: "Fractional VP Marketing for B2B SaaS",
+  },
+  {
+    label: "Demand Generation",
+    href: "/services/demand-generation",
+    description: "ABM, content, SEO, paid, and lifecycle programs",
+  },
+  {
+    label: "Revenue Operations",
+    href: "/services/revenue-operations",
+    description: "GTM systems architecture, forecasting, and pipeline analytics",
+  },
 ];
 
 export const SERVICES = [

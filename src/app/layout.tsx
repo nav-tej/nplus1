@@ -12,11 +12,12 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://nplus1ventures.com"),
   title: {
-    default: "nPlus1 Ventures | Go-To-Market Consulting",
+    default:
+      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | nPlus1 Ventures",
     template: "%s | nPlus1 Ventures",
   },
   description:
-    "nPlus1 Ventures, founded by Nav Singh in San Francisco, helps ambitious B2B companies build and execute repeatable go-to-market strategies that drive revenue growth.",
+    "Nav Singh, fractional VP Marketing and Revenue Operations consultant for B2B SaaS companies. Scaled HeyGen $20M to $100M ARR. Ex-Andreessen Horowitz. Based in San Francisco.",
   keywords: [
     "Nav Singh",
     "Navtej Singh",
@@ -24,6 +25,9 @@ export const metadata: Metadata = {
     "Nav Singh tech executive",
     "Nav Singh marketing executive",
     "Nav Singh startups San Francisco",
+    "fractional VP marketing",
+    "fractional CMO",
+    "B2B SaaS marketing consultant",
     "go-to-market consulting",
     "GTM strategy",
     "B2B growth",
@@ -35,6 +39,9 @@ export const metadata: Metadata = {
     "SaaS growth",
     "pipeline growth",
     "San Francisco marketing consultant",
+    "product-led growth",
+    "ABM",
+    "marketing automation",
     "nPlus1 Ventures",
   ],
   authors: [{ name: "nPlus1 Ventures" }],
@@ -46,15 +53,17 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://nplus1ventures.com",
     siteName: "nPlus1 Ventures",
-    title: "nPlus1 Ventures | Go-To-Market Consulting",
+    title:
+      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | nPlus1 Ventures",
     description:
-      "Expert go-to-market consulting for ambitious B2B teams. Strategy, execution, and growth, all under one roof.",
+      "Fractional VP Marketing and Revenue Operations for B2B SaaS. Scaled HeyGen $20M to $100M ARR. Ex-Andreessen Horowitz. Based in San Francisco.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "nPlus1 Ventures | Go-To-Market Consulting",
+    title:
+      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | nPlus1 Ventures",
     description:
-      "Expert go-to-market consulting for ambitious B2B teams. Strategy, execution, and growth, all under one roof.",
+      "Fractional VP Marketing and Revenue Operations for B2B SaaS. Scaled HeyGen $20M to $100M ARR. Ex-Andreessen Horowitz. Based in San Francisco.",
   },
   robots: {
     index: true,
