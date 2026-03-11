@@ -36,12 +36,13 @@ export async function POST(request: Request) {
 
     // Send email notification via Resend
     let emailSent = false;
-    if (process.env.RESEND_API_KEY) {
+    const resendApiKey = process.env.RESEND_API_KEY?.trim();
+    if (resendApiKey) {
       try {
-        const resend = new Resend(process.env.RESEND_API_KEY);
+        const resend = new Resend(resendApiKey);
         const { data, error: emailError } = await resend.emails.send({
-          from: process.env.RESEND_FROM_EMAIL ?? "nPlus1 Ventures <onboarding@resend.dev>",
-          to: process.env.CONTACT_EMAIL ?? "hello@nplus1ventures.com",
+          from: process.env.RESEND_FROM_EMAIL?.trim() ?? "nPlus1 Ventures <onboarding@resend.dev>",
+          to: process.env.CONTACT_EMAIL?.trim() ?? "hello@nplus1ventures.com",
           subject: `New Contact: ${firstName} ${lastName}${company ? ` from ${company}` : ""}`,
           replyTo: email,
           html: `
