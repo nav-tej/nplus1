@@ -38,7 +38,14 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    ph?.capture("contact_form_submitted", { has_company: !!form.company });
+    ph?.capture("contact_form_submitted", {
+      first_name: form.firstName,
+      last_name: form.lastName,
+      email: form.email,
+      company: form.company || null,
+      message: form.message,
+      has_company: !!form.company,
+    });
 
     try {
       const res = await fetch("/api/contact", {
@@ -50,7 +57,23 @@ export default function ContactForm() {
       if (!res.ok) throw new Error("Failed to submit");
 
       const data: { success?: boolean; emailSent?: boolean } = await res.json();
-      ph?.capture("contact_form_success", { email_sent: !!data.emailSent });
+
+      // Identify the person in PostHog so all prior anonymous events are linked
+      ph?.identify(form.email, {
+        email: form.email,
+        name: `${form.firstName} ${form.lastName}`,
+        first_name: form.firstName,
+        last_name: form.lastName,
+        ...(form.company && { company: form.company }),
+      });
+
+      ph?.capture("contact_form_success", {
+        email: form.email,
+        name: `${form.firstName} ${form.lastName}`,
+        company: form.company || null,
+        email_sent: !!data.emailSent,
+      });
+
       setStatus("sent");
       setForm({
         firstName: "",
@@ -60,7 +83,10 @@ export default function ContactForm() {
         message: "",
       });
     } catch {
-      ph?.capture("contact_form_error");
+      ph?.capture("contact_form_error", {
+        email: form.email,
+        company: form.company || null,
+      });
       setStatus("error");
     }
   };

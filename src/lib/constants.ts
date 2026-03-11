@@ -13,6 +13,7 @@ export const NAV_LINKS = [
   { label: "Process", href: "#process" },
   { label: "About", href: "/about" },
   { label: "FAQ", href: "#faq" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export const SERVICES = [
