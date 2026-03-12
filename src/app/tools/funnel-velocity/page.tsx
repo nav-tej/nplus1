@@ -11,14 +11,53 @@ export const metadata: Metadata = {
 export default function FunnelVelocityPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "SaaS Funnel Velocity Calculator",
-    "description": "Diagnose growth bottlenecks and optimize your revenue engine with our interactive B2B SaaS funnel velocity tool.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "nPlus1 Ventures",
-      "url": "https://nplus1ventures.com"
-    }
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://nplus1ventures.com/tools/funnel-velocity#webpage",
+        "url": "https://nplus1ventures.com/tools/funnel-velocity",
+        "name": "SaaS Funnel Velocity Calculator | nPlus1 Ventures",
+        "description": "Diagnose growth bottlenecks and optimize your revenue engine with our interactive B2B SaaS funnel velocity tool.",
+        "isPartOf": { "@id": "https://nplus1ventures.com/#website" },
+        "publisher": { "@id": "https://nplus1ventures.com/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "SaaS Funnel Velocity Calculator",
+        "description": "An interactive tool to diagnose B2B SaaS growth bottlenecks by analyzing ARR, Win Rate, and Sales Cycle metrics.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": { "@id": "https://nplus1ventures.com/about#navsingh" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://nplus1ventures.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Tools",
+            "item": "https://nplus1ventures.com/tools/funnel-velocity"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Funnel Velocity Calculator",
+            "item": "https://nplus1ventures.com/tools/funnel-velocity"
+          }
+        ]
+      }
+    ]
   };
 
   return (
