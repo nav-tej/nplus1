@@ -100,6 +100,19 @@ export default function AboutPage() {
       },
     ],
   };
+  // MEDIA_SCHEMA — uncomment and add to jsonLd["@graph"] array when Polytomic podcast is live:
+  // {
+  //   "@type": "PodcastEpisode",
+  //   "@id": "POLYTOMIC_URL_HERE",
+  //   url: "POLYTOMIC_URL_HERE",
+  //   name: "Building GTM at HeyGen: From $20M to $100M ARR",
+  //   description: "Nav Singh on building AI-native RevOps, scaling demand generation, and the GTM playbook behind HeyGen's 5x growth.",
+  //   datePublished: "POLYTOMIC_PUBLISH_DATE_ISO",  // e.g. "2025-03-20"
+  //   author: { "@id": "https://nplus1ventures.com/about#navsingh" },
+  //   publication: { "@type": "PodcastSeries", name: "Polytomic Podcast", publisher: { "@type": "Organization", name: "Polytomic" } },
+  // },
+  // Also add the podcast URL to the Person sameAs array above.
+
   // Static JSON-LD — no user input, safe to inject
   const jsonLdString = JSON.stringify(jsonLd);
 
@@ -416,6 +429,65 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        {/* ── Speaking & Media ── */}
+        {/* UNCOMMENT THIS SECTION WHEN THE POLYTOMIC PODCAST IS LIVE.
+            Steps:
+            1. Replace POLYTOMIC_URL_HERE with the actual podcast/YouTube URL
+            2. Replace POLYTOMIC_PUBLISH_DATE with the publish date, e.g. "March 2025"
+            3. If DevLearn 2025 recording or session page becomes available, add href to that card
+            4. Also uncomment the schema block below inside jsonLd (search "MEDIA_SCHEMA")
+            5. Commit + push, then request re-indexing of /about in Google Search Console
+
+        <section className="py-20 border-b border-white/5" aria-label="Speaking and media">
+          <div className="mx-auto max-w-7xl px-6 lg:px-10">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Speaking &amp; Media</h2>
+            <p className="text-muted mb-10 max-w-2xl text-sm">
+              Podcasts, interviews, and talks on B2B GTM, AI-native marketing, and scaling SaaS.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+              <a
+                href="POLYTOMIC_URL_HERE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-orange-400/30 hover:bg-white/[0.05] transition-all duration-300 flex flex-col gap-4"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-orange-400 bg-orange-400/10 px-2.5 py-1 rounded-full">Podcast</span>
+                  <span className="text-xs text-muted">POLYTOMIC_PUBLISH_DATE</span>
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-foreground group-hover:text-orange-400 transition-colors leading-snug mb-1">
+                    Building GTM at HeyGen: From $20M to $100M ARR
+                  </p>
+                  <p className="text-xs text-muted leading-relaxed">
+                    A conversation with Polytomic on building AI-native RevOps, scaling demand generation, and the GTM playbook behind HeyGen&apos;s 5&times; growth.
+                  </p>
+                </div>
+                <p className="text-xs font-semibold text-muted mt-auto">Polytomic &rarr;</p>
+              </a>
+
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 flex flex-col gap-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-blue-400 bg-blue-400/10 px-2.5 py-1 rounded-full">Conference</span>
+                  <span className="text-xs text-muted">2025</span>
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-foreground leading-snug mb-1">
+                    DevLearn 2025
+                  </p>
+                  <p className="text-xs text-muted leading-relaxed">
+                    Speaker at DevLearn 2025, sharing how HeyGen is applying AI video to enterprise learning and development at scale.
+                  </p>
+                </div>
+                <p className="text-xs font-semibold text-muted mt-auto">DevLearn Conference</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+        */}
 
         {/* ── CTA ── */}
         <section className="py-24" aria-label="Contact call to action">
