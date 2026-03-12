@@ -2,7 +2,7 @@ import Link from "next/link";
 import { SITE_CONFIG } from "@/lib/constants";
 
 const SOCIAL_PROOF = [
-  "Scaled HeyGen $20M → $100M ARR",
+  "Scaled HeyGen $20M → $100M+ ARR",
   "Ex-Andreessen Horowitz Partner",
   "$400M+ Marketing-Sourced Pipeline",
   "10+ Years B2B SaaS",
