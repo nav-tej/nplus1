@@ -29,7 +29,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "How HeyGen Scaled from $20M to $100M ARR: The GTM Playbook",
     metaTitle: "How HeyGen Scaled $20M to $100M ARR: The GTM Playbook",
     description:
-      "The full GTM playbook behind HeyGen's 5× ARR growth — rebrand, SEO from zero, 100K community, AI-native lifecycle, and enterprise ABM. Written by the Head of RevOps who built it.",
+      "The full GTM playbook behind HeyGen's 5x ARR growth: rebrand, SEO from zero, 100K community, AI-native lifecycle, and enterprise ABM. Written by the Head of RevOps who built it.",
     category: "Growth Marketing",
     readTime: 12,
     publishDate: "2026-01-15",
@@ -39,7 +39,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "What \"AI-Native GTM\" Actually Means (And How to Build It)",
     metaTitle: "Building an AI-Native GTM Stack in 2025 | B2B SaaS",
     description:
-      "What it actually means to build AI-native marketing and RevOps — the stack, the workflows, and the results from doing it at HeyGen and Semgrep.",
+      "What it actually means to build AI-native marketing and RevOps: the stack, the workflows, and the results from doing it at HeyGen and Semgrep.",
     category: "AI & GTM",
     readTime: 9,
     publishDate: "2026-01-22",
@@ -59,7 +59,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "The Demand Generation Framework Behind $400M+ in Marketing Pipeline",
     metaTitle: "How to Build $50M+ Marketing Pipeline in B2B SaaS",
     description:
-      "The demand generation framework behind $400M+ in marketing-sourced pipeline. ABM, content, SEO, lifecycle — and how they work together to build predictable pipeline.",
+      "The demand generation framework behind $400M+ in marketing-sourced pipeline. ABM, content, SEO, and lifecycle working together to build predictable pipeline.",
     category: "Demand Generation",
     readTime: 11,
     publishDate: "2026-02-05",
@@ -70,7 +70,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle:
       "Revenue Operations in the AI Era: Forecasting, Stack Design & What Moves the Needle",
     description:
-      "How to build a modern RevOps function in 2025 — AI-driven forecasting, GTM stack architecture, PLG-to-sales motion design, and what I learned building these at HeyGen.",
+      "How to build a modern RevOps function in 2025: AI-driven forecasting, GTM stack architecture, PLG-to-sales motion design, and what I learned building these at HeyGen.",
     category: "Revenue Operations",
     readTime: 10,
     publishDate: "2026-02-12",
@@ -82,7 +82,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle:
       "Community-Led Growth in B2B SaaS: 0 to 100K Members in 6 Months",
     description:
-      "How we launched HeyGen's community platform and grew it to 100,000 active members in 6 months — and what community-led growth actually looks like as a B2B acquisition channel.",
+      "How we launched HeyGen's community platform, grew it to 100,000 active members in 6 months, and what community-led growth actually looks like as a B2B acquisition channel.",
     category: "Growth Marketing",
     readTime: 8,
     publishDate: "2026-02-19",
@@ -103,7 +103,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "SEO From Zero: The Exact Process I Used to Build HeyGen's Organic Growth",
     metaTitle: "SEO From Zero: How I Built HeyGen's Organic Search Program",
     description:
-      "How to build a B2B SaaS SEO program from scratch — the exact process I used at HeyGen to drive 50%+ YoY organic growth, and what I've learned building SEO programs across multiple SaaS companies.",
+      "How to build a B2B SaaS SEO program from scratch: the exact process I used at HeyGen to drive 50%+ YoY organic growth, and what I've learned building SEO programs across multiple SaaS companies.",
     category: "Growth Marketing",
     readTime: 10,
     publishDate: "2026-03-05",

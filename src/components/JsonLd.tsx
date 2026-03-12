@@ -1,4 +1,4 @@
-import { FAQS, TESTIMONIALS } from "@/lib/constants";
+import { FAQS, TESTIMONIALS, FOUNDER } from "@/lib/constants";
 
 export default function JsonLd() {
   const schema = {
@@ -36,7 +36,7 @@ export default function JsonLd() {
         name: "nPlus1 Ventures",
         url: "https://nplus1ventures.com",
         description:
-          "Fractional VP Marketing and Revenue Operations consulting for B2B SaaS companies",
+          "Expert Fractional VP Marketing and Revenue Operations consulting for B2B SaaS companies scaling from $5M to $50M ARR.",
         provider: {
           "@id": "https://nplus1ventures.com/#organization",
         },
@@ -54,7 +54,7 @@ export default function JsonLd() {
           "Product-Led Growth",
           "Account-Based Marketing",
         ],
-        areaServed: "US",
+        areaServed: "Worldwide",
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: "5",
@@ -75,6 +75,63 @@ export default function JsonLd() {
           },
           reviewBody: t.quote,
         })),
+        mainEntity: {
+          "@type": "FAQPage",
+          mainEntity: FAQS.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.answer,
+            },
+          })),
+        },
+      },
+      {
+        "@type": "Person",
+        "@id": "https://nplus1ventures.com/about#navsingh",
+        name: "Nav Singh",
+        alternateName: "Navtej Singh",
+        jobTitle: "Founder & Managing Partner, Fractional VP Marketing & Revenue Operations Consultant",
+        url: "https://nplus1ventures.com/about",
+        image: "https://nplus1ventures.com/nav-singh.jpg",
+        description: "Nav Singh is a fractional VP of Marketing and Revenue Operations executive who scaled HeyGen from $20M to $100M ARR and previously served as a GTM Partner at Andreessen Horowitz (a16z).",
+        sameAs: [
+          "https://www.linkedin.com/in/navtejs",
+          "https://x.com/navtejs",
+        ],
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "San Francisco",
+          addressRegion: "CA",
+          addressCountry: "US",
+        },
+        worksFor: { "@id": "https://nplus1ventures.com/#organization" },
+        alumniOf: [
+          {
+            "@type": "Organization",
+            name: "Andreessen Horowitz",
+            url: "https://a16z.com"
+          }
+        ],
+        affiliation: [
+          {
+            "@type": "Organization",
+            name: "HeyGen",
+            url: "https://heygen.com"
+          }
+        ],
+        knowsAbout: [
+          "B2B SaaS Marketing",
+          "Revenue Operations",
+          "Product-Led Growth",
+          "Demand Generation",
+          "Go-to-Market Strategy",
+          "ABM",
+          "Marketing Automation",
+          "HeyGen Growth Strategy",
+          "a16z Operator Patterns"
+        ],
       },
       {
         "@type": "WebSite",
@@ -96,51 +153,8 @@ export default function JsonLd() {
         about: {
           "@id": "https://nplus1ventures.com/#organization",
         },
-        description:
-          "Expert go-to-market consulting for ambitious B2B teams. Strategy, execution, and growth, all under one roof.",
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: FAQS.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
-      },
-      {
-        "@type": "Person",
-        "@id": "https://nplus1ventures.com/about#navsingh",
-        name: "Nav Singh",
-        alternateName: "Navtej Singh",
-        jobTitle:
-          "Fractional VP Marketing & Revenue Operations Consultant",
-        url: "https://nplus1ventures.com/about",
-        image: "https://nplus1ventures.com/nav-singh.jpg",
-        sameAs: [
-          "https://www.linkedin.com/in/navtejs",
-          "https://x.com/navtejs",
-        ],
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "San Francisco",
-          addressRegion: "CA",
-          addressCountry: "US",
-        },
-        worksFor: { "@id": "https://nplus1ventures.com/#organization" },
-        knowsAbout: [
-          "B2B SaaS Marketing",
-          "Revenue Operations",
-          "Product-Led Growth",
-          "Demand Generation",
-          "Go-to-Market Strategy",
-          "ABM",
-          "Marketing Automation",
-          "Marketing Analytics",
-        ],
-      },
+        description: "Expert go-to-market consulting for ambitious B2B teams. Fractional VP Marketing and RevOps for companies scaling from $5M to $100M ARR.",
+      }
     ],
   };
 

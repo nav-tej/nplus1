@@ -1,23 +1,21 @@
 "use client";
 
-import posthog from "posthog-js";
-import { PostHogProvider as PHProvider, usePostHog } from "posthog-js/react";
-import { Suspense, useEffect, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import Script from "next/script";
+import { Suspense, useEffect } from "react";
 
 function PostHogPageView() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const ph = usePostHog();
 
   useEffect(() => {
-    if (pathname && ph) {
+    if (pathname && window.posthog) {
       let url = window.origin + pathname;
       const search = searchParams.toString();
       if (search) url += `?${search}`;
-      ph.capture("$pageview", { $current_url: url });
+      window.posthog.capture("$pageview", { $current_url: url });
     }
-  }, [pathname, searchParams, ph]);
+  }, [pathname, searchParams]);
 
   return null;
 }
@@ -27,37 +25,33 @@ export default function PostHogProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const initialized = useRef(false);
-
-  useEffect(() => {
-    if (initialized.current) return;
-
-    const init = () => {
-      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!.trim(), {
-        api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST?.trim(),
-        person_profiles: "always",
-        autocapture: true,
-        capture_pageview: false,
-        capture_pageleave: true,
-      });
-      initialized.current = true;
-    };
-
-    // Defer until the browser is idle so analytics never competes with
-    // rendering or user interaction. Falls back to setTimeout on Safari.
-    if (typeof window.requestIdleCallback !== "undefined") {
-      window.requestIdleCallback(init, { timeout: 4000 });
-    } else {
-      setTimeout(init, 1);
-    }
-  }, []);
-
   return (
-    <PHProvider client={posthog}>
+    <>
+      <Script
+        id="posthog-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures onSessionId getSurveys getActiveMatchingSurveys renderSurvey register_for_session_recording unregister_for_session_recording get_session_recording_url".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+            posthog.init('${process.env.NEXT_PUBLIC_POSTHOG_KEY}', {
+              api_host: '${process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com"}',
+              person_profiles: 'always',
+              capture_pageview: false,
+              capture_pageleave: true
+            });
+          `,
+        }}
+      />
       <Suspense fallback={null}>
         <PostHogPageView />
       </Suspense>
       {children}
-    </PHProvider>
+    </>
   );
+}
+
+declare global {
+  interface Window {
+    posthog: any;
+  }
 }

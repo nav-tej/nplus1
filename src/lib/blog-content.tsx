@@ -69,20 +69,20 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
     <>
       <P>
         When I joined HeyGen in April 2024, the company had product-market fit,
-        extraordinary organic growth, and a user base approaching 15-20 million
+        extraordinary organic growth, and a user base approaching 15 to 20 million
         registered users globally. It also had almost no marketing
         infrastructure.
       </P>
       <P>
-        No SEO program. No content engine. No community. No structured lifecycle
-        automation. No enterprise GTM motion. The brand had outgrown its
-        early-stage positioning. And the revenue operations architecture
+        No SEO program, no content engine, no community, and no structured lifecycle
+        automation. There was no enterprise GTM motion. The brand had outgrown its
+        early-stage positioning, and the <Link href="/services/revenue-operations" className="text-orange-400 hover:underline">revenue operations</Link> architecture
         wasn&apos;t built to support the enterprise motion the company was moving
         toward.
       </P>
       <P>
-        Twelve months later, we had scaled to $100M+ ARR — a 5× growth
-        trajectory — and built the complete GTM system from the ground up. This
+        Twelve months later, we had scaled to $100M+ ARR, a 5× growth
+        trajectory, and built the complete GTM system from the ground up. This
         is the playbook.
       </P>
 
@@ -95,7 +95,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         HeyGen&apos;s growth was almost entirely bottom-up: users discovering
         the product, signing up, and sharing it with their networks. The product
-        was genuinely exceptional — AI video generation that was noticeably
+        was genuinely exceptional: AI video generation that was noticeably
         better than anything else on the market.
       </P>
       <P>
@@ -118,8 +118,8 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </P>
       <P>
         <Bold>3. No enterprise motion.</Bold> HeyGen had enormous enterprise
-        potential — L&D teams, marketing agencies, enterprise video production.
-        But there was no targeted enterprise GTM, no ABM program, no
+        potential: L&D teams, marketing agencies, enterprise video production.
+        But there was no targeted <Link href="/services/demand-generation" className="text-orange-400 hover:underline">enterprise GTM</Link>, no ABM program, and no
         enterprise-specific positioning.
       </P>
       <P>
@@ -131,7 +131,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         <Bold>5. No lifecycle automation.</Bold> The conversion from free to
         paid, and from paid to expanded, was happening through organic product
         experience alone. There was no structured nurture, no trigger-based
-        engagement, no upsell program.
+        engagement, and no upsell program.
       </P>
 
       <Hr />
@@ -144,8 +144,8 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         growing fast, why touch the brand?
       </P>
       <P>
-        The answer: because everything else we were about to build — SEO,
-        enterprise sales, community, content — would be compromised if the brand
+        The answer: because everything else we were about to build, SEO,
+        enterprise sales, community, content, would be compromised if the brand
         story was wrong. We needed a foundation.
       </P>
       <P>
@@ -157,7 +157,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </P>
       <P>
         The rebrand delivered a 200% increase in brand awareness metrics and
-        meaningfully improved conversion rates on enterprise sales — enterprise
+        meaningfully improved conversion rates on enterprise sales. Enterprise
         buyers were suddenly seeing HeyGen as a platform, not a tool.
       </P>
       <P>
@@ -180,25 +180,25 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         link-building program.
       </P>
       <P>
-        <Bold>Result: 50%+ year-over-year organic traffic growth</Bold> — from a
+        <Bold>Result: 50%+ year-over-year organic traffic growth.</Bold> From a
         declining baseline to a meaningful, compounding organic channel in under
         12 months.
       </P>
       <P>
         <Bold>Lesson:</Bold> SEO is the only demand gen channel with compounding
         returns. The right time to build your SEO program is as early as
-        possible — and the second-best time is right now.
+        possible. The second-best time is right now.
       </P>
 
       <H3>Move 3: Launch the Community</H3>
       <P>
-        I designed and launched a community platform for HeyGen users — creators,
+        I designed and launched a community platform for HeyGen users: creators,
         marketers, and enterprise teams using the product. The goal was to take
         the existing word-of-mouth energy and give it structure.
       </P>
       <P>
         <Bold>100,000 active members in 6 months.</Bold> Community drove a 30%
-        lift in new customer acquisition — through organic peer referral, shared
+        lift in new customer acquisition, through organic peer referral, shared
         tutorials, and the credibility that comes from thousands of people
         actively endorsing a product.
       </P>
@@ -254,8 +254,8 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
           Tier 2 ABM: 500 accounts with Clay-powered personalization at scale
         </Li>
         <Li>
-          Sales enablement: full library of enterprise collateral — one-pagers,
-          pitch decks, ROI calculators, case studies — that improved win rates by
+          Sales enablement: full library of enterprise collateral (one-pagers,
+          pitch decks, ROI calculators, case studies) that improved win rates by
           25%
         </Li>
       </Ul>
@@ -303,7 +303,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <H2>The Underlying Principle: Systems, Not Campaigns</H2>
       <P>
         The common thread across all of these moves is that we were building
-        systems — not running campaigns. A campaign is a one-time effort. A
+        systems, not running campaigns. A campaign is a one-time effort. A
         system runs automatically, improves over time, and doesn&apos;t require a
         team to manually operate it every day.
       </P>
@@ -316,8 +316,8 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         published.
       </P>
       <P>
-        If your growth feels like you&apos;re constantly pushing a boulder uphill
-        — resetting every quarter, rebuilding pipeline from scratch — the problem
+        If your growth feels like you&apos;re constantly pushing a boulder uphill,
+        resetting every quarter, rebuilding pipeline from scratch, the problem
         is almost certainly that you&apos;re running campaigns when you should be
         building systems.
       </P>
@@ -327,15 +327,15 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <H2>What This Means for Your Company</H2>
       <P>
         If you&apos;re a B2B SaaS company between $5M and $50M ARR, the HeyGen
-        playbook is relevant to you — not because your company is identical to
+        playbook is relevant to you. Not because your company is identical to
         HeyGen, but because the structural gaps are almost always the same: brand
         that has outgrown its origin, no organic search presence, untapped
         community potential, enterprise motion that isn&apos;t fully built,
         lifecycle automation that&apos;s too thin.
       </P>
       <P>
-        The specific levers will differ. The principle — build compounding
-        systems, not one-off campaigns — is universal.
+        The specific levers will differ. The principle, build compounding
+        systems, not one-off campaigns, is universal.
       </P>
 
       <InternalCta href="/services/growth-marketing">
@@ -349,12 +349,12 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
     <>
       <P>
         &ldquo;AI-native&rdquo; has become one of the most overloaded terms in
-        B2B SaaS. Every vendor claims it. Most companies say they&apos;re doing
-        it. Almost nobody has actually built it.
+        B2B SaaS. Every vendor claims it, and most companies say they&apos;re doing
+        it, but almost nobody has actually built it.
       </P>
       <P>
-        Here&apos;s what I&apos;ve learned building AI-native GTM systems at
-        HeyGen and Semgrep — what it actually means in practice, what the stack
+        Here&apos;s what I&apos;ve learned building <Link href="/services/revenue-operations" className="text-orange-400 hover:underline">AI-native GTM systems</Link> at
+        HeyGen and Semgrep: what it actually means in practice, what the stack
         looks like, and what results it delivers.
       </P>
 
@@ -369,13 +369,13 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </P>
       <P>
         Being AI-native means AI is embedded in the architecture of your GTM
-        systems — in the data flows, the decision logic, the automation triggers,
+        systems, specifically in the data flows, the decision logic, the automation triggers,
         and the feedback loops. It means your systems get smarter over time
         without additional human effort.
       </P>
       <P>
         The distinction matters because companies that are genuinely AI-native in
-        their GTM operations will compound advantages over time in a way that
+        their GTM operations will compound advantages over time, whereas
         companies just using AI tools will not.
       </P>
 
@@ -394,12 +394,12 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </P>
       <Ul>
         <Li>
-          <Bold>Product analytics:</Bold> PostHog for behavioral data — every
+          <Bold>Product analytics:</Bold> PostHog for behavioral data: every
           user action, every feature used, every conversion event, all in real
           time
         </Li>
         <Li>
-          <Bold>CRM:</Bold> Salesforce as the account and contact truth layer —
+          <Bold>CRM:</Bold> Salesforce as the account and contact truth layer,
           kept clean through automated enrichment and validation
         </Li>
         <Li>
@@ -413,7 +413,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </Ul>
       <P>
         This architecture means your forecasting model, lead scoring model, and
-        personalization engine are all working from the same unified data — not
+        personalization engine are all working from the same unified data, not
         from five different point-in-time data exports.
       </P>
 
@@ -432,7 +432,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         The inputs that matter most are almost always different from what
         you&apos;d guess. In one company I worked with, the single strongest
-        predictor of conversion wasn&apos;t job title or company size — it was
+        predictor of conversion wasn&apos;t job title or company size. It was
         whether the lead had shared a product link with a colleague within 72
         hours of signing up.
       </P>
@@ -479,7 +479,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         </Li>
         <Li>
           Anomaly detection: the model flagged deals that looked like outliers
-          to historical patterns — both positive (deals moving unusually fast)
+          to historical patterns, both positive (deals moving unusually fast)
           and negative (deals stalling)
         </Li>
         <Li>
@@ -582,7 +582,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         Companies that start building AI-native systems early will have data
         advantages in 3 years that their competitors simply cannot purchase or
-        replicate. The moat is not the tools — it&apos;s the data and the
+        replicate. The moat is not the tools. It&apos;s the data and the
         institutional learning built into the systems.
       </P>
       <P>Start now.</P>
@@ -603,7 +603,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </P>
       <P>
         It&apos;s also one of the most common places where companies get into
-        trouble — stalling the PLG motion while they build enterprise capability,
+        trouble: stalling the PLG motion while they build enterprise capability,
         or building an enterprise motion that doesn&apos;t leverage the PLG
         flywheel that got them there.
       </P>
@@ -616,7 +616,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
 
       <H2>Why the Transition Is Hard</H2>
       <P>
-        PLG and enterprise are not just different go-to-market motions — they
+        PLG and enterprise are not just different go-to-market motions. They
         operate on fundamentally different logic:
       </P>
 
@@ -670,8 +670,8 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         investments.&rdquo;
       </P>
       <P>
-        The right move is to run both motions simultaneously — with distinct
-        systems for each — and build the bridge that lets enterprise sales
+        The right move is to run both motions simultaneously, with distinct
+        systems for each, and build the bridge that lets enterprise sales
         leverage the PLG user base.
       </P>
 

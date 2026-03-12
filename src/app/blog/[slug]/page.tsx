@@ -68,8 +68,61 @@ export default async function BlogPostPage({ params }: Props) {
     (p) => p.slug !== post.slug && p.category === post.category
   ).slice(0, 2);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `https://nplus1ventures.com/blog/${post.slug}#article`,
+        headline: post.title,
+        description: post.description,
+        image: `https://nplus1ventures.com/opengraph-image.png`, // Fallback or dynamic
+        datePublished: post.publishDate,
+        author: {
+          "@type": "Person",
+          name: "Nav Singh",
+          url: "https://nplus1ventures.com/about",
+        },
+        publisher: {
+          "@id": "https://nplus1ventures.com/#organization",
+        },
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": `https://nplus1ventures.com/blog/${post.slug}`,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://nplus1ventures.com",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Blog",
+            item: "https://nplus1ventures.com/blog",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: post.title,
+            item: `https://nplus1ventures.com/blog/${post.slug}`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <main id="main-content">
         {/* Article header */}
