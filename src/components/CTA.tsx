@@ -49,10 +49,10 @@ export default function CTA() {
               <span>
                 or email us at{" "}
                 <a
-                  href="mailto:hello@nplus1ventures.com"
+                  href="mailto:hello@nplusalpha.com"
                   className="text-accent hover:underline"
                 >
-                  hello@nplus1ventures.com
+                  hello@nplusalpha.com
                 </a>
               </span>
             </div>

@@ -2,14 +2,15 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 /**
- * 301-redirect any request arriving on nplus1ventures.com to nplusalpha.com.
+ * 301-redirect any request arriving on an old domain or www to nplusalpha.com.
  * Preserves full path + query string so all inbound links and Google's index
- * entries transfer cleanly to the new domain.
+ * entries transfer cleanly to the new primary domain.
  */
 export function middleware(request: NextRequest) {
   const host = request.headers.get("host") ?? "";
 
-  if (host.includes("nplus1ventures.com")) {
+  // If the host is not the primary domain and not localhost, redirect to primary
+  if (host && host !== "nplusalpha.com" && !host.includes("localhost")) {
     const url = request.nextUrl.clone();
     url.host = "nplusalpha.com";
     url.port = "";

@@ -15,7 +15,7 @@ export default function JsonLd() {
           width: 512,
           height: 512,
         },
-        email: "hello@nplus1ventures.com",
+        email: "hello@nplusalpha.com",
         description:
           "Fractional VP Marketing and Revenue Operations consulting for B2B SaaS companies. GTM strategy, demand generation, sales enablement, and revenue operations.",
         areaServed: "Worldwide",

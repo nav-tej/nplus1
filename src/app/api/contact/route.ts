@@ -41,8 +41,8 @@ export async function POST(request: Request) {
       try {
         const resend = new Resend(resendApiKey);
         const { data, error: emailError } = await resend.emails.send({
-          from: process.env.RESEND_FROM_EMAIL?.trim() ?? "nPlus1 Ventures <hello@nplus1ventures.com>",
-          to: process.env.CONTACT_EMAIL?.trim() ?? "hello@nplus1ventures.com",
+          from: process.env.RESEND_FROM_EMAIL?.trim() ?? "nPlus1 Ventures <hello@nplusalpha.com>",
+          to: process.env.CONTACT_EMAIL?.trim() ?? "hello@nplusalpha.com",
           subject: `New Contact: ${firstName} ${lastName}${company ? ` from ${company}` : ""}`,
           replyTo: email,
           html: `
@@ -64,7 +64,7 @@ export async function POST(request: Request) {
                 </tr>
               </table>
               <p style="margin-top: 24px; font-size: 12px; color: #999;">
-                Sent from nplus1ventures.com contact form
+                Sent from nplusalpha.com contact form
               </p>
             </div>
           `,
