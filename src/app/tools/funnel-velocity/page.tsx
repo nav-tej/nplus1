@@ -9,8 +9,24 @@ export const metadata: Metadata = {
 };
 
 export default function FunnelVelocityPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "SaaS Funnel Velocity Calculator",
+    "description": "Diagnose growth bottlenecks and optimize your revenue engine with our interactive B2B SaaS funnel velocity tool.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "nPlus1 Ventures",
+      "url": "https://nplus1ventures.com"
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <main id="main-content" className="pt-32 pb-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">

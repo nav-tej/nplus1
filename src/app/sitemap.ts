@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/services/revenue-operations`, lastModified: new Date("2026-02-15"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/services/demand-generation`, lastModified: new Date("2026-02-15"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/case-studies/heygen`, lastModified: new Date("2026-02-01"), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/tools/funnel-velocity`, lastModified: new Date("2026-03-12"), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/resources/agentic-outbound`, lastModified: new Date("2026-03-12"), changeFrequency: "monthly", priority: 0.8 },
   ];
 
   const routes = staticRoutes;

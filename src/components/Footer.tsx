@@ -38,22 +38,41 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <div className="flex flex-wrap gap-6">
-            {NAV_LINKS.map((link) => (
+          <div className="flex flex-wrap gap-x-12 gap-y-8">
+            <div className="flex flex-col gap-3">
+              <span className="text-xs font-bold text-white uppercase tracking-widest">Company</span>
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-muted hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
               <Link
-                key={link.href}
-                href={link.href}
+                href="/privacy"
                 className="text-sm text-muted hover:text-foreground transition-colors"
               >
-                {link.label}
+                Privacy
               </Link>
-            ))}
-            <Link
-              href="/privacy"
-              className="text-sm text-muted hover:text-foreground transition-colors"
-            >
-              Privacy
-            </Link>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <span className="text-xs font-bold text-white uppercase tracking-widest">Resources</span>
+              <Link
+                href="/tools/funnel-velocity"
+                className="text-sm text-muted hover:text-foreground transition-colors"
+              >
+                Velocity Calculator
+              </Link>
+              <Link
+                href="/resources/agentic-outbound"
+                className="text-sm text-muted hover:text-foreground transition-colors"
+              >
+                Outbound Playbook
+              </Link>
+            </div>
           </div>
         </div>
 
