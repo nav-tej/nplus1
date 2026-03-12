@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { usePostHog } from "posthog-js/react";
 import { Database, Brain, Mail, Workflow, CheckCircle2, Download, ArrowRight } from "lucide-react";
 
