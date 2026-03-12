@@ -19,11 +19,11 @@ export const metadata: Metadata = {
     "PLG marketing",
     "Nav Singh",
   ],
-  alternates: { canonical: "https://nplus1ventures.com/services/growth-marketing" },
+  alternates: { canonical: "https://nplusalpha.com/services/growth-marketing" },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://nplus1ventures.com/services/growth-marketing",
+    url: "https://nplusalpha.com/services/growth-marketing",
     siteName: "nPlus1 Ventures",
     title: "Fractional VP Marketing for B2B SaaS | nPlus1 Ventures",
     description:
@@ -37,24 +37,24 @@ const GM_SCHEMA = JSON.stringify({
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://nplus1ventures.com" },
-        { "@type": "ListItem", position: 2, name: "Services", item: "https://nplus1ventures.com/services/growth-marketing" },
-        { "@type": "ListItem", position: 3, name: "Growth Marketing", item: "https://nplus1ventures.com/services/growth-marketing" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://nplusalpha.com" },
+        { "@type": "ListItem", position: 2, name: "Services", item: "https://nplusalpha.com/services/growth-marketing" },
+        { "@type": "ListItem", position: 3, name: "Growth Marketing", item: "https://nplusalpha.com/services/growth-marketing" },
       ],
     },
     {
       "@type": "Service",
-      "@id": "https://nplus1ventures.com/services/growth-marketing#service",
+      "@id": "https://nplusalpha.com/services/growth-marketing#service",
       name: "Fractional VP Marketing",
       description: "Fractional VP Marketing and growth marketing consulting for B2B SaaS companies. Strategy, brand, demand generation, PLG, and community. Nav Singh scaled HeyGen from $20M to $100M+ ARR.",
-      provider: { "@id": "https://nplus1ventures.com/#organization" },
+      provider: { "@id": "https://nplusalpha.com/#organization" },
       areaServed: { "@type": "Country", name: "United States" },
       serviceType: "Fractional VP Marketing",
-      url: "https://nplus1ventures.com/services/growth-marketing",
+      url: "https://nplusalpha.com/services/growth-marketing",
     },
     {
       "@type": "FAQPage",
-      "@id": "https://nplus1ventures.com/services/growth-marketing#faq",
+      "@id": "https://nplusalpha.com/services/growth-marketing#faq",
       mainEntity: [
         {
           "@type": "Question",

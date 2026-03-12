@@ -21,12 +21,12 @@ export const metadata: Metadata = {
     "Nav Singh",
   ],
   alternates: {
-    canonical: "https://nplus1ventures.com/services/revenue-operations",
+    canonical: "https://nplusalpha.com/services/revenue-operations",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://nplus1ventures.com/services/revenue-operations",
+    url: "https://nplusalpha.com/services/revenue-operations",
     siteName: "nPlus1 Ventures",
     title: "Revenue Operations Consulting for B2B SaaS | nPlus1 Ventures",
     description:
@@ -40,24 +40,24 @@ const RO_SCHEMA = JSON.stringify({
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://nplus1ventures.com" },
-        { "@type": "ListItem", position: 2, name: "Services", item: "https://nplus1ventures.com/services/revenue-operations" },
-        { "@type": "ListItem", position: 3, name: "Revenue Operations", item: "https://nplus1ventures.com/services/revenue-operations" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://nplusalpha.com" },
+        { "@type": "ListItem", position: 2, name: "Services", item: "https://nplusalpha.com/services/revenue-operations" },
+        { "@type": "ListItem", position: 3, name: "Revenue Operations", item: "https://nplusalpha.com/services/revenue-operations" },
       ],
     },
     {
       "@type": "Service",
-      "@id": "https://nplus1ventures.com/services/revenue-operations#service",
+      "@id": "https://nplusalpha.com/services/revenue-operations#service",
       name: "Revenue Operations Consulting",
       description: "RevOps consulting for B2B SaaS covering GTM systems architecture, AI-driven forecasting, pipeline analytics, PLG-to-sales motion design, and Salesforce/HubSpot implementation. Built for companies from $5M to $200M ARR.",
-      provider: { "@id": "https://nplus1ventures.com/#organization" },
+      provider: { "@id": "https://nplusalpha.com/#organization" },
       areaServed: { "@type": "Country", name: "United States" },
       serviceType: "Revenue Operations Consulting",
-      url: "https://nplus1ventures.com/services/revenue-operations",
+      url: "https://nplusalpha.com/services/revenue-operations",
     },
     {
       "@type": "FAQPage",
-      "@id": "https://nplus1ventures.com/services/revenue-operations#faq",
+      "@id": "https://nplusalpha.com/services/revenue-operations#faq",
       mainEntity: [
         {
           "@type": "Question",

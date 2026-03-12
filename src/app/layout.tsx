@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nplus1ventures.com"),
+  metadataBase: new URL("https://nplusalpha.com"),
   title: {
     default:
       "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | nPlus1 Ventures",
@@ -48,12 +48,12 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "nPlus1 Ventures" }],
   alternates: {
-    canonical: "https://nplus1ventures.com",
+    canonical: "https://nplusalpha.com",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://nplus1ventures.com",
+    url: "https://nplusalpha.com",
     siteName: "nPlus1 Ventures",
     title:
       "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | nPlus1 Ventures",

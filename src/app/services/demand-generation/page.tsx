@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     "Nav Singh",
   ],
   alternates: {
-    canonical: "https://nplus1ventures.com/services/demand-generation",
+    canonical: "https://nplusalpha.com/services/demand-generation",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://nplus1ventures.com/services/demand-generation",
+    url: "https://nplusalpha.com/services/demand-generation",
     siteName: "nPlus1 Ventures",
     title: "Demand Generation Consulting for B2B SaaS | nPlus1 Ventures",
     description:
@@ -39,24 +39,24 @@ const DG_SCHEMA = JSON.stringify({
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://nplus1ventures.com" },
-        { "@type": "ListItem", position: 2, name: "Services", item: "https://nplus1ventures.com/services/demand-generation" },
-        { "@type": "ListItem", position: 3, name: "Demand Generation", item: "https://nplus1ventures.com/services/demand-generation" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://nplusalpha.com" },
+        { "@type": "ListItem", position: 2, name: "Services", item: "https://nplusalpha.com/services/demand-generation" },
+        { "@type": "ListItem", position: 3, name: "Demand Generation", item: "https://nplusalpha.com/services/demand-generation" },
       ],
     },
     {
       "@type": "Service",
-      "@id": "https://nplus1ventures.com/services/demand-generation#service",
+      "@id": "https://nplusalpha.com/services/demand-generation#service",
       name: "Demand Generation Consulting",
       description: "B2B SaaS demand generation consulting covering ABM, content marketing, SEO, paid acquisition, and lifecycle programs. Nav Singh has created $400M+ in marketing-sourced pipeline across HeyGen, Semgrep, and Egnyte.",
-      provider: { "@id": "https://nplus1ventures.com/#organization" },
+      provider: { "@id": "https://nplusalpha.com/#organization" },
       areaServed: { "@type": "Country", name: "United States" },
       serviceType: "Demand Generation Consulting",
-      url: "https://nplus1ventures.com/services/demand-generation",
+      url: "https://nplusalpha.com/services/demand-generation",
     },
     {
       "@type": "FAQPage",
-      "@id": "https://nplus1ventures.com/services/demand-generation#faq",
+      "@id": "https://nplusalpha.com/services/demand-generation#faq",
       mainEntity: [
         {
           "@type": "Question",

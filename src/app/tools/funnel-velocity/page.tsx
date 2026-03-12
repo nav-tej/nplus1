@@ -14,12 +14,12 @@ export default function FunnelVelocityPage() {
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": "https://nplus1ventures.com/tools/funnel-velocity#webpage",
-        "url": "https://nplus1ventures.com/tools/funnel-velocity",
+        "@id": "https://nplusalpha.com/tools/funnel-velocity#webpage",
+        "url": "https://nplusalpha.com/tools/funnel-velocity",
         "name": "SaaS Funnel Velocity Calculator | nPlus1 Ventures",
         "description": "Diagnose growth bottlenecks and optimize your revenue engine with our interactive B2B SaaS funnel velocity tool.",
-        "isPartOf": { "@id": "https://nplus1ventures.com/#website" },
-        "publisher": { "@id": "https://nplus1ventures.com/#organization" }
+        "isPartOf": { "@id": "https://nplusalpha.com/#website" },
+        "publisher": { "@id": "https://nplusalpha.com/#organization" }
       },
       {
         "@type": "SoftwareApplication",
@@ -32,7 +32,7 @@ export default function FunnelVelocityPage() {
           "price": "0",
           "priceCurrency": "USD"
         },
-        "author": { "@id": "https://nplus1ventures.com/about#navsingh" }
+        "author": { "@id": "https://nplusalpha.com/about#navsingh" }
       },
       {
         "@type": "BreadcrumbList",
@@ -41,19 +41,19 @@ export default function FunnelVelocityPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://nplus1ventures.com"
+            "item": "https://nplusalpha.com"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Tools",
-            "item": "https://nplus1ventures.com/tools/funnel-velocity"
+            "item": "https://nplusalpha.com/tools/funnel-velocity"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Funnel Velocity Calculator",
-            "item": "https://nplus1ventures.com/tools/funnel-velocity"
+            "item": "https://nplusalpha.com/tools/funnel-velocity"
           }
         ]
       }

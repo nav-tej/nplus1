@@ -18,11 +18,11 @@ export const metadata: Metadata = {
     "nPlus1 Ventures",
     "AI GTM",
   ],
-  alternates: { canonical: "https://nplus1ventures.com/blog" },
+  alternates: { canonical: "https://nplusalpha.com/blog" },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://nplus1ventures.com/blog",
+    url: "https://nplusalpha.com/blog",
     siteName: "nPlus1 Ventures",
     title: "GTM & Growth Blog | nPlus1 Ventures",
     description:
@@ -48,18 +48,18 @@ export default function BlogIndexPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "@id": "https://nplus1ventures.com/blog",
+    "@id": "https://nplusalpha.com/blog",
     name: "GTM & Growth Blog | nPlus1 Ventures",
     description:
       "Frameworks and playbooks from 10 years of building GTM systems at B2B SaaS companies.",
-    url: "https://nplus1ventures.com/blog",
-    isPartOf: { "@id": "https://nplus1ventures.com/#website" },
+    url: "https://nplusalpha.com/blog",
+    isPartOf: { "@id": "https://nplusalpha.com/#website" },
     mainEntity: {
       "@type": "ItemList",
       itemListElement: BLOG_POSTS.map((post, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: `https://nplus1ventures.com/blog/${post.slug}`,
+        url: `https://nplusalpha.com/blog/${post.slug}`,
         name: post.title,
       })),
     },

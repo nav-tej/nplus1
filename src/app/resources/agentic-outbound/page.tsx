@@ -14,12 +14,12 @@ export default function AgenticOutboundPage() {
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": "https://nplus1ventures.com/resources/agentic-outbound#webpage",
-        "url": "https://nplus1ventures.com/resources/agentic-outbound",
+        "@id": "https://nplusalpha.com/resources/agentic-outbound#webpage",
+        "url": "https://nplusalpha.com/resources/agentic-outbound",
         "name": "B2B SaaS Agentic Outbound Playbook | nPlus1 Ventures",
         "description": "Download the exact agentic outbound architecture used to scale companies from $20M to $100M ARR. Learn how to automate your GTM with AI.",
-        "isPartOf": { "@id": "https://nplus1ventures.com/#website" },
-        "publisher": { "@id": "https://nplus1ventures.com/#organization" }
+        "isPartOf": { "@id": "https://nplusalpha.com/#website" },
+        "publisher": { "@id": "https://nplusalpha.com/#organization" }
       },
       {
         "@type": "CreativeWork",
@@ -27,7 +27,7 @@ export default function AgenticOutboundPage() {
         "description": "A comprehensive guide and architecture diagram for building automated, signal-based outbound GTM motions using AI and agentic workflows.",
         "learningResourceType": "Playbook",
         "genre": "Business Strategy",
-        "author": { "@id": "https://nplus1ventures.com/about#navsingh" }
+        "author": { "@id": "https://nplusalpha.com/about#navsingh" }
       },
       {
         "@type": "BreadcrumbList",
@@ -36,19 +36,19 @@ export default function AgenticOutboundPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://nplus1ventures.com"
+            "item": "https://nplusalpha.com"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Resources",
-            "item": "https://nplus1ventures.com/resources/agentic-outbound"
+            "item": "https://nplusalpha.com/resources/agentic-outbound"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Agentic Outbound Playbook",
-            "item": "https://nplus1ventures.com/resources/agentic-outbound"
+            "item": "https://nplusalpha.com/resources/agentic-outbound"
           }
         ]
       }

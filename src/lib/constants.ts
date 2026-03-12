@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   name: "nPlus1 Ventures",
-  domain: "nplus1ventures.com",
+  domain: "nplusalpha.com",
   tagline: "Your Growth, Catalyzed.",
   description:
     "nPlus1 Ventures helps ambitious B2B companies build and execute repeatable go-to-market strategies that drive revenue growth.",

@@ -23,11 +23,11 @@ export const metadata: Metadata = {
     "Nav Singh HeyGen",
     "Nav Singh a16z",
   ],
-  alternates: { canonical: "https://nplus1ventures.com/about" },
+  alternates: { canonical: "https://nplusalpha.com/about" },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://nplus1ventures.com/about",
+    url: "https://nplusalpha.com/about",
     siteName: "nPlus1 Ventures",
     title: "Nav Singh, Founder | nPlus1 Ventures | GTM Consulting",
     description:
@@ -50,26 +50,26 @@ export default function AboutPage() {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://nplus1ventures.com" },
-          { "@type": "ListItem", position: 2, name: "About", item: "https://nplus1ventures.com/about" },
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://nplusalpha.com" },
+          { "@type": "ListItem", position: 2, name: "About", item: "https://nplusalpha.com/about" },
         ],
       },
       {
         "@type": "ProfilePage",
-        "@id": "https://nplus1ventures.com/about",
-        url: "https://nplus1ventures.com/about",
+        "@id": "https://nplusalpha.com/about",
+        url: "https://nplusalpha.com/about",
         name: "Nav Singh | Founder, nPlus1 Ventures",
-        isPartOf: { "@id": "https://nplus1ventures.com/#website" },
-        mainEntity: { "@id": "https://nplus1ventures.com/about#navsingh" },
+        isPartOf: { "@id": "https://nplusalpha.com/#website" },
+        mainEntity: { "@id": "https://nplusalpha.com/about#navsingh" },
       },
       {
         "@type": "Person",
-        "@id": "https://nplus1ventures.com/about#navsingh",
+        "@id": "https://nplusalpha.com/about#navsingh",
         name: FOUNDER.name,
         alternateName: FOUNDER.alternateName,
         jobTitle: FOUNDER.title,
-        url: "https://nplus1ventures.com/about",
-        image: "https://nplus1ventures.com/nav-singh.jpg",
+        url: "https://nplusalpha.com/about",
+        image: "https://nplusalpha.com/nav-singh.jpg",
         description:
           "Nav Singh is a fractional VP of Marketing and Revenue Operations executive who scaled HeyGen from $20M to $100M+ ARR and previously served as a GTM Partner at Andreessen Horowitz (a16z). Based in San Francisco.",
         sameAs: [FOUNDER.linkedin, FOUNDER.twitter],
@@ -79,7 +79,7 @@ export default function AboutPage() {
           addressRegion: "CA",
           addressCountry: "US",
         },
-        worksFor: { "@id": "https://nplus1ventures.com/#organization" },
+        worksFor: { "@id": "https://nplusalpha.com/#organization" },
         alumniOf: [
           { "@type": "Organization", name: "Andreessen Horowitz", url: "https://a16z.com" },
         ],
@@ -108,7 +108,7 @@ export default function AboutPage() {
   //   name: "Building GTM at HeyGen: From $20M to $100M ARR",
   //   description: "Nav Singh on building AI-native RevOps, scaling demand generation, and the GTM playbook behind HeyGen's 5x growth.",
   //   datePublished: "POLYTOMIC_PUBLISH_DATE_ISO",  // e.g. "2025-03-20"
-  //   author: { "@id": "https://nplus1ventures.com/about#navsingh" },
+  //   author: { "@id": "https://nplusalpha.com/about#navsingh" },
   //   publication: { "@type": "PodcastSeries", name: "Polytomic Podcast", publisher: { "@type": "Organization", name: "Polytomic" } },
   // },
   // Also add the podcast URL to the Person sameAs array above.

@@ -111,8 +111,8 @@ The flywheel: organic acquisition → community activation → lifecycle convers
 
 *Nav Singh is the founder of nPlus1 Ventures and was Head of Revenue Operations at HeyGen from April 2024 to January 2026.*
 
-[→ nPlus1 Growth Marketing Services](https://nplus1ventures.com/services/growth-marketing)
-[→ Book a Free GTM Audit](https://nplus1ventures.com/#contact)
+[→ nPlus1 Growth Marketing Services](https://nplusalpha.com/services/growth-marketing)
+[→ Book a Free GTM Audit](https://nplusalpha.com/#contact)
 `,
 
   // ── POST 2 ─────────────────────────────────────────────────────────────────
@@ -233,8 +233,8 @@ Don't try to build all six layers at once. The right sequence is:
 
 *Nav Singh is the founder of nPlus1 Ventures. He built AI-native GTM systems at HeyGen and Semgrep.*
 
-[→ nPlus1 Revenue Operations Services](https://nplus1ventures.com/services/revenue-operations)
-[→ Book a Free GTM Audit](https://nplus1ventures.com/#contact)
+[→ nPlus1 Revenue Operations Services](https://nplusalpha.com/services/revenue-operations)
+[→ Book a Free GTM Audit](https://nplusalpha.com/#contact)
 `,
 
   // ── POST 3 ─────────────────────────────────────────────────────────────────
@@ -365,8 +365,8 @@ The PLG-to-enterprise transition takes 12 to 18 months to show meaningful revenu
 
 *Nav Singh is the founder of nPlus1 Ventures. He built [PLG-to-enterprise motions](/services/growth-marketing) at Semgrep and HeyGen.*
 
-[→ nPlus1 Product-Led Growth Services](https://nplus1ventures.com/services/growth-marketing)
-[→ Book a Free GTM Audit](https://nplus1ventures.com/#contact)
+[→ nPlus1 Product-Led Growth Services](https://nplusalpha.com/services/growth-marketing)
+[→ Book a Free GTM Audit](https://nplusalpha.com/#contact)
 `,
 
   // ── POST 4 ─────────────────────────────────────────────────────────────────
@@ -496,8 +496,8 @@ The flywheel: content builds authority → SEO generates organic demand → ABM 
 
 *Nav Singh is the founder of nPlus1 Ventures. He generated $400M+ in marketing-sourced pipeline across HeyGen, Semgrep, and Egnyte.*
 
-[→ nPlus1 Demand Generation Services](https://nplus1ventures.com/services/demand-generation)
-[→ Book a Free GTM Audit](https://nplus1ventures.com/#contact)
+[→ nPlus1 Demand Generation Services](https://nplusalpha.com/services/demand-generation)
+[→ Book a Free GTM Audit](https://nplusalpha.com/#contact)
 `,
 
   // ── POST 5 ─────────────────────────────────────────────────────────────────
@@ -616,8 +616,8 @@ You can't improve what you can't measure, but most RevOps teams measure the wron
 
 *Nav Singh is the founder of nPlus1 Ventures. He built [RevOps systems](/services/revenue-operations) at HeyGen, Semgrep, and Egnyte.*
 
-[→ nPlus1 Revenue Operations Services](https://nplus1ventures.com/services/revenue-operations)
-[→ Book a Free GTM Audit](https://nplus1ventures.com/#contact)
+[→ nPlus1 Revenue Operations Services](https://nplusalpha.com/services/revenue-operations)
+[→ Book a Free GTM Audit](https://nplusalpha.com/#contact)
 `,
 
   // ── POST 6 ─────────────────────────────────────────────────────────────────
@@ -711,8 +711,8 @@ Live sessions drove single-session traffic spikes, but more importantly, they cr
 
 *Nav Singh is the founder of nPlus1 Ventures. He launched and scaled HeyGen's community from zero to 100,000 members.*
 
-[→ nPlus1 Growth Marketing Services](https://nplus1ventures.com/services/growth-marketing)
-[→ Book a Free GTM Audit](https://nplus1ventures.com/#contact)
+[→ nPlus1 Growth Marketing Services](https://nplusalpha.com/services/growth-marketing)
+[→ Book a Free GTM Audit](https://nplusalpha.com/#contact)
 `,
 
   // ── POST 7 ─────────────────────────────────────────────────────────────────
@@ -840,8 +840,8 @@ Based on [ABM programs](/services/demand-generation) across multiple companies, 
 
 *Nav Singh is the founder of nPlus1 Ventures. He built ABM programs that generated substantial enterprise pipeline at HeyGen and 3× pipeline efficiency at Egnyte.*
 
-[→ nPlus1 Demand Generation Services](https://nplus1ventures.com/services/demand-generation)
-[→ Book a Free GTM Audit](https://nplus1ventures.com/#contact)
+[→ nPlus1 Demand Generation Services](https://nplusalpha.com/services/demand-generation)
+[→ Book a Free GTM Audit](https://nplusalpha.com/#contact)
 `,
 
   // ── POST 8 ─────────────────────────────────────────────────────────────────
@@ -1005,8 +1005,8 @@ Content alone doesn't rank in competitive verticals. You also need backlinks, wh
 
 *Nav Singh is the founder of nPlus1 Ventures. He built [SEO programs](/services/growth-marketing) at HeyGen and Semgrep, driving 50%+ YoY organic growth.*
 
-[→ nPlus1 Growth Marketing Services](https://nplus1ventures.com/services/growth-marketing)
-[→ Book a Free GTM Audit](https://nplus1ventures.com/#contact)
+[→ nPlus1 Growth Marketing Services](https://nplusalpha.com/services/growth-marketing)
+[→ Book a Free GTM Audit](https://nplusalpha.com/#contact)
 `,
 };
 
