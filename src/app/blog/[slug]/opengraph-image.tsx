@@ -9,9 +9,9 @@ export function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }));
 }
 
-const ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#0B1221"/><defs><linearGradient id="ag" x1="14" y1="52" x2="50" y2="10" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F97316"/><stop offset="55%" stop-color="#2563EB"/><stop offset="100%" stop-color="#60A5FA"/></linearGradient></defs><line x1="14" y1="52" x2="40" y2="21" stroke="url(#ag)" stroke-width="7.5" stroke-linecap="round"/><polygon points="50,10 46,26 36,16" fill="url(#ag)"/><path d="M 5 48 C 15 56 36 53 53 41" stroke="#F97316" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M 9 42 C 18 49 36 47 50 36" stroke="#F97316" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/><circle cx="50" cy="10" r="5.5" fill="#F97316"/></svg>`;
+const ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#0B1221"/><defs><linearGradient id="ag" x1="31" y1="21" x2="54" y2="45" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F97316"/><stop offset="100%" stop-color="#60A5FA"/></linearGradient></defs><path d="M7,44 V21 C7,14 25,14 25,21 V44" stroke="white" stroke-width="4.5" fill="none" stroke-linecap="round"/><circle cx="16" cy="14" r="2.8" fill="#F97316"/><line x1="28.5" y1="32" x2="33.5" y2="32" stroke="white" stroke-width="2" opacity="0.4"/><line x1="31" y1="29.5" x2="31" y2="34.5" stroke="white" stroke-width="2" opacity="0.4"/><path d="M54,22 C46,20 34,24 34,33 C34,42 46,46 54,44" stroke="url(#ag)" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M54,21 L54,45" stroke="url(#ag)" stroke-width="4.5" fill="none" stroke-linecap="round"/></svg>`;
 
-const MARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><defs><linearGradient id="ag2" x1="14" y1="52" x2="50" y2="10" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F97316"/><stop offset="55%" stop-color="#2563EB"/><stop offset="100%" stop-color="#60A5FA"/></linearGradient></defs><line x1="14" y1="52" x2="40" y2="21" stroke="url(#ag2)" stroke-width="7.5" stroke-linecap="round"/><polygon points="50,10 46,26 36,16" fill="url(#ag2)"/><path d="M 5 48 C 15 56 36 53 53 41" stroke="#F97316" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M 9 42 C 18 49 36 47 50 36" stroke="#F97316" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/><circle cx="50" cy="10" r="5.5" fill="#F97316"/></svg>`;
+const MARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><defs><linearGradient id="ag2" x1="31" y1="21" x2="54" y2="45" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F97316"/><stop offset="100%" stop-color="#60A5FA"/></linearGradient></defs><path d="M7,44 V21 C7,14 25,14 25,21 V44" stroke="white" stroke-width="4.5" fill="none" stroke-linecap="round"/><circle cx="16" cy="14" r="2.8" fill="#F97316"/><line x1="28.5" y1="32" x2="33.5" y2="32" stroke="white" stroke-width="2" opacity="0.4"/><line x1="31" y1="29.5" x2="31" y2="34.5" stroke="white" stroke-width="2" opacity="0.4"/><path d="M54,22 C46,20 34,24 34,33 C34,42 46,46 54,44" stroke="url(#ag2)" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M54,21 L54,45" stroke="url(#ag2)" stroke-width="4.5" fill="none" stroke-linecap="round"/></svg>`;
 
 const toDataUri = (svg: string) =>
   `data:image/svg+xml;base64,${Buffer.from(svg).toString("base64")}`;
@@ -123,8 +123,8 @@ export default async function Image({
               letterSpacing: "-0.5px",
             }}
           >
-            {"nPlus"}
-            <span style={{ color: "#F97316" }}>{"1"}</span>
+            {"n+"}
+            <span style={{ color: "#F97316" }}>{"α"}</span>
             <span
               style={{
                 fontSize: "11px",
@@ -227,7 +227,7 @@ export default async function Image({
                   color: "rgba(255,255,255,0.38)",
                 }}
               >
-                {"Founder & Managing Partner · nPlus1 Ventures"}
+                {"Founder & Managing Partner · n+α Ventures"}
               </div>
             </div>
           </div>
