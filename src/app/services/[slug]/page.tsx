@@ -35,8 +35,51 @@ export default async function ServicePage({ params }: Props) {
   const service = SERVICE_PAGES.find((s) => s.href.endsWith(slug));
   if (!service) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": `https://${SITE_CONFIG.domain}${service.href}#service`,
+        name: service.label,
+        url: `https://${SITE_CONFIG.domain}${service.href}`,
+        description: service.description,
+        provider: {
+          "@id": `https://${SITE_CONFIG.domain}/#organization`,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: `https://${SITE_CONFIG.domain}`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: `https://${SITE_CONFIG.domain}/#services`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: service.label,
+            item: `https://${SITE_CONFIG.domain}${service.href}`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <main id="main-content" className="pt-32 pb-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
