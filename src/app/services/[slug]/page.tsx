@@ -39,39 +39,53 @@ export default async function ServicePage({ params }: Props) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "ProfessionalService",
+        "@type": "Service",
         "@id": `https://${SITE_CONFIG.domain}${service.href}#service`,
-        name: service.label,
-        url: `https://${SITE_CONFIG.domain}${service.href}`,
-        description: service.description,
-        provider: {
-          "@id": `https://${SITE_CONFIG.domain}/#organization`,
+        "name": service.label,
+        "description": service.description,
+        "provider": {
+          "@id": `https://${SITE_CONFIG.domain}/#organization`
         },
+        "areaServed": "Worldwide",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "GTM Consulting Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": service.label
+              }
+            }
+          ]
+        }
       },
       {
         "@type": "BreadcrumbList",
-        itemListElement: [
+        "@id": `https://${SITE_CONFIG.domain}${service.href}#breadcrumb`,
+        "itemListElement": [
           {
             "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: `https://${SITE_CONFIG.domain}`,
+            "position": 1,
+            "name": "Home",
+            "item": `https://${SITE_CONFIG.domain}`
           },
           {
             "@type": "ListItem",
-            position: 2,
-            name: "Services",
-            item: `https://${SITE_CONFIG.domain}/#services`,
+            "position": 2,
+            "name": "Services",
+            "item": `https://${SITE_CONFIG.domain}/#services`
           },
           {
             "@type": "ListItem",
-            position: 3,
-            name: service.label,
-            item: `https://${SITE_CONFIG.domain}${service.href}`,
-          },
-        ],
-      },
-    ],
+            "position": 3,
+            "name": service.label,
+            "item": `https://${SITE_CONFIG.domain}${service.href}`
+          }
+        ]
+      }
+    ]
   };
 
   return (

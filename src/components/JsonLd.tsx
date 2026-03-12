@@ -33,45 +33,60 @@ export default function JsonLd() {
       {
         "@type": "ProfessionalService",
         "@id": "https://nplus1ventures.com/#service",
-        name: "nPlus1 Ventures",
-        url: "https://nplus1ventures.com",
-        description:
-          "Expert Fractional VP Marketing and Revenue Operations consulting for B2B SaaS companies scaling from $5M to $50M ARR.",
-        provider: {
-          "@id": "https://nplus1ventures.com/#organization",
+        "name": "nPlus1 Ventures",
+        "url": "https://nplus1ventures.com",
+        "logo": "https://nplus1ventures.com/logo-square.png",
+        "image": "https://nplus1ventures.com/nav-singh.jpg",
+        "description": "Expert AI-native GTM consulting, Fractional VP Marketing, and Revenue Operations for B2B SaaS companies scaling from $5M to $100M ARR.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "San Francisco",
+          "addressRegion": "CA",
+          "addressCountry": "US"
         },
-        serviceType: [
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "37.7749",
+          "longitude": "-122.4194"
+        },
+        "telephone": "+1-415-000-0000",
+        "priceRange": "$$$",
+        "provider": {
+          "@id": "https://nplus1ventures.com/#organization"
+        },
+        "founder": {
+          "@id": "https://nplus1ventures.com/about#navsingh"
+        },
+        "serviceType": [
+          "AI-Native GTM Strategy",
           "Fractional VP Marketing",
-          "Go-To-Market Strategy",
-          "Market Positioning",
           "Demand Generation",
-          "Sales Enablement",
           "Revenue Operations",
+          "Sales Enablement",
           "Growth Analytics",
-          "Product-Led Growth",
-          "Account-Based Marketing",
+          "Account-Based Marketing (ABM)"
         ],
-        areaServed: "Worldwide",
-        aggregateRating: {
+        "areaServed": ["San Francisco", "United States", "Worldwide"],
+        "aggregateRating": {
           "@type": "AggregateRating",
-          ratingValue: "5",
-          reviewCount: String(TESTIMONIALS.length),
-          bestRating: "5",
-          worstRating: "1",
+          "ratingValue": "5",
+          "reviewCount": String(TESTIMONIALS.length),
+          "bestRating": "5",
+          "worstRating": "1"
         },
-        review: TESTIMONIALS.map((t) => ({
+        "review": TESTIMONIALS.map((t) => ({
           "@type": "Review",
-          reviewRating: {
+          "reviewRating": {
             "@type": "Rating",
-            ratingValue: "5",
-            bestRating: "5",
+            "ratingValue": "5",
+            "bestRating": "5"
           },
-          author: {
+          "author": {
             "@type": "Organization",
-            name: t.company,
+            "name": t.company
           },
-          reviewBody: t.quote,
-        })),
+          "reviewBody": t.quote
+        }))
       },
       {
         "@type": "FAQPage",
