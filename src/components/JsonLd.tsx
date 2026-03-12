@@ -88,38 +88,46 @@ export default function JsonLd() {
       {
         "@type": "Person",
         "@id": "https://nplus1ventures.com/about#navsingh",
-        name: "Navtej Singh",
-        alternateName: "Nav Singh",
-        jobTitle: "Founder & Managing Partner, Fractional VP Marketing & Revenue Operations Consultant",
-        url: "https://nplus1ventures.com/about",
-        image: "https://nplus1ventures.com/nav-singh.jpg",
-        description: "Navtej Singh is a fractional VP of Marketing and Revenue Operations executive who scaled HeyGen from $20M to $100M ARR and previously served as a GTM Partner and Operator at Andreessen Horowitz (a16z).",
-        sameAs: [
+        "name": "Navtej Singh",
+        "url": "https://www.nplus1ventures.com",
+        "jobTitle": "AI-Native Revenue Architect",
+        "description": "AI-Native Revenue Architect. Scaled HeyGen from $20M to $100M ARR leveraging agentic workflows and predictive revenue intelligence. Former Partner at Andreessen Horowitz (a16z), and GTM leader at Semgrep and Egnyte.",
+        "image": "https://nplus1ventures.com/nav-singh.jpg",
+        "sameAs": [
           "https://www.linkedin.com/in/navtejs",
-          "https://x.com/navtejs",
+          "https://x.com/navtejs"
         ],
-        address: {
+        "alumniOf": [
+          {
+            "@type": "Organization",
+            "name": "Andreessen Horowitz",
+            "alternateName": "a16z",
+            "url": "https://a16z.com"
+          },
+          {
+            "@type": "Organization",
+            "name": "HeyGen",
+            "url": "https://www.heygen.com"
+          },
+          {
+            "@type": "Organization",
+            "name": "Semgrep",
+            "url": "https://semgrep.dev"
+          },
+          {
+            "@type": "Organization",
+            "name": "Egnyte",
+            "url": "https://www.egnyte.com"
+          }
+        ],
+        "address": {
           "@type": "PostalAddress",
-          addressLocality: "San Francisco",
-          addressRegion: "CA",
-          addressCountry: "US",
+          "addressLocality": "San Francisco",
+          "addressRegion": "CA",
+          "addressCountry": "US"
         },
-        worksFor: { "@id": "https://nplus1ventures.com/#organization" },
-        alumniOf: [
-          {
-            "@type": "Organization",
-            name: "Andreessen Horowitz",
-            url: "https://a16z.com"
-          }
-        ],
-        affiliation: [
-          {
-            "@type": "Organization",
-            name: "HeyGen",
-            url: "https://heygen.com"
-          }
-        ],
-        knowsAbout: [
+        "worksFor": { "@id": "https://nplus1ventures.com/#organization" },
+        "knowsAbout": [
           "Scaled HeyGen from $20M to $100M ARR",
           "a16z Operator Patterns",
           "B2B SaaS Marketing",
@@ -130,7 +138,7 @@ export default function JsonLd() {
           "ABM",
           "Marketing Automation",
           "HeyGen Growth Strategy"
-        ],
+        ]
       },
       {
         "@type": "WebSite",
