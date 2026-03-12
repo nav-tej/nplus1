@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Link from "next/link";
 import { usePostHog } from "posthog-js/react";
 
 type FormData = {
@@ -195,6 +196,14 @@ export default function ContactForm() {
       >
         {status === "sending" ? "Sending..." : "Get in Touch"}
       </button>
+
+      <p className="text-[11px] text-muted/60 text-center px-4 leading-relaxed">
+        By submitting this form, you agree to our{" "}
+        <Link href="/privacy" className="underline hover:text-accent transition-colors">
+          Privacy Policy
+        </Link>
+        . Your data is stored securely and used only to respond to your inquiry.
+      </p>
 
       <div aria-live="polite" role="status">
         {status === "sent" && (

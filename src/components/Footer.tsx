@@ -48,6 +48,12 @@ export default function Footer() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href="/privacy"
+              className="text-sm text-muted hover:text-foreground transition-colors"
+            >
+              Privacy
+            </Link>
           </div>
         </div>
 
