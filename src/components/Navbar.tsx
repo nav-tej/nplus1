@@ -9,7 +9,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const firstLinkRef = useRef<HTMLButtonElement>(null);
 
@@ -34,9 +36,10 @@ export default function Navbar() {
           toggleRef.current?.focus();
         }
         if (servicesOpen) setServicesOpen(false);
+        if (toolsOpen) setToolsOpen(false);
       }
     },
-    [mobileOpen, servicesOpen]
+    [mobileOpen, servicesOpen, toolsOpen]
   );
 
   useEffect(() => {
@@ -161,6 +164,64 @@ export default function Navbar() {
                   );
                 }
 
+                if (link.label === "Tools") {
+                  return (
+                    <div
+                      key="tools"
+                      className="relative"
+                      onMouseEnter={() => setToolsOpen(true)}
+                      onMouseLeave={() => setToolsOpen(false)}
+                    >
+                      <button
+                        className="flex items-center gap-1 text-sm text-muted hover:text-foreground transition-colors duration-200"
+                        aria-expanded={toolsOpen}
+                        aria-haspopup="true"
+                      >
+                        Tools
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          aria-hidden="true"
+                          className={`transition-transform duration-200 ${toolsOpen ? "rotate-180" : ""}`}
+                        >
+                          <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+
+                      {toolsOpen && (
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-[300px]">
+                          <div className="bg-[#0B1221]/98 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                            <Link
+                              href="/tools/funnel-velocity"
+                              className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors border-b border-white/5 group"
+                            >
+                              <span className="text-sm font-semibold text-foreground group-hover:text-orange-400 transition-colors">
+                                Velocity Calculator
+                              </span>
+                              <span className="text-xs text-muted leading-snug">
+                                Diagnose growth bottlenecks
+                              </span>
+                            </Link>
+                            <Link
+                              href="/resources/agentic-outbound"
+                              className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors last:border-0 group"
+                            >
+                              <span className="text-sm font-semibold text-foreground group-hover:text-orange-400 transition-colors">
+                                Outbound Playbook
+                              </span>
+                              <span className="text-xs text-muted leading-snug">
+                                Build an agentic engine
+                              </span>
+                            </Link>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
                 return (
                   <Link
                     key={link.href}
@@ -190,9 +251,7 @@ export default function Navbar() {
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </button>
           </div>
         </div>
@@ -224,9 +283,7 @@ export default function Navbar() {
               className="p-2 -mr-2 text-white/60 hover:text-white transition-colors"
               aria-label="Close menu"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </button>
           </div>
 
@@ -267,6 +324,50 @@ export default function Navbar() {
                             <ArrowIcon size={14} />
                           </Link>
                         ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              if (link.label === "Tools") {
+                return (
+                  <div key="tools" className="border-b border-white/10">
+                    <button
+                      onClick={() => setMobileToolsOpen((v) => !v)}
+                      className="group flex items-center justify-between w-full py-5 text-2xl font-semibold text-white/80 hover:text-white transition-colors duration-150"
+                    >
+                      Tools
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        aria-hidden="true"
+                        className={`text-white/25 group-hover:text-orange-400 transition-all duration-150 ${mobileToolsOpen ? "rotate-180" : ""}`}
+                      >
+                        <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
+
+                    {mobileToolsOpen && (
+                      <div className="pb-4 pl-2 space-y-1">
+                        <Link
+                          href="/tools/funnel-velocity"
+                          onClick={() => setMobileOpen(false)}
+                          className="flex items-center justify-between py-3 px-3 rounded-xl text-base font-medium text-white/60 hover:text-orange-400 hover:bg-white/5 transition-all"
+                        >
+                          Velocity Calculator
+                          <ArrowIcon size={14} />
+                        </Link>
+                        <Link
+                          href="/resources/agentic-outbound"
+                          onClick={() => setMobileOpen(false)}
+                          className="flex items-center justify-between py-3 px-3 rounded-xl text-base font-medium text-white/60 hover:text-orange-400 hover:bg-white/5 transition-all"
+                        >
+                          Outbound Playbook
+                          <ArrowIcon size={14} />
+                        </Link>
                       </div>
                     )}
                   </div>
