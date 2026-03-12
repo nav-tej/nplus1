@@ -132,7 +132,7 @@ export default function GrowthMarketingPage() {
                   desc: "I build integrated demand generation systems that create predictable pipeline, not one-off campaigns.",
                   bullets: [
                     "Content marketing strategy and production system",
-                    "SEO program buildout from zero (launched HeyGen's first SEO program: 50% YoY organic growth)",
+                    "SEO program buildout from zero (launched HeyGen's first SEO program: 50%+ YoY organic growth, reversing a declining baseline)",
                     "Paid acquisition: LinkedIn, Google, Meta with proper attribution",
                     "Account-Based Marketing for mid-market and enterprise",
                     "Webinar and virtual event programs",
