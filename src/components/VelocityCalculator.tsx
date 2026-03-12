@@ -118,12 +118,16 @@ export default function VelocityCalculator() {
                 <div className="space-y-4">
                   <div className="flex justify-between items-end">
                     <label className="text-sm font-semibold text-foreground/80 uppercase tracking-wider">Current ARR</label>
-                    <span className="text-3xl font-mono text-accent">${(inputs.arr / 1000000).toFixed(0)}M</span>
+                    <span className="text-3xl font-mono text-accent">
+                      {inputs.arr >= 1000000000 
+                        ? `$${(inputs.arr / 1000000000).toFixed(1)}B+` 
+                        : `$${(inputs.arr / 1000000).toFixed(0)}M`}
+                    </span>
                   </div>
                   <input
                     type="range"
                     min="5000000"
-                    max="100000000"
+                    max="1000000000"
                     step="5000000"
                     value={inputs.arr}
                     onChange={(e) => handleSliderChange("arr", parseInt(e.target.value))}
@@ -131,7 +135,7 @@ export default function VelocityCalculator() {
                   />
                   <div className="flex justify-between text-[10px] text-muted uppercase font-mono">
                     <span>$5M</span>
-                    <span>$100M+</span>
+                    <span>$1B+</span>
                   </div>
                 </div>
 
