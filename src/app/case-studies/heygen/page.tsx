@@ -100,10 +100,12 @@ export default function HeyGenCaseStudyPage() {
                 fast-growing user base.
               </p>
               <p>
-                The company had 40 million users and was growing rapidly, but
-                the systems and team were not keeping up. The brand also needed
-                to evolve. HeyGen had outgrown its early positioning and needed
-                a rebrand that reflected its ambition and market leadership.
+                When I joined, HeyGen had 15-20 million registered users
+                globally but fewer than 1 million were active. The product had
+                viral reach but was not converting or retaining at the rate the
+                growth required. The brand also needed to evolve. HeyGen had
+                outgrown its early positioning and needed a rebrand that
+                reflected its ambition and market leadership.
               </p>
             </div>
           </div>
@@ -118,8 +120,12 @@ export default function HeyGenCaseStudyPage() {
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
-                  title: "Company Rebrand",
-                  desc: "Led HeyGen's complete company rebrand: new visual identity, messaging architecture, and market positioning. The result was a 200% increase in brand awareness metrics and a repositioning that made HeyGen credible as an enterprise AI platform, not just a consumer-friendly video tool.",
+                  title: "2 Full Company Rebrands",
+                  desc: "Led two end-to-end rebranding initiatives at HeyGen: each required rebuilding the visual identity, messaging architecture, and market positioning from scratch. The result was a 200% increase in brand awareness metrics and a repositioning that made HeyGen credible as an enterprise AI platform, not just a consumer-friendly video tool.",
+                },
+                {
+                  title: "5 Major Product Launches",
+                  desc: "Drove go-to-market for five major product launches spanning new product lines, expansion into enterprise, and international markets. Each launch included launch strategy, sales enablement, co-marketing, lifecycle activation, and cross-channel campaign execution.",
                 },
                 {
                   title: "SEO From Zero",
