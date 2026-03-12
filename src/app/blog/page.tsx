@@ -45,8 +45,33 @@ function formatDate(dateStr: string) {
 }
 
 export default function BlogIndexPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://nplus1ventures.com/blog",
+    name: "GTM & Growth Blog | nPlus1 Ventures",
+    description:
+      "Frameworks and playbooks from 10 years of building GTM systems at B2B SaaS companies.",
+    url: "https://nplus1ventures.com/blog",
+    isPartOf: { "@id": "https://nplus1ventures.com/#website" },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: BLOG_POSTS.map((post, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `https://nplus1ventures.com/blog/${post.slug}`,
+        name: post.title,
+      })),
+    },
+  };
+
+
+  // JSON-LD structured data — static server-side data only, no user input
+  const jsonLdString = JSON.stringify(jsonLd);
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString }} />
       <Navbar />
       <main id="main-content">
         {/* Hero */}

@@ -366,6 +366,40 @@ export default function RevenueOperationsPage() {
         </section>
 
         {/* CTA */}
+        {/* Related Services */}
+        <section className="py-16 border-b border-white/5">
+          <div className="mx-auto max-w-4xl px-6 lg:px-10">
+            <p className="text-sm font-semibold text-orange-400 tracking-wide uppercase mb-6">
+              Related Services
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                {
+                  href: "/services/growth-marketing",
+                  label: "Growth Marketing",
+                  desc: "Fractional VP Marketing for B2B SaaS — strategy, brand, PLG, and community.",
+                },
+                {
+                  href: "/services/demand-generation",
+                  label: "Demand Generation",
+                  desc: "ABM, content, SEO, paid, and lifecycle programs that build predictable pipeline.",
+                },
+              ].map((s) => (
+                <Link
+                  key={s.href}
+                  href={s.href}
+                  className="group rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-white/20 hover:bg-white/[0.05] transition-all duration-300"
+                >
+                  <p className="text-sm font-bold text-foreground group-hover:text-orange-400 transition-colors mb-1">
+                    {s.label} →
+                  </p>
+                  <p className="text-xs text-muted leading-relaxed">{s.desc}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="py-24" aria-label="Contact call to action">
           <div className="mx-auto max-w-3xl px-6 lg:px-10 text-center">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-4">
