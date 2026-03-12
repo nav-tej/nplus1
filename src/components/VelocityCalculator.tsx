@@ -147,7 +147,7 @@ export default function VelocityCalculator() {
                   <input
                     type="range" min="1000000" max="1000000000" step="1000000"
                     value={inputs.arr}
-                    onChange={(e) => setInputs(p => ({ ...prev, arr: parseInt(e.target.value) }))}
+                    onChange={(e) => setInputs(prev => ({ ...prev, arr: parseInt(e.target.value) }))}
                     className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent"
                   />
                 </div>
@@ -166,7 +166,7 @@ export default function VelocityCalculator() {
                   <input
                     type="range" min="1" max="60" step="1"
                     value={inputs.winRate}
-                    onChange={(e) => setInputs(p => ({ ...prev, winRate: parseInt(e.target.value) }))}
+                    onChange={(e) => setInputs(prev => ({ ...prev, winRate: parseInt(e.target.value) }))}
                     className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent"
                   />
                 </div>
@@ -185,7 +185,7 @@ export default function VelocityCalculator() {
                   <input
                     type="range" min="1000" max="500000" step="1000"
                     value={inputs.acv}
-                    onChange={(e) => setInputs(p => ({ ...prev, acv: parseInt(e.target.value) }))}
+                    onChange={(e) => setInputs(prev => ({ ...prev, acv: parseInt(e.target.value) }))}
                     className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent"
                   />
                 </div>
@@ -204,7 +204,7 @@ export default function VelocityCalculator() {
                   <input
                     type="range" min="7" max="365" step="1"
                     value={inputs.cycle}
-                    onChange={(e) => setInputs(p => ({ ...prev, cycle: parseInt(e.target.value) }))}
+                    onChange={(e) => setInputs(prev => ({ ...prev, cycle: parseInt(e.target.value) }))}
                     className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent"
                   />
                 </div>
