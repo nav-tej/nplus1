@@ -139,7 +139,7 @@ export default function DemandGenerationPage() {
                 },
                 {
                   title: "4. SEO Program",
-                  desc: "SEO is the only demand gen channel with compounding returns. I built HeyGen's first SEO program and drove 50% YoY organic traffic growth within 12 months.",
+                  desc: "SEO is the only demand gen channel with compounding returns. I built HeyGen's first structured SEO program, reversing a declining organic baseline and driving 50%+ YoY organic traffic growth within 12 months.",
                   bullets: [
                     "Technical SEO audit and remediation",
                     "Keyword strategy by funnel stage and buyer persona",

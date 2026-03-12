@@ -266,7 +266,7 @@ export default function GrowthMarketingPage() {
                   results: [
                     "5x ARR growth: $20M to $100M",
                     "Complete company rebrand, 200% brand awareness increase",
-                    "50% YoY organic traffic growth",
+                    "50%+ YoY organic traffic growth",
                     "100K community members in 6 months",
                   ],
                 },

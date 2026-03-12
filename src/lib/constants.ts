@@ -145,7 +145,7 @@ export const FOUNDER = {
     {
       company: "HeyGen",
       role: "Head of Revenue Operations",
-      period: "Apr 2024–Present",
+      period: "Apr 2024–Jan 2026",
       location: "San Francisco, CA",
       highlight: "$20M → $100M+ ARR",
       description:

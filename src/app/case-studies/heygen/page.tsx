@@ -34,9 +34,9 @@ export const metadata: Metadata = {
 const RESULTS = [
   { metric: "5x", label: "ARR growth: $20M to $100M+" },
   { metric: "200%", label: "Increase in brand awareness" },
-  { metric: "50%", label: "YoY organic traffic growth from zero" },
+  { metric: "50%+", label: "YoY organic traffic growth, reversing a declining baseline" },
   { metric: "100K", label: "Community members in 6 months" },
-  { metric: "$25M", label: "ABM pipeline, 25% win rate improvement" },
+  { metric: "$XXM", label: "ABM pipeline, 25% win rate improvement" },
   { metric: "50%", label: "Improvement in customer retention" },
   { metric: "200%", label: "Increase in international revenue" },
   { metric: "1M+", label: "Organic views per month" },
@@ -68,7 +68,7 @@ export default function HeyGenCaseStudyPage() {
               {[
                 { label: "Company", value: "HeyGen" },
                 { label: "Role", value: "Head of Revenue Operations & Growth" },
-                { label: "Duration", value: "April 2024 - Present" },
+                { label: "Duration", value: "April 2024 - Jan 2026" },
                 { label: "ARR at Start", value: "~$20M" },
                 { label: "ARR at End", value: "$100M+" },
               ].map((item) => (
@@ -101,7 +101,7 @@ export default function HeyGenCaseStudyPage() {
               </p>
               <p>
                 When I joined, HeyGen had 15-20 million registered users
-                globally but fewer than 1 million were active. The product had
+                globally but fewer than 1 million were regularly active. The product had
                 viral reach but was not converting or retaining at the rate the
                 growth required. The brand also needed to evolve. HeyGen had
                 outgrown its early positioning and needed a rebrand that
@@ -129,7 +129,7 @@ export default function HeyGenCaseStudyPage() {
                 },
                 {
                   title: "SEO From Zero",
-                  desc: "Built and launched HeyGen's first SEO program. Full keyword strategy, technical SEO foundation, content production system, and link-building program. Result: 50% year-over-year organic traffic growth.",
+                  desc: "Built and launched HeyGen's first structured SEO program from a declining organic baseline. Full keyword strategy, technical SEO foundation, content production system, and link-building program. Result: 50%+ year-over-year organic traffic growth.",
                 },
                 {
                   title: "Community Platform: 100K Members in 6 Months",
@@ -144,8 +144,8 @@ export default function HeyGenCaseStudyPage() {
                   desc: "Built content operations that scaled HeyGen's production to 50+ pieces per month, generating over 1 million organic views. This content engine fed SEO, social, email, and partner channels.",
                 },
                 {
-                  title: "Enterprise ABM Program",
-                  desc: "Built an ABM program targeting Global 2000 accounts across Agency, L&D, and API/LiveAvatar segments. Result: $25M in enterprise pipeline. Win rates improved 25% through dedicated sales enablement and enterprise marketing collateral.",
+                  title: "Enterprise ABM & Signal-Based Outbound",
+                  desc: "Built a full ABM motion targeting Global 2000 accounts across Agency, L&D, and API/LiveAvatar segments, plus a signal-based outbound program that used intent data and product signals to trigger automated and SDR-led sequences. Result: $XXM in enterprise pipeline, with win rates improving 25% through dedicated sales enablement and enterprise marketing collateral.",
                 },
                 {
                   title: "Lifecycle & Retention",
