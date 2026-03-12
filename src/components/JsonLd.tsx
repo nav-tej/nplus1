@@ -11,9 +11,9 @@ export default function JsonLd() {
         url: "https://nplus1ventures.com",
         logo: {
           "@type": "ImageObject",
-          url: "https://nplus1ventures.com/logo-md.webp",
-          width: 288,
-          height: 192,
+          url: "https://nplus1ventures.com/logo-square.png",
+          width: 512,
+          height: 512,
         },
         email: "hello@nplus1ventures.com",
         description:

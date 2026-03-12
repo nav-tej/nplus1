@@ -99,6 +99,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://us.i.posthog.com" />
         <link rel="dns-prefetch" href="https://us.i.posthog.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body className={`${inter.variable} antialiased`}>
         <GtmProvider />
