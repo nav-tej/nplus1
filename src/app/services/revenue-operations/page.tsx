@@ -36,11 +36,63 @@ export const metadata: Metadata = {
 
 const RO_SCHEMA = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://nplus1ventures.com" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://nplus1ventures.com/services/revenue-operations" },
-    { "@type": "ListItem", position: 3, name: "Revenue Operations", item: "https://nplus1ventures.com/services/revenue-operations" },
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://nplus1ventures.com" },
+        { "@type": "ListItem", position: 2, name: "Services", item: "https://nplus1ventures.com/services/revenue-operations" },
+        { "@type": "ListItem", position: 3, name: "Revenue Operations", item: "https://nplus1ventures.com/services/revenue-operations" },
+      ],
+    },
+    {
+      "@type": "Service",
+      "@id": "https://nplus1ventures.com/services/revenue-operations#service",
+      name: "Revenue Operations Consulting",
+      description: "RevOps consulting for B2B SaaS covering GTM systems architecture, AI-driven forecasting, pipeline analytics, PLG-to-sales motion design, and Salesforce/HubSpot implementation. Built for companies from $5M to $200M ARR.",
+      provider: { "@id": "https://nplus1ventures.com/#organization" },
+      areaServed: { "@type": "Country", name: "United States" },
+      serviceType: "Revenue Operations Consulting",
+      url: "https://nplus1ventures.com/services/revenue-operations",
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://nplus1ventures.com/services/revenue-operations#faq",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What does a RevOps consultant actually do for a B2B SaaS company?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "A RevOps consultant designs and builds the systems, data flows, and processes that connect Marketing, Sales, and Customer Success into a single revenue engine. In practice this means GTM stack architecture, forecasting models, pipeline analytics, lead routing, attribution, and the operational logic that makes your CRM and MarTech work together. I have built these systems for companies at $5M, $50M, and $100M+ ARR.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How long does a RevOps engagement typically take?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "A full RevOps buildout typically runs 3 to 6 months: audit and architecture in month one, implementation in months two through four, and optimization and handoff in months five and six. For companies that need ongoing embedded RevOps leadership, I also offer fractional engagements where I act as your Head of RevOps on a monthly retainer.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you work with Salesforce, HubSpot, or both?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Both. I have implemented and optimized Salesforce at HeyGen and Egnyte, and HubSpot at earlier-stage companies. The CRM recommendation depends on your stage, sales motion, and the complexity of your data model. I also work across the broader MarTech stack: Marketo, Customer.io, Braze, PostHog, Amplitude, Snowflake, and 50+ other tools.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is RevOps consulting worth it for a company under $10M ARR?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "At under $10M ARR, the highest-value RevOps investments are clean CRM data, basic attribution, and a simple lead routing process. A full RevOps buildout is usually premature. I offer focused diagnostic engagements for earlier-stage companies that identify the three to five highest-leverage improvements without over-building for your current scale.",
+          },
+        },
+      ],
+    },
   ],
 });
 

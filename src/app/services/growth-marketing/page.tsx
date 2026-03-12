@@ -43,7 +43,18 @@ const GM_SCHEMA = JSON.stringify({
       ],
     },
     {
+      "@type": "Service",
+      "@id": "https://nplus1ventures.com/services/growth-marketing#service",
+      name: "Fractional VP Marketing",
+      description: "Fractional VP Marketing and growth marketing consulting for B2B SaaS companies. Strategy, brand, demand generation, PLG, and community. Nav Singh scaled HeyGen from $20M to $100M+ ARR.",
+      provider: { "@id": "https://nplus1ventures.com/#organization" },
+      areaServed: { "@type": "Country", name: "United States" },
+      serviceType: "Fractional VP Marketing",
+      url: "https://nplus1ventures.com/services/growth-marketing",
+    },
+    {
       "@type": "FAQPage",
+      "@id": "https://nplus1ventures.com/services/growth-marketing#faq",
       mainEntity: [
         {
           "@type": "Question",

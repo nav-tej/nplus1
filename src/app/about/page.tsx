@@ -48,6 +48,13 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://nplus1ventures.com" },
+          { "@type": "ListItem", position: 2, name: "About", item: "https://nplus1ventures.com/about" },
+        ],
+      },
+      {
         "@type": "ProfilePage",
         "@id": "https://nplus1ventures.com/about",
         url: "https://nplus1ventures.com/about",

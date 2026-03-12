@@ -35,11 +35,63 @@ export const metadata: Metadata = {
 
 const DG_SCHEMA = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://nplus1ventures.com" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://nplus1ventures.com/services/demand-generation" },
-    { "@type": "ListItem", position: 3, name: "Demand Generation", item: "https://nplus1ventures.com/services/demand-generation" },
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://nplus1ventures.com" },
+        { "@type": "ListItem", position: 2, name: "Services", item: "https://nplus1ventures.com/services/demand-generation" },
+        { "@type": "ListItem", position: 3, name: "Demand Generation", item: "https://nplus1ventures.com/services/demand-generation" },
+      ],
+    },
+    {
+      "@type": "Service",
+      "@id": "https://nplus1ventures.com/services/demand-generation#service",
+      name: "Demand Generation Consulting",
+      description: "B2B SaaS demand generation consulting covering ABM, content marketing, SEO, paid acquisition, and lifecycle programs. Nav Singh has created $400M+ in marketing-sourced pipeline across HeyGen, Semgrep, and Egnyte.",
+      provider: { "@id": "https://nplus1ventures.com/#organization" },
+      areaServed: { "@type": "Country", name: "United States" },
+      serviceType: "Demand Generation Consulting",
+      url: "https://nplus1ventures.com/services/demand-generation",
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://nplus1ventures.com/services/demand-generation#faq",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What demand generation channels do you focus on for B2B SaaS?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "The right channel mix depends on your motion and stage. For mid-market and enterprise, ABM on LinkedIn combined with intent data (6sense or Demandbase) typically delivers the highest ROI. For PLG companies, SEO and lifecycle automation are the core. At HeyGen and Egnyte I built full-stack programs covering ABM, content, SEO, paid search, and lifecycle, and then prioritized based on what the unit economics supported.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How long does it take to see results from a demand generation program?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Paid and lifecycle programs can show results within 30 to 60 days. SEO and content compound over 6 to 12 months. ABM programs targeting enterprise accounts typically run on a 90-day cycle before showing meaningful pipeline. I set realistic timelines at the start of every engagement so expectations are calibrated correctly.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you build demand gen programs in-house or bring your own team?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Both. I can embed within your existing marketing team as fractional demand gen leadership, or I can bring in specialized contractors (SEO, paid, content, design) from my network if you need to build from scratch. Most engagements involve a combination of coaching your existing team and filling gaps with vetted specialists.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What stage of company do you typically work with on demand generation?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Primarily Series A through C B2B SaaS companies between $5M and $100M ARR. This is the stage where demand gen programs have the most leverage: the product is proven, ICP is reasonably clear, but the systematic pipeline engine has not yet been built. I have also worked with post-Series C companies needing to scale specific channels.",
+          },
+        },
+      ],
+    },
   ],
 });
 
