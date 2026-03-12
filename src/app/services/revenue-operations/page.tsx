@@ -34,9 +34,20 @@ export const metadata: Metadata = {
   },
 };
 
+const RO_SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://nplus1ventures.com" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://nplus1ventures.com/services/revenue-operations" },
+    { "@type": "ListItem", position: 3, name: "Revenue Operations", item: "https://nplus1ventures.com/services/revenue-operations" },
+  ],
+});
+
 export default function RevenueOperationsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: RO_SCHEMA }} />
       <Navbar />
       <main id="main-content">
         {/* Hero */}

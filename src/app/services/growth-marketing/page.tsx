@@ -31,9 +31,50 @@ export const metadata: Metadata = {
   },
 };
 
+const GM_SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://nplus1ventures.com" },
+        { "@type": "ListItem", position: 2, name: "Services", item: "https://nplus1ventures.com/services/growth-marketing" },
+        { "@type": "ListItem", position: 3, name: "Growth Marketing", item: "https://nplus1ventures.com/services/growth-marketing" },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "How is this different from hiring a marketing agency?",
+          acceptedAnswer: { "@type": "Answer", text: "Agencies execute campaigns. I own the strategy, build the team, and take accountability for pipeline outcomes, just like a full-time VP would. I also stay long enough to make permanent hires and hand off a working system." },
+        },
+        {
+          "@type": "Question",
+          name: "Do you work remotely or in-person?",
+          acceptedAnswer: { "@type": "Answer", text: "Both. I am based in San Francisco and available for on-site time with Bay Area companies. I work remotely with companies across the US and am open to traveling for workshops." },
+        },
+        {
+          "@type": "Question",
+          name: "What does pricing look like?",
+          acceptedAnswer: { "@type": "Answer", text: "Engagements are monthly retainers scoped to the work. I share a pricing range on our first call after understanding your situation. Most engagements fall between $15K to $30K per month depending on hours and scope." },
+        },
+        {
+          "@type": "Question",
+          name: "How quickly can we see results?",
+          acceptedAnswer: { "@type": "Answer", text: "LinkedIn and outbound programs can generate leads within 30 days. Content and SEO compound over 3 to 6 months. Pipeline attribution and demand gen results typically show material improvement by month 2 to 3." },
+        },
+      ],
+    },
+  ],
+});
+
 export default function GrowthMarketingPage() {
   return (
     <>
+      {/* Static JSON-LD structured data */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: GM_SCHEMA }} />
       <Navbar />
       <main id="main-content">
         {/* Hero */}

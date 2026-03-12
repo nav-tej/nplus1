@@ -40,9 +40,6 @@ export default function JsonLd() {
         provider: {
           "@id": "https://nplus1ventures.com/#organization",
         },
-        founder: {
-          "@id": "https://nplus1ventures.com/about#navsingh",
-        },
         serviceType: [
           "Fractional VP Marketing",
           "Go-To-Market Strategy",
@@ -75,17 +72,18 @@ export default function JsonLd() {
           },
           reviewBody: t.quote,
         })),
-        mainEntity: {
-          "@type": "FAQPage",
-          mainEntity: FAQS.map((faq) => ({
-            "@type": "Question",
-            name: faq.question,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: faq.answer,
-            },
-          })),
-        },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://nplus1ventures.com/#faq",
+        mainEntity: FAQS.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
       },
       {
         "@type": "Person",
@@ -140,6 +138,14 @@ export default function JsonLd() {
         name: "nPlus1 Ventures",
         publisher: {
           "@id": "https://nplus1ventures.com/#organization",
+        },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: "https://nplus1ventures.com/blog?q={search_term_string}",
+          },
+          "query-input": "required name=search_term_string",
         },
       },
       {

@@ -44,8 +44,61 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   const testimonialSubset = TESTIMONIALS.slice(0, 3);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://nplus1ventures.com/about",
+        url: "https://nplus1ventures.com/about",
+        name: "Nav Singh | Founder, nPlus1 Ventures",
+        isPartOf: { "@id": "https://nplus1ventures.com/#website" },
+        mainEntity: { "@id": "https://nplus1ventures.com/about#navsingh" },
+      },
+      {
+        "@type": "Person",
+        "@id": "https://nplus1ventures.com/about#navsingh",
+        name: FOUNDER.name,
+        alternateName: FOUNDER.alternateName,
+        jobTitle: FOUNDER.title,
+        url: "https://nplus1ventures.com/about",
+        image: "https://nplus1ventures.com/nav-singh.jpg",
+        description:
+          "Nav Singh is a fractional VP of Marketing and Revenue Operations executive who scaled HeyGen from $20M to $100M+ ARR and previously served as a GTM Partner at Andreessen Horowitz (a16z). Based in San Francisco.",
+        sameAs: [FOUNDER.linkedin, FOUNDER.twitter],
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "San Francisco",
+          addressRegion: "CA",
+          addressCountry: "US",
+        },
+        worksFor: { "@id": "https://nplus1ventures.com/#organization" },
+        alumniOf: [
+          { "@type": "Organization", name: "Andreessen Horowitz", url: "https://a16z.com" },
+        ],
+        hasCredential: FOUNDER.certifications.map((cert) => ({
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "certification",
+          name: cert,
+        })),
+        knowsAbout: [
+          "B2B SaaS Marketing",
+          "Revenue Operations",
+          "Product-Led Growth",
+          "Demand Generation",
+          "Go-to-Market Strategy",
+          "Account-Based Marketing",
+          "Marketing Automation",
+        ],
+      },
+    ],
+  };
+  // Static JSON-LD — no user input, safe to inject
+  const jsonLdString = JSON.stringify(jsonLd);
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString }} />
       <Navbar />
       <main id="main-content">
         {/* ── Hero ── */}

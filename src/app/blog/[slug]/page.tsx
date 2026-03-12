@@ -74,12 +74,15 @@ export default async function BlogPostPage({ params }: Props) {
       {
         "@type": "Article",
         "@id": `https://nplus1ventures.com/blog/${post.slug}#article`,
+        url: `https://nplus1ventures.com/blog/${post.slug}`,
         headline: post.title,
         description: post.description,
         image: `https://nplus1ventures.com/blog/${post.slug}/opengraph-image`,
         datePublished: post.publishDate,
+        dateModified: post.publishDate,
         author: {
           "@type": "Person",
+          "@id": "https://nplus1ventures.com/about#navsingh",
           name: "Nav Singh",
           url: "https://nplus1ventures.com/about",
         },
@@ -89,6 +92,9 @@ export default async function BlogPostPage({ params }: Props) {
         mainEntityOfPage: {
           "@type": "WebPage",
           "@id": `https://nplus1ventures.com/blog/${post.slug}`,
+        },
+        isPartOf: {
+          "@id": "https://nplus1ventures.com/#website",
         },
       },
       {

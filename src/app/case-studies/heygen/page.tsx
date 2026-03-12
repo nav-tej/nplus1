@@ -15,9 +15,39 @@ export const metadata: Metadata = {
   },
 };
 
+const CASE_STUDY_SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://nplus1ventures.com/case-studies/heygen#article",
+      url: "https://nplus1ventures.com/case-studies/heygen",
+      headline: "HeyGen GTM Case Study: $20M to $100M+ ARR",
+      description:
+        "How Nav Singh scaled HeyGen from $20M to $100M+ ARR through a complete GTM rebrand, SEO program, 100K-member community, enterprise ABM, and lifecycle automation.",
+      image: "https://nplus1ventures.com/opengraph-image",
+      datePublished: "2024-04-01",
+      author: { "@id": "https://nplus1ventures.com/about#navsingh" },
+      publisher: { "@id": "https://nplus1ventures.com/#organization" },
+      mainEntityOfPage: { "@type": "WebPage", "@id": "https://nplus1ventures.com/case-studies/heygen" },
+      isPartOf: { "@id": "https://nplus1ventures.com/#website" },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://nplus1ventures.com" },
+        { "@type": "ListItem", position: 2, name: "Case Studies", item: "https://nplus1ventures.com/case-studies/heygen" },
+        { "@type": "ListItem", position: 3, name: "HeyGen: $20M to $100M+ ARR", item: "https://nplus1ventures.com/case-studies/heygen" },
+      ],
+    },
+  ],
+});
+
 export default function CaseStudyPage() {
   return (
     <>
+      {/* Static JSON-LD — no user input */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: CASE_STUDY_SCHEMA }} />
       <Navbar />
       <main id="main-content" className="pt-32 pb-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">

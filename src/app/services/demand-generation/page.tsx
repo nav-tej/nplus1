@@ -33,9 +33,21 @@ export const metadata: Metadata = {
   },
 };
 
+const DG_SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://nplus1ventures.com" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://nplus1ventures.com/services/demand-generation" },
+    { "@type": "ListItem", position: 3, name: "Demand Generation", item: "https://nplus1ventures.com/services/demand-generation" },
+  ],
+});
+
 export default function DemandGenerationPage() {
   return (
     <>
+      {/* Static JSON-LD structured data */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: DG_SCHEMA }} />
       <Navbar />
       <main id="main-content">
         {/* Hero */}
