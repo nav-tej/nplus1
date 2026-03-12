@@ -76,7 +76,7 @@ export default async function BlogPostPage({ params }: Props) {
         "@id": `https://nplus1ventures.com/blog/${post.slug}#article`,
         headline: post.title,
         description: post.description,
-        image: `https://nplus1ventures.com/opengraph-image.png`, // Fallback or dynamic
+        image: `https://nplus1ventures.com/blog/${post.slug}/opengraph-image`,
         datePublished: post.publishDate,
         author: {
           "@type": "Person",

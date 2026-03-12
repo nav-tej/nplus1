@@ -5,6 +5,10 @@ export const alt = "nPlus1 Ventures Blog Post";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+export function generateStaticParams() {
+  return BLOG_POSTS.map((p) => ({ slug: p.slug }));
+}
+
 const ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#0B1221"/><defs><linearGradient id="ag" x1="14" y1="52" x2="50" y2="10" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F97316"/><stop offset="55%" stop-color="#2563EB"/><stop offset="100%" stop-color="#60A5FA"/></linearGradient></defs><line x1="14" y1="52" x2="40" y2="21" stroke="url(#ag)" stroke-width="7.5" stroke-linecap="round"/><polygon points="50,10 46,26 36,16" fill="url(#ag)"/><path d="M 5 48 C 15 56 36 53 53 41" stroke="#F97316" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M 9 42 C 18 49 36 47 50 36" stroke="#F97316" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/><circle cx="50" cy="10" r="5.5" fill="#F97316"/></svg>`;
 
 const MARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><defs><linearGradient id="ag2" x1="14" y1="52" x2="50" y2="10" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F97316"/><stop offset="55%" stop-color="#2563EB"/><stop offset="100%" stop-color="#60A5FA"/></linearGradient></defs><line x1="14" y1="52" x2="40" y2="21" stroke="url(#ag2)" stroke-width="7.5" stroke-linecap="round"/><polygon points="50,10 46,26 36,16" fill="url(#ag2)"/><path d="M 5 48 C 15 56 36 53 53 41" stroke="#F97316" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M 9 42 C 18 49 36 47 50 36" stroke="#F97316" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/><circle cx="50" cy="10" r="5.5" fill="#F97316"/></svg>`;
@@ -157,7 +161,7 @@ export default async function Image({
               borderRadius: "100px",
               padding: "6px 16px",
               letterSpacing: "0.5px",
-              width: "fit-content",
+              alignSelf: "flex-start",
             }}
           >
             {category}
