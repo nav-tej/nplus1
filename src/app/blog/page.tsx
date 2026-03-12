@@ -28,6 +28,12 @@ export const metadata: Metadata = {
     description:
       "Frameworks and playbooks from 10 years of building GTM systems at B2B SaaS companies.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "GTM & Growth Blog | nPlus1 Ventures",
+    description:
+      "Frameworks and playbooks from 10 years of building GTM systems at B2B SaaS companies. Real strategies. Proven results.",
+  },
 };
 
 function formatDate(dateStr: string) {
