@@ -691,12 +691,12 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </P>
       <Ul>
         <Li>
-          Work backwards from your closed-won enterprise deals — what was the
+          Work backwards from your closed-won enterprise deals to see what was the
           product behavior of those users 30/60/90 days before they converted?
         </Li>
         <Li>
           Identify 3&ndash;5 behavioral signals that strongly predict conversion
-          (in my experience, collaboration events — sharing, inviting teammates —
+          (in my experience, collaboration events, such as sharing or inviting teammates,
           are almost always predictive)
         </Li>
         <Li>
@@ -715,14 +715,14 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <H3>Move 2: Build the Sales-Assist Workflow</H3>
       <P>
         Once you&apos;ve identified PQLs, you need a workflow that gets the right
-        sales rep engaging the right account at the right moment — without
+        sales rep engaging the right account at the right moment, without
         disrupting the self-serve experience.
       </P>
       <Ul>
         <Li>
           <Bold>Automated routing:</Bold> When an account hits PQL threshold,
           route to the appropriate rep within 30 minutes. Speed matters
-          enormously — the window of maximum engagement is short. We reduced
+          enormously, as the window of maximum engagement is short. We reduced
           response time from 24 hours to 30 minutes.
         </Li>
         <Li>
@@ -733,7 +733,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         <Li>
           <Bold>Outreach sequence:</Bold> A tailored sequence that references the
           product usage: &ldquo;I noticed your team has been using [feature]
-          heavily — we&apos;ve seen companies in your space use this to [specific
+          heavily. For example, we&apos;ve seen companies in your space use this to [specific
           outcome]. Worth a 20-minute conversation?&rdquo;
         </Li>
         <Li>
@@ -761,12 +761,12 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <Ul>
         <Li>
           <Bold>Case studies with hard ROI numbers:</Bold> Not &ldquo;our
-          customers love us&rdquo; — &ldquo;Company X reduced video production
+          customers love us.&rdquo; For instance, &ldquo;Company X reduced video production
           cost by 70% and time-to-publish by 80%.&rdquo;
         </Li>
         <Li>
           <Bold>Comparison and evaluation guides:</Bold> Enterprise procurement
-          teams evaluate alternatives — be the most helpful resource at this
+          teams evaluate alternatives, so you can be the most helpful resource at this
           stage.
         </Li>
         <Li>
@@ -814,7 +814,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         At Semgrep, building the PLG-to-enterprise transition drove 5× revenue
         growth and built a segment-specific enterprise motion that became the
-        company&apos;s primary growth engine — while maintaining and improving
+        company&apos;s primary growth engine, while maintaining and improving
         PLG activation metrics.
       </P>
       <P>
@@ -823,7 +823,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </P>
       <P>
         The companies that execute this transition well don&apos;t just double or
-        triple revenue. They fundamentally change the trajectory — because they
+        triple revenue. They fundamentally change the trajectory because they
         now have two compounding flywheels running simultaneously.
       </P>
 
@@ -841,7 +841,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         in marketing-sourced pipeline across HeyGen, Semgrep, and Egnyte.
       </P>
       <P>
-        That&apos;s not a credential — it&apos;s the result of building (and
+        That&apos;s not a credential; it&apos;s the result of building (and
         rebuilding) the same core demand gen system in different contexts, with
         different products, at different stages of company growth. Here&apos;s the
         framework.
@@ -884,7 +884,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <H2>Component 1: Audience Definition (ICP + Segments)</H2>
       <P>
         Every demand gen program I&apos;ve rebuilt has started with ICP
-        refinement — and it almost always uncovers that the company&apos;s ICP is
+        refinement, which almost always uncovers that the company&apos;s ICP is
         too broad.
       </P>
       <P>The ICP refinement process I use:</P>
@@ -925,7 +925,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         This is the compound channel. A well-executed content program targeting
         the right keywords reaches buyers when they&apos;re educating themselves
-        about a problem — weeks or months before they&apos;re ready to buy.
+        about a problem, weeks or months before they&apos;re ready to buy.
         I&apos;ve built content operations producing 50+ pieces per month that
         generated 1M+ organic views. The ROI is exceptional, but you need to
         commit for 6&ndash;12 months before you see meaningful results.
@@ -933,7 +933,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
 
       <H3>LinkedIn Thought Leadership</H3>
       <P>
-        Publishing genuine expertise — not promotional content — builds the brand
+        Publishing genuine expertise, rather than promotional content, builds the brand
         recognition and trust that makes all your other channels work better.
         I&apos;ve seen LinkedIn content increase email open rates, improve cold
         outreach response rates, and shorten sales cycles simply because prospects
@@ -959,7 +959,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <H2>Component 3: Demand Capture</H2>
       <P>
         Demand capture intercepts buyers who are actively searching for solutions.
-        This is where most demand gen budgets go — and it&apos;s the easiest
+        This is where most demand gen budgets go, and it&apos;s the easiest
         component to optimize.
       </P>
       <Ul>
@@ -971,7 +971,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         <Li>
           <Bold>Review sites and comparison content:</Bold> G2, Capterra, and
           similar sites are where enterprise buyers do their final shortlisting.
-          Being present here — with strong reviews and accurate positioning — is
+          Being present here, with strong reviews and accurate positioning, is
           essential.
         </Li>
         <Li>
@@ -1008,7 +1008,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         Marketing-pipeline conversion rates are heavily influenced by how
         well-armed sales is. Case studies, ROI calculators, competitive
-        battlecards, and demo frameworks — built for specific ICP segments — can
+        battlecards, and demo frameworks, built for specific ICP segments, can
         move win rates by 15&ndash;25%.
       </P>
 
@@ -1022,7 +1022,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <Ul>
         <Li>
           <Bold>Multi-touch attribution:</Bold> I&apos;ve implemented attribution
-          models with 90% coverage — tracking every marketing touchpoint from
+          models with 90% coverage, tracking every marketing touchpoint from
           first awareness to closed-won.
         </Li>
         <Li>
@@ -1092,7 +1092,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
   "revenue-operations-ai-forecasting-2025": (
     <>
       <P>
-        I&apos;ll be sharing more on this topic at an upcoming webinar — but I
+        I&apos;ll be sharing more on this topic at an upcoming webinar, but I
         wanted to get the core ideas down here first, because this is a question I
         get constantly: what does a high-functioning RevOps organization actually
         look like in 2025?
@@ -1146,14 +1146,14 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <H3>1. A Real-Time Data Architecture</H3>
       <P>
         The foundation of modern RevOps is not a CRM. It&apos;s a data
-        architecture that unifies signals from every system — product, CRM,
-        marketing automation, conversation intelligence, support — in real time.
+        architecture that unifies signals from every system, including product, CRM,
+        marketing automation, conversation intelligence, and support, in real time.
       </P>
       <P>
         At HeyGen, I designed a data architecture that processed 10M+ monthly
         events in real time: product usage events from PostHog, CRM updates from
         Salesforce, campaign engagement from Customer.io, conversation data from
-        Gong — all flowing into a unified data warehouse and being piped back into
+        Gong, all flowing into a unified data warehouse and being piped back into
         operational systems via Census and Polytomic.
       </P>
       <P>What this enables:</P>
@@ -1185,9 +1185,8 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         </Li>
         <Li>
           <Bold>95% accuracy:</Bold> Pattern-trained model. &ldquo;Based on how
-          this deal has behaved compared to historical closed-won patterns —
-          velocity, engagement frequency, champion behavior, competitive mentions
-          — this deal looks like an 82% probability to close by end of
+          this deal has behaved compared to historical closed-won patterns.
+          Specifically, this deal looks like an 82% probability to close by end of
           month.&rdquo;
         </Li>
       </Ul>
@@ -1195,13 +1194,13 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         The inputs that matter most vary by company. Deal velocity, champion
         engagement frequency, multi-threading, and competitive mention patterns
         are almost always predictive. The model learns which signals matter in
-        your specific sales environment — and gets more accurate over time.
+        your specific sales environment and gets more accurate over time.
       </P>
 
       <H3>3. PLG Intelligence</H3>
       <P>
         If you have a PLG motion, your product is generating the richest
-        behavioral data in your GTM stack — and most RevOps functions aren&apos;t
+        behavioral data in your GTM stack, and most RevOps functions aren&apos;t
         using it.
       </P>
       <P>The full PLG intelligence system includes:</P>
@@ -1225,14 +1224,14 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </Ul>
       <P>
         At HeyGen, our product health scoring model predicted churn with 85%
-        accuracy and identified expansion opportunities systematically — turning
+        accuracy and identified expansion opportunities systematically, turning
         product data into a revenue operations input.
       </P>
 
       <H3>4. Automated Renewal &amp; Expansion Operations</H3>
       <P>
         Renewals and expansions are the highest-margin revenue a SaaS company
-        generates — and they&apos;re routinely underinvested.
+        generates, and they&apos;re routinely underinvested.
       </P>
       <P>The automated renewal system I built at HeyGen:</P>
       <Ul>
@@ -1251,7 +1250,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
 
       <H3>5. Board-Level Reporting That Leadership Actually Trusts</H3>
       <P>
-        The output of a well-functioning RevOps organization is confidence —
+        The output of a well-functioning RevOps organization is confidence:
         confidence in the forecast, confidence in the attribution data, confidence
         in the pipeline health. Board-level reporting should answer three
         questions:
@@ -1313,7 +1312,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         driving a measurable 30% lift in new customer acquisition.
       </P>
       <P>
-        Here&apos;s how we did it — and more importantly, why community-led
+        Here&apos;s how we did it, and more importantly, why community-led
         growth works as a B2B acquisition channel in a way that many operators
         underestimate.
       </P>
@@ -1360,8 +1359,8 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         The worst thing you can do when launching a community is open the doors
         to a ghost town. We identified HeyGen&apos;s most engaged users through
-        product analytics — users with the highest usage frequency, highest video
-        output, and highest sharing behavior — and engaged them personally before
+        product analytics, users with the highest usage frequency, highest video
+        output, and highest sharing behavior, and engaged them personally before
         the community launched.
       </P>
       <P>We offered seed members:</P>
@@ -1376,12 +1375,12 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         These 200 seed members became the initial energy in the community. When
         the platform launched publicly, new members arrived to find an active,
-        high-quality community — not an empty forum.
+        high-quality community, not an empty forum.
       </P>
 
       <H3>Step 2: Design for Value Exchange, Not Just Connection</H3>
       <P>
-        Many B2B communities fail because they&apos;re structured as forums —
+        Many B2B communities fail because they&apos;re structured as forums:
         places to ask questions and get answers. Useful, but not a growth driver.
       </P>
       <P>
@@ -1390,7 +1389,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <Ul>
         <Li>
           <Bold>Learning:</Bold> Weekly workshops, tutorials, and AMA sessions
-          with HeyGen&apos;s product team and power users. Not promotional —
+          with HeyGen&apos;s product team and power users. This isn't promotional;
           genuinely educational. &ldquo;How to use HeyGen for agency-scale video
           production.&rdquo; &ldquo;How L&D teams are using HeyGen for compliance
           training.&rdquo;
@@ -1441,7 +1440,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         </Li>
         <Li>
           <Bold>Activation rate:</Bold> Users who joined the community had higher
-          product activation rates — they learned faster and adopted more
+          product activation rates as they learned faster and adopted more
           features.
         </Li>
         <Li>
@@ -1467,8 +1466,8 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
           feedback sessions. Community members need to feel their input matters.
         </Li>
         <Li>
-          <Bold>Programming cadence:</Bold> Regular events, challenges, showcases
-          — reasons for members to come back and engage consistently.
+          <Bold>Programming cadence:</Bold> Regular events, challenges, showcases,
+          specifically, reasons for members to come back and engage consistently.
         </Li>
         <Li>
           <Bold>Patience:</Bold> The compounding effect of community doesn&apos;t
@@ -1488,7 +1487,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         </Li>
         <Li>
           Your ICP has professional identity tied to the category (marketers,
-          developers, creators — people who identify with what they do)
+          developers, creators, people who identify with what they do)
         </Li>
       </Ul>
       <P>
@@ -1513,8 +1512,8 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         spray-and-pray outbound with a company name inserted in the subject line.
       </P>
       <P>
-        Real ABM — the kind that generated $XXM in pipeline at HeyGen and
-        improved pipeline efficiency 3× at Egnyte — is a fundamentally different
+        Real ABM, the kind that generated $XXM in pipeline at HeyGen and
+        improved pipeline efficiency 3× at Egnyte, is a fundamentally different
         discipline. Here&apos;s the playbook.
       </P>
 
@@ -1562,7 +1561,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
           and use case
         </Li>
         <Li>
-          Direct mail (yes, it works at this tier — especially for accounts that
+          Direct mail (yes, it works at this tier, especially for accounts that
           are hard to reach digitally)
         </Li>
       </Ul>
@@ -1600,7 +1599,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <H3>Tier 3: Industry/Segment Campaigns (5,000&ndash;20,000 accounts)</H3>
       <P>
         These are broad ICP fits that you don&apos;t have bandwidth to treat
-        individually. Traditional demand gen with ICP targeting — LinkedIn
+        individually. Traditional demand gen with ICP targeting, such as LinkedIn
         advertising, content marketing, webinars by vertical.
       </P>
 
@@ -1611,12 +1610,12 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <Ul>
         <Li>
           <Bold>Intent data:</Bold> 6sense or Demandbase. These tools identify
-          accounts that are researching your category right now — showing up on
+          accounts that are researching your category right now, showing up on
           review sites, consuming competitor content, searching intent keywords.
         </Li>
         <Li>
           <Bold>Research and personalization:</Bold> Clay. This is the tool that
-          enables programmatic Tier 2 ABM at scale — building account research
+          enables programmatic Tier 2 ABM at scale, building account research
           automatically and using AI to generate personalized outreach context.
         </Li>
         <Li>
@@ -1639,7 +1638,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <H2>The Content Approach for ABM</H2>
       <P>
         ABM content is different from demand gen content. The goal is not to
-        attract an audience — it&apos;s to move specific accounts through your
+        attract an audience; it&apos;s to move specific accounts through your
         pipeline.
       </P>
 
@@ -1662,7 +1661,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         Proof and risk reduction. Customer references, security documentation,
         implementation guides, executive briefings. Enterprise buyers need to feel
-        confident that they won&apos;t fail — content at this stage is about
+        confident that they won&apos;t fail. Content at this stage is about
         reducing perceived risk.
       </P>
 
@@ -1692,7 +1691,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         The mistake I see most often: measuring ABM success by volume (how many
         accounts did we touch?) rather than quality (how many accounts converted
-        to pipeline, and at what rate?). ABM is a quality discipline — if
+        to pipeline, and at what rate?). ABM is a quality discipline; if
         you&apos;re measuring it with volume metrics, you&apos;re measuring the
         wrong thing.
       </P>
@@ -1702,7 +1701,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <H2>The Egnyte and HeyGen Results</H2>
       <P>
         At Egnyte, building the double-funnel ABM strategy (Tier 1 white-glove +
-        Tier 2 programmatic) improved pipeline efficiency 3× — we were generating
+        Tier 2 programmatic) improved pipeline efficiency 3× by generating
         more pipeline with the same spend by concentrating investment on
         high-probability accounts. The conversation intelligence and chat programs
         I added generated an additional $20M in pipeline.
@@ -1710,7 +1709,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         At HeyGen, the ABM program targeting Global 2000 accounts across Agency,
         L&D, and API segments generated $XXM in enterprise pipeline. The key
-        enabler was segment-specific messaging and content — treating Agency
+        enabler was segment-specific messaging and content, treating Agency
         buyers, L&D buyers, and enterprise API buyers as completely distinct
         audiences with distinct problems and distinct value propositions.
       </P>
@@ -1726,7 +1725,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
     <>
       <P>
         When I joined HeyGen, the company had 15-20 million registered users and
-        $20M ARR — and essentially zero organic search presence.
+        $20M ARR, and essentially zero organic search presence.
       </P>
       <P>
         The company had been growing almost entirely through product virality and
@@ -1948,12 +1947,12 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <H2>The Results and What They Mean</H2>
       <P>
         50%+ YoY organic traffic growth from a declining baseline is meaningful.
-        But the more important metric is pipeline contribution — how much of that
+        But the more important metric is pipeline contribution: how much of that
         organic traffic turned into leads and customers?
       </P>
       <P>
         At HeyGen, organic search became a meaningful pipeline channel within 12
-        months — not the primary channel, but a real contributor that didn&apos;t
+        months. It was not the primary channel, but a real contributor that didn&apos;t
         require ongoing spend to maintain.
       </P>
       <P>

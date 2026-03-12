@@ -70,10 +70,9 @@ HeyGen's free-to-paid conversion was strong but unsystematic. We built a structu
 
 **Triggered sequences:** We used context-aware nurture sequences that fired on specific product behaviors. For example, a user who creates their first video sees a different sequence than one who imports a PowerPoint or invites a colleague.
 
-**PQL scoring:** We built a Product Qualified Lead model that identified free users most likely to convert. This allowed us to route them to sales-assisted outreach at precisely the right moment—not too early (which is annoying) and not too late (which is a missed opportunity).
+**PQL scoring:** We built a Product Qualified Lead model that identified free users most likely to convert. This allowed us to route them to sales-assisted outreach at precisely the right moment, ideally not too early (which is annoying) and not too late (which is a missed opportunity).
 
 **Result:** We saw meaningful improvement in free-to-paid conversion rates across all plan tiers.
-
 ### 5. Enterprise ABM Motion
 
 The final pillar was building an [enterprise sales motion](/services/demand-generation) on top of the existing PLG base.
@@ -190,7 +189,7 @@ AI forecasting uses deal activity signals, historical pattern matching, and time
 
 ### Layer 5: Personalized Lifecycle at Scale
 
-Email sequences triggered simply by time—like Day 1, Day 3, and Day 7—are a relic. AI-native lifecycle is triggered by behavior and personalized by context.
+Email sequences triggered simply by time, such as Day 1, Day 3, and Day 7, are a relic. AI-native lifecycle is triggered by behavior and personalized by context.
 
 **What to build:**
 - A behavioral trigger library with 20 to 30 specific product actions that predict conversion or churn.
@@ -315,19 +314,19 @@ At Semgrep, we narrowed from "any developer at any company" to "engineering-led 
 
 Don't treat all enterprise accounts the same. A tiered approach lets you allocate resources proportionally to opportunity size.
 
-**Tier 1 (1:1 ABM) — Top 50 to 100 accounts:**
+**Tier 1 (1:1 ABM): Top 50 to 100 accounts:**
 - Dedicated AE plus dedicated research.
 - Fully personalized outreach, content, and demos.
 - Executive-level engagement strategy.
 - Custom business cases and ROI analysis.
 
-**Tier 2 (1:few ABM) — Next 200 to 500 accounts:**
+**Tier 2 (1:few ABM): Next 200 to 500 accounts:**
 - Industry or persona-specific campaigns.
 - Personalized at the segment level, rather than the individual level.
 - SDR-assisted outreach with templated personalization.
 - Industry-specific case studies and content.
 
-**Tier 3 (1:many) — Remaining ICP universe:**
+**Tier 3 (1:many): Remaining ICP universe:**
 - Demand generation campaigns driving inbound interest.
 - Self-serve trials with sales follow-up for high-engagement signals.
 - PLG motion with a sales overlay when a PQL threshold is crossed.
@@ -413,13 +412,13 @@ ABM is the single highest-ROI demand gen motion for mid-market and enterprise B2
 
 **The tiered ABM model:**
 
-**Tier 1 (1:1) — 25 to 100 target accounts:**
+**Tier 1 (1:1): 25 to 100 target accounts:**
 Full-personalization investment involving custom research, bespoke content, tailored demos, and executive outreach. Win rate target: 30%+.
 
-**Tier 2 (1:few) — 200 to 500 accounts:**
+**Tier 2 (1:few): 200 to 500 accounts:**
 Segment-level personalization using industry-specific content and persona-specific sequences. Win rate target: 15% to 20%.
 
-**Tier 3 (1:many) — 1,000 to 5,000 accounts:**
+**Tier 3 (1:many): 1,000 to 5,000 accounts:**
 Programmatic personalization at scale with dynamic content and intent-triggered campaigns. Win rate target: 5% to 10%.
 
 **Intent signals that trigger ABM activation:**
@@ -453,7 +452,7 @@ Most demand gen teams optimize for acquisition and ignore nurture. This is a mis
 
 **MQL to SQL nurture:** The 60% of MQLs that aren't sales-ready right now will be eventually. A structured nurture sequence keeps your brand top-of-mind until the timing is right.
 
-**Re-engagement campaigns:** Past opportunities that went cold—whether lost or due to a lack of decision or timing—are your second-highest-converting segment. Quarterly re-engagement touches with new proof points like customer wins and product updates reliably generate pipeline.
+**Re-engagement campaigns:** Past opportunities that went cold, whether lost or due to a lack of decision or timing, are your second-highest-converting segment. Quarterly re-engagement touches with new proof points like customer wins and product updates reliably generate pipeline.
 
 **Customer expansion:** Existing customers are the easiest new pipeline to generate. Build a systematic expansion motion with usage-triggered expansion alerts, QBR-driven upsell conversations, and cross-sell campaigns.
 
@@ -510,7 +509,7 @@ Revenue operations in 2025 looks fundamentally different from what it looked lik
 
 But the core challenge hasn't changed. It's still about aligning marketing, sales, and customer success around shared data, processes, and goals to maximize revenue efficiency.
 
-Here's what actually moves the needle in [modern RevOps](/services/revenue-operations)—and what's just noise.
+Here's what actually moves the needle in [modern RevOps](/services/revenue-operations), and distinguishing it from what's just noise.
 
 ## The Five Capability Areas That Drive Revenue
 
@@ -526,7 +525,7 @@ Your tech stack is your operating system. A poorly architected stack creates dat
 
 **Engagement layer:** Platforms like Outreach or Salesloft handle sales engagement, while Marketo or HubSpot Marketing manage marketing automation. Customer.io or Iterable are used for product lifecycle.
 
-**Intelligence layer:** Gong or Chorus provide conversation intelligence, 6sense or Demandbase offer intent data, and your BI tool—such as Looker, Metabase, or Tableau—handles analytics.
+**Intelligence layer:** Gong or Chorus provide conversation intelligence, 6sense or Demandbase offer intent data, and your BI tool, such as Looker, Metabase, or Tableau, handles analytics.
 
 **The critical integration principle:** Data must flow cleanly between layers without manual intervention. Every data entry point that requires a human is a reliability failure waiting to happen.
 
@@ -636,7 +635,7 @@ Before the how, here is the why: community works for B2B because it solves three
 
 **Problem 1: Activation cost.** Onboarding new users to a complex product is expensive and involves support tickets, customer success time, and drop-offs before users see value. Community provides peer-to-peer support at scale, which dramatically reduces activation costs.
 
-**Problem 2: Retention.** Users with a social connection to a product retain at significantly higher rates than those without one. Community creates that connection—to other users, to the brand, and to the product.
+**Problem 2: Retention.** Users with a social connection to a product retain at significantly higher rates than those without one. Community creates that connection to other users, the brand, and the product.
 
 **Problem 3: Acquisition.** Word-of-mouth is the highest-converting acquisition channel but the hardest to engineer. Community creates the conditions for organic word-of-mouth by giving users a place to share, showcase, and refer.
 
@@ -733,7 +732,7 @@ ABM works when it's genuinely personalized rather than superficially personalize
 
 **Superficial personalization:** "Hi Sarah, I noticed Acme is in the tech space..."
 
-**Genuine personalization:** "Hi Sarah, I saw that Acme hired 15 video producers over the last six months based on their LinkedIn postings, and that your CMO posted last week about their new content localization initiative. Given that context, I think HeyGen's localization workflow could be specifically relevant—here's a video showing exactly what that looks like for companies in your situation."
+**Genuine personalization:** "Hi Sarah, I saw that Acme hired 15 video producers over the last six months based on their LinkedIn postings, and that your CMO posted last week about their new content localization initiative. Given that context, I think HeyGen's localization workflow could be specifically relevant. Here's a video showing exactly what that looks like for companies in your situation."
 
 The second message requires research, and that research is what Clay makes possible at scale.
 
@@ -831,7 +830,7 @@ Based on [ABM programs](/services/demand-generation) across multiple companies, 
 
 **Champion presence is the number one predictor of ABM success.** Accounts where an existing or former user is an internal champion convert at three to four times the rate of cold accounts. Identify and activate internal champions before sales touches the account.
 
-**Multi-threading matters more than you think.** Single-threaded deals—where only one stakeholder is engaged—close at half the rate of multi-threaded deals. ABM programs should map all stakeholders and engage at least two or three before creating an opportunity.
+**Multi-threading matters more than you think.** Single-threaded deals, where only one stakeholder is engaged, close at half the rate of multi-threaded deals. ABM programs should map all stakeholders and engage at least two or three before creating an opportunity.
 
 **Personalization quality beats volume.** Sending 10 genuinely personalized messages outperforms sending 100 generic ones. The research investment pays off.
 
@@ -850,7 +849,7 @@ Based on [ABM programs](/services/demand-generation) across multiple companies, 
 
 ${postMeta("seo-from-zero-b2b-saas-organic-growth")}
 
-When I joined HeyGen in April 2024, organic search was essentially not a channel. The site had domain authority but no systematic [SEO program](/services/growth-marketing)—no keyword strategy, no content infrastructure, and no technical optimization framework.
+When I joined HeyGen in April 2024, organic search was essentially not a channel. The site had domain authority but no systematic [SEO program](/services/growth-marketing). It lacked a keyword strategy, content infrastructure, and technical optimization framework.
 
 Eighteen months later, organic search had become one of HeyGen's top three acquisition channels. We saw 50%+ year-over-year organic traffic growth, which reversed a previously declining baseline.
 
@@ -1011,7 +1010,7 @@ Content alone doesn't rank in competitive verticals. You also need backlinks, wh
 `,
 };
 
-/** Returns a single markdown string with all posts concatenated — used by /llms-full.txt */
+/** Returns a single markdown string with all posts concatenated and used by /llms-full.txt */
 export function getAllPostsMarkdown(): string {
   return Object.entries(BLOG_CONTENT_MD)
     .map(([, content]) => content)
