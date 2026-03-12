@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: Props) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Article",
+        "@type": "BlogPosting",
         "@id": `https://nplus1ventures.com/blog/${post.slug}#article`,
         url: `https://nplus1ventures.com/blog/${post.slug}`,
         headline: post.title,
@@ -81,10 +81,7 @@ export default async function BlogPostPage({ params }: Props) {
         datePublished: post.publishDate,
         dateModified: post.publishDate,
         author: {
-          "@type": "Person",
           "@id": "https://nplus1ventures.com/about#navsingh",
-          name: "Nav Singh",
-          url: "https://nplus1ventures.com/about",
         },
         publisher: {
           "@id": "https://nplus1ventures.com/#organization",

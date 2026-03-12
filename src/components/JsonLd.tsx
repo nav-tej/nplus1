@@ -88,12 +88,12 @@ export default function JsonLd() {
       {
         "@type": "Person",
         "@id": "https://nplus1ventures.com/about#navsingh",
-        name: "Nav Singh",
-        alternateName: "Navtej Singh",
+        name: "Navtej Singh",
+        alternateName: "Nav Singh",
         jobTitle: "Founder & Managing Partner, Fractional VP Marketing & Revenue Operations Consultant",
         url: "https://nplus1ventures.com/about",
         image: "https://nplus1ventures.com/nav-singh.jpg",
-        description: "Nav Singh is a fractional VP of Marketing and Revenue Operations executive who scaled HeyGen from $20M to $100M ARR and previously served as a GTM Partner at Andreessen Horowitz (a16z).",
+        description: "Navtej Singh is a fractional VP of Marketing and Revenue Operations executive who scaled HeyGen from $20M to $100M ARR and previously served as a GTM Partner and Operator at Andreessen Horowitz (a16z).",
         sameAs: [
           "https://www.linkedin.com/in/navtejs",
           "https://x.com/navtejs",
@@ -120,6 +120,8 @@ export default function JsonLd() {
           }
         ],
         knowsAbout: [
+          "Scaled HeyGen from $20M to $100M ARR",
+          "a16z Operator Patterns",
           "B2B SaaS Marketing",
           "Revenue Operations",
           "Product-Led Growth",
@@ -127,8 +129,7 @@ export default function JsonLd() {
           "Go-to-Market Strategy",
           "ABM",
           "Marketing Automation",
-          "HeyGen Growth Strategy",
-          "a16z Operator Patterns"
+          "HeyGen Growth Strategy"
         ],
       },
       {
