@@ -246,12 +246,16 @@ export default function Navbar() {
             <button
               ref={toggleRef}
               onClick={() => setMobileOpen(true)}
-              className="md:hidden p-2 -mr-2 text-white"
+              className="md:hidden flex items-center justify-center w-11 h-11 -mr-2 rounded-xl bg-white/10 border border-white/10 text-white hover:bg-white/20 active:scale-95 transition-all duration-200"
               aria-label="Open menu"
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <line x1="4" y1="7" x2="20" y2="7" />
+                <line x1="4" y1="12" x2="20" y2="12" />
+                <line x1="4" y1="17" x2="20" y2="17" />
+              </svg>
             </button>
           </div>
         </div>
