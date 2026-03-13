@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | n+Alpha Ventures",
   },
   description:
-    "Nav Singh, fractional VP Marketing and Revenue Operations consultant for B2B SaaS companies. Scaled HeyGen $20M to $100M ARR. Ex-Andreessen Horowitz. Based in San Francisco.",
+    "Nav Singh, fractional VP Marketing and Revenue Operations consultant for B2B SaaS companies scaling $1M to $100M+ ARR. Scaled HeyGen $20M to $100M ARR. Ex-Andreessen Horowitz. Based in San Francisco.",
   keywords: [
     "Nav Singh",
     "Navtej Singh",

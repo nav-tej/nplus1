@@ -205,13 +205,12 @@ export default function AboutPage() {
           <div className="mx-auto max-w-4xl px-6 lg:px-10 space-y-5 text-[15px] text-muted leading-relaxed">
             <p>
               <strong className="text-foreground">Nav Singh</strong> is a
-              San&nbsp;Francisco-based GTM partner and investment advisor
+              San&nbsp;Francisco-based GTM operator and advisor
               with over a decade of experience scaling B2B technology companies
               from early growth through market leadership. Nav
               founded <strong className="text-foreground">n+α Ventures</strong>{" "}
-              to bridge the gap between high-level strategy and operational execution,
-              bringing the same GTM playbook that helped scale category leaders directly to
-              ambitious startups and growth-stage portfolio companies.
+              to bring operator-grade GTM expertise directly to ambitious startups,
+              bridging the gap between high-level strategy and technical execution.
             </p>
             <p>
               Most recently, Nav served as Head of Revenue Operations at{" "}
@@ -227,16 +226,15 @@ export default function AboutPage() {
               <strong className="text-foreground">
                 Andreessen Horowitz&nbsp;(a16z)
               </strong>
-              , advising more than 20 portfolio companies on their
+              , working directly with more than 20 portfolio companies on their
               go-to-market architecture.
             </p>
             <p>
-              n+α Ventures operates as an extension of the leadership team for 
-              venture-backed startups and private equity firms. By combining 
-              first-hand operational experience with an investor&apos;s lens on 
-              unit economics, Nav helps companies build repeatable revenue 
-              engines that maximize enterprise value and accelerate the path 
-              to $100M+ ARR.
+              n+α Ventures operates as a high-leverage extension of the leadership 
+              team for venture-backed startups. By combining 
+              first-hand operational experience with a deep understanding of 
+              AI-native GTM architecture, Nav helps founders build repeatable 
+              revenue engines that accelerate the path to $100M+ ARR.
             </p>
           </div>
         </section>

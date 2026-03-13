@@ -30,21 +30,21 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 mb-10">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
           <span className="text-sm text-muted">
-            Fractional VP Marketing &amp; RevOps for B2B SaaS
+            Now accepting Q2 2026 engagements
           </span>
         </div>
 
         {/* Headline */}
         <h1 className="text-4xl sm:text-5xl lg:text-[3.75rem] font-bold tracking-tight leading-[1.08] mb-6 max-w-4xl">
-          The GTM Partnership for B2B{" "}
+          Fractional VP Marketing &amp; Revenue Operations for{" "}
           <span className="bg-gradient-to-r from-accent to-[#27AE60] bg-clip-text text-transparent">
-            Hypergrowth.
+            B2B SaaS Scaling $1M → $100M+
           </span>
         </h1>
 
         {/* Subheadline */}
-        <p className="text-lg lg:text-xl text-muted leading-relaxed mb-8 max-w-2xl">
-          n+α Ventures partners with VC-backed startups and PE portfolio companies to build the AI-native revenue engines that scale from $10M to $100M+ ARR.
+        <p className="text-lg lg:text-xl text-muted leading-relaxed mb-8 max-w-3xl">
+          Nav Singh — ex-Andreessen Horowitz, scaled HeyGen from $20M to $100M+ ARR. n+α Ventures architects AI-native GTM engines for VC-backed SaaS teams ready to scale.
         </p>
 
         {/* Social proof bar */}

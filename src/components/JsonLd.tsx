@@ -37,7 +37,7 @@ export default function JsonLd() {
         "url": "https://nplusalpha.com",
         "logo": "https://nplusalpha.com/logo-square.png",
         "image": "https://nplusalpha.com/nav-singh.jpg",
-        "description": "Expert AI-native GTM consulting, Fractional VP Marketing, and Revenue Operations for B2B SaaS companies scaling from $5M to $100M ARR.",
+        "description": "Expert AI-native GTM consulting, Fractional VP Marketing, and Revenue Operations for B2B SaaS companies scaling from $1M to $100M+ ARR.",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "San Francisco",
@@ -178,7 +178,7 @@ export default function JsonLd() {
         "about": {
           "@id": "https://nplusalpha.com/#organization",
         },
-        "description": "Expert AI-native go-to-market consulting for ambitious B2B teams. Fractional VP Marketing and RevOps for companies scaling from $5M to $100M ARR.",
+        "description": "Expert AI-native go-to-market consulting for ambitious B2B teams. Fractional VP Marketing and RevOps for companies scaling from $1M to $100M+ ARR.",
       }
     ],
   };
