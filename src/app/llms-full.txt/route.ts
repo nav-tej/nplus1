@@ -7,62 +7,47 @@ export const dynamic = "force-static";
 export function GET() {
   const base = `https://${SITE_CONFIG.domain}`;
 
-  const aboutSection = `# About ${FOUNDER.name} — Founder, n+α Ventures
+  const aboutSection = `# About ${FOUNDER.name}: Founder, n+α Ventures
 
-${FOUNDER.name} (also known as ${FOUNDER.alternateName}) is the founder of n+α Ventures, a San Francisco-based B2B go-to-market consulting firm. He is a marketing and revenue operations executive with 10+ years of experience building GTM systems at high-growth B2B SaaS companies.
+${FOUNDER.name} is a San Francisco-based GTM operator and advisor with over a decade of experience scaling B2B technology companies.
 
-## Career
-
+## Professional Experience
 ${FOUNDER.experience
-  .map(
-    (e) =>
-      `### ${e.company} — ${e.role} (${e.period})\n${e.highlight}. ${e.description}`
-  )
-  .join("\n\n")}
+    .map(
+      (e) =>
+        `### ${e.company}: ${e.role} (${e.period})\n${e.highlight}. ${e.description}`
+    )
+    .join("\n\n")}
 
-## Impact
+## Advisory & Investments
+${FOUNDER.advisory.join(", ")}
 
-- $500M+ in revenue growth driven
-- $400M+ in marketing-sourced pipeline generated
-- 20+ B2B companies advised
-- 5× average ARR growth across engagements
-
-## Services
-
-- **Growth Marketing:** Fractional VP Marketing for B2B SaaS
-- **Demand Generation:** ABM, content, SEO, paid, lifecycle
-- **Revenue Operations:** GTM systems, forecasting, pipeline analytics
-
-## Advisory
-
-${FOUNDER.advisory.join(", ")} (and 15+ others)
-
-## Certifications & Tools
-
-${FOUNDER.certifications.join(" · ")}
-
----
-
+## Core Metrics
+- Total Revenue Growth: ${FOUNDER.stats[0].value}
+- Pipeline Generated: ${FOUNDER.stats[1].value}
+- Companies Advised: ${FOUNDER.stats[2].value}
+- Avg ARR Growth: ${FOUNDER.stats[3].value}
 `;
 
-  const blogSection = BLOG_POSTS.map((post) => {
-    const md = BLOG_CONTENT_MD[post.slug] ?? `# ${post.title}\n\n${post.description}`;
+  const servicesSection = `# GTM Consulting Services
+
+- Growth Marketing: Fractional VP Marketing for B2B SaaS. Strategy, brand, PLG, and community construction.
+- Revenue Operations: GTM systems architecture, forecasting, and pipeline analytics.
+- Demand Generation: ABM, content engines, and signal-based outbound.
+`;
+
+  const posts = BLOG_POSTS.map((post) => {
+    const md = BLOG_CONTENT_MD[post.slug] || "";
     return `<!-- URL: ${base}/blog/${post.slug} -->\n\n${md}`;
   }).join("\n\n---\n\n");
 
-  const header = `# n+α Ventures — Full Content (llms-full.txt)
-
-Source: ${base}
-Generated: ${new Date().toISOString()}
-
-This file contains the full text content of n+α Ventures for use by AI assistants and language models.
-See ${base}/llms.txt for a structured index of all pages.
+  const header = `# n+α Ventures: Full Content (llms-full.txt)
+This file contains the complete repository of GTM frameworks, growth playbooks, and company information for n+α Ventures.
 
 ---
-
 `;
 
-  const content = header + aboutSection + blogSection;
+  const content = `${header}\n\n${aboutSection}\n\n${servicesSection}\n\n# Blog Content\n\n${posts}`;
 
   return new Response(content, {
     headers: {

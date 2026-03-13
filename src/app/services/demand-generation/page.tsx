@@ -390,7 +390,7 @@ export default function DemandGenerationPage() {
                 {
                   href: "/services/growth-marketing",
                   label: "Growth Marketing",
-                  desc: "Fractional VP Marketing for B2B SaaS — strategy, brand, PLG, and community.",
+                  desc: "Fractional VP Marketing for B2B SaaS focusing on strategy, brand, PLG, and community.",
                 },
                 {
                   href: "/services/revenue-operations",

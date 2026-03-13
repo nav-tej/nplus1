@@ -30,7 +30,7 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 mb-10">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
           <span className="text-sm text-muted">
-            Now accepting Q2 2026 engagements
+            Growth Marketing and Revenue Operations for B2B SaaS
           </span>
         </div>
 
@@ -44,7 +44,7 @@ export default function Hero() {
 
         {/* Subheadline */}
         <p className="text-lg lg:text-xl text-muted leading-relaxed mb-8 max-w-3xl">
-          Nav Singh — ex-Andreessen Horowitz, scaled HeyGen from $20M to $100M+ ARR. n+α Ventures architects AI-native GTM engines for VC-backed SaaS teams ready to scale.
+          Nav Singh &nbsp;&middot;&nbsp; ex-Andreessen Horowitz, scaled HeyGen from $20M to $100M+ ARR. n+α Ventures architects AI-native GTM engines for VC-backed SaaS teams ready to scale.
         </p>
 
         {/* Social proof bar */}
