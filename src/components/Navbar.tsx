@@ -13,7 +13,6 @@ export default function Navbar() {
   const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
-  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     let rafId: number;
@@ -80,113 +79,161 @@ export default function Navbar() {
     </div>
   );
 
+  const navigationSchema = {
+    "@context": "https://schema.org",
+    "@type": "SiteNavigationElement",
+    "name": NAV_LINKS.map(l => l.label),
+    "url": NAV_LINKS.map(l => `https://${SITE_CONFIG.domain}${l.href.startsWith("/") ? l.href : `/${l.href}`}`)
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(navigationSchema) }}
+      />
       {/* ─── Top bar ─── */}
-      <nav
+      <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled ? "bg-[#0B1221]/90 backdrop-blur-md border-b border-white/5 py-3" : "bg-transparent py-5"
         }`}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="flex items-center justify-between">
+          <nav className="flex items-center justify-between" aria-label="Main Navigation">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group">
+            <Link 
+              href="/" 
+              className="flex items-center gap-2.5 group"
+              title="nPlusAlpha Ventures - AI-Native GTM Consulting Home"
+              aria-label="nPlusAlpha Ventures Home"
+            >
               <Logo gradientId="navMain" />
               <Wordmark />
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-8">
+            <ul className="hidden md:flex items-center gap-8 list-none p-0 m-0">
               {NAV_LINKS.map((link) => {
                 if (link.label === "Services") {
                   return (
-                    <div key="services" className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-                      <button className="flex items-center gap-1.5 text-sm text-muted hover:text-foreground transition-colors py-2">
+                    <li key="services" className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
+                      <button 
+                        className="flex items-center gap-1.5 text-sm text-muted hover:text-foreground transition-colors py-2"
+                        aria-expanded={servicesOpen}
+                        aria-haspopup="true"
+                        title="Explore our AI-Native GTM Services"
+                      >
                         Services
                         <Plus className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-45" : ""}`} />
                       </button>
                       <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-[300px] transition-all duration-200 ${servicesOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}>
                         <div className="bg-[#0B1221] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
                           {SERVICE_PAGES.map((page) => (
-                            <Link key={page.href} href={page.href} className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 group">
+                            <Link 
+                              key={page.href} 
+                              href={page.href} 
+                              className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 group"
+                              title={page.label}
+                            >
                               <span className="text-sm font-semibold text-foreground group-hover:text-orange-400 transition-colors">{page.label}</span>
                               <span className="text-[11px] text-muted leading-tight">{page.description}</span>
                             </Link>
                           ))}
                         </div>
                       </div>
-                    </div>
+                    </li>
                   );
                 }
                 if (link.label === "Tools") {
                   return (
-                    <div key="tools" className="relative" onMouseEnter={() => setToolsOpen(true)} onMouseLeave={() => setToolsOpen(false)}>
-                      <button className="flex items-center gap-1.5 text-sm text-muted hover:text-foreground transition-colors py-2">
+                    <li key="tools" className="relative" onMouseEnter={() => setToolsOpen(true)} onMouseLeave={() => setToolsOpen(false)}>
+                      <button 
+                        className="flex items-center gap-1.5 text-sm text-muted hover:text-foreground transition-colors py-2"
+                        aria-expanded={toolsOpen}
+                        aria-haspopup="true"
+                        title="Access GTM & Growth Tools"
+                      >
                         Tools
                         <Plus className={`w-3.5 h-3.5 transition-transform duration-200 ${toolsOpen ? "rotate-45" : ""}`} />
                       </button>
                       <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-[300px] transition-all duration-200 ${toolsOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}>
                         <div className="bg-[#0B1221] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
-                          <Link href="/tools/funnel-velocity" className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors border-b border-white/5 group">
+                          <Link href="/tools/funnel-velocity" className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors border-b border-white/5 group" title="SaaS Funnel Velocity Calculator">
                             <span className="text-sm font-semibold text-foreground group-hover:text-orange-400 transition-colors">Velocity Calculator</span>
                             <span className="text-[11px] text-muted leading-tight">Diagnose growth bottlenecks</span>
                           </Link>
-                          <Link href="/resources/agentic-outbound" className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors last:border-0 group">
+                          <Link href="/resources/agentic-outbound" className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors last:border-0 group" title="Agentic Outbound Architecture Playbook">
                             <span className="text-sm font-semibold text-foreground group-hover:text-orange-400 transition-colors">Outbound Playbook</span>
                             <span className="text-[11px] text-muted leading-tight">Build an agentic engine</span>
                           </Link>
                         </div>
                       </div>
-                    </div>
+                    </li>
                   );
                 }
                 return (
-                  <Link key={link.href} href={link.href} className="text-sm text-muted hover:text-foreground transition-colors py-2">
-                    {link.label}
-                  </Link>
+                  <li key={link.href}>
+                    <Link 
+                      href={link.href} 
+                      className="text-sm text-muted hover:text-foreground transition-colors py-2"
+                      title={link.label}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
                 );
               })}
-              <Link href={SITE_CONFIG.calendarLink} className="bg-accent text-[#0B1221] px-6 py-2.5 rounded-full text-sm font-bold hover:shadow-[0_0_20px_rgba(46,204,113,0.3)] transition-all">
-                Get in Touch
-              </Link>
-            </div>
+              <li>
+                <Link 
+                  href={SITE_CONFIG.calendarLink} 
+                  className="bg-accent text-[#0B1221] px-6 py-2.5 rounded-full text-sm font-bold hover:shadow-[0_0_20px_rgba(46,204,113,0.3)] transition-all"
+                  title="Book a Strategy Call"
+                >
+                  Get in Touch
+                </Link>
+              </li>
+            </ul>
 
             {/* Mobile Trigger */}
             <button
               onClick={() => setMobileOpen(true)}
               className="md:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-white/10 border border-white/10 text-white active:scale-95 transition-all"
-              aria-label="Open menu"
+              aria-label="Open Mobile Menu"
+              title="Open Navigation"
             >
               <Menu className="w-6 h-6" />
             </button>
-          </div>
+          </nav>
         </div>
-      </nav>
+      </header>
 
       {/* ─── Smooth Mobile Menu Overlay ─── */}
       <div 
         className={`fixed inset-0 z-[100] bg-[#0B1221] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile Navigation"
       >
         {/* Mobile Header */}
         <div className="flex items-center justify-between px-6 h-20 border-b border-white/5">
-          <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5">
+          <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5" title="nPlusAlpha Home">
             <Logo gradientId="navMobile" />
             <Wordmark />
           </Link>
           <button
             onClick={() => setMobileOpen(false)}
             className="flex items-center justify-center w-11 h-11 rounded-xl bg-white/10 border border-white/10 text-white active:scale-95 transition-all"
-            aria-label="Close menu"
+            aria-label="Close Mobile Menu"
+            title="Close Navigation"
           >
             <X className="w-6 h-6" />
           </button>
         </div>
 
         {/* Mobile Content */}
-        <div className="flex flex-col h-[calc(100vh-80px)] overflow-y-auto px-6 py-10 space-y-4">
+        <nav className="flex flex-col h-[calc(100vh-80px)] overflow-y-auto px-6 py-10 space-y-4" aria-label="Mobile Navigation Links">
           {NAV_LINKS.map((link) => {
             if (link.label === "Services") {
               return (
@@ -196,6 +243,8 @@ export default function Navbar() {
                     className={`flex items-center justify-between w-full p-5 rounded-2xl border transition-all ${
                       mobileServicesOpen ? "bg-white/10 border-orange-400/30 text-orange-400" : "bg-white/[0.03] border-white/5 text-white"
                     }`}
+                    aria-expanded={mobileServicesOpen}
+                    title="Toggle Services Menu"
                   >
                     <span className="text-xl font-bold">Services</span>
                     <Plus className={`w-5 h-5 transition-transform duration-300 ${mobileServicesOpen ? "rotate-45" : ""}`} />
@@ -203,7 +252,13 @@ export default function Navbar() {
                   {mobileServicesOpen && (
                     <div className="grid grid-cols-1 gap-3 pl-4 animate-in slide-in-from-top-2 duration-200">
                       {SERVICE_PAGES.map((page) => (
-                        <Link key={page.href} href={page.href} onClick={() => setMobileOpen(false)} className="flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                        <Link 
+                          key={page.href} 
+                          href={page.href} 
+                          onClick={() => setMobileOpen(false)} 
+                          className="flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5"
+                          title={page.label}
+                        >
                           <span className="font-bold text-white">{page.label}</span>
                           <span className="text-xs text-muted leading-tight">{page.description}</span>
                         </Link>
@@ -221,17 +276,29 @@ export default function Navbar() {
                     className={`flex items-center justify-between w-full p-5 rounded-2xl border transition-all ${
                       mobileToolsOpen ? "bg-white/10 border-orange-400/30 text-orange-400" : "bg-white/[0.03] border-white/5 text-white"
                     }`}
+                    aria-expanded={mobileToolsOpen}
+                    title="Toggle Tools Menu"
                   >
                     <span className="text-xl font-bold">Tools</span>
                     <Plus className={`w-5 h-5 transition-transform duration-300 ${mobileToolsOpen ? "rotate-45" : ""}`} />
                   </button>
                   {mobileToolsOpen && (
                     <div className="grid grid-cols-1 gap-3 pl-4 animate-in slide-in-from-top-2 duration-200">
-                      <Link href="/tools/funnel-velocity" onClick={() => setMobileOpen(false)} className="flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                      <Link 
+                        href="/tools/funnel-velocity" 
+                        onClick={() => setMobileOpen(false)} 
+                        className="flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5"
+                        title="Velocity Calculator"
+                      >
                         <span className="font-bold text-white">Velocity Calculator</span>
                         <span className="text-xs text-muted">Diagnose growth bottlenecks</span>
                       </Link>
-                      <Link href="/resources/agentic-outbound" onClick={() => setMobileOpen(false)} className="flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                      <Link 
+                        href="/resources/agentic-outbound" 
+                        onClick={() => setMobileOpen(false)} 
+                        className="flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5"
+                        title="Outbound Playbook"
+                      >
                         <span className="font-bold text-white">Outbound Playbook</span>
                         <span className="text-xs text-muted">Build an agentic engine</span>
                       </Link>
@@ -246,6 +313,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center justify-between w-full p-5 rounded-2xl bg-white/[0.03] border border-white/5 text-xl font-bold text-white hover:bg-white/5 transition-all"
+                title={link.label}
               >
                 {link.label}
                 <ArrowRight className="w-5 h-5 text-white/20" />
@@ -258,12 +326,13 @@ export default function Navbar() {
               href={SITE_CONFIG.calendarLink}
               onClick={() => setMobileOpen(false)}
               className="flex items-center justify-center gap-3 w-full p-5 rounded-2xl bg-accent text-[#0B1221] text-lg font-black hover:shadow-[0_0_30px_rgba(46,204,113,0.4)] transition-all"
+              title="Book a Strategy Call"
             >
               Get in Touch
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
-        </div>
+        </nav>
       </div>
     </>
   );
