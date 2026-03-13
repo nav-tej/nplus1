@@ -100,7 +100,9 @@ export default function GrowthMarketingPage() {
               </h1>
               <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed">
                 Build the integrated growth engine that takes you from $5M to
-                $50M ARR without a $300K full-time CMO hire.
+                $50M ARR. We don&apos;t just advise—we start shipping within 
+                the first 14 days. Distribution wins markets, and timing is 
+                everything.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -251,35 +253,35 @@ export default function GrowthMarketingPage() {
         <section className="py-20 border-b border-white/5">
           <div className="mx-auto max-w-4xl px-6 lg:px-10">
             <h2 className="text-3xl font-bold text-foreground mb-6">
-              The Engagement Model
+              The High-Velocity Engagement Model
             </h2>
             <p className="text-[15px] text-muted leading-relaxed mb-8">
-              I work on a monthly retainer basis. Most engagements run 3 to 9
-              months, depending on scope. I am hands-on. This is not advisory
-              work. I attend your leadership meetings, manage your marketing
-              team, own the budget, and report directly to the CEO or CRO.
+              We operate with extreme shipping velocity. Most consultants spend the 
+              first month interviewing stakeholders. We spend the first 14 days 
+              shipping your first high-impact GTM experiments. Distribution wins 
+              markets, and timing is your greatest competitive advantage.
             </p>
             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 {
-                  period: "30 Days",
-                  label: "Deep Audit",
-                  desc: "ICP, competitive position, channel performance, team structure",
+                  period: "Week 1–2",
+                  label: "Initial Shipments",
+                  desc: "Rapid audit and execution of your first high-impact growth experiments.",
                 },
                 {
-                  period: "60 Days",
+                  period: "Day 30",
                   label: "Foundation Build",
-                  desc: "Demand gen foundation, content engine, marketing ops stack",
+                  desc: "Full demand gen engine, content ops, and marketing systems architecture.",
                 },
                 {
-                  period: "90 Days",
-                  label: "Scale",
-                  desc: "Paid channels, ABM program, attribution reporting",
+                  period: "Day 60",
+                  label: "Scale Distribution",
+                  desc: "Aggressive paid channels, ABM programs, and attribution modeling.",
                 },
                 {
-                  period: "Monthly",
-                  label: "Optimize",
-                  desc: "Board-level reporting, pipeline attribution, budget optimization",
+                  period: "Ongoing",
+                  label: "Optimize & Hand-off",
+                  desc: "Board-level reporting, hiring, and scaling for the path to $100M ARR.",
                 },
               ].map((step) => (
                 <div
