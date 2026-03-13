@@ -5,16 +5,16 @@ export const SITE_CONFIG = {
   description:
     "nPlus1 Ventures helps ambitious B2B companies build and execute repeatable go-to-market strategies that drive revenue growth.",
   email: "hello@nplusalpha.com",
-  calendarLink: "#contact",
+  calendarLink: "/#contact",
 };
 
 export const NAV_LINKS = [
-  { label: "Services", href: "#services" },
+  { label: "Services", href: "/#services" },
   { label: "Tools", href: "/tools/funnel-velocity" },
   { label: "Case Studies", href: "/case-studies/heygen" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const SERVICE_PAGES = [
