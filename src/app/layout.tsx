@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://nplusalpha.com"),
   title: {
     default:
-      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | nPlus1 Ventures",
-    template: "%s | nPlus1 Ventures",
+      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | n+Alpha Ventures",
+    template: "%s | n+Alpha Ventures",
   },
   description:
     "Nav Singh, fractional VP Marketing and Revenue Operations consultant for B2B SaaS companies. Scaled HeyGen $20M to $100M ARR. Ex-Andreessen Horowitz. Based in San Francisco.",
@@ -44,9 +44,10 @@ export const metadata: Metadata = {
     "product-led growth",
     "ABM",
     "marketing automation",
-    "nPlus1 Ventures",
+    "n+Alpha Ventures",
+    "nPlusAlpha",
   ],
-  authors: [{ name: "nPlus1 Ventures" }],
+  authors: [{ name: "n+Alpha Ventures" }],
   alternates: {
     canonical: "https://nplusalpha.com",
   },
@@ -54,16 +55,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://nplusalpha.com",
-    siteName: "nPlus1 Ventures",
+    siteName: "n+Alpha Ventures",
     title:
-      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | nPlus1 Ventures",
+      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | n+Alpha Ventures",
     description:
       "Fractional VP Marketing and Revenue Operations for B2B SaaS. Scaled HeyGen $20M to $100M ARR. Ex-Andreessen Horowitz. Based in San Francisco.",
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | nPlus1 Ventures",
+      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | n+Alpha Ventures",
     description:
       "Fractional VP Marketing and Revenue Operations for B2B SaaS. Scaled HeyGen $20M to $100M ARR. Ex-Andreessen Horowitz. Based in San Francisco.",
   },
@@ -99,8 +100,6 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://us.i.posthog.com" />
         <link rel="dns-prefetch" href="https://us.i.posthog.com" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body className={`${inter.variable} antialiased`}>
         <GtmProvider />

@@ -7,9 +7,9 @@ export const dynamic = "force-static";
 export function GET() {
   const base = `https://${SITE_CONFIG.domain}`;
 
-  const aboutSection = `# About ${FOUNDER.name} — Founder, nPlus1 Ventures
+  const aboutSection = `# About ${FOUNDER.name} — Founder, n+α Ventures
 
-${FOUNDER.name} (also known as ${FOUNDER.alternateName}) is the founder of nPlus1 Ventures, a San Francisco-based B2B go-to-market consulting firm. He is a marketing and revenue operations executive with 10+ years of experience building GTM systems at high-growth B2B SaaS companies.
+${FOUNDER.name} (also known as ${FOUNDER.alternateName}) is the founder of n+α Ventures, a San Francisco-based B2B go-to-market consulting firm. He is a marketing and revenue operations executive with 10+ years of experience building GTM systems at high-growth B2B SaaS companies.
 
 ## Career
 
@@ -50,12 +50,12 @@ ${FOUNDER.certifications.join(" · ")}
     return `<!-- URL: ${base}/blog/${post.slug} -->\n\n${md}`;
   }).join("\n\n---\n\n");
 
-  const header = `# nPlus1 Ventures — Full Content (llms-full.txt)
+  const header = `# n+α Ventures — Full Content (llms-full.txt)
 
 Source: ${base}
 Generated: ${new Date().toISOString()}
 
-This file contains the full text content of nPlus1 Ventures for use by AI assistants and language models.
+This file contains the full text content of n+α Ventures for use by AI assistants and language models.
 See ${base}/llms.txt for a structured index of all pages.
 
 ---

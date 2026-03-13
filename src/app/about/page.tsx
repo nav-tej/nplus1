@@ -6,9 +6,9 @@ import Footer from "@/components/Footer";
 import { FOUNDER, TESTIMONIALS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Nav Singh, Founder | nPlus1 Ventures",
+  title: "Nav Singh, Founder | n+α Ventures",
   description:
-    "Nav Singh (Navtej Singh) is the founder of nPlus1 Ventures, a San Francisco-based B2B GTM consulting firm. 10+ years driving $500M+ in revenue growth across HeyGen, Semgrep, Egnyte, and a16z.",
+    "Nav Singh (Navtej Singh) is the founder of n+α Ventures, a San Francisco-based B2B GTM consulting firm. 10+ years driving $500M+ in revenue growth across HeyGen, Semgrep, Egnyte, and a16z.",
   keywords: [
     "Nav Singh",
     "Navtej Singh",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "Nav Singh startups San Francisco",
     "GTM consultant San Francisco",
     "B2B startup consultant",
-    "nPlus1 Ventures founder",
+    "n+α Ventures founder",
     "Nav Singh revenue operations",
     "Nav Singh HeyGen",
     "Nav Singh a16z",
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://nplusalpha.com/about",
-    siteName: "nPlus1 Ventures",
-    title: "Nav Singh, Founder | nPlus1 Ventures | GTM Consulting",
+    siteName: "n+α Ventures",
+    title: "Nav Singh, Founder | n+α Ventures | GTM Consulting",
     description:
       "San Francisco-based GTM executive. 10+ years, $500M+ revenue growth, $400M+ pipeline generated across HeyGen, Semgrep, Egnyte, and a16z portfolio companies.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nav Singh, Founder | nPlus1 Ventures",
+    title: "Nav Singh, Founder | n+α Ventures",
     description:
       "San Francisco-based GTM executive. 10+ years, $500M+ revenue growth across HeyGen, Semgrep, Egnyte, and a16z.",
   },
@@ -58,7 +58,7 @@ export default function AboutPage() {
         "@type": "ProfilePage",
         "@id": "https://nplusalpha.com/about",
         url: "https://nplusalpha.com/about",
-        name: "Nav Singh | Founder, nPlus1 Ventures",
+        name: "Nav Singh | Founder, n+α Ventures",
         isPartOf: { "@id": "https://nplusalpha.com/#website" },
         mainEntity: { "@id": "https://nplusalpha.com/about#navsingh" },
       },
@@ -130,7 +130,7 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row gap-10 items-start">
               <Image
                 src="/nav-singh.jpg"
-                alt="Nav Singh, Founder & Managing Partner of nPlus1 Ventures"
+                alt="Nav Singh, Founder & Managing Partner of n+α Ventures"
                 width={96}
                 height={96}
                 className="flex-shrink-0 w-24 h-24 rounded-full object-cover ring-2 ring-white/10"
@@ -146,7 +146,7 @@ export default function AboutPage() {
                   {FOUNDER.title}
                 </p>
                 <p className="mt-1 text-sm text-muted">
-                  {FOUNDER.location} · nPlus1 Ventures
+                  {FOUNDER.location} · n+α Ventures
                 </p>
 
                 {/* Social + CTA */}
@@ -205,44 +205,38 @@ export default function AboutPage() {
           <div className="mx-auto max-w-4xl px-6 lg:px-10 space-y-5 text-[15px] text-muted leading-relaxed">
             <p>
               <strong className="text-foreground">Nav Singh</strong> is a
-              San&nbsp;Francisco-based marketing and revenue operations executive
+              San&nbsp;Francisco-based GTM partner and investment advisor
               with over a decade of experience scaling B2B technology companies
-              from early growth through market leadership. Professionally also
-              known as{" "}
-              <strong className="text-foreground">Navtej Singh</strong>, Nav
-              founded <strong className="text-foreground">nPlus1 Ventures</strong>{" "}
-              to bring operator-grade GTM expertise directly to ambitious startups
-              and growth-stage companies.
+              from early growth through market leadership. Nav
+              founded <strong className="text-foreground">n+α Ventures</strong>{" "}
+              to bridge the gap between high-level strategy and operational execution,
+              bringing the same GTM playbook that helped scale category leaders directly to
+              ambitious startups and growth-stage portfolio companies.
             </p>
             <p>
               Most recently, Nav served as Head of Revenue Operations at{" "}
               <strong className="text-foreground">HeyGen</strong>, where he
-              drove 5× ARR growth from $20M to over $100M and reported directly
-              to the CEO. Before that, he led revenue operations at{" "}
-              <strong className="text-foreground">Semgrep</strong>, hitting 5×
-              year-over-year revenue growth and cutting customer acquisition
-              costs by 40%. At{" "}
+              architected the GTM systems that drove 5× ARR growth from $20M to over $100M.
+              Before that, he led revenue operations at{" "}
+              <strong className="text-foreground">Semgrep</strong>, achieving 5×
+              year-over-year revenue growth. At{" "}
               <strong className="text-foreground">Egnyte</strong>, he built a
-              15-person marketing operations team and grew marketing-sourced
+              15-person marketing operations team and scaled marketing-sourced
               pipeline from $50M to $250M. Earlier in his career, Nav spent
               several years as a Partner at{" "}
               <strong className="text-foreground">
                 Andreessen Horowitz&nbsp;(a16z)
               </strong>
-              , working directly with more than 20 portfolio companies on their
-              go-to-market strategy.
+              , advising more than 20 portfolio companies on their
+              go-to-market architecture.
             </p>
             <p>
-              Navtej Singh started nPlus1 Ventures to give venture-backed
-              startups and PE portfolio companies access to the same GTM
-              playbook that helped scale category leaders. He works directly
-              with{" "}
-              <strong className="text-foreground">startup founders</strong>,{" "}
-              <strong className="text-foreground">venture investors</strong>,
-              and{" "}
-              <strong className="text-foreground">private equity teams</strong>{" "}
-              to build revenue engines that grow over time, not just campaigns
-              that burn through budget.
+              n+α Ventures operates as an extension of the leadership team for 
+              venture-backed startups and private equity firms. By combining 
+              first-hand operational experience with an investor&apos;s lens on 
+              unit economics, Nav helps companies build repeatable revenue 
+              engines that maximize enterprise value and accelerate the path 
+              to $100M+ ARR.
             </p>
           </div>
         </section>
@@ -355,10 +349,10 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── Why nPlus1 ── */}
+        {/* ── Why n+α ── */}
         <section
           className="py-20 border-b border-white/5"
-          aria-label="Why work with nPlus1 Ventures"
+          aria-label="Why work with n+α Ventures"
         >
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <h2 className="text-2xl font-bold text-foreground mb-2">
@@ -376,7 +370,7 @@ export default function AboutPage() {
                 },
                 {
                   title: "Hands-On Through Execution",
-                  body: "Strategy without execution is wallpaper. Nav and the nPlus1 team stay involved through implementation so deliverables become results.",
+                  body: "Strategy without execution is wallpaper. Nav and the n+α team stay involved through implementation so deliverables become results.",
                 },
                 {
                   title: "Founder & Investor Fluent",

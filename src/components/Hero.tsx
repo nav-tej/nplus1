@@ -36,19 +36,15 @@ export default function Hero() {
 
         {/* Headline */}
         <h1 className="text-4xl sm:text-5xl lg:text-[3.75rem] font-bold tracking-tight leading-[1.08] mb-6 max-w-4xl">
-          I help B2B SaaS companies between{" "}
+          The GTM Partnership for B2B{" "}
           <span className="bg-gradient-to-r from-accent to-[#27AE60] bg-clip-text text-transparent">
-            $5M&ndash;$50M ARR
-          </span>{" "}
-          build the marketing and revenue operations engines that take them to
-          their next funding milestone.
+            Hypergrowth.
+          </span>
         </h1>
 
         {/* Subheadline */}
         <p className="text-lg lg:text-xl text-muted leading-relaxed mb-8 max-w-2xl">
-          Fractional VP Marketing &nbsp;&middot;&nbsp; Demand Generation
-          &nbsp;&middot;&nbsp; Revenue Operations &nbsp;&middot;&nbsp; AI-Native
-          GTM Systems
+          n+α Ventures partners with VC-backed startups and PE portfolio companies to build the AI-native revenue engines that scale from $10M to $100M+ ARR.
         </p>
 
         {/* Social proof bar */}

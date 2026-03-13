@@ -10,11 +10,11 @@ export function GET() {
     (p) => `- [${p.title}](${base}/blog/${p.slug}): ${p.description}`
   ).join("\n");
 
-  const content = `# nPlus1 Ventures
+  const content = `# n+α Ventures
 
 > B2B SaaS go-to-market consulting by ${FOUNDER.name} (${FOUNDER.alternateName}), ${FOUNDER.location}. Fractional VP Marketing & RevOps for companies scaling from $5M–$50M ARR.
 
-nPlus1 Ventures helps ambitious B2B SaaS companies build and execute repeatable go-to-market strategies that drive revenue growth. Founded by ${FOUNDER.name}, former Head of Revenue Operations at HeyGen ($20M → $100M+ ARR) and ex-Andreessen Horowitz partner. 10+ years, $500M+ in revenue growth, $400M+ in marketing-sourced pipeline across 20+ B2B companies.
+n+α Ventures helps ambitious B2B SaaS companies build and execute repeatable go-to-market strategies that drive revenue growth. Founded by ${FOUNDER.name}, former Head of Revenue Operations at HeyGen ($20M → $100M+ ARR) and ex-Andreessen Horowitz partner. 10+ years, $500M+ in revenue growth, $400M+ in marketing-sourced pipeline across 20+ B2B companies.
 
 ## Services
 
@@ -24,7 +24,7 @@ nPlus1 Ventures helps ambitious B2B SaaS companies build and execute repeatable 
 
 ## About ${FOUNDER.name}
 
-- [About ${FOUNDER.name}](${base}/about): ${FOUNDER.name} (${FOUNDER.alternateName}) is the founder of nPlus1 Ventures. ${FOUNDER.experience[0].highlight} at ${FOUNDER.experience[0].company}. ${FOUNDER.experience[3].highlight} at ${FOUNDER.experience[3].company}. San Francisco-based operator and GTM executive with 10+ years building revenue engines at high-growth B2B companies.
+- [About ${FOUNDER.name}](${base}/about): ${FOUNDER.name} (${FOUNDER.alternateName}) is the founder of n+α Ventures. ${FOUNDER.experience[0].highlight} at ${FOUNDER.experience[0].company}. ${FOUNDER.experience[3].highlight} at ${FOUNDER.experience[3].company}. San Francisco-based operator and GTM executive with 10+ years building revenue engines at high-growth B2B companies.
 
 ## Case Studies
 

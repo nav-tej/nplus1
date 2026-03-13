@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://nplusalpha.com/services/revenue-operations",
-    siteName: "nPlus1 Ventures",
-    title: "Revenue Operations Consulting for B2B SaaS | nPlus1 Ventures",
+    siteName: "n+α Ventures",
+    title: "Revenue Operations Consulting for B2B SaaS | n+α Ventures",
     description:
       "Build the systems infrastructure that makes your GTM predictable, efficient, and scalable.",
   },

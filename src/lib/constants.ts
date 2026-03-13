@@ -1,12 +1,13 @@
 export const SITE_CONFIG = {
-  name: "nPlus1 Ventures",
+  name: "n+Alpha Ventures",
   domain: "nplusalpha.com",
   tagline: "Your Growth, Catalyzed.",
   description:
-    "nPlus1 Ventures helps ambitious B2B companies build and execute repeatable go-to-market strategies that drive revenue growth.",
+    "n+Alpha Ventures helps ambitious B2B companies build and execute repeatable go-to-market strategies that drive revenue growth.",
   email: "hello@nplusalpha.com",
   calendarLink: "/#contact",
 };
+
 
 export const NAV_LINKS = [
   { label: "Services", href: "/#services" },
@@ -119,7 +120,7 @@ export const FAQS = [
       "We start with a discovery phase to understand your business, market, and goals. From there, we design a tailored strategy and work alongside your team to execute it. Engagements typically run 3-6 months with clear milestones and deliverables.",
   },
   {
-    question: "What makes nPlus1 different from other consultancies?",
+    question: "What makes n+α different from other consultancies?",
     answer:
       "We're operators, not just advisors. Our team has built and scaled GTM functions at high-growth companies. We bring frameworks that are battle-tested, not theoretical, and we stay hands-on through execution.",
   },
@@ -201,25 +202,25 @@ export const FOUNDER = {
 export const TESTIMONIALS = [
   {
     quote:
-      "Partnered with nPlus1 to develop a comprehensive GTM strategy for new market expansion. They mapped our ideal customer segments, built a multi-channel launch playbook, and helped us accelerate pipeline growth across three new verticals.",
+      "Partnered with n+α to develop a comprehensive GTM strategy for new market expansion. They mapped our ideal customer segments, built a multi-channel launch playbook, and helped us accelerate pipeline growth across three new verticals.",
     company: "HeyGen",
     logo: "/logos/heygen.svg",
   },
   {
     quote:
-      "nPlus1 designed and executed a developer-focused demand generation engine from the ground up. They built targeted campaigns, optimized our content funnel, and delivered measurable pipeline growth that compounded quarter over quarter.",
+      "n+α designed and executed a developer-focused demand generation engine from the ground up. They built targeted campaigns, optimized our content funnel, and delivered measurable pipeline growth that compounded quarter over quarter.",
     company: "Semgrep",
     logo: "/logos/semgrep.svg",
   },
   {
     quote:
-      "Brought in nPlus1 to overhaul our sales enablement and revenue operations. They built new playbooks, aligned our CRM workflows, and created dashboards that gave leadership real-time visibility into deal progression and forecast accuracy.",
+      "Brought in n+α to overhaul our sales enablement and revenue operations. They built new playbooks, aligned our CRM workflows, and created dashboards that gave leadership real-time visibility into deal progression and forecast accuracy.",
     company: "Egnyte",
     logo: "/logos/egnyte.svg",
   },
   {
     quote:
-      "nPlus1 has been instrumental in shaping our product launch strategy and building a growth analytics framework from the ground up. They helped us define our go-to-market motion, set up the data infrastructure to track what matters, and delivered actionable insights that accelerated our early traction.",
+      "n+α has been instrumental in shaping our product launch strategy and building a growth analytics framework from the ground up. They helped us define our go-to-market motion, set up the data infrastructure to track what matters, and delivered actionable insights that accelerated our early traction.",
     company: "OpenBlock Labs",
     logo: "/logos/openblock.svg",
   },

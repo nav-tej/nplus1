@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: service.description,
     alternates: { canonical: `https://${SITE_CONFIG.domain}${service.href}` },
     openGraph: {
-      title: `${service.label} | nPlus1 Ventures`,
+      title: `${service.label} | n+α Ventures`,
       description: service.description,
       url: `https://${SITE_CONFIG.domain}${service.href}`,
     },

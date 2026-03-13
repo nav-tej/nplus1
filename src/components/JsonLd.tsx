@@ -7,17 +7,17 @@ export default function JsonLd() {
       {
         "@type": "Organization",
         "@id": "https://nplusalpha.com/#organization",
-        name: "nPlus1 Ventures",
+        name: "n+Alpha Ventures",
         url: "https://nplusalpha.com",
         logo: {
           "@type": "ImageObject",
-          url: "https://nplusalpha.com/logo-square.png",
+          url: "https://nplusalpha.com/logo.png",
           width: 512,
           height: 512,
         },
         email: "hello@nplusalpha.com",
         description:
-          "Fractional VP Marketing and Revenue Operations consulting for B2B SaaS companies. GTM strategy, demand generation, sales enablement, and revenue operations.",
+          "Expert AI-native GTM consulting, Fractional VP Marketing, and Revenue Operations for ambitious B2B SaaS companies.",
         areaServed: "Worldwide",
         knowsAbout: [
           "B2B SaaS",
@@ -33,7 +33,7 @@ export default function JsonLd() {
       {
         "@type": "ProfessionalService",
         "@id": "https://nplusalpha.com/#service",
-        "name": "nPlus1 Ventures",
+        "name": "n+Alpha Ventures",
         "url": "https://nplusalpha.com",
         "logo": "https://nplusalpha.com/logo-square.png",
         "image": "https://nplusalpha.com/nav-singh.jpg",
@@ -55,16 +55,19 @@ export default function JsonLd() {
           "@id": "https://nplusalpha.com/#organization"
         },
         "founder": {
-          "@id": "https://nplusalpha.com/about#navsingh"
+          "@id": "https://nplusalpha.com/about#navsingh",
         },
         "serviceType": [
           "AI-Native GTM Strategy",
           "Fractional VP Marketing",
+          "Go-To-Market Strategy",
+          "Market Positioning",
           "Demand Generation",
-          "Revenue Operations",
           "Sales Enablement",
+          "Revenue Operations",
           "Growth Analytics",
-          "Account-Based Marketing (ABM)"
+          "Product-Led Growth",
+          "Account-Based Marketing (ABM)",
         ],
         "areaServed": ["San Francisco", "United States", "Worldwide"],
         "aggregateRating": {
@@ -72,39 +75,27 @@ export default function JsonLd() {
           "ratingValue": "5",
           "reviewCount": String(TESTIMONIALS.length),
           "bestRating": "5",
-          "worstRating": "1"
+          "worstRating": "1",
         },
         "review": TESTIMONIALS.map((t) => ({
           "@type": "Review",
           "reviewRating": {
             "@type": "Rating",
             "ratingValue": "5",
-            "bestRating": "5"
+            "bestRating": "5",
           },
           "author": {
             "@type": "Organization",
-            "name": t.company
+            "name": t.company,
           },
-          "reviewBody": t.quote
-        }))
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://nplusalpha.com/#faq",
-        mainEntity: FAQS.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
+          "reviewBody": t.quote,
         })),
       },
       {
         "@type": "Person",
         "@id": "https://nplusalpha.com/about#navsingh",
         "name": "Navtej Singh",
-        "url": "https://nplusalpha.com",
+        "url": "https://www.nplusalpha.com",
         "jobTitle": "AI-Native Revenue Architect",
         "description": "AI-Native Revenue Architect. Scaled HeyGen from $20M to $100M ARR leveraging agentic workflows and predictive revenue intelligence. Former Partner at Andreessen Horowitz (a16z), and GTM leader at Semgrep and Egnyte.",
         "image": "https://nplusalpha.com/nav-singh.jpg",
@@ -156,34 +147,38 @@ export default function JsonLd() {
         ]
       },
       {
+        "@type": "FAQPage",
+        "@id": "https://nplusalpha.com/#faq",
+        "mainEntity": FAQS.map((faq) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer,
+          },
+        })),
+      },
+      {
         "@type": "WebSite",
         "@id": "https://nplusalpha.com/#website",
-        url: "https://nplusalpha.com",
-        name: "nPlus1 Ventures",
-        publisher: {
+        "url": "https://nplusalpha.com",
+        "name": "n+Alpha Ventures",
+        "publisher": {
           "@id": "https://nplusalpha.com/#organization",
-        },
-        potentialAction: {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: "https://nplusalpha.com/blog?q={search_term_string}",
-          },
-          "query-input": "required name=search_term_string",
         },
       },
       {
         "@type": "WebPage",
         "@id": "https://nplusalpha.com/#webpage",
-        url: "https://nplusalpha.com",
-        name: "nPlus1 Ventures | Go-To-Market Consulting",
-        isPartOf: {
+        "url": "https://nplusalpha.com",
+        "name": "n+Alpha Ventures | AI-Native Go-To-Market Consulting",
+        "isPartOf": {
           "@id": "https://nplusalpha.com/#website",
         },
-        about: {
+        "about": {
           "@id": "https://nplusalpha.com/#organization",
         },
-        description: "Expert go-to-market consulting for ambitious B2B teams. Fractional VP Marketing and RevOps for companies scaling from $5M to $100M ARR.",
+        "description": "Expert AI-native go-to-market consulting for ambitious B2B teams. Fractional VP Marketing and RevOps for companies scaling from $5M to $100M ARR.",
       }
     ],
   };

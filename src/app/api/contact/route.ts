@@ -41,8 +41,8 @@ export async function POST(request: Request) {
       try {
         const resend = new Resend(resendApiKey);
         const { data, error: emailError } = await resend.emails.send({
-          from: process.env.RESEND_FROM_EMAIL?.trim() ?? "nPlus1 Ventures <hello@nplus1ventures.com>",
-          to: process.env.CONTACT_EMAIL?.trim() ?? "hello@nplus1ventures.com",
+          from: process.env.RESEND_FROM_EMAIL?.trim() ?? "n+α Ventures <hello@n+αventures.com>",
+          to: process.env.CONTACT_EMAIL?.trim() ?? "hello@n+αventures.com",
           subject: `New Contact: ${firstName} ${lastName}${company ? ` from ${company}` : ""}`,
           replyTo: email,
           html: `

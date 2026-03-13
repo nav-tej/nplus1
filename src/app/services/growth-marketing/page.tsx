@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://nplusalpha.com/services/growth-marketing",
-    siteName: "nPlus1 Ventures",
-    title: "Fractional VP Marketing for B2B SaaS | nPlus1 Ventures",
+    siteName: "n+α Ventures",
+    title: "Fractional VP Marketing for B2B SaaS | n+α Ventures",
     description:
       "Build the integrated growth engine that takes you from $5M to $50M ARR without a $300K full-time CMO hire.",
   },

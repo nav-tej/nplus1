@@ -4,8 +4,8 @@ import Footer from "@/components/Footer";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | nPlus1 Ventures",
-  description: "Privacy Policy for nPlus1 Ventures. Information on how we collect, use, and protect your data.",
+  title: "Privacy Policy | n+α Ventures",
+  description: "Privacy Policy for n+α Ventures. Information on how we collect, use, and protect your data.",
 };
 
 export default function PrivacyPage() {
@@ -23,7 +23,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">1. Introduction</h2>
               <p>
-                nPlus1 Ventures (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website, <a href={`https://${SITE_CONFIG.domain}`} className="text-orange-400 hover:underline">{SITE_CONFIG.domain}</a>, and when you engage with our services.
+                n+α Ventures (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website, <a href={`https://${SITE_CONFIG.domain}`} className="text-orange-400 hover:underline">{SITE_CONFIG.domain}</a>, and when you engage with our services.
               </p>
             </section>
 

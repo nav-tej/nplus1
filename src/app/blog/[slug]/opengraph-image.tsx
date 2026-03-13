@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { BLOG_POSTS } from "@/lib/blog";
 
-export const alt = "nPlus1 Ventures Blog Post";
+export const alt = "n+α Ventures Blog Post";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

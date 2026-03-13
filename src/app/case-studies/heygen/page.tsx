@@ -5,8 +5,8 @@ import Footer from "@/components/Footer";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "HeyGen GTM Case Study: $20M to $100M ARR | nPlus1 Ventures",
-  description: "How nPlus1 helped scale HeyGen from $20M to $100M+ ARR through a complete GTM rebrand, SEO, and community construction.",
+  title: "HeyGen GTM Case Study: $20M to $100M ARR | n+α Ventures",
+  description: "How n+α helped scale HeyGen from $20M to $100M+ ARR through a complete GTM rebrand, SEO, and community construction.",
   alternates: { canonical: `https://${SITE_CONFIG.domain}/case-studies/heygen` },
   openGraph: {
     title: "HeyGen GTM Case Study: Scaling to $100M ARR",

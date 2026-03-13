@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { BLOG_POSTS } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "GTM & Growth Blog | nPlus1 Ventures",
+  title: "GTM & Growth Blog | n+α Ventures",
   description:
     "Frameworks and playbooks from 10 years of building GTM systems at B2B SaaS companies. Real strategies. Proven results.",
   keywords: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "demand generation",
     "product-led growth",
     "Nav Singh",
-    "nPlus1 Ventures",
+    "n+α Ventures",
     "AI GTM",
   ],
   alternates: { canonical: "https://nplusalpha.com/blog" },
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://nplusalpha.com/blog",
-    siteName: "nPlus1 Ventures",
-    title: "GTM & Growth Blog | nPlus1 Ventures",
+    siteName: "n+α Ventures",
+    title: "GTM & Growth Blog | n+α Ventures",
     description:
       "Frameworks and playbooks from 10 years of building GTM systems at B2B SaaS companies.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "GTM & Growth Blog | nPlus1 Ventures",
+    title: "GTM & Growth Blog | n+α Ventures",
     description:
       "Frameworks and playbooks from 10 years of building GTM systems at B2B SaaS companies. Real strategies. Proven results.",
   },
@@ -49,7 +49,7 @@ export default function BlogIndexPage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": "https://nplusalpha.com/blog",
-    name: "GTM & Growth Blog | nPlus1 Ventures",
+    name: "GTM & Growth Blog | n+α Ventures",
     description:
       "Frameworks and playbooks from 10 years of building GTM systems at B2B SaaS companies.",
     url: "https://nplusalpha.com/blog",

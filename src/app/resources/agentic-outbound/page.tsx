@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import PlaybookDownload from "@/components/PlaybookDownload";
 
 export const metadata: Metadata = {
-  title: "B2B SaaS Agentic Outbound Playbook | nPlus1 Ventures",
+  title: "B2B SaaS Agentic Outbound Playbook | n+α Ventures",
   description: "Download the exact agentic outbound architecture used to scale companies from $20M to $100M ARR. Learn how to automate your GTM with AI.",
 };
 
@@ -16,7 +16,7 @@ export default function AgenticOutboundPage() {
         "@type": "WebPage",
         "@id": "https://nplusalpha.com/resources/agentic-outbound#webpage",
         "url": "https://nplusalpha.com/resources/agentic-outbound",
-        "name": "B2B SaaS Agentic Outbound Playbook | nPlus1 Ventures",
+        "name": "B2B SaaS Agentic Outbound Playbook | n+α Ventures",
         "description": "Download the exact agentic outbound architecture used to scale companies from $20M to $100M ARR. Learn how to automate your GTM with AI.",
         "isPartOf": { "@id": "https://nplusalpha.com/#website" },
         "publisher": { "@id": "https://nplusalpha.com/#organization" }

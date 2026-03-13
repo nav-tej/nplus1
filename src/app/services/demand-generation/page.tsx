@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://nplusalpha.com/services/demand-generation",
-    siteName: "nPlus1 Ventures",
-    title: "Demand Generation Consulting for B2B SaaS | nPlus1 Ventures",
+    siteName: "n+α Ventures",
+    title: "Demand Generation Consulting for B2B SaaS | n+α Ventures",
     description:
       "$400M+ in marketing-sourced pipeline built. ABM, content, SEO, paid, and lifecycle programs for B2B SaaS.",
   },

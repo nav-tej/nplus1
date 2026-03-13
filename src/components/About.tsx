@@ -14,7 +14,7 @@ export default function About() {
               <span className="text-accent">just advisors.</span>
             </h2>
             <p className="text-lg text-muted leading-relaxed mb-6">
-              nPlus1 Ventures was founded by go-to-market practitioners who have
+              n+α Ventures was founded by go-to-market practitioners who have
               built and scaled revenue engines at high-growth startups and
               Fortune 500 companies alike.
             </p>

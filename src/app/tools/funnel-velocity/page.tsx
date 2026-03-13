@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import VelocityCalculator from "@/components/VelocityCalculator";
 
 export const metadata: Metadata = {
-  title: "SaaS Funnel Velocity Calculator | nPlus1 Ventures",
+  title: "SaaS Funnel Velocity Calculator | n+α Ventures",
   description: "Diagnose growth bottlenecks and optimize your revenue engine with our interactive B2B SaaS funnel velocity tool.",
 };
 
@@ -16,7 +16,7 @@ export default function FunnelVelocityPage() {
         "@type": "WebPage",
         "@id": "https://nplusalpha.com/tools/funnel-velocity#webpage",
         "url": "https://nplusalpha.com/tools/funnel-velocity",
-        "name": "SaaS Funnel Velocity Calculator | nPlus1 Ventures",
+        "name": "SaaS Funnel Velocity Calculator | n+α Ventures",
         "description": "Diagnose growth bottlenecks and optimize your revenue engine with our interactive B2B SaaS funnel velocity tool.",
         "isPartOf": { "@id": "https://nplusalpha.com/#website" },
         "publisher": { "@id": "https://nplusalpha.com/#organization" }
