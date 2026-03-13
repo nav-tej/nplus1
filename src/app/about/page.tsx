@@ -506,7 +506,7 @@ export default function AboutPage() {
           <p className="text-xs text-white/20 text-center leading-relaxed">
             🧪 this site was an experiment in vibe coding — built over two days, several hours, with lots of agents &amp; love ♥{" "}
             <span className="text-white/30">
-              claude code · claude · gpt · gemini cli · ob-1 · heygen · supabase · resend · vercel · cloudflare · semgrep
+              claude code · claude · gpt · gemini cli · ob-1 · cursor · heygen · posthog · supabase · resend · vercel · cloudflare · github · google tag manager · semgrep
             </span>
           </p>
         </div>
