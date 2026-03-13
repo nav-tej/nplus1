@@ -292,39 +292,37 @@ export default function Navbar() {
             {NAV_LINKS.map((link, i) => {
               if (link.label === "Services") {
                 return (
-                  <div key="services" className="border-b border-white/10">
+                  <div key="services" className="py-2">
                     <button
                       ref={i === 0 ? firstLinkRef : undefined}
                       onClick={() => setMobileServicesOpen((v) => !v)}
-                      className={`group flex items-center justify-between w-full py-5 text-2xl font-semibold transition-colors duration-150 ${
-                        mobileServicesOpen ? "text-orange-400" : "text-white/80 hover:text-white"
+                      className={`group flex items-center justify-between w-full p-5 rounded-2xl border transition-all duration-200 ${
+                        mobileServicesOpen 
+                          ? "bg-white/10 border-orange-400/30 text-orange-400" 
+                          : "bg-white/[0.03] border-white/5 text-white/90"
                       }`}
                     >
-                      Services
-                      <div className={`p-2 rounded-lg bg-white/5 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180 bg-orange-400/10 text-orange-400" : "text-white/25"}`}>
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          aria-hidden="true"
-                        >
-                          <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <span className="text-2xl font-bold">Services</span>
+                      <div className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${
+                        mobileServicesOpen ? "bg-orange-400 text-[#0B1221] rotate-45" : "bg-white/10 text-white/40"
+                      }`}>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                          <path d="M12 5v14M5 12h14" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </div>
                     </button>
 
                     {mobileServicesOpen && (
-                      <div className="pb-6 pl-4 space-y-2 animate-in slide-in-from-top-2 duration-200">
+                      <div className="mt-3 space-y-3 pl-4 animate-in slide-in-from-top-4 duration-300">
                         {SERVICE_PAGES.map((page) => (
                           <Link
                             key={page.href}
                             href={page.href}
                             onClick={() => setMobileOpen(false)}
-                            className="flex flex-col py-3 px-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/5 transition-all"
+                            className="flex flex-col py-4 px-5 rounded-2xl bg-white/[0.02] border border-white/5 active:bg-white/10 transition-all"
                           >
-                            <span className="text-base font-bold text-white mb-0.5">{page.label}</span>
-                            <span className="text-xs text-muted leading-snug">{page.description}</span>
+                            <span className="text-lg font-bold text-white mb-1">{page.label}</span>
+                            <span className="text-sm text-muted leading-snug">{page.description}</span>
                           </Link>
                         ))}
                       </div>
@@ -335,44 +333,42 @@ export default function Navbar() {
 
               if (link.label === "Tools") {
                 return (
-                  <div key="tools" className="border-b border-white/10">
+                  <div key="tools" className="py-2">
                     <button
                       onClick={() => setMobileToolsOpen((v) => !v)}
-                      className={`group flex items-center justify-between w-full py-5 text-2xl font-semibold transition-colors duration-150 ${
-                        mobileToolsOpen ? "text-orange-400" : "text-white/80 hover:text-white"
+                      className={`group flex items-center justify-between w-full p-5 rounded-2xl border transition-all duration-200 ${
+                        mobileToolsOpen 
+                          ? "bg-white/10 border-orange-400/30 text-orange-400" 
+                          : "bg-white/[0.03] border-white/5 text-white/90"
                       }`}
                     >
-                      Tools
-                      <div className={`p-2 rounded-lg bg-white/5 transition-transform duration-200 ${mobileToolsOpen ? "rotate-180 bg-orange-400/10 text-orange-400" : "text-white/25"}`}>
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          aria-hidden="true"
-                        >
-                          <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <span className="text-2xl font-bold">Tools</span>
+                      <div className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${
+                        mobileToolsOpen ? "bg-orange-400 text-[#0B1221] rotate-45" : "bg-white/10 text-white/40"
+                      }`}>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                          <path d="M12 5v14M5 12h14" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </div>
                     </button>
 
                     {mobileToolsOpen && (
-                      <div className="pb-6 pl-4 space-y-2 animate-in slide-in-from-top-2 duration-200">
+                      <div className="mt-3 space-y-3 pl-4 animate-in slide-in-from-top-4 duration-300">
                         <Link
                           href="/tools/funnel-velocity"
                           onClick={() => setMobileOpen(false)}
-                          className="flex flex-col py-3 px-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/5 transition-all"
+                          className="flex flex-col py-4 px-5 rounded-2xl bg-white/[0.02] border border-white/5 active:bg-white/10 transition-all"
                         >
-                          <span className="text-base font-bold text-white mb-0.5">Velocity Calculator</span>
-                          <span className="text-xs text-muted leading-snug">Diagnose growth bottlenecks</span>
+                          <span className="text-lg font-bold text-white mb-1">Velocity Calculator</span>
+                          <span className="text-sm text-muted leading-snug">Diagnose growth bottlenecks</span>
                         </Link>
                         <Link
                           href="/resources/agentic-outbound"
                           onClick={() => setMobileOpen(false)}
-                          className="flex flex-col py-3 px-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/5 transition-all"
+                          className="flex flex-col py-4 px-5 rounded-2xl bg-white/[0.02] border border-white/5 active:bg-white/10 transition-all"
                         >
-                          <span className="text-base font-bold text-white mb-0.5">Outbound Playbook</span>
-                          <span className="text-xs text-muted leading-snug">Build an agentic engine</span>
+                          <span className="text-lg font-bold text-white mb-1">Outbound Playbook</span>
+                          <span className="text-sm text-muted leading-snug">Build an agentic engine</span>
                         </Link>
                       </div>
                     )}
