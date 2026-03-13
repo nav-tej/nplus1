@@ -500,7 +500,17 @@ export default function AboutPage() {
             </Link>
           </div>
         </section>
-      </main>
+      {/* Easter egg — vibe coded with love */}
+      <div className="border-t border-white/5 py-8">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <p className="text-xs text-white/20 text-center leading-relaxed">
+            🧪 this site was an experiment in vibe coding — built over two days, several hours, with lots of agents &amp; love ♥{" "}
+            <span className="text-white/30">
+              claude code · claude · gpt · gemini cli · ob-1 · heygen · supabase · resend · vercel · cloudflare · semgrep
+            </span>
+          </p>
+        </div>
+      </div>
       <Footer />
     </>
   );
