@@ -500,6 +500,7 @@ export default function AboutPage() {
             </Link>
           </div>
         </section>
+      </main>
       {/* Easter egg — vibe coded with love */}
       <div className="border-t border-white/5 py-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
