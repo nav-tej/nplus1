@@ -2,18 +2,18 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
+import { X, Menu, Plus, ArrowRight } from "lucide-react";
 
 import { NAV_LINKS, SERVICE_PAGES, SITE_CONFIG } from "@/lib/constants";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [toolsOpen, setToolsOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
-  const firstLinkRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     let rafId: number;
@@ -31,10 +31,7 @@ export default function Navbar() {
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        if (mobileOpen) {
-          setMobileOpen(false);
-          toggleRef.current?.focus();
-        }
+        if (mobileOpen) setMobileOpen(false);
         if (servicesOpen) setServicesOpen(false);
         if (toolsOpen) setToolsOpen(false);
       }
@@ -48,14 +45,11 @@ export default function Navbar() {
   }, [handleKeyDown]);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
       document.body.style.overflow = "";
-    };
-  }, [mobileOpen]);
-
-  useEffect(() => {
-    if (mobileOpen) firstLinkRef.current?.focus();
+    }
   }, [mobileOpen]);
 
   const Logo = ({ gradientId }: { gradientId: string }) => (
@@ -86,28 +80,19 @@ export default function Navbar() {
     </div>
   );
 
-  const ArrowIcon = ({ size = 14 }: { size?: number }) => (
-    <svg width={size} height={size} viewBox="0 0 14 14" fill="none" aria-hidden="true">
-      <path d="M1 7h12m0 0L8 2m5 5L8 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-
   return (
     <>
       {/* ─── Top bar ─── */}
       <nav
-        aria-label="Main navigation"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-[#0B1221]/90 backdrop-blur-md border-b border-white/5"
-            : "bg-transparent"
+          scrolled ? "bg-[#0B1221]/90 backdrop-blur-md border-b border-white/5 py-3" : "bg-transparent py-5"
         }`}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="flex h-18 items-center justify-between">
+          <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5" aria-label="nPlus1 Ventures — Home">
-              <Logo gradientId="navAg" />
+            <Link href="/" className="flex items-center gap-2.5 group">
+              <Logo gradientId="navMain" />
               <Wordmark />
             </Link>
 
@@ -116,306 +101,170 @@ export default function Navbar() {
               {NAV_LINKS.map((link) => {
                 if (link.label === "Services") {
                   return (
-                    <div
-                      key="services"
-                      className="relative"
-                      onMouseEnter={() => setServicesOpen(true)}
-                      onMouseLeave={() => setServicesOpen(false)}
-                    >
-                      <button
-                        className="flex items-center gap-1 text-sm text-muted hover:text-foreground transition-colors duration-200"
-                        aria-expanded={servicesOpen}
-                        aria-haspopup="true"
-                      >
+                    <div key="services" className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
+                      <button className="flex items-center gap-1.5 text-sm text-muted hover:text-foreground transition-colors py-2">
                         Services
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          aria-hidden="true"
-                          className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
-                        >
-                          <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
+                        <Plus className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-45" : ""}`} />
                       </button>
-
-                      {servicesOpen && (
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-[300px]">
-                          <div className="bg-[#0B1221]/98 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
-                            {SERVICE_PAGES.map((page) => (
-                              <Link
-                                key={page.href}
-                                href={page.href}
-                                className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 group"
-                              >
-                                <span className="text-sm font-semibold text-foreground group-hover:text-orange-400 transition-colors">
-                                  {page.label}
-                                </span>
-                                <span className="text-xs text-muted leading-snug">
-                                  {page.description}
-                                </span>
-                              </Link>
-                            ))}
-                          </div>
+                      <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-[300px] transition-all duration-200 ${servicesOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}>
+                        <div className="bg-[#0B1221] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                          {SERVICE_PAGES.map((page) => (
+                            <Link key={page.href} href={page.href} className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 group">
+                              <span className="text-sm font-semibold text-foreground group-hover:text-orange-400 transition-colors">{page.label}</span>
+                              <span className="text-[11px] text-muted leading-tight">{page.description}</span>
+                            </Link>
+                          ))}
                         </div>
-                      )}
+                      </div>
                     </div>
                   );
                 }
-
                 if (link.label === "Tools") {
                   return (
-                    <div
-                      key="tools"
-                      className="relative"
-                      onMouseEnter={() => setToolsOpen(true)}
-                      onMouseLeave={() => setToolsOpen(false)}
-                    >
-                      <button
-                        className="flex items-center gap-1 text-sm text-muted hover:text-foreground transition-colors duration-200"
-                        aria-expanded={toolsOpen}
-                        aria-haspopup="true"
-                      >
+                    <div key="tools" className="relative" onMouseEnter={() => setToolsOpen(true)} onMouseLeave={() => setToolsOpen(false)}>
+                      <button className="flex items-center gap-1.5 text-sm text-muted hover:text-foreground transition-colors py-2">
                         Tools
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          aria-hidden="true"
-                          className={`transition-transform duration-200 ${toolsOpen ? "rotate-180" : ""}`}
-                        >
-                          <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
+                        <Plus className={`w-3.5 h-3.5 transition-transform duration-200 ${toolsOpen ? "rotate-45" : ""}`} />
                       </button>
-
-                      {toolsOpen && (
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-[300px]">
-                          <div className="bg-[#0B1221]/98 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
-                            <Link
-                              href="/tools/funnel-velocity"
-                              className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors border-b border-white/5 group"
-                            >
-                              <span className="text-sm font-semibold text-foreground group-hover:text-orange-400 transition-colors">
-                                Velocity Calculator
-                              </span>
-                              <span className="text-xs text-muted leading-snug">
-                                Diagnose growth bottlenecks
-                              </span>
-                            </Link>
-                            <Link
-                              href="/resources/agentic-outbound"
-                              className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors last:border-0 group"
-                            >
-                              <span className="text-sm font-semibold text-foreground group-hover:text-orange-400 transition-colors">
-                                Outbound Playbook
-                              </span>
-                              <span className="text-xs text-muted leading-snug">
-                                Build an agentic engine
-                              </span>
-                            </Link>
-                          </div>
+                      <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-[300px] transition-all duration-200 ${toolsOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}>
+                        <div className="bg-[#0B1221] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                          <Link href="/tools/funnel-velocity" className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors border-b border-white/5 group">
+                            <span className="text-sm font-semibold text-foreground group-hover:text-orange-400 transition-colors">Velocity Calculator</span>
+                            <span className="text-[11px] text-muted leading-tight">Diagnose growth bottlenecks</span>
+                          </Link>
+                          <Link href="/resources/agentic-outbound" className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors last:border-0 group">
+                            <span className="text-sm font-semibold text-foreground group-hover:text-orange-400 transition-colors">Outbound Playbook</span>
+                            <span className="text-[11px] text-muted leading-tight">Build an agentic engine</span>
+                          </Link>
                         </div>
-                      )}
+                      </div>
                     </div>
                   );
                 }
-
                 return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-sm text-muted hover:text-foreground transition-colors duration-200"
-                  >
+                  <Link key={link.href} href={link.href} className="text-sm text-muted hover:text-foreground transition-colors py-2">
                     {link.label}
                   </Link>
                 );
               })}
-
-              <Link
-                href={SITE_CONFIG.calendarLink}
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-[#0B1221] hover:brightness-110 transition-all duration-200"
-              >
+              <Link href={SITE_CONFIG.calendarLink} className="bg-accent text-[#0B1221] px-6 py-2.5 rounded-full text-sm font-bold hover:shadow-[0_0_20px_rgba(46,204,113,0.3)] transition-all">
                 Get in Touch
-                <ArrowIcon />
               </Link>
             </div>
 
-            {/* Mobile hamburger */}
+            {/* Mobile Trigger */}
             <button
-              ref={toggleRef}
               onClick={() => setMobileOpen(true)}
-              className="md:hidden flex items-center justify-center w-11 h-11 -mr-2 rounded-xl bg-white/10 border border-white/10 text-white hover:bg-white/20 active:scale-95 transition-all duration-200"
+              className="md:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-white/10 border border-white/10 text-white active:scale-95 transition-all"
               aria-label="Open menu"
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-menu"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <line x1="4" y1="7" x2="20" y2="7" />
-                <line x1="4" y1="12" x2="20" y2="12" />
-                <line x1="4" y1="17" x2="20" y2="17" />
-              </svg>
+              <Menu className="w-6 h-6" />
             </button>
           </div>
         </div>
       </nav>
 
-      {/* ─── Full-screen mobile overlay ─── */}
-      {mobileOpen && (
-        <div
-          id="mobile-menu"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Navigation menu"
-          className="fixed inset-0 z-[60] flex flex-col bg-[#0B1221] md:hidden"
-        >
-          {/* Header: logo + close */}
-          <div className="flex items-center justify-between px-6 h-18 border-b border-white/10 shrink-0">
-            <Link
-              href="/"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-2.5"
-              aria-label="nPlus1 Ventures — Home"
-            >
-              <Logo gradientId="mobileNavAg" />
-              <Wordmark />
-            </Link>
+      {/* ─── Smooth Mobile Menu Overlay ─── */}
+      <div 
+        className={`fixed inset-0 z-[100] bg-[#0B1221] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+          mobileOpen ? "translate-x-0" : "translate-x-full"
+        } md:hidden`}
+      >
+        {/* Mobile Header */}
+        <div className="flex items-center justify-between px-6 h-20 border-b border-white/5">
+          <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5">
+            <Logo gradientId="navMobile" />
+            <Wordmark />
+          </Link>
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="flex items-center justify-center w-11 h-11 rounded-xl bg-white/10 border border-white/10 text-white active:scale-95 transition-all"
+            aria-label="Close menu"
+          >
+            <X className="w-6 h-6" />
+          </button>
+        </div>
 
-            <button
-              onClick={() => setMobileOpen(false)}
-              className="p-2 -mr-2 text-white/60 hover:text-white transition-colors"
-              aria-label="Close menu"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            </button>
-          </div>
-
-          {/* Nav links */}
-          <nav className="flex flex-col flex-1 justify-center px-8 overflow-y-auto" aria-label="Mobile navigation links">
-            {NAV_LINKS.map((link, i) => {
-              if (link.label === "Services") {
-                return (
-                  <div key="services" className="py-2">
-                    <button
-                      ref={i === 0 ? firstLinkRef : undefined}
-                      onClick={() => setMobileServicesOpen((v) => !v)}
-                      className={`group flex items-center justify-between w-full p-5 rounded-2xl border transition-all duration-200 ${
-                        mobileServicesOpen 
-                          ? "bg-white/10 border-orange-400/30 text-orange-400" 
-                          : "bg-white/[0.03] border-white/5 text-white/90"
-                      }`}
-                    >
-                      <span className="text-2xl font-bold">Services</span>
-                      <div className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${
-                        mobileServicesOpen ? "bg-orange-400 text-[#0B1221] rotate-45" : "bg-white/10 text-white/40"
-                      }`}>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                          <path d="M12 5v14M5 12h14" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </div>
-                    </button>
-
-                    {mobileServicesOpen && (
-                      <div className="mt-3 space-y-3 pl-4 animate-in slide-in-from-top-4 duration-300">
-                        {SERVICE_PAGES.map((page) => (
-                          <Link
-                            key={page.href}
-                            href={page.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="flex flex-col py-4 px-5 rounded-2xl bg-white/[0.02] border border-white/5 active:bg-white/10 transition-all"
-                          >
-                            <span className="text-lg font-bold text-white mb-1">{page.label}</span>
-                            <span className="text-sm text-muted leading-snug">{page.description}</span>
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              }
-
-              if (link.label === "Tools") {
-                return (
-                  <div key="tools" className="py-2">
-                    <button
-                      onClick={() => setMobileToolsOpen((v) => !v)}
-                      className={`group flex items-center justify-between w-full p-5 rounded-2xl border transition-all duration-200 ${
-                        mobileToolsOpen 
-                          ? "bg-white/10 border-orange-400/30 text-orange-400" 
-                          : "bg-white/[0.03] border-white/5 text-white/90"
-                      }`}
-                    >
-                      <span className="text-2xl font-bold">Tools</span>
-                      <div className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${
-                        mobileToolsOpen ? "bg-orange-400 text-[#0B1221] rotate-45" : "bg-white/10 text-white/40"
-                      }`}>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                          <path d="M12 5v14M5 12h14" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </div>
-                    </button>
-
-                    {mobileToolsOpen && (
-                      <div className="mt-3 space-y-3 pl-4 animate-in slide-in-from-top-4 duration-300">
-                        <Link
-                          href="/tools/funnel-velocity"
-                          onClick={() => setMobileOpen(false)}
-                          className="flex flex-col py-4 px-5 rounded-2xl bg-white/[0.02] border border-white/5 active:bg-white/10 transition-all"
-                        >
-                          <span className="text-lg font-bold text-white mb-1">Velocity Calculator</span>
-                          <span className="text-sm text-muted leading-snug">Diagnose growth bottlenecks</span>
-                        </Link>
-                        <Link
-                          href="/resources/agentic-outbound"
-                          onClick={() => setMobileOpen(false)}
-                          className="flex flex-col py-4 px-5 rounded-2xl bg-white/[0.02] border border-white/5 active:bg-white/10 transition-all"
-                        >
-                          <span className="text-lg font-bold text-white mb-1">Outbound Playbook</span>
-                          <span className="text-sm text-muted leading-snug">Build an agentic engine</span>
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                );
-              }
-
+        {/* Mobile Content */}
+        <div className="flex flex-col h-[calc(100vh-80px)] overflow-y-auto px-6 py-10 space-y-4">
+          {NAV_LINKS.map((link) => {
+            if (link.label === "Services") {
               return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="group flex items-center justify-between py-5 border-b border-white/10 text-2xl font-semibold text-white/80 hover:text-white transition-colors duration-150"
-                >
-                  {link.label}
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    aria-hidden="true"
-                    className="text-white/25 group-hover:text-orange-400 group-hover:translate-x-0.5 transition-all duration-150"
+                <div key="services" className="space-y-3">
+                  <button 
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className={`flex items-center justify-between w-full p-5 rounded-2xl border transition-all ${
+                      mobileServicesOpen ? "bg-white/10 border-orange-400/30 text-orange-400" : "bg-white/[0.03] border-white/5 text-white"
+                    }`}
                   >
-                    <path d="M1 7h12m0 0L8 2m5 5L8 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </Link>
+                    <span className="text-xl font-bold">Services</span>
+                    <Plus className={`w-5 h-5 transition-transform duration-300 ${mobileServicesOpen ? "rotate-45" : ""}`} />
+                  </button>
+                  {mobileServicesOpen && (
+                    <div className="grid grid-cols-1 gap-3 pl-4 animate-in slide-in-from-top-2 duration-200">
+                      {SERVICE_PAGES.map((page) => (
+                        <Link key={page.href} href={page.href} onClick={() => setMobileOpen(false)} className="flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                          <span className="font-bold text-white">{page.label}</span>
+                          <span className="text-xs text-muted leading-tight">{page.description}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               );
-            })}
-          </nav>
+            }
+            if (link.label === "Tools") {
+              return (
+                <div key="tools" className="space-y-3">
+                  <button 
+                    onClick={() => setMobileToolsOpen(!mobileToolsOpen)}
+                    className={`flex items-center justify-between w-full p-5 rounded-2xl border transition-all ${
+                      mobileToolsOpen ? "bg-white/10 border-orange-400/30 text-orange-400" : "bg-white/[0.03] border-white/5 text-white"
+                    }`}
+                  >
+                    <span className="text-xl font-bold">Tools</span>
+                    <Plus className={`w-5 h-5 transition-transform duration-300 ${mobileToolsOpen ? "rotate-45" : ""}`} />
+                  </button>
+                  {mobileToolsOpen && (
+                    <div className="grid grid-cols-1 gap-3 pl-4 animate-in slide-in-from-top-2 duration-200">
+                      <Link href="/tools/funnel-velocity" onClick={() => setMobileOpen(false)} className="flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                        <span className="font-bold text-white">Velocity Calculator</span>
+                        <span className="text-xs text-muted">Diagnose growth bottlenecks</span>
+                      </Link>
+                      <Link href="/resources/agentic-outbound" onClick={() => setMobileOpen(false)} className="flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                        <span className="font-bold text-white">Outbound Playbook</span>
+                        <span className="text-xs text-muted">Build an agentic engine</span>
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-between w-full p-5 rounded-2xl bg-white/[0.03] border border-white/5 text-xl font-bold text-white hover:bg-white/5 transition-all"
+              >
+                {link.label}
+                <ArrowRight className="w-5 h-5 text-white/20" />
+              </Link>
+            );
+          })}
 
-          {/* CTA pinned to bottom */}
-          <div className="shrink-0 px-8 pb-12">
+          <div className="pt-6">
             <Link
               href={SITE_CONFIG.calendarLink}
               onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-center gap-2 w-full rounded-full bg-accent py-4 text-base font-semibold text-[#0B1221] hover:brightness-110 active:scale-[0.98] transition-all duration-200"
+              className="flex items-center justify-center gap-3 w-full p-5 rounded-2xl bg-accent text-[#0B1221] text-lg font-black hover:shadow-[0_0_30px_rgba(46,204,113,0.4)] transition-all"
             >
               Get in Touch
-              <ArrowIcon size={16} />
+              <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 }
