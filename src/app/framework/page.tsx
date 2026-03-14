@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { CheckCircle2, Zap, Target, BarChart3, Database, MessageSquare } from "lucide-react";
+import { CheckCircle2, Zap, Target, BarChart3, Database, MessageSquare, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "The AI-Native GTM Framework | n+α Ventures",
