@@ -14,8 +14,8 @@ import {
   ArrowRight,
   Info,
   Calendar,
-  Building2,
-  ChevronRight
+  ChevronRight,
+  Gauge
 } from "lucide-react";
 
 type Stage = "Seed" | "Series A" | "Series B" | "Series C+";
@@ -24,11 +24,14 @@ type Vertical = "Enterprise SaaS" | "Fintech" | "AI Infrastructure" | "Cybersecu
 type Inputs = {
   stage: Stage;
   vertical: Vertical;
-  arr: number;
+  opps: number; // Qualified Opps per Quarter
   acv: number;
   cycle: number;
   winRate: number;
+  arr: number;
 };
+
+type Legend = { name: string; result: string; logo: string; highlight: string };
 
 const STAGE_BENCHMARKS: Record<Stage, { medianWin: number; eliteWin: number; medianCycle: number }> = {
   "Seed": { medianWin: 15, eliteWin: 25, medianCycle: 30 },
@@ -37,38 +40,101 @@ const STAGE_BENCHMARKS: Record<Stage, { medianWin: number; eliteWin: number; med
   "Series C+": { medianWin: 28, eliteWin: 45, medianCycle: 120 },
 };
 
-type Legend = { name: string; result: string; context: string; logo: string };
+const ARR_VALUES = [
+  5000000, 10000000, 15000000, 20000000, 25000000, 30000000, 35000000, 40000000, 45000000, 50000000,
+  150000000, 250000000, 350000000, 450000000, 550000000, 650000000, 750000000, 850000000, 950000000, 1000000000
+];
 
-const STAGE_VERTICAL_LEGENDS: Record<Vertical, Record<Stage, Legend>> = {
+const STAGE_VERTICAL_LEGENDS: Record<Vertical, Record<Stage, Legend[]>> = {
   "Enterprise SaaS": {
-    "Seed": { name: "Webflow", result: "$1M in 12mo", context: "Mastered the PLG self-serve wedge early.", logo: "/logos/webflow.svg" },
-    "Series A": { name: "Slack", result: "$10M in 12mo", context: "The fastest enterprise adoption ever.", logo: "/logos/slack.svg" },
-    "Series B": { name: "Klaviyo", result: "$50M in 24mo", context: "Dominated ecommerce with high-velocity ROI.", logo: "/logos/klaviyo.svg" },
-    "Series C+": { name: "HubSpot", result: "$1B+ ARR", context: "Built the horizontal GTM platform standard.", logo: "/logos/hubspot.svg" },
-  },
-  "Fintech": {
-    "Seed": { name: "Mercury", result: "$1M in 6mo", context: "High-trust banking for high-growth startups.", logo: "/logos/mercury.svg" },
-    "Series A": { name: "Ramp", result: "$10M in 12mo", context: "The $100M ARR speedrun record.", logo: "/logos/ramp.svg" },
-    "Series B": { name: "Brex", result: "$100M in 24mo", context: "Blitzscaled corporate credit infrastructure.", logo: "/logos/brex.svg" },
-    "Series C+": { name: "Stripe", result: "$1B+ ARR", context: "The global standard for payment velocity.", logo: "/logos/stripe.svg" },
+    "Seed": [
+      { name: "Webflow", result: "$1M in 12mo", logo: "/logos/webflow.svg", highlight: "PLG wedge mastery" },
+      { name: "Mercury", result: "$1M in 6mo", logo: "/logos/mercury.svg", highlight: "Brand trust outlier" }
+    ],
+    "Series A": [
+      { name: "Slack", result: "$10M in 12mo", logo: "/logos/slack.svg", highlight: "Enterprise viral loop" },
+      { name: "Klaviyo", result: "$20M+ ARR", logo: "/logos/klaviyo.svg", highlight: "Mastered high-velocity ROI" }
+    ],
+    "Series B": [
+      { name: "Brex", result: "$100M in 24mo", logo: "/logos/brex.svg", highlight: "Fintech infra blitz" },
+      { name: "HubSpot", result: "Hyper-efficient scale", logo: "/logos/hubspot.svg", highlight: "GTM platform standard" }
+    ],
+    "Series C+": [
+      { name: "Stripe", result: "$1B+ ARR", logo: "/logos/stripe.svg", highlight: "Global payment velocity" },
+      { name: "Salesforce", result: "The OG GTM Giant", logo: "/logos/salesforce.svg", highlight: "Created the category" }
+    ],
   },
   "AI Infrastructure": {
-    "Seed": { name: "Cursor", result: "$1M in 4mo", context: "AI-native hypergrowth record.", logo: "/logos/cursor.svg" },
-    "Series A": { name: "HeyGen", result: "$20M to $100M", context: "Nav architected this revenue engine.", logo: "/logos/heygen.svg" },
-    "Series B": { name: "ElevenLabs", result: "$50M in 12mo", context: "Scaling voice AI at unprecedented speed.", logo: "/logos/elevenlabs.svg" },
-    "Series C+": { name: "OpenAI", result: "$3B+ ARR", context: "Defining the new AI-native business model.", logo: "/logos/openai.svg" },
+    "Seed": [
+      { name: "Cursor", result: "$1M in 4mo", logo: "/logos/cursor.svg", highlight: "The hypergrowth record" },
+      { name: "Cognition", result: "$1M ARR launch", logo: "/logos/cognition.svg", highlight: "Agentic breakthrough" }
+    ],
+    "Series A": [
+      { name: "HeyGen", result: "$35M ARR raise", logo: "/logos/heygen.svg", highlight: "Nav architected this engine" },
+      { name: "Perplexity", result: "Search dominance", logo: "/logos/perplexity.svg", highlight: "AI-native adoption" }
+    ],
+    "Series B": [
+      { name: "ElevenLabs", result: "$50M in 12mo", logo: "/logos/elevenlabs.svg", highlight: "Voice AI category leader" },
+      { name: "Mistral", result: "$100M+ valuation burst", logo: "/logos/mistral.svg", highlight: "Open-source efficiency" }
+    ],
+    "Series C+": [
+      { name: "OpenAI", result: "$3B+ ARR", logo: "/logos/openai.svg", highlight: "Defining the AI business model" },
+      { name: "Anthropic", result: "Enterprise AI standard", logo: "/logos/anthropic.svg", highlight: "Safety-first scaling" }
+    ],
+  },
+  "Fintech": {
+    "Seed": [
+      { name: "Mercury", result: "Startup Banking", logo: "/logos/mercury.svg", highlight: "Seamless UX wedge" },
+      { name: "Unit", result: "Embedded Finance", logo: "/logos/unit.svg", highlight: "Infrastructure-first" }
+    ],
+    "Series A": [
+      { name: "Ramp", result: "$10M in 12mo", logo: "/logos/ramp.svg", highlight: "$100M ARR speedrun record" },
+      { name: "Deel", result: "Global Compliance", logo: "/logos/deel.svg", highlight: "Horizontal scale speed" }
+    ],
+    "Series B": [
+      { name: "Brex", result: "$100M in 24mo", logo: "/logos/brex.svg", highlight: "Market share blitz" },
+      { name: "Navan", result: "Travel Fintech", logo: "/logos/navan.svg", highlight: "Enterprise consolidation" }
+    ],
+    "Series C+": [
+      { name: "Stripe", result: "$1B+ ARR", logo: "/logos/stripe.svg", highlight: "Internet economy infra" },
+      { name: "Adyen", result: "Global Payments", logo: "/logos/adyen.svg", highlight: "Operational excellence" }
+    ],
   },
   "Cybersecurity": {
-    "Seed": { name: "Oleria", result: "$1M in 8mo", context: "Identity-first security for the AI era.", logo: "/logos/oleria.svg" },
-    "Series A": { name: "Sentra", result: "$5M in 12mo", context: "Solving data security at cloud speed.", logo: "/logos/sentra.svg" },
-    "Series B": { name: "Wiz", result: "$100M in 18mo", context: "The security growth record holder.", logo: "/logos/wiz.svg" },
-    "Series C+": { name: "CrowdStrike", result: "$3B+ ARR", context: "Scaled to dominance through platform consolidation.", logo: "/logos/crowdstrike.svg" },
+    "Seed": [
+      { name: "Oleria", result: "Identity Security", logo: "/logos/oleria.svg", highlight: "AI-native security" },
+      { name: "Sentra", result: "Data Security", logo: "/logos/sentra.svg", highlight: "Cloud-speed scaling" }
+    ],
+    "Series A": [
+      { name: "Abnormal", result: "Email AI", logo: "/logos/abnormal.svg", highlight: "Fastest security scale-up" },
+      { name: "Orca", result: "Agentless Security", logo: "/logos/orca.svg", highlight: "Frictionless deployment" }
+    ],
+    "Series B": [
+      { name: "Wiz", result: "$100M in 18mo", logo: "/logos/wiz.svg", highlight: "Growth record holder" },
+      { name: "Snyk", result: "Developer Security", logo: "/logos/snyk.svg", highlight: "Mastered the dev wedge" }
+    ],
+    "Series C+": [
+      { name: "CrowdStrike", result: "$3B+ ARR", logo: "/logos/crowdstrike.svg", highlight: "Platform dominance" },
+      { name: "Zscaler", result: "Zero Trust Leader", logo: "/logos/zscaler.svg", highlight: "Cloud-native infra" }
+    ],
   },
   "DevTools": {
-    "Seed": { name: "Supabase", result: "$1M in 9mo", context: "Building the open-source Firebase standard.", logo: "/logos/supabase.svg" },
-    "Series A": { name: "Semgrep", result: "5x YoY Growth", context: "Nav architected this revenue engine.", logo: "/logos/semgrep.svg" },
-    "Series B": { name: "Vercel", result: "$50M in 24mo", context: "The frontend cloud hypergrowth engine.", logo: "/logos/vercel.svg" },
-    "Series C+": { name: "GitHub", result: "$1B+ ARR", context: "The global developer operating system.", logo: "/logos/github.svg" },
+    "Seed": [
+      { name: "Supabase", result: "$1M in 9mo", logo: "/logos/supabase.svg", highlight: "The Firebase alternative" },
+      { name: "Resend", result: "Email for Devs", logo: "/logos/resend.svg", highlight: "Elite UX-led growth" }
+    ],
+    "Series A": [
+      { name: "Cognition", result: "$73M in 9mo", logo: "/logos/cognition.svg", highlight: "Agentic dev standard" },
+      { name: "Cursor", result: "AI-Native Coding", logo: "/logos/cursor.svg", highlight: "Redefining the IDE" }
+    ],
+    "Series B": [
+      { name: "Vercel", result: "$50M in 24mo", logo: "/logos/vercel.svg", highlight: "Frontend cloud standard" },
+      { name: "PostHog", result: "OS Product OS", logo: "/logos/posthog.svg", highlight: "Community-led outlier" }
+    ],
+    "Series C+": [
+      { name: "GitHub", result: "$1B+ ARR", logo: "/logos/github.svg", highlight: "Global developer OS" },
+      { name: "GitLab", result: "DevSecOps Leader", logo: "/logos/gitlab.svg", highlight: "Remote-first scale" }
+    ],
   },
 };
 
@@ -77,27 +143,18 @@ export default function VelocityCalculator() {
   const [inputs, setInputs] = useState<Inputs>({
     stage: "Series A",
     vertical: "Enterprise SaaS",
-    arr: 5000000,
-    acv: 15000,
-    cycle: 60,
+    opps: 50,
+    acv: 25000,
+    cycle: 90,
     winRate: 21,
+    arr: 5000000,
   });
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const ph = usePostHog();
 
-  const handleStageChange = (stage: Stage) => {
-    const benchmarks = STAGE_BENCHMARKS[stage];
-    setInputs(prev => ({ 
-      ...prev, 
-      stage, 
-      winRate: benchmarks.medianWin,
-      cycle: benchmarks.medianCycle 
-    }));
-  };
-
-  const handleVerticalChange = (vertical: Vertical) => {
-    setInputs(prev => ({ ...prev, vertical }));
+  const handleInputChange = (name: keyof Inputs, value: any) => {
+    setInputs((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -120,23 +177,29 @@ export default function VelocityCalculator() {
     }
   };
 
-  const getPercentile = () => {
-    const b = STAGE_BENCHMARKS[inputs.stage];
-    if (inputs.winRate >= b.eliteWin) return 90;
-    if (inputs.winRate >= b.medianWin) return 50;
-    return 25;
+  const getEfficiencyGrade = () => {
+    const cycleRatio = inputs.cycle / (inputs.acv / 1000);
+    if (cycleRatio < 1.0) return "A+";
+    if (cycleRatio < 1.5) return "A";
+    if (cycleRatio < 2.5) return "B";
+    if (cycleRatio < 4.0) return "C";
+    return "F";
   };
 
   const getRevenueGap = () => {
-    const b = STAGE_BENCHMARKS[inputs.stage];
-    const targetWinRate = b.eliteWin;
-    const currentEfficiency = inputs.winRate / 100;
-    const targetEfficiency = targetWinRate / 100;
-    const potentialArr = (inputs.arr / currentEfficiency) * targetEfficiency;
-    return potentialArr - inputs.arr;
+    const currentQuarterRevenue = inputs.opps * (inputs.winRate / 100) * inputs.acv;
+    const targetWinRate = Math.max(inputs.winRate, 35); // 35% is the "Elite" floor
+    const potentialQuarterRevenue = inputs.opps * (targetWinRate / 100) * inputs.acv;
+    return (potentialQuarterRevenue - currentQuarterRevenue) * 4; // Annualized Gap
   };
 
-  const legend = STAGE_VERTICAL_LEGENDS[inputs.vertical][inputs.stage];
+  const legends = STAGE_VERTICAL_LEGENDS[inputs.vertical][inputs.stage];
+
+  const formatCurrency = (val: number) => {
+    if (val >= 1000000000) return `$${(val / 1000000000).toFixed(1)}B+`;
+    if (val >= 1000000) return `$${(val / 1000000).toFixed(0)}M`;
+    return `$${(val / 1000).toFixed(0)}K`;
+  };
 
   return (
     <div className="w-full max-w-4xl mx-auto space-y-12">
@@ -150,22 +213,22 @@ export default function VelocityCalculator() {
                 step === s ? "bg-accent text-[#0B1221]" : "text-muted/30"
               }`}
             >
-              {s === 1 ? "Metrics" : s === 2 ? "Context" : s === 3 ? "Unlock" : "Report"}
+              {s === 1 ? "Metrics" : s === 2 ? "Benchmarks" : s === 3 ? "Unlock" : "Roadmap"}
             </div>
           ))}
         </div>
 
         <div className="p-8 lg:p-16">
-          {/* STEP 1: INPUTS */}
+          {/* STEP 1: CONTEXT & VOLUME */}
           {step === 1 && (
             <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div className="space-y-6">
-                  <label className="text-xs font-black text-muted uppercase tracking-[0.3em]">01. Funding Stage</label>
+                  <label className="text-xs font-black text-muted uppercase tracking-[0.3em]">01. Current Stage</label>
                   <div className="grid grid-cols-2 gap-2">
                     {(["Seed", "Series A", "Series B", "Series C+"] as Stage[]).map((s) => (
                       <button
-                        key={s} onClick={() => handleStageChange(s)}
+                        key={s} onClick={() => handleInputChange("stage", s)}
                         className={`py-3 px-4 rounded-xl text-xs font-bold border transition-all ${
                           inputs.stage === s ? "bg-accent text-[#0B1221] border-accent" : "bg-white/5 border-white/5 text-muted hover:border-white/10"
                         }`}
@@ -180,7 +243,7 @@ export default function VelocityCalculator() {
                   <div className="grid grid-cols-2 gap-2">
                     {(Object.keys(STAGE_VERTICAL_LEGENDS) as Vertical[]).map((v) => (
                       <button
-                        key={v} onClick={() => handleVerticalChange(v)}
+                        key={v} onClick={() => handleInputChange("vertical", v)}
                         className={`py-3 px-4 rounded-xl text-[10px] font-bold border transition-all ${
                           inputs.vertical === v ? "bg-accent text-[#0B1221] border-accent" : "bg-white/5 border-white/5 text-muted hover:border-white/10"
                         }`}
@@ -193,118 +256,202 @@ export default function VelocityCalculator() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+                {/* ARR with snapped values */}
                 <div className="space-y-6">
                   <div className="flex justify-between items-end">
-                    <label className="text-sm font-bold text-foreground flex items-center gap-2"><BarChart3 className="w-4 h-4 text-accent" /> ARR</label>
-                    <span className="text-3xl font-black text-accent">{inputs.arr >= 1000000000 ? `$${(inputs.arr/1000000000).toFixed(1)}B+` : `$${(inputs.arr/1000000).toFixed(0)}M`}</span>
+                    <label className="text-sm font-bold text-foreground flex items-center gap-2"><BarChart3 className="w-4 h-4 text-accent" /> Current ARR</label>
+                    <span className="text-3xl font-black text-accent">{formatCurrency(inputs.arr)}</span>
                   </div>
-                  <input type="range" min="1000000" max="1000000000" step="1000000" value={inputs.arr} onChange={(e) => setInputs(p => ({ ...p, arr: parseInt(e.target.value) }))} className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent" />
+                  <div className="relative pt-2">
+                    <input 
+                      type="range" 
+                      min="0" 
+                      max={ARR_VALUES.length - 1} 
+                      step="1" 
+                      value={ARR_VALUES.indexOf(inputs.arr)} 
+                      onChange={(e) => handleInputChange("arr", ARR_VALUES[parseInt(e.target.value)])} 
+                      className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent" 
+                    />
+                    <div className="flex justify-between w-full px-1 mt-3">
+                      {ARR_VALUES.filter((_, i) => i % 4 === 0 || i === ARR_VALUES.length - 1).map((val) => (
+                        <div key={val} className="flex flex-col items-center gap-1.5">
+                          <div className="w-1 h-1 rounded-full bg-white/20" />
+                          <span className="text-[8px] font-mono text-muted/50 uppercase tracking-tighter">{formatCurrency(val)}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
+
+                {/* Opps */}
+                <div className="space-y-6">
+                  <div className="flex justify-between items-end">
+                    <label className="text-sm font-bold text-foreground flex items-center gap-2"><TrendingUp className="w-4 h-4 text-accent" /> Opps / Quarter</label>
+                    <span className="text-3xl font-black text-accent">{inputs.opps}</span>
+                  </div>
+                  <div className="relative pt-2">
+                    <input type="range" min="5" max="500" step="5" value={inputs.opps} onChange={(e) => handleInputChange("opps", parseInt(e.target.value))} className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent" />
+                    <div className="flex justify-between w-full px-1 mt-3">
+                      {[5, 125, 250, 375, 500].map((v) => (
+                        <div key={v} className="flex flex-col items-center gap-1.5">
+                          <div className="w-1 h-1 rounded-full bg-white/20" />
+                          <span className="text-[8px] font-mono text-muted/50 tracking-tighter">{v}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Win Rate */}
                 <div className="space-y-6">
                   <div className="flex justify-between items-end">
                     <label className="text-sm font-bold text-foreground flex items-center gap-2"><Target className="w-4 h-4 text-accent" /> Win Rate</label>
                     <span className="text-3xl font-black text-accent">{inputs.winRate}%</span>
                   </div>
-                  <input type="range" min="1" max="60" step="1" value={inputs.winRate} onChange={(e) => setInputs(p => ({ ...p, winRate: parseInt(e.target.value) }))} className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent" />
+                  <div className="relative pt-2">
+                    <input type="range" min="1" max="60" step="1" value={inputs.winRate} onChange={(e) => handleInputChange("winRate", parseInt(e.target.value))} className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent" />
+                    <div className="flex justify-between w-full px-1 mt-3">
+                      {[1, 15, 30, 45, 60].map((v) => (
+                        <div key={v} className="flex flex-col items-center gap-1.5">
+                          <div className="w-1 h-1 rounded-full bg-white/20" />
+                          <span className="text-[8px] font-mono text-muted/50 tracking-tighter">{v}%</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* ACV */}
+                <div className="space-y-6">
+                  <div className="flex justify-between items-end">
+                    <label className="text-sm font-bold text-foreground flex items-center gap-2"><Zap className="w-4 h-4 text-accent" /> Average ACV</label>
+                    <span className="text-3xl font-black text-accent">{formatCurrency(inputs.acv)}</span>
+                  </div>
+                  <div className="relative pt-2">
+                    <input type="range" min="5000" max="250000" step="5000" value={inputs.acv} onChange={(e) => handleInputChange("acv", parseInt(e.target.value))} className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent" />
+                    <div className="flex justify-between w-full px-1 mt-3">
+                      {[5000, 65000, 125000, 185000, 250000].map((v) => (
+                        <div key={v} className="flex flex-col items-center gap-1.5">
+                          <div className="w-1 h-1 rounded-full bg-white/20" />
+                          <span className="text-[8px] font-mono text-muted/50 tracking-tighter">{formatCurrency(v)}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <button
                 onClick={() => setStep(2)}
-                className="w-full group bg-accent text-[#0B1221] font-black text-xl rounded-2xl py-6 hover:shadow-[0_0_50px_rgba(46,204,113,0.4)] transition-all flex items-center justify-center gap-3"
+                className="w-full group bg-accent text-[#0B1221] font-black text-xl rounded-2xl py-6 hover:shadow-[0_0_50px_rgba(46,204,113,0.4)] transition-all flex items-center justify-center gap-3 active:scale-[0.98]"
               >
-                Benchmark against {inputs.stage} {inputs.vertical} Legends
+                Diagnose GTM Efficiency
                 <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-2" />
               </button>
             </div>
           )}
 
-          {/* STEP 2: CONTEXTUAL COMPARISON */}
+          {/* STEP 2: COMPARATIVE DASHBOARD */}
           {step === 2 && (
             <div className="space-y-12 animate-in fade-in zoom-in-95 duration-700">
               <div className="text-center space-y-4">
-                <span className="text-xs font-black uppercase tracking-[0.4em] text-accent">{inputs.stage} {inputs.vertical} Analysis</span>
-                <h2 className="text-4xl lg:text-6xl font-black tracking-tighter">You are in the <span className="text-red-400 italic">{getPercentile()}th</span> Percentile</h2>
+                <span className="text-xs font-black uppercase tracking-[0.4em] text-accent">Efficiency Diagnosis</span>
+                <h2 className="text-4xl lg:text-6xl font-black tracking-tighter">Your GTM Grade: <span className="text-red-400 italic underline decoration-red-400/20">{getEfficiencyGrade()}</span></h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white/5 border border-white/10 rounded-3xl p-8 space-y-6">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-muted uppercase tracking-widest">{inputs.stage} Legend</span>
-                    <div className="h-8 w-auto flex items-center grayscale opacity-80 brightness-200">
-                      <img src={legend.logo} alt={legend.name} className="h-full w-auto object-contain" />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-emerald-400 font-black text-2xl mb-1">{legend.name}</div>
-                    <div className="text-xl font-bold text-white">{legend.result}</div>
-                  </div>
-                  <p className="text-sm text-muted leading-relaxed">{legend.context}</p>
-                </div>
+                {/* Revenue Gap Card */}
                 <div className="bg-red-400/5 border border-red-400/20 rounded-3xl p-8 space-y-6">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-red-400/60 uppercase tracking-widest">Annual Revenue Gap</span>
+                    <span className="text-xs font-bold text-red-400/60 uppercase tracking-widest">The Efficiency Tax</span>
                     <TrendingUp className="w-5 h-5 text-red-400" />
                   </div>
-                  <div className="text-4xl font-black text-red-400">-${(getRevenueGap()/1000000).toFixed(1)}M</div>
-                  <p className="text-sm text-muted leading-relaxed">This is the unrealized ARR based on top-quartile efficiency targets for {inputs.stage} {inputs.vertical} companies.</p>
+                  <div className="text-4xl font-black text-red-400">-${(getRevenueGap()/1000000).toFixed(1)}M / Yr</div>
+                  <p className="text-sm text-muted leading-relaxed">
+                    Based on your {inputs.winRate}% win rate, you are leaving substantial revenue on the table relative to top-quartile performers. 
+                  </p>
+                </div>
+
+                {/* Legends Card */}
+                <div className="bg-white/5 border border-white/10 rounded-3xl p-8 space-y-6">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-muted uppercase tracking-widest">{inputs.stage} {inputs.vertical} Legends</span>
+                    <Gauge className="w-5 h-5 text-accent" />
+                  </div>
+                  <div className="space-y-4">
+                    {legends.map((l) => (
+                      <div key={l.name} className="flex items-center gap-4 group">
+                        <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all">
+                          <img src={l.logo} alt={l.name} className="max-w-full max-h-full" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-bold text-white">{l.name} <span className="text-accent text-[10px] ml-2">{l.result}</span></div>
+                          <div className="text-[10px] text-muted uppercase tracking-tight">{l.highlight}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div className="bg-accent/5 border border-accent/20 rounded-3xl p-8 lg:p-12 text-center space-y-6">
-                <h3 className="text-2xl font-bold italic italic underline decoration-accent/30">The 6-Month GTM Opportunity</h3>
-                <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
-                  Based on our architecture at <strong>{legend.name}</strong>, <strong>HeyGen</strong>, and <strong>Semgrep</strong>, we typically drive a <span className="text-accent font-bold">15-30% lift</span> in win rate by implementing agentic workflows within 2 quarters.
-                </p>
-                <button
-                  onClick={() => setStep(3)}
-                  className="inline-flex items-center gap-3 bg-white text-[#0B1221] px-10 py-5 rounded-2xl font-black text-lg hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all"
-                >
-                  Unlock 6-Month Growth Roadmap
-                  <ChevronRight className="w-5 h-5" />
-                </button>
+              <div className="bg-accent/5 border border-accent/20 rounded-[2.5rem] p-10 lg:p-16 text-center space-y-8 relative overflow-hidden">
+                <div className="relative z-10 space-y-6">
+                  <h3 className="text-3xl lg:text-5xl font-black tracking-tight leading-tight">
+                    We drive 15-30% lift in win rate within <span className="text-accent italic">6 months</span>.
+                  </h3>
+                  <p className="text-lg text-muted max-w-xl mx-auto leading-relaxed">
+                    By implementing the same agentic architectures used at <strong>HeyGen</strong> and <strong>Semgrep</strong>, we eliminate mid-funnel friction and accelerate velocity.
+                  </p>
+                  <button
+                    onClick={() => setStep(3)}
+                    className="inline-flex items-center gap-3 bg-white text-[#0B1221] px-10 py-5 rounded-2xl font-black text-xl hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all scale-100 hover:scale-105 active:scale-95"
+                  >
+                    Unlock 6-Month GTM Roadmap
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </div>
               </div>
             </div>
           )}
 
-          {/* STEP 3: UNLOCK */}
+          {/* STEP 3: UNLOCK ROADMAP */}
           {step === 3 && (
             <div className="text-center space-y-10 py-12 animate-in fade-in zoom-in-95 duration-500">
               <div className="mx-auto w-24 h-24 bg-accent/10 rounded-[2.5rem] flex items-center justify-center rotate-12 mb-8 shadow-2xl border border-accent/20">
                 <Lock className="w-12 h-12 text-accent" />
               </div>
               <div className="space-y-4">
-                <h2 className="text-4xl lg:text-5xl font-black tracking-tight">Finalizing Your Plan.</h2>
+                <h2 className="text-4xl lg:text-5xl font-black tracking-tight">Strategy Blueprint Locked.</h2>
                 <p className="text-muted text-lg max-w-md mx-auto leading-relaxed">
-                  Enter your work email to receive the specific tactical roadmap to bridge your <strong>${(getRevenueGap()/1000000).toFixed(1)}M</strong> gap in 6 months.
+                  Enter your work email to receive the specific tactical roadmap to bridge your <strong>${(getRevenueGap()/1000000).toFixed(1)}M</strong> gap.
                 </p>
               </div>
               <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
                 <input
                   type="email" required value={email} onChange={e => setEmail(e.target.value)}
                   placeholder="name@company.com"
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 text-xl outline-none focus:ring-2 focus:ring-accent text-center font-bold"
+                  className="w-full bg-white/5 border border-white/10 rounded-3xl px-6 py-5 text-xl outline-none focus:ring-2 focus:ring-accent text-center font-bold"
                 />
                 <button
                   type="submit" disabled={loading}
-                  className="w-full bg-accent text-[#0B1221] font-black text-xl rounded-2xl py-6 hover:shadow-[0_0_40px_rgba(46,204,113,0.3)] transition-all"
+                  className="w-full bg-accent text-[#0B1221] font-black text-xl rounded-3xl py-6 hover:shadow-[0_0_40px_rgba(46,204,113,0.3)] transition-all"
                 >
-                  {loading ? "Generating Roadmap..." : "Unlock Full Growth Plan"}
+                  {loading ? "Processing..." : "Generate Roadmap"}
                 </button>
               </form>
             </div>
           )}
 
-          {/* STEP 4: SUCCESS & CONSULTATION */}
+          {/* STEP 4: SUCCESS & FINAL CTA */}
           {step === 4 && (
             <div className="text-center space-y-12 animate-in fade-in duration-700">
               <div className="mx-auto w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center border border-emerald-500/20">
                 <CheckCircle2 className="w-10 h-10 text-emerald-500" />
               </div>
               <div className="space-y-4">
-                <h2 className="text-4xl lg:text-6xl font-black tracking-tighter italic">Roadmap Dispatched.</h2>
+                <h2 className="text-4xl lg:text-6xl font-black tracking-tighter italic">Growth Plan Sent.</h2>
                 <p className="text-xl text-muted max-w-xl mx-auto">
-                  We&apos;ve sent the 6-month {inputs.vertical} optimization plan to <strong>{email}</strong>.
+                  Check <strong>{email}</strong> for your customized {inputs.vertical} efficiency audit.
                 </p>
               </div>
 
@@ -314,18 +461,18 @@ export default function VelocityCalculator() {
                 </div>
                 <div className="relative z-10 space-y-8">
                   <h3 className="text-3xl lg:text-5xl font-black tracking-tight leading-tight">
-                    Want to see how we&apos;d bridge your ${(getRevenueGap()/1000000).toFixed(1)}M gap together?
+                    Want to execute this roadmap with an expert?
                   </h3>
-                  <p className="text-lg font-medium max-w-2xl mx-auto opacity-80 leading-relaxed">
-                    Schedule a 15-minute strategy audit. We&apos;ll walk through your specific bottlenecks and share the exact agentic workflows we used at <strong>{legend.name}</strong> and <strong>HeyGen</strong>.
+                  <p className="text-xl font-medium max-w-2xl mx-auto opacity-80 leading-relaxed">
+                    Schedule a 15-minute strategy session to see how we&apos;d bridge your ${(getRevenueGap()/1000000).toFixed(1)}M gap using the exact agentic playbooks we built at <strong>HeyGen</strong> and <strong>Semgrep</strong>.
                   </p>
-                  <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-6">
+                  <div className="pt-4">
                     <Link
                       href="/#contact"
                       className="inline-flex items-center gap-3 bg-accent text-[#0B1221] px-12 py-6 rounded-2xl font-black text-2xl hover:shadow-[0_0_50px_rgba(46,204,113,0.4)] transition-all scale-100 hover:scale-105 active:scale-95"
                     >
                       <Calendar className="w-7 h-7 fill-[#0B1221]" />
-                      Schedule Strategy Audit
+                      Schedule GTM Strategy Audit
                     </Link>
                   </div>
                 </div>
@@ -340,10 +487,10 @@ export default function VelocityCalculator() {
           <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 flex items-center gap-2">
             <Info className="w-4 h-4" /> Methodology & 2026 Data Sources
           </h3>
-          <span className="text-[10px] font-mono text-muted uppercase bg-white/5 px-2 py-1 rounded">Refreshed: March 13, 2026</span>
+          <span className="text-[10px] font-mono text-muted uppercase bg-white/5 px-2 py-1 rounded">Last Refreshed: March 13, 2026</span>
         </div>
         <p className="text-sm text-muted leading-relaxed max-w-3xl">
-          Calculations use a stage-specific benchmarking matrix derived from 2025-2026 GTM indices from <strong>PeerSignal</strong>, <strong>GrowthUnhinged</strong>, and <strong>Gartner</strong>. Comparative "Legends" represent historical outlier performance in their respective verticals (e.g., Cursor&apos;s 2025 growth trajectory).
+          Calculations are based on the <strong>AI-Native Efficiency Matrix</strong>, comparing your ACV-to-Cycle ratio and Win Rate against 2025-2026 GTM indices from <strong>PeerSignal</strong>, <strong>GrowthUnhinged</strong>, and <strong>Gartner</strong>. Legends are outliers representing top 1% performance trajectories.
         </p>
       </div>
     </div>
