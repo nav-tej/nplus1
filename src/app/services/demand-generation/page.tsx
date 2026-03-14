@@ -4,24 +4,21 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title:
-    "Demand Generation Consulting for B2B SaaS | $400M Pipeline Generated",
+  title: "Demand Generation Consulting for B2B SaaS | Pipeline Growth",
   description:
-    "B2B SaaS demand generation consulting. ABM, content, SEO, paid, and lifecycle. Nav Singh has created $400M+ in marketing-sourced pipeline across Egnyte, Semgrep, and HeyGen.",
+    "Expert demand generation consulting for B2B SaaS. ABM, content, SEO, and paid programs that build predictable pipeline. Nav Singh generated $400M+ in pipeline.",
   keywords: [
-    "demand generation consulting",
-    "B2B demand gen",
-    "ABM consulting",
-    "content marketing B2B SaaS",
-    "SEO for SaaS",
-    "pipeline generation",
-    "lead generation B2B",
-    "marketing-sourced pipeline",
+    "demand generation",
+    "B2B SaaS demand gen",
+    "ABM strategy",
+    "signal-based outbound",
+    "content engine",
+    "programmatic SEO",
+    "pipeline growth",
+    "marketing attribution",
     "Nav Singh",
   ],
-  alternates: {
-    canonical: "https://nplusalpha.com/services/demand-generation",
-  },
+  alternates: { canonical: "https://nplusalpha.com/services/demand-generation" },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -29,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "n+α Ventures",
     title: "Demand Generation Consulting for B2B SaaS | n+α Ventures",
     description:
-      "$400M+ in marketing-sourced pipeline built. ABM, content, SEO, paid, and lifecycle programs for B2B SaaS.",
+      "Build the integrated demand generation engine that scales pipeline. We start shipping in week 1.",
   },
 };
 
@@ -48,49 +45,11 @@ const DG_SCHEMA = JSON.stringify({
       "@type": "Service",
       "@id": "https://nplusalpha.com/services/demand-generation#service",
       name: "Demand Generation Consulting",
-      description: "B2B SaaS demand generation consulting covering ABM, content marketing, SEO, paid acquisition, and lifecycle programs. Nav Singh has created $400M+ in marketing-sourced pipeline across HeyGen, Semgrep, and Egnyte.",
+      description: "Expert demand generation consulting for B2B SaaS. ABM, content, SEO, and paid programs that build predictable pipeline. Nav Singh generated $400M+ in pipeline.",
       provider: { "@id": "https://nplusalpha.com/#organization" },
       areaServed: { "@type": "Country", name: "United States" },
-      serviceType: "Demand Generation Consulting",
+      serviceType: "Demand Generation",
       url: "https://nplusalpha.com/services/demand-generation",
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://nplusalpha.com/services/demand-generation#faq",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "What demand generation channels do you focus on for B2B SaaS?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "The right channel mix depends on your motion and stage. For mid-market and enterprise, ABM on LinkedIn combined with intent data (6sense or Demandbase) typically delivers the highest ROI. For PLG companies, SEO and lifecycle automation are the core. At HeyGen and Egnyte I built full-stack programs covering ABM, content, SEO, paid search, and lifecycle, and then prioritized based on what the unit economics supported.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How long does it take to see results from a demand generation program?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Paid and lifecycle programs can show results within 30 to 60 days. SEO and content compound over 6 to 12 months. ABM programs targeting enterprise accounts typically run on a 90-day cycle before showing meaningful pipeline. I set realistic timelines at the start of every engagement so expectations are calibrated correctly.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Do you build demand gen programs in-house or bring your own team?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Both. I can embed within your existing marketing team as fractional demand gen leadership, or I can bring in specialized contractors (SEO, paid, content, design) from my network if you need to build from scratch. Most engagements involve a combination of coaching your existing team and filling gaps with vetted specialists.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What stage of company do you typically work with on demand generation?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Primarily Series A through C B2B SaaS companies between $5M and $100M ARR. This is the stage where demand gen programs have the most leverage: the product is proven, ICP is reasonably clear, but the systematic pipeline engine has not yet been built. I have also worked with post-Series C companies needing to scale specific channels.",
-          },
-        },
-      ],
     },
   ],
 });
@@ -98,7 +57,6 @@ const DG_SCHEMA = JSON.stringify({
 export default function DemandGenerationPage() {
   return (
     <>
-      {/* Static JSON-LD structured data */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: DG_SCHEMA }} />
       <Navbar />
       <main id="main-content">
@@ -113,8 +71,9 @@ export default function DemandGenerationPage() {
                 Demand Generation Consulting for B2B SaaS
               </h1>
               <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed">
-                I have built $400M+ in marketing-sourced pipeline. Let me build
-                yours.
+                I have built $400M+ in marketing-sourced pipeline. We don&apos;t just 
+                plan—we start shipping your first high-intent campaigns within the 
+                first 14 days. Distribution wins markets.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -264,46 +223,53 @@ export default function DemandGenerationPage() {
           </div>
         </section>
 
-        {/* AI-Native Advantage */}
+        {/* Engagement Model */}
         <section className="py-20 border-b border-white/5">
           <div className="mx-auto max-w-4xl px-6 lg:px-10">
             <h2 className="text-3xl font-bold text-foreground mb-6">
-              The AI-Native Demand Gen Advantage
+              The High-Velocity Engagement Model
             </h2>
             <p className="text-[15px] text-muted leading-relaxed mb-8">
-              The companies pulling ahead in demand generation right now are
-              doing it with AI, not more headcount. At HeyGen, we built
-              AI-native systems that let a lean team outperform competitors with
-              3x the marketing staff:
+              We operate with extreme shipping velocity. Most consultants spend the 
+              first month interviewing stakeholders. We spend the first 14 days 
+              shipping your first high-impact growth experiments. Distribution wins 
+              markets, and timing is your greatest competitive advantage.
             </p>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 {
-                  label: "AI-driven content production",
-                  desc: "Scaling from 5 to 50+ pieces per month without hiring proportionally",
+                  period: "Week 1–2",
+                  label: "Initial Shipments",
+                  desc: "Rapid audit and execution of your first high-impact growth experiments.",
                 },
                 {
-                  label: "Personalization at scale",
-                  desc: "Clay-powered research and personalization for ABM outreach",
+                  period: "Day 30",
+                  label: "Demand Engine",
+                  desc: "Full demand gen engine, content ops, and marketing systems architecture.",
                 },
                 {
-                  label: "Automated signal-to-action",
-                  desc: "PostHog product usage events triggering targeted lifecycle campaigns",
+                  period: "Day 60",
+                  label: "Scale Distribution",
+                  desc: "Aggressive paid channels, ABM programs, and attribution modeling.",
                 },
                 {
-                  label: "Predictive scoring",
-                  desc: "AI-driven lead scoring that prioritized the 20% of leads generating 80% of pipeline",
+                  period: "Ongoing",
+                  label: "Optimize & Hand-off",
+                  desc: "Board-level reporting, hiring, and scaling for the path to $100M ARR.",
                 },
-              ].map((item) => (
+              ].map((step) => (
                 <div
-                  key={item.label}
+                  key={step.period}
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-5"
                 >
+                  <p className="text-xs font-semibold text-orange-400 uppercase tracking-wide mb-1">
+                    {step.period}
+                  </p>
                   <p className="text-sm font-bold text-foreground mb-1">
-                    {item.label}
+                    {step.label}
                   </p>
                   <p className="text-xs text-muted leading-relaxed">
-                    {item.desc}
+                    {step.desc}
                   </p>
                 </div>
               ))}

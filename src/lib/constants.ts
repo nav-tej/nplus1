@@ -11,6 +11,7 @@ export const SITE_CONFIG = {
 
 export const NAV_LINKS = [
   { label: "Services", href: "/#services" },
+  { label: "Framework", href: "/framework" },
   { label: "Tools", href: "/tools/funnel-velocity" },
   { label: "Case Studies", href: "/case-studies/heygen" },
   { label: "Blog", href: "/blog" },

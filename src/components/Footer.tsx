@@ -61,6 +61,12 @@ export default function Footer() {
             <div className="flex flex-col gap-3">
               <span className="text-xs font-bold text-white uppercase tracking-widest">Resources</span>
               <Link
+                href="/framework"
+                className="text-sm text-muted hover:text-foreground transition-colors"
+              >
+                GTM Framework
+              </Link>
+              <Link
                 href="/tools/funnel-velocity"
                 className="text-sm text-muted hover:text-foreground transition-colors"
               >

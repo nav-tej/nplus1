@@ -4,25 +4,21 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title:
-    "Revenue Operations Consulting for B2B SaaS | GTM Systems & Forecasting",
+  title: "Revenue Operations Consulting for B2B SaaS | RevOps Strategy",
   description:
-    "RevOps consulting for B2B SaaS. GTM stack design, AI-driven forecasting, pipeline analytics, Salesforce implementation. Nav Singh has architected RevOps for companies from $5M to $200M ARR.",
+    "Revenue Operations consulting for B2B SaaS companies. GTM systems architecture, predictive forecasting, pipeline analytics, and stack optimization. Scaled HeyGen $20M to $100M ARR.",
   keywords: [
-    "revenue operations consulting",
-    "RevOps consultant",
+    "revenue operations",
+    "RevOps consulting",
     "B2B SaaS RevOps",
-    "Salesforce consultant",
-    "GTM systems architecture",
-    "pipeline analytics",
     "sales operations",
     "marketing operations",
-    "forecasting",
+    "GTM stack optimization",
+    "pipeline analytics",
+    "forecasting systems",
     "Nav Singh",
   ],
-  alternates: {
-    canonical: "https://nplusalpha.com/services/revenue-operations",
-  },
+  alternates: { canonical: "https://nplusalpha.com/services/revenue-operations" },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -30,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "n+α Ventures",
     title: "Revenue Operations Consulting for B2B SaaS | n+α Ventures",
     description:
-      "Build the systems infrastructure that makes your GTM predictable, efficient, and scalable.",
+      "Build the high-fidelity revenue engine that makes growth predictable. Optimization sprints start in week 1.",
   },
 };
 
@@ -49,49 +45,11 @@ const RO_SCHEMA = JSON.stringify({
       "@type": "Service",
       "@id": "https://nplusalpha.com/services/revenue-operations#service",
       name: "Revenue Operations Consulting",
-      description: "RevOps consulting for B2B SaaS covering GTM systems architecture, AI-driven forecasting, pipeline analytics, PLG-to-sales motion design, and Salesforce/HubSpot implementation. Built for companies from $5M to $200M ARR.",
+      description: "Expert GTM systems architecture, predictive forecasting, pipeline analytics, and stack optimization. Nav Singh scaled HeyGen $20M to $100M+ ARR.",
       provider: { "@id": "https://nplusalpha.com/#organization" },
       areaServed: { "@type": "Country", name: "United States" },
-      serviceType: "Revenue Operations Consulting",
+      serviceType: "Revenue Operations",
       url: "https://nplusalpha.com/services/revenue-operations",
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://nplusalpha.com/services/revenue-operations#faq",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "What does a RevOps consultant actually do for a B2B SaaS company?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "A RevOps consultant designs and builds the systems, data flows, and processes that connect Marketing, Sales, and Customer Success into a single revenue engine. In practice this means GTM stack architecture, forecasting models, pipeline analytics, lead routing, attribution, and the operational logic that makes your CRM and MarTech work together. I have built these systems for companies at $5M, $50M, and $100M+ ARR.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How long does a RevOps engagement typically take?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "A full RevOps buildout typically runs 3 to 6 months: audit and architecture in month one, implementation in months two through four, and optimization and handoff in months five and six. For companies that need ongoing embedded RevOps leadership, I also offer fractional engagements where I act as your Head of RevOps on a monthly retainer.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Do you work with Salesforce, HubSpot, or both?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Both. I have implemented and optimized Salesforce at HeyGen and Egnyte, and HubSpot at earlier-stage companies. The CRM recommendation depends on your stage, sales motion, and the complexity of your data model. I also work across the broader MarTech stack: Marketo, Customer.io, Braze, PostHog, Amplitude, Snowflake, and 50+ other tools.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Is RevOps consulting worth it for a company under $10M ARR?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "At under $10M ARR, the highest-value RevOps investments are clean CRM data, basic attribution, and a simple lead routing process. A full RevOps buildout is usually premature. I offer focused diagnostic engagements for earlier-stage companies that identify the three to five highest-leverage improvements without over-building for your current scale.",
-          },
-        },
-      ],
     },
   ],
 });
@@ -114,7 +72,8 @@ export default function RevenueOperationsPage() {
               </h1>
               <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed">
                 Build the systems infrastructure that makes your GTM
-                predictable, efficient, and scalable.
+                predictable, efficient, and scalable. We start shipping
+                optimization sprints within the first 14 days. Timing is everything.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -149,52 +108,26 @@ export default function RevenueOperationsPage() {
           </div>
         </section>
 
-        {/* What Modern RevOps Is */}
+        {/* What RevOps Means */}
         <section className="py-20 border-b border-white/5">
           <div className="mx-auto max-w-4xl px-6 lg:px-10">
             <h2 className="text-3xl font-bold text-foreground mb-6">
-              What Modern RevOps Actually Is
+              The Engine Behind the Growth
             </h2>
             <div className="space-y-5 text-[15px] text-muted leading-relaxed">
               <p>
-                Revenue Operations is not Salesforce administration. It is the
-                discipline of designing and operating the systems, data, and
-                processes that connect Marketing, Sales, and Customer Success
-                into a single, efficient revenue machine.
+                Revenue Operations is not a support function. It is an
+                architectural requirement for scale. Most companies wait until
+                $20M ARR to hire their first RevOps leader—at that point, you
+                are already paying an &ldquo;efficiency tax&rdquo; on every
+                dollar of spend.
               </p>
-              <p>Done right, RevOps gives you:</p>
+              <p>
+                I help companies build their revenue engine correctly from the
+                start, or overhaul legacy stacks that are preventing the next
+                stage of growth.
+              </p>
             </div>
-            <ul className="mt-4 space-y-3">
-              {[
-                "A single source of truth for pipeline, forecast, and revenue",
-                "Predictable forecasting (I have built models achieving 95% accuracy)",
-                "Faster sales cycles (reduced deal cycles by 35% through process and automation)",
-                "A GTM tech stack that scales with you, not against you",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-[15px] text-muted"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    className="text-accent flex-shrink-0 mt-0.5"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M3 8l3 3 7-7"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
 
@@ -207,14 +140,13 @@ export default function RevenueOperationsPage() {
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
-                  title: "GTM Systems Architecture",
-                  desc: "I design the full GTM tech stack, not just tool selection, but integration architecture, data flows, and the operational logic that makes it all work together. At HeyGen, I architected the RevOps stack for 40M users and $100M ARR.",
+                  title: "GTM Tech Stack Architecture",
+                  desc: "I design and implement the integrated systems that run your business. No more data silos or manual spreadsheet hacks.",
                   bullets: [
-                    "CRM implementation and optimization (Salesforce, HubSpot)",
-                    "Marketing automation integration (Marketo, HubSpot, Customer.io, Braze)",
-                    "Product analytics integration (PostHog, Amplitude, Mixpanel)",
-                    "Data warehouse setup (Snowflake, BigQuery) and reverse ETL",
-                    "50+ system integrations and migrations completed",
+                    "CRM optimization and workflow automation (Salesforce, HubSpot)",
+                    "Marketing automation architecture (Marketo, Customer.io, HubSpot)",
+                    "Data enrichment and lead-to-account matching (Clay, Apollo, Clearbit)",
+                    "System integrations and API-first workflows",
                   ],
                 },
                 {
@@ -351,14 +283,53 @@ export default function RevenueOperationsPage() {
         <section className="py-20 border-b border-white/5">
           <div className="mx-auto max-w-4xl px-6 lg:px-10">
             <h2 className="text-3xl font-bold text-foreground mb-6">
-              Engagement Model
+              The High-Velocity Engagement Model
             </h2>
             <p className="text-[15px] text-muted leading-relaxed mb-8">
-              RevOps engagements typically run 3 to 6 months for a full
-              buildout, or on an ongoing fractional basis if you need embedded
-              leadership.
+              We operate with extreme shipping velocity. Most consultants spend the 
+              first month interviewing stakeholders. We spend the first 14 days 
+              shipping your first high-impact RevOps optimizations.
             </p>
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                {
+                  period: "Week 1–2",
+                  label: "Initial Audit",
+                  desc: "Identify 'efficiency tax' and deploy first high-impact system fixes.",
+                },
+                {
+                  period: "Day 30",
+                  label: "Architecture",
+                  desc: "Full GTM stack alignment and data infrastructure build-out.",
+                },
+                {
+                  period: "Day 60",
+                  label: "Intelligence",
+                  desc: "Predictive forecasting and automated lead-to-revenue workflows.",
+                },
+                {
+                  period: "Ongoing",
+                  label: "Enablement",
+                  desc: "Sales playbooks, board-level reporting, and team scaling.",
+                },
+              ].map((step) => (
+                <div
+                  key={step.period}
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-5"
+                >
+                  <p className="text-xs font-semibold text-orange-400 uppercase tracking-wide mb-1">
+                    {step.period}
+                  </p>
+                  <p className="text-sm font-bold text-foreground mb-1">
+                    {step.label}
+                  </p>
+                  <p className="text-xs text-muted leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="grid sm:grid-cols-2 gap-6 mt-10">
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <h3 className="text-base font-bold text-foreground mb-2">
                   Project-Based
@@ -376,8 +347,7 @@ export default function RevenueOperationsPage() {
                 <p className="text-sm text-muted leading-relaxed">
                   Ongoing monthly engagement. I act as your Head of RevOps,
                   attending leadership and board meetings, owning the stack,
-                  reporting on pipeline health. Good for companies that do not
-                  yet have a dedicated RevOps leader.
+                  reporting on pipeline health.
                 </p>
               </div>
             </div>
