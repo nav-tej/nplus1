@@ -30,12 +30,11 @@ export default function PostHogProvider({
   children: React.ReactNode;
 }) {
   useEffect(() => {
-    const key = "phc_d9MSoskPDFg6YCeWn4FLvqzVlV26d4G0NB1rTSQoRWo";
-    const host = "https://us.i.posthog.com";
-    
-    console.log("PostHog Diagnostic: Initializing with key starting with", key.substring(0, 8));
+    const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
+    const host = process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com";
     
     if (key) {
+      console.log("PostHog Diagnostic: Variable detected, initializing...");
       posthog.init(key, {
         api_host: host,
         ui_host: "https://us.posthog.com",
@@ -44,10 +43,12 @@ export default function PostHogProvider({
         capture_pageleave: true,
         autocapture: true,
         loaded: (ph) => {
-          console.log("PostHog Diagnostic: Successfully loaded");
+          console.log("PostHog Diagnostic: Successfully loaded via environment variable");
           if (process.env.NODE_ENV === "development") ph.debug();
         },
       });
+    } else {
+      console.error("PostHog Diagnostic: NEXT_PUBLIC_POSTHOG_KEY is missing from environment");
     }
   }, []);
 
