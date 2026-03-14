@@ -30,8 +30,8 @@ export default function PostHogProvider({
   children: React.ReactNode;
 }) {
   useEffect(() => {
-    const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-    const host = process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com";
+    const key = "phc_d9MSoskPDFg6YCeWn4FLvqzVlV26d4G0NB1rTSQoRWo";
+    const host = "https://us.i.posthog.com";
     
     if (key) {
       posthog.init(key, {
