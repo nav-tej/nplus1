@@ -30,8 +30,8 @@ export default function PostHogProvider({
   children: React.ReactNode;
 }) {
   useEffect(() => {
-    const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-    const host = process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com";
+    const key = process.env.NEXT_PUBLIC_POSTHOG_KEY?.trim();
+    const host = process.env.NEXT_PUBLIC_POSTHOG_HOST?.trim() || "https://us.i.posthog.com";
     
     if (key) {
       console.log("PostHog Diagnostic: Variable detected, initializing...");
