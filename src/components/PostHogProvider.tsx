@@ -36,9 +36,11 @@ export default function PostHogProvider({
     if (key) {
       posthog.init(key, {
         api_host: host,
+        ui_host: "https://us.posthog.com", // Required for Toolbar
         person_profiles: "always",
         capture_pageview: false, 
         capture_pageleave: true,
+        autocapture: true, // Recommended for Toolbar interactivity
         loaded: (ph) => {
           if (process.env.NODE_ENV === "development") ph.debug();
         },
