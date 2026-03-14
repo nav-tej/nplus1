@@ -13,6 +13,9 @@ export function GET() {
   const content = `# n+α Ventures
 n+α Ventures helps ambitious B2B SaaS companies build and execute repeatable go-to-market strategies that drive revenue growth. Founded by ${FOUNDER.name}, former Head of Revenue Operations at HeyGen ($20M → $100M+ ARR) and ex-Andreessen Horowitz partner. 10+ years, $500M+ in revenue growth, $400M+ in marketing-sourced pipeline across 20+ B2B companies.
 
+## Core Strategy & Methodology
+- [The AI-Native GTM Framework](${base}/framework): Our proprietary 5-pillar architecture for scaling B2B SaaS from $10M to $100M+ ARR. Built on shipping velocity and distribution loops.
+
 ## Core Services
 - [Growth Marketing](${base}/services/growth-marketing): Fractional VP Marketing for demand generation, SEO, community, lifecycle, and brand for B2B SaaS companies between $5M–$50M ARR.
 - [Revenue Operations](${base}/services/revenue-operations): GTM systems architecture, predictive forecasting, pipeline analytics, and stack optimization (Salesforce, HubSpot, Marketo, Clay).
