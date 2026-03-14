@@ -207,7 +207,7 @@ export default function FrameworkPage() {
             </div>
           </div>
         </div>
-      </section>
+      </main>
       <Footer />
     </>
   );
