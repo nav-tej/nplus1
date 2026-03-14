@@ -33,15 +33,18 @@ export default function PostHogProvider({
     const key = "phc_d9MSoskPDFg6YCeWn4FLvqzVlV26d4G0NB1rTSQoRWo";
     const host = "https://us.i.posthog.com";
     
+    console.log("PostHog Diagnostic: Initializing with key starting with", key.substring(0, 8));
+    
     if (key) {
       posthog.init(key, {
         api_host: host,
-        ui_host: "https://us.posthog.com", // Required for Toolbar
+        ui_host: "https://us.posthog.com",
         person_profiles: "always",
         capture_pageview: false, 
         capture_pageleave: true,
-        autocapture: true, // Recommended for Toolbar interactivity
+        autocapture: true,
         loaded: (ph) => {
+          console.log("PostHog Diagnostic: Successfully loaded");
           if (process.env.NODE_ENV === "development") ph.debug();
         },
       });
