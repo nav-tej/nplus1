@@ -37,8 +37,11 @@ export default function PostHogProvider({
       posthog.init(key, {
         api_host: host,
         person_profiles: "always",
-        capture_pageview: false, // Handled by PostHogPageView
+        capture_pageview: false, 
         capture_pageleave: true,
+        loaded: (ph) => {
+          if (process.env.NODE_ENV === "development") ph.debug();
+        },
       });
     }
   }, []);
