@@ -254,7 +254,7 @@ export default function FrameworkPage() {
             <div className="relative z-10 max-w-3xl mx-auto space-y-10">
               <h2 className="text-4xl lg:text-7xl font-black tracking-tighter leading-[0.9]">Ready to build your <span className="italic underline decoration-accent">unfair advantage</span>?</h2>
               <p className="text-xl font-medium opacity-80 leading-relaxed">
-                We partner with 1-2 companies at a time to implement this framework directly into your GTM architecture. No long discovery—we start shipping within 14 days.
+                We partner with 1-2 companies at a time to implement this framework directly into your GTM architecture. There is no long discovery period; we start shipping within 14 days.
               </p>
               <div className="pt-4">
                 <Link
