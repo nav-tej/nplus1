@@ -18,9 +18,46 @@ import {
 
 export const metadata: Metadata = {
   title: "The AI-Native GTM Framework | n+α Ventures",
-  description: "The proprietary 5-pillar GTM architecture used to scale HeyGen to $100M ARR. Distribution wins markets, but timing is everything.",
+  description: "The proprietary 5-pillar GTM architecture used to scale HeyGen to $100M ARR. Learn how we build AI-native revenue engines.",
   alternates: { canonical: "https://nplusalpha.com/framework" },
+  openGraph: {
+    title: "The AI-Native GTM Framework | n+α Ventures",
+    description: "The proprietary 5-pillar GTM architecture used to scale HeyGen to $100M ARR. Learn how we build AI-native revenue engines.",
+    url: "https://nplusalpha.com/framework",
+    type: "article",
+  },
 };
+
+const FAQ_SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does an agentic outbound architecture scale ARR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agentic outbound replaces manual SDR research with AI workflows. By using tools like Clay and LLMs to automate research and personalization, companies can scale outreach volume by 10x while maintaining high relevance, directly increasing pipeline velocity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between AI-native GTM and traditional GTM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traditional GTM relies on headcount to scale (more SDRs, more writers). AI-native GTM relies on systems and data loops. It uses AI to automate content production, lead scoring, and outbound, allowing lean teams to outperform larger competitors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast can we see results from this framework?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We start shipping optimization sprints within the first 14 days. Most companies see a measurable lift in pipeline efficiency and inbound volume within the first 90 days."
+      }
+    }
+  ]
+});
 
 export default function FrameworkPage() {
   const pillars = [
@@ -63,6 +100,7 @@ export default function FrameworkPage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: FAQ_SCHEMA }} />
       <Navbar />
       <main id="main-content" className="pt-32 pb-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -164,9 +202,13 @@ export default function FrameworkPage() {
 
           {/* Deep Pillar Breakdown */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-            {pillars.map((p) => (
-              <div key={p.title} className="bg-white/[0.02] border border-white/10 rounded-[2rem] p-8 hover:border-accent/30 transition-all group flex flex-col h-full">
-                <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+            {pillars.map((p, i) => (
+              <div 
+                key={p.title} 
+                className="glass-card rounded-[2rem] p-8 group flex flex-col h-full opacity-0 animate-fade-in-up"
+                style={{ animationDelay: `${i * 100}ms` }}
+              >
+                <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                   {p.icon}
                 </div>
                 <div className="space-y-4 flex-1">
@@ -184,6 +226,25 @@ export default function FrameworkPage() {
               </div>
             ))}
           </div>
+
+          {/* Executive FAQ */}
+          <section className="mb-32 max-w-3xl mx-auto">
+            <h2 className="text-2xl font-black mb-8 text-center">Executive Questions</h2>
+            <div className="space-y-4">
+              <div className="glass-card rounded-2xl p-6 opacity-0 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
+                <h3 className="font-bold text-white mb-2">How does an agentic outbound architecture scale ARR?</h3>
+                <p className="text-sm text-muted">Agentic outbound replaces manual SDR research with AI workflows. By using tools like Clay and LLMs to automate research and personalization, companies can scale outreach volume by 10x while maintaining high relevance.</p>
+              </div>
+              <div className="glass-card rounded-2xl p-6 opacity-0 animate-fade-in-up" style={{ animationDelay: "300ms" }}>
+                <h3 className="font-bold text-white mb-2">What is the difference between AI-native GTM and traditional GTM?</h3>
+                <p className="text-sm text-muted">Traditional GTM relies on headcount to scale (more SDRs, more writers). AI-native GTM relies on systems and data loops. It uses AI to automate content production, lead scoring, and outbound.</p>
+              </div>
+              <div className="glass-card rounded-2xl p-6 opacity-0 animate-fade-in-up" style={{ animationDelay: "400ms" }}>
+                <h3 className="font-bold text-white mb-2">How fast can we see results from this framework?</h3>
+                <p className="text-sm text-muted">We start shipping optimization sprints within the first 14 days. Most companies see a measurable lift in pipeline efficiency and inbound volume within the first 90 days.</p>
+              </div>
+            </div>
+          </section>
 
           {/* Final CTA */}
           <div className="bg-white text-[#0B1221] rounded-[3.5rem] p-10 lg:p-24 text-center relative overflow-hidden shadow-[0_0_100px_rgba(255,255,255,0.1)]">
