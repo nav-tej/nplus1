@@ -182,7 +182,7 @@ export default function FrameworkPage() {
                   </tr>
                   <tr>
                     <td className="p-6 font-bold">Outbound</td>
-                    <td className="p-6 text-muted">Manual list building \u0026 spray</td>
+                    <td className="p-6 text-muted">Manual list building & spray</td>
                     <td className="p-6 text-foreground font-semibold">Signal-based agentic workflows</td>
                   </tr>
                   <tr>
