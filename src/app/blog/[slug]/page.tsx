@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
 import { BLOG_POSTS } from "@/lib/blog";
 import { BLOG_CONTENT } from "@/lib/blog-content";
 
@@ -68,63 +69,15 @@ export default async function BlogPostPage({ params }: Props) {
     (p) => p.slug !== post.slug && p.category === post.category
   ).slice(0, 2);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BlogPosting",
-        "@id": `https://nplusalpha.com/blog/${post.slug}#article`,
-        url: `https://nplusalpha.com/blog/${post.slug}`,
-        headline: post.title,
-        description: post.description,
-        image: `https://nplusalpha.com/blog/${post.slug}/opengraph-image`,
-        datePublished: post.publishDate,
-        dateModified: post.publishDate,
-        author: {
-          "@id": "https://nplusalpha.com/about#navsingh",
-        },
-        publisher: {
-          "@id": "https://nplusalpha.com/#organization",
-        },
-        mainEntityOfPage: {
-          "@type": "WebPage",
-          "@id": `https://nplusalpha.com/blog/${post.slug}`,
-        },
-        isPartOf: {
-          "@id": "https://nplusalpha.com/#website",
-        },
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: "https://nplusalpha.com",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Blog",
-            item: "https://nplusalpha.com/blog",
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: post.title,
-            item: `https://nplusalpha.com/blog/${post.slug}`,
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      <JsonLd 
+        type="Article"
+        title={post.title}
+        description={post.description}
+        path={`/blog/${post.slug}`}
+        datePublished={post.publishDate}
+        dateModified={post.publishDate}
       />
       <Navbar />
       <main id="main-content">

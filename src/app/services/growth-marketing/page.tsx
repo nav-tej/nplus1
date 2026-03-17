@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import DirectAnswer from "@/components/DirectAnswer";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title:
@@ -31,61 +33,36 @@ export const metadata: Metadata = {
   },
 };
 
-const GM_SCHEMA = JSON.stringify({
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://nplusalpha.com" },
-        { "@type": "ListItem", position: 2, name: "Services", item: "https://nplusalpha.com/services/growth-marketing" },
-        { "@type": "ListItem", position: 3, name: "Growth Marketing", item: "https://nplusalpha.com/services/growth-marketing" },
-      ],
-    },
-    {
-      "@type": "Service",
-      "@id": "https://nplusalpha.com/services/growth-marketing#service",
-      name: "Fractional VP Marketing",
-      description: "Fractional VP Marketing and growth marketing consulting for B2B SaaS companies. Strategy, brand, demand generation, PLG, and community. Nav Singh scaled HeyGen from $20M to $100M+ ARR.",
-      provider: { "@id": "https://nplusalpha.com/#organization" },
-      areaServed: { "@type": "Country", name: "United States" },
-      serviceType: "Fractional VP Marketing",
-      url: "https://nplusalpha.com/services/growth-marketing",
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://nplusalpha.com/services/growth-marketing#faq",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "How is this different from hiring a marketing agency?",
-          acceptedAnswer: { "@type": "Answer", text: "Agencies execute campaigns. I own the strategy, build the team, and take accountability for pipeline outcomes, just like a full-time VP would. I also stay long enough to make permanent hires and hand off a working system." },
-        },
-        {
-          "@type": "Question",
-          name: "Do you work remotely or in-person?",
-          acceptedAnswer: { "@type": "Answer", text: "Both. I am based in San Francisco and available for on-site time with Bay Area companies. I work remotely with companies across the US and am open to traveling for workshops." },
-        },
-        {
-          "@type": "Question",
-          name: "What does pricing look like?",
-          acceptedAnswer: { "@type": "Answer", text: "Engagements are monthly retainers scoped to the work. I share a pricing range on our first call after understanding your situation. Most engagements fall between $15K to $30K per month depending on hours and scope." },
-        },
-        {
-          "@type": "Question",
-          name: "How quickly can we see results?",
-          acceptedAnswer: { "@type": "Answer", text: "LinkedIn and outbound programs can generate leads within 30 days. Content and SEO compound over 3 to 6 months. Pipeline attribution and demand gen results typically show material improvement by month 2 to 3." },
-        },
-      ],
-    },
-  ],
-});
+const GROWTH_MARKETING_FAQS = [
+  {
+    question: "How is this different from hiring a marketing agency?",
+    answer: "Agencies execute campaigns. I own the strategy, build the team, and take accountability for pipeline outcomes, just like a full-time VP would. I also stay long enough to make permanent hires and hand off a working system.",
+  },
+  {
+    question: "Do you work remotely or in-person?",
+    answer: "Both. I am based in San Francisco and available for on-site time with Bay Area companies. I work remotely with companies across the US and am open to traveling for workshops.",
+  },
+  {
+    question: "What does pricing look like?",
+    answer: "Engagements are monthly retainers scoped to the work. I share a pricing range on our first call after understanding your situation. Most engagements fall between $15K to $30K per month depending on hours and scope.",
+  },
+  {
+    question: "How quickly can we see results?",
+    answer: "LinkedIn and outbound programs can generate leads within 30 days. Content and SEO compound over 3 to 6 months. Pipeline attribution and demand gen results typically show material improvement by month 2 to 3.",
+  },
+];
 
 export default function GrowthMarketingPage() {
   return (
     <>
-      {/* Static JSON-LD structured data */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: GM_SCHEMA }} />
+      <JsonLd 
+        type="Service"
+        serviceType="Fractional VP Marketing"
+        path="/services/growth-marketing"
+        title={metadata.title as string}
+        description={metadata.description as string}
+        faqs={GROWTH_MARKETING_FAQS}
+      />
       <Navbar />
       <main id="main-content">
         {/* Hero */}
@@ -98,12 +75,19 @@ export default function GrowthMarketingPage() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight">
                 Fractional VP Marketing for B2B SaaS
               </h1>
-              <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed">
+              <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed mb-12">
                 Build the integrated growth engine that takes you from $5M to
                 $50M ARR. We don&apos;t just advise—we start shipping within 
                 the first 14 days. Distribution wins markets, and timing is 
                 everything.
               </p>
+
+              <DirectAnswer 
+                category="Fractional Leadership"
+                question="What does a Fractional VP of Marketing do for B2B SaaS?"
+                answer="A Fractional VP of Marketing provides senior-level leadership and GTM strategy without the $300K+ full-time headcount cost. They own the revenue engine, from brand positioning and demand generation to scaling the marketing team and architecting AI-native distribution systems for Series A to Series C companies."
+              />
+
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   href="/#contact"

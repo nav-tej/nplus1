@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
 import { BLOG_POSTS } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -45,33 +46,20 @@ function formatDate(dateStr: string) {
 }
 
 export default function BlogIndexPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "@id": "https://nplusalpha.com/blog",
-    name: "GTM & Growth Blog | n+α Ventures",
-    description:
-      "Frameworks and playbooks from 10 years of building GTM systems at B2B SaaS companies.",
-    url: "https://nplusalpha.com/blog",
-    isPartOf: { "@id": "https://nplusalpha.com/#website" },
-    mainEntity: {
-      "@type": "ItemList",
-      itemListElement: BLOG_POSTS.map((post, i) => ({
-        "@type": "ListItem",
-        position: i + 1,
-        url: `https://nplusalpha.com/blog/${post.slug}`,
-        name: post.title,
-      })),
-    },
-  };
-
-
-  // JSON-LD structured data — static server-side data only, no user input
-  const jsonLdString = JSON.stringify(jsonLd);
+  const blogList = BLOG_POSTS.map((post) => ({
+    name: post.title,
+    url: `https://nplusalpha.com/blog/${post.slug}`,
+  }));
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString }} />
+      <JsonLd 
+        type="CollectionPage"
+        title="GTM & Growth Blog | n+α Ventures"
+        description="Frameworks and playbooks from 10 years of building GTM systems at B2B SaaS companies."
+        path="/blog"
+        itemList={blogList}
+      />
       <Navbar />
       <main id="main-content">
         {/* Hero */}

@@ -6,6 +6,7 @@ import PlaybookDownload from "@/components/PlaybookDownload";
 export const metadata: Metadata = {
   title: "B2B SaaS Agentic Outbound Playbook | n+α Ventures",
   description: "Download the exact agentic outbound architecture used to scale companies from $20M to $100M ARR. Learn how to automate your GTM with AI.",
+  alternates: { canonical: "https://nplusalpha.com/resources/agentic-outbound" },
 };
 
 export default function AgenticOutboundPage() {

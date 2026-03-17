@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -7,6 +8,10 @@ import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://nplusalpha.com" },
+};
 
 // Below-fold "use client" components — split into separate JS chunks
 const Services = dynamic(() => import("@/components/Services"));

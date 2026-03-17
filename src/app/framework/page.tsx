@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import DirectAnswer from "@/components/DirectAnswer";
+import JsonLd from "@/components/JsonLd";
 import { 
   CheckCircle2, 
   Zap, 
@@ -28,36 +30,20 @@ export const metadata: Metadata = {
   },
 };
 
-const FAQ_SCHEMA = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How does an agentic outbound architecture scale ARR?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Agentic outbound replaces manual SDR research with AI workflows. By using tools like Clay and LLMs to automate research and personalization, companies can scale outreach volume by 10x while maintaining high relevance, directly increasing pipeline velocity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between AI-native GTM and traditional GTM?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Traditional GTM relies on headcount to scale (more SDRs, more writers). AI-native GTM relies on systems and data loops. It uses AI to automate content production, lead scoring, and outbound, allowing lean teams to outperform larger competitors."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How fast can we see results from this framework?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We start shipping optimization sprints within the first 14 days. Most companies see a measurable lift in pipeline efficiency and inbound volume within the first 90 days."
-      }
-    }
-  ]
-});
+const FRAMEWORK_FAQS = [
+  {
+    question: "How does an agentic outbound architecture scale ARR?",
+    answer: "Agentic outbound replaces manual SDR research with AI workflows. By using tools like Clay and LLMs to automate research and personalization, companies can scale outreach volume by 10x while maintaining high relevance, directly increasing pipeline velocity."
+  },
+  {
+    question: "What is the difference between AI-native GTM and traditional GTM?",
+    answer: "Traditional GTM relies on headcount to scale (more SDRs, more writers). AI-native GTM relies on systems and data loops. It uses AI to automate content production, lead scoring, and outbound, allowing lean teams to outperform larger competitors."
+  },
+  {
+    question: "How fast can we see results from this framework?",
+    answer: "We start shipping optimization sprints within the first 14 days. Most companies see a measurable lift in pipeline efficiency and inbound volume within the first 90 days."
+  }
+];
 
 export default function FrameworkPage() {
   const pillars = [
@@ -100,12 +86,25 @@ export default function FrameworkPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: FAQ_SCHEMA }} />
+      <JsonLd 
+        type="HowTo"
+        title="The AI-Native GTM Framework | n+α Ventures"
+        description="The proprietary 5-pillar GTM architecture used to scale HeyGen to $100M ARR. Learn how we build AI-native revenue engines."
+        path="/framework"
+        faqs={FRAMEWORK_FAQS}
+        steps={[
+          { name: "Category Positioning", text: "ICP refinement, messaging hierarchy, and enterprise narrative development." },
+          { name: "Programmatic SEO", text: "Architecting programmatic cascades that dominate high-intent keyword clusters." },
+          { name: "Community-Led Growth", text: "Scaling ecosystems that turn users into advocates and drive acquisition." },
+          { name: "Behavioral Lifecycle", text: "Building automated layers that activate users based on real-time product signals." },
+          { name: "Agentic Outbound", text: "Architecting signal-based outbound motions using agentic workflows." }
+        ]}
+      />
       <Navbar />
       <main id="main-content" className="pt-32 pb-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           {/* Header */}
-          <div className="max-w-4xl mb-24">
+          <div className="max-w-4xl mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-black uppercase tracking-widest mb-6">
               <Cpu className="w-3 h-3" /> Proprietary Architecture
             </div>
@@ -116,6 +115,13 @@ export default function FrameworkPage() {
               Most GTM frameworks are built for the headcount-heavy era of 2018. We architect for 2026: where <strong>distribution wins markets</strong> and <strong>timing is your only unfair advantage.</strong>
             </p>
           </div>
+
+          {/* AEO Direct Answer */}
+          <DirectAnswer 
+            category="Framework Architecture"
+            question="What is an AI-Native GTM Framework?"
+            answer="An AI-native GTM framework is a recursive revenue engine that replaces linear funnels with automated distribution loops. It leverages agentic workflows for outbound research, programmatic SEO for inbound scale, and behavioral triggers to optimize conversion velocity without linear headcount growth."
+          />
 
           {/* The Loop Visualization */}
           <section className="mb-32 relative">

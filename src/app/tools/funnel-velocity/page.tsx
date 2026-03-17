@@ -2,69 +2,23 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VelocityCalculator from "@/components/VelocityCalculator";
+import DirectAnswer from "@/components/DirectAnswer";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "SaaS Funnel Velocity Calculator | n+α Ventures",
   description: "Diagnose growth bottlenecks and optimize your revenue engine with our interactive B2B SaaS funnel velocity tool.",
+  alternates: { canonical: "https://nplusalpha.com/tools/funnel-velocity" },
 };
 
 export default function FunnelVelocityPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": "https://nplusalpha.com/tools/funnel-velocity#webpage",
-        "url": "https://nplusalpha.com/tools/funnel-velocity",
-        "name": "SaaS Funnel Velocity Calculator | n+α Ventures",
-        "description": "Diagnose growth bottlenecks and optimize your revenue engine with our interactive B2B SaaS funnel velocity tool.",
-        "isPartOf": { "@id": "https://nplusalpha.com/#website" },
-        "publisher": { "@id": "https://nplusalpha.com/#organization" }
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "SaaS Funnel Velocity Calculator",
-        "description": "An interactive tool to diagnose B2B SaaS growth bottlenecks by analyzing ARR, Win Rate, and Sales Cycle metrics.",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "author": { "@id": "https://nplusalpha.com/about#navsingh" }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://nplusalpha.com"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Tools",
-            "item": "https://nplusalpha.com/tools/funnel-velocity"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Funnel Velocity Calculator",
-            "item": "https://nplusalpha.com/tools/funnel-velocity"
-          }
-        ]
-      }
-    ]
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      <JsonLd 
+        type="SoftwareApplication"
+        title="SaaS Funnel Velocity Calculator | n+α Ventures"
+        description="Diagnose growth bottlenecks and optimize your revenue engine with our interactive B2B SaaS funnel velocity tool."
+        path="/tools/funnel-velocity"
       />
       <Navbar />
       <main id="main-content" className="pt-32 pb-24">
@@ -74,9 +28,15 @@ export default function FunnelVelocityPage() {
             <h1 className="text-4xl lg:text-6xl font-extrabold tracking-tight mb-6">
               SaaS Funnel Velocity <span className="text-accent italic">Calculator</span>
             </h1>
-            <p className="text-xl text-muted leading-relaxed">
+            <p className="text-xl text-muted leading-relaxed mb-12">
               Input your current GTM metrics to diagnose growth bottlenecks. This tool identifies whether your primary friction is in sales enablement, lead velocity, or conversion integrity.
             </p>
+
+            <DirectAnswer 
+              category="Growth Diagnostics"
+              question="What is SaaS Funnel Velocity?"
+              answer="SaaS Funnel Velocity is the speed at which opportunities move through your pipeline to closed-won revenue. It is calculated by multiplying qualified opportunities, average deal size, and win rate, then dividing by the length of your sales cycle. Improving velocity is the fastest way to scale ARR without increasing top-of-funnel spend."
+            />
           </div>
 
           {/* Calculator Component */}

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import DirectAnswer from "@/components/DirectAnswer";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Demand Generation Consulting for B2B SaaS | Pipeline Growth",
@@ -30,34 +32,24 @@ export const metadata: Metadata = {
   },
 };
 
-const DG_SCHEMA = JSON.stringify({
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://nplusalpha.com" },
-        { "@type": "ListItem", position: 2, name: "Services", item: "https://nplusalpha.com/services/demand-generation" },
-        { "@type": "ListItem", position: 3, name: "Demand Generation", item: "https://nplusalpha.com/services/demand-generation" },
-      ],
-    },
-    {
-      "@type": "Service",
-      "@id": "https://nplusalpha.com/services/demand-generation#service",
-      name: "Demand Generation Consulting",
-      description: "Expert demand generation consulting for B2B SaaS. ABM, content, SEO, and paid programs that build predictable pipeline. Nav Singh generated $400M+ in pipeline.",
-      provider: { "@id": "https://nplusalpha.com/#organization" },
-      areaServed: { "@type": "Country", name: "United States" },
-      serviceType: "Demand Generation",
-      url: "https://nplusalpha.com/services/demand-generation",
-    },
-  ],
-});
+const DG_FAQS = [
+  {
+    question: "What is B2B SaaS Demand Generation?",
+    answer: "B2B SaaS demand generation is an integrated system of marketing programs designed to build brand awareness, capture market intent, and convert it into predictable pipeline. It combines ABM, programmatic SEO, content marketing, and paid acquisition into a unified revenue engine.",
+  }
+];
 
 export default function DemandGenerationPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: DG_SCHEMA }} />
+      <JsonLd 
+        type="Service"
+        serviceType="Demand Generation"
+        title="Demand Generation Consulting for B2B SaaS | Pipeline Growth"
+        description="Expert demand generation consulting for B2B SaaS. ABM, content, SEO, and paid programs that build predictable pipeline. Nav Singh generated $400M+ in pipeline."
+        path="/services/demand-generation"
+        faqs={DG_FAQS}
+      />
       <Navbar />
       <main id="main-content">
         {/* Hero */}
@@ -70,11 +62,18 @@ export default function DemandGenerationPage() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight">
                 Demand Generation Consulting for B2B SaaS
               </h1>
-              <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed">
+              <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed mb-12">
                 I have built $400M+ in marketing-sourced pipeline. We don&apos;t just 
                 plan—we start shipping your first high-intent campaigns within the 
                 first 14 days. Distribution wins markets.
               </p>
+
+              <DirectAnswer 
+                category="Pipeline Strategy"
+                question="What is B2B SaaS Demand Generation?"
+                answer="B2B SaaS demand generation is an integrated system of marketing programs designed to build brand awareness, capture market intent, and convert it into predictable pipeline. It combines ABM, programmatic SEO, content marketing, and paid acquisition into a unified revenue engine."
+              />
+
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   href="/#contact"
@@ -344,7 +343,6 @@ export default function DemandGenerationPage() {
           </div>
         </section>
 
-        {/* CTA */}
         {/* Related Services */}
         <section className="py-16 border-b border-white/5">
           <div className="mx-auto max-w-4xl px-6 lg:px-10">

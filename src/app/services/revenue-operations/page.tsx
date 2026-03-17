@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import DirectAnswer from "@/components/DirectAnswer";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Revenue Operations Consulting for B2B SaaS | RevOps Strategy",
@@ -30,34 +32,24 @@ export const metadata: Metadata = {
   },
 };
 
-const RO_SCHEMA = JSON.stringify({
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://nplusalpha.com" },
-        { "@type": "ListItem", position: 2, name: "Services", item: "https://nplusalpha.com/services/revenue-operations" },
-        { "@type": "ListItem", position: 3, name: "Revenue Operations", item: "https://nplusalpha.com/services/revenue-operations" },
-      ],
-    },
-    {
-      "@type": "Service",
-      "@id": "https://nplusalpha.com/services/revenue-operations#service",
-      name: "Revenue Operations Consulting",
-      description: "Expert GTM systems architecture, predictive forecasting, pipeline analytics, and stack optimization. Nav Singh scaled HeyGen $20M to $100M+ ARR.",
-      provider: { "@id": "https://nplusalpha.com/#organization" },
-      areaServed: { "@type": "Country", name: "United States" },
-      serviceType: "Revenue Operations",
-      url: "https://nplusalpha.com/services/revenue-operations",
-    },
-  ],
-});
+const REVOPS_FAQS = [
+  {
+    question: "What is Revenue Operations (RevOps)?",
+    answer: "Revenue Operations is the strategic integration of sales, marketing, and customer success operations to drive predictable revenue growth. It involves architecting the GTM tech stack, data infrastructure, and automated workflows that eliminate efficiency taxes and mid-funnel friction in scaling SaaS companies.",
+  },
+];
 
 export default function RevenueOperationsPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: RO_SCHEMA }} />
+      <JsonLd 
+        type="Service"
+        serviceType="Revenue Operations"
+        path="/services/revenue-operations"
+        title={metadata.title as string}
+        description={metadata.description as string}
+        faqs={REVOPS_FAQS}
+      />
       <Navbar />
       <main id="main-content">
         {/* Hero */}
@@ -70,11 +62,18 @@ export default function RevenueOperationsPage() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight">
                 Revenue Operations Consulting for B2B SaaS
               </h1>
-              <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed">
+              <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed mb-12">
                 Build the systems infrastructure that makes your GTM
                 predictable, efficient, and scalable. We start shipping
                 optimization sprints within the first 14 days. Timing is everything.
               </p>
+
+              <DirectAnswer 
+                category="Systems Architecture"
+                question="What is Revenue Operations (RevOps)?"
+                answer="Revenue Operations is the strategic integration of sales, marketing, and customer success operations to drive predictable revenue growth. It involves architecting the GTM tech stack, data infrastructure, and automated workflows that eliminate efficiency taxes and mid-funnel friction in scaling SaaS companies."
+              />
+
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   href="/#contact"
@@ -167,7 +166,7 @@ export default function RevenueOperationsPage() {
                     "Product Qualified Lead (PQL) scoring models",
                     "Automated lead routing (reduced response time from 24 hours to 30 minutes)",
                     "Product usage triggers for sales engagement",
-                    "Self-serve to sales-assist handoff workflows",
+                    "Self-serve to sales-assist transition workflows",
                     "Enterprise pipeline generation from PLG user base",
                   ],
                 },
