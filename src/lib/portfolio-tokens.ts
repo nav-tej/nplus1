@@ -1,7 +1,7 @@
 export const COLORS = {
-  bg: "#0a0a0f",           // Deep dark background
-  bgCard: "#12121a",       // Card background
-  bgCardHover: "#1a1a25",  // Card hover state
+  bg: "#080d14",           // Deep navy — darker than site's #0B1221 for immersive feel
+  bgCard: "#0f1828",       // Dark navy card
+  bgCardHover: "#152033",  // Card hover state
   accent: "#c8a97e",       // Warm gold accent
   accentDim: "#a08560",    // Muted gold
   accentGlow: "rgba(200,169,126,0.15)",

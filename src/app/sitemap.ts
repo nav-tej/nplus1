@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/framework`, lastModified: new Date("2026-03-13"), changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/tools/funnel-velocity`, lastModified: new Date("2026-03-12"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/resources/agentic-outbound`, lastModified: new Date("2026-03-12"), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/portfolio`, lastModified: new Date("2026-03-17"), changeFrequency: "monthly", priority: 0.85 },
   ];
 
   const routes = staticRoutes;

@@ -21,7 +21,8 @@ n+α Ventures helps ambitious B2B SaaS companies build and execute repeatable go
 - [Revenue Operations](${base}/services/revenue-operations): GTM systems architecture, predictive forecasting, pipeline analytics, and stack optimization (Salesforce, HubSpot, Marketo, Clay).
 - [Demand Generation](${base}/services/demand-generation): Signal-based outbound, content engines, programmatic SEO, and full-funnel attribution.
 
-## Key Evidence
+## Portfolio & Case Studies
+- [GTM Portfolio](${base}/portfolio): Stylized representations of GTM strategy, marketing systems, and growth programs built across three engagements — AI Video Platform (PLG→SLG), DevSecOps Platform (competitive positioning), and Enterprise Content Platform (category creation). All artifacts are generalized examples with no confidential data shown.
 - [HeyGen GTM Case Study](${base}/case-studies/heygen): How ${FOUNDER.name} helped scale HeyGen from $20M to $100M+ ARR through a complete rebrand, SEO from zero, 100K+ member community, enterprise ABM, and full RevOps transformation. Written by the Head of RevOps who built it.
 
 ## Blog: GTM Frameworks & Growth Playbooks

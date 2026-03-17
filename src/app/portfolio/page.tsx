@@ -166,13 +166,9 @@ export default function PortfolioPage() {
                  style={{ ["--textMuted" as any]: COLORS.textMuted }}>
               I work with 2-3 companies at a time. Currently accepting new engagements.
             </div>
-            <button className="bg-[--accent] text-[--bg] px-8 py-3.5 rounded-lg font-bold text-sm tracking-wide transition-opacity hover:opacity-90 active:scale-95"
-                    style={{
-                      ["--accent" as any]: COLORS.accent,
-                      ["--bg" as any]: COLORS.bg,
-                    }}>
+            <a href="/#contact" className="inline-flex items-center gap-2 bg-accent text-[#0B1221] px-8 py-3.5 rounded-full font-bold text-sm tracking-wide hover:brightness-110 hover:shadow-[0_0_30px_rgba(46,204,113,0.3)] transition-all duration-300 active:scale-95">
               Get in Touch →
-            </button>
+            </a>
           </div>
         </div>
       </div>

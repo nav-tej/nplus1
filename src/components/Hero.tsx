@@ -30,7 +30,7 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 mb-10">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
           <span className="text-sm text-muted">
-            Growth Marketing and Revenue Operations for B2B SaaS
+            AI-Native GTM Consulting · San Francisco, CA · Fractional CMO
           </span>
         </div>
 
