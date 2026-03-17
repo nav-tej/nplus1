@@ -8,10 +8,15 @@ import type { NextRequest } from "next/server";
  */
 export function middleware(request: NextRequest) {
   const host = request.headers.get("host") ?? "";
+  const proto = request.headers.get("x-forwarded-proto") ?? "https";
 
-  // If the host is not the primary domain and not localhost, redirect to primary
-  if (host && host !== "nplusalpha.com" && !host.includes("localhost")) {
+  // Redirect to https and primary domain
+  const isHttp = proto === "http";
+  const isNotPrimaryHost = host && host !== "nplusalpha.com" && !host.includes("localhost");
+
+  if (isHttp || isNotPrimaryHost) {
     const url = request.nextUrl.clone();
+    url.protocol = "https";
     url.host = "nplusalpha.com";
     url.port = "";
     return NextResponse.redirect(url, { status: 301 });
@@ -22,5 +27,5 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   // Run on all routes except Next.js internals and static assets
-  matcher: "/((?!_next/static|_next/image|favicon|icon|apple-touch-icon).*)",
+  matcher: "/((?!_next/static|_next/image|logos|favicon|icon|apple-touch-icon).*)",
 };
