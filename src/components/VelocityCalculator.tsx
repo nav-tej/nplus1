@@ -48,92 +48,92 @@ const ARR_VALUES = [
 const STAGE_VERTICAL_LEGENDS: Record<Vertical, Record<Stage, Legend[]>> = {
   "Enterprise SaaS": {
     "Seed": [
-      { name: "Webflow", result: "$1M in 12mo", logo: "/logos/webflow.svg", highlight: "PLG wedge mastery" },
-      { name: "Mercury", result: "$1M in 6mo", logo: "/logos/mercury.svg", highlight: "Brand trust outlier" }
+      { name: "Webflow", result: "$1M in 12mo", logo: "/logos/webflow.svg?v=3", highlight: "PLG wedge mastery" },
+      { name: "Mercury", result: "$1M in 6mo", logo: "/logos/mercury.svg?v=3", highlight: "Brand trust outlier" }
     ],
     "Series A": [
-      { name: "Slack", result: "$10M in 12mo", logo: "/logos/slack.svg", highlight: "Enterprise viral loop" },
-      { name: "Klaviyo", result: "$20M+ ARR", logo: "/logos/klaviyo.svg", highlight: "Mastered high-velocity ROI" }
+      { name: "Slack", result: "$10M in 12mo", logo: "/logos/slack.svg?v=3", highlight: "Enterprise viral loop" },
+      { name: "Klaviyo", result: "$20M+ ARR", logo: "/logos/klaviyo.svg?v=3", highlight: "Mastered high-velocity ROI" }
     ],
     "Series B": [
-      { name: "Brex", result: "$100M in 24mo", logo: "/logos/brex.svg", highlight: "Fintech infra blitz" },
-      { name: "HubSpot", result: "Hyper-efficient scale", logo: "/logos/hubspot.svg", highlight: "GTM platform standard" }
+      { name: "Brex", result: "$100M in 24mo", logo: "/logos/brex.svg?v=3", highlight: "Fintech infra blitz" },
+      { name: "HubSpot", result: "Hyper-efficient scale", logo: "/logos/hubspot.svg?v=3", highlight: "GTM platform standard" }
     ],
     "Series C+": [
-      { name: "Stripe", result: "$1B+ ARR", logo: "/logos/stripe.svg", highlight: "Global payment velocity" },
-      { name: "Salesforce", result: "The OG GTM Giant", logo: "/logos/salesforce.svg", highlight: "Created the category" }
+      { name: "Stripe", result: "$1B+ ARR", logo: "/logos/stripe.svg?v=3", highlight: "Global payment velocity" },
+      { name: "Salesforce", result: "The OG GTM Giant", logo: "/logos/salesforce.svg?v=3", highlight: "Created the category" }
     ],
   },
   "AI Infrastructure": {
     "Seed": [
-      { name: "Cursor", result: "$1M in 4mo", logo: "/logos/cursor.svg", highlight: "The hypergrowth record" },
-      { name: "Cognition", result: "$1M ARR launch", logo: "/logos/cognition.svg", highlight: "Agentic breakthrough" }
+      { name: "Cursor", result: "$1M in 4mo", logo: "/logos/cursor.svg?v=3", highlight: "The hypergrowth record" },
+      { name: "Cognition", result: "$1M ARR launch", logo: "/logos/cognition.svg?v=3", highlight: "Agentic breakthrough" }
     ],
     "Series A": [
-      { name: "HeyGen", result: "$35M ARR raise", logo: "/logos/heygen.svg", highlight: "Nav architected this engine" },
-      { name: "Perplexity", result: "Search dominance", logo: "/logos/perplexity.svg", highlight: "AI-native adoption" }
+      { name: "HeyGen", result: "$35M ARR raise", logo: "/logos/heygen.svg?v=3", highlight: "Nav architected this engine" },
+      { name: "Perplexity", result: "Search dominance", logo: "/logos/perplexity.svg?v=3", highlight: "AI-native adoption" }
     ],
     "Series B": [
-      { name: "ElevenLabs", result: "$50M in 12mo", logo: "/logos/elevenlabs.svg", highlight: "Voice AI category leader" },
-      { name: "Mistral", result: "$100M+ valuation burst", logo: "/logos/mistral.svg", highlight: "Open-source efficiency" }
+      { name: "ElevenLabs", result: "$50M in 12mo", logo: "/logos/elevenlabs.svg?v=3", highlight: "Voice AI category leader" },
+      { name: "Mistral", result: "$100M+ valuation burst", logo: "/logos/mistral.svg?v=3", highlight: "Open-source efficiency" }
     ],
     "Series C+": [
-      { name: "OpenAI", result: "$3B+ ARR", logo: "/logos/openai.svg", highlight: "Defining the AI business model" },
-      { name: "Anthropic", result: "Enterprise AI standard", logo: "/logos/anthropic.svg", highlight: "Safety-first scaling" }
+      { name: "OpenAI", result: "$3B+ ARR", logo: "/logos/openai.svg?v=3", highlight: "Defining the AI business model" },
+      { name: "Anthropic", result: "Enterprise AI standard", logo: "/logos/anthropic.svg?v=3", highlight: "Safety-first scaling" }
     ],
   },
   "Fintech": {
     "Seed": [
-      { name: "Mercury", result: "Startup Banking", logo: "/logos/mercury.svg", highlight: "Seamless UX wedge" },
-      { name: "Unit", result: "Embedded Finance", logo: "/logos/unit.svg", highlight: "Infrastructure-first" }
+      { name: "Mercury", result: "Startup Banking", logo: "/logos/mercury.svg?v=3", highlight: "Seamless UX wedge" },
+      { name: "Unit", result: "Embedded Finance", logo: "/logos/unit.svg?v=3", highlight: "Infrastructure-first" }
     ],
     "Series A": [
-      { name: "Ramp", result: "$10M in 12mo", logo: "/logos/ramp.svg", highlight: "$100M ARR speedrun record" },
-      { name: "Deel", result: "Global Compliance", logo: "/logos/deel.svg", highlight: "Horizontal scale speed" }
+      { name: "Ramp", result: "$10M in 12mo", logo: "/logos/ramp.svg?v=3", highlight: "$100M ARR speedrun record" },
+      { name: "Deel", result: "Global Compliance", logo: "/logos/deel.svg?v=3", highlight: "Horizontal scale speed" }
     ],
     "Series B": [
-      { name: "Brex", result: "$100M in 24mo", logo: "/logos/brex.svg", highlight: "Market share blitz" },
-      { name: "Navan", result: "Travel Fintech", logo: "/logos/navan.svg", highlight: "Enterprise consolidation" }
+      { name: "Brex", result: "$100M in 24mo", logo: "/logos/brex.svg?v=3", highlight: "Market share blitz" },
+      { name: "Navan", result: "Travel Fintech", logo: "/logos/navan.svg?v=3", highlight: "Enterprise consolidation" }
     ],
     "Series C+": [
-      { name: "Stripe", result: "$1B+ ARR", logo: "/logos/stripe.svg", highlight: "Internet economy infra" },
-      { name: "Adyen", result: "Global Payments", logo: "/logos/adyen.svg", highlight: "Operational excellence" }
+      { name: "Stripe", result: "$1B+ ARR", logo: "/logos/stripe.svg?v=3", highlight: "Internet economy infra" },
+      { name: "Adyen", result: "Global Payments", logo: "/logos/adyen.svg?v=3", highlight: "Operational excellence" }
     ],
   },
   "Cybersecurity": {
     "Seed": [
-      { name: "Oleria", result: "Identity Security", logo: "/logos/oleria.svg", highlight: "AI-native security" },
-      { name: "Sentra", result: "Data Security", logo: "/logos/sentra.svg", highlight: "Cloud-speed scaling" }
+      { name: "Oleria", result: "Identity Security", logo: "/logos/oleria.svg?v=3", highlight: "AI-native security" },
+      { name: "Sentra", result: "Data Security", logo: "/logos/sentra.svg?v=3", highlight: "Cloud-speed scaling" }
     ],
     "Series A": [
-      { name: "Abnormal", result: "Email AI", logo: "/logos/abnormal.svg", highlight: "Fastest security scale-up" },
-      { name: "Orca", result: "Agentless Security", logo: "/logos/orca.svg", highlight: "Frictionless deployment" }
+      { name: "Abnormal", result: "Email AI", logo: "/logos/abnormal.svg?v=3", highlight: "Fastest security scale-up" },
+      { name: "Orca", result: "Agentless Security", logo: "/logos/orca.svg?v=3", highlight: "Frictionless deployment" }
     ],
     "Series B": [
-      { name: "Wiz", result: "$100M in 18mo", logo: "/logos/wiz.svg", highlight: "Growth record holder" },
-      { name: "Snyk", result: "Developer Security", logo: "/logos/snyk.svg", highlight: "Mastered the dev wedge" }
+      { name: "Wiz", result: "$100M in 18mo", logo: "/logos/wiz.svg?v=3", highlight: "Growth record holder" },
+      { name: "Snyk", result: "Developer Security", logo: "/logos/snyk.svg?v=3", highlight: "Mastered the dev wedge" }
     ],
     "Series C+": [
-      { name: "CrowdStrike", result: "$3B+ ARR", logo: "/logos/crowdstrike.svg", highlight: "Platform dominance" },
-      { name: "Zscaler", result: "Zero Trust Leader", logo: "/logos/zscaler.svg", highlight: "Cloud-native infra" }
+      { name: "CrowdStrike", result: "$3B+ ARR", logo: "/logos/crowdstrike.svg?v=3", highlight: "Platform dominance" },
+      { name: "Zscaler", result: "Zero Trust Leader", logo: "/logos/zscaler.svg?v=3", highlight: "Cloud-native infra" }
     ],
   },
   "DevTools": {
     "Seed": [
-      { name: "Supabase", result: "$1M in 9mo", logo: "/logos/supabase.svg", highlight: "The Firebase alternative" },
-      { name: "Resend", result: "Email for Devs", logo: "/logos/resend.svg", highlight: "Elite UX-led growth" }
+      { name: "Supabase", result: "$1M in 9mo", logo: "/logos/supabase.svg?v=3", highlight: "The Firebase alternative" },
+      { name: "Resend", result: "Email for Devs", logo: "/logos/resend.svg?v=3", highlight: "Elite UX-led growth" }
     ],
     "Series A": [
-      { name: "Cognition", result: "$73M in 9mo", logo: "/logos/cognition.svg", highlight: "Agentic dev standard" },
-      { name: "Cursor", result: "AI-Native Coding", logo: "/logos/cursor.svg", highlight: "Redefining the IDE" }
+      { name: "Cognition", result: "$73M in 9mo", logo: "/logos/cognition.svg?v=3", highlight: "Agentic dev standard" },
+      { name: "Cursor", result: "AI-Native Coding", logo: "/logos/cursor.svg?v=3", highlight: "Redefining the IDE" }
     ],
     "Series B": [
-      { name: "Vercel", result: "$50M in 24mo", logo: "/logos/vercel.svg", highlight: "Frontend cloud standard" },
-      { name: "PostHog", result: "OS Product OS", logo: "/logos/posthog.svg", highlight: "Community-led outlier" }
+      { name: "Vercel", result: "$50M in 24mo", logo: "/logos/vercel.svg?v=3", highlight: "Frontend cloud standard" },
+      { name: "PostHog", result: "OS Product OS", logo: "/logos/posthog.svg?v=3", highlight: "Community-led outlier" }
     ],
     "Series C+": [
-      { name: "GitHub", result: "$1B+ ARR", logo: "/logos/github.svg", highlight: "Global developer OS" },
-      { name: "GitLab", result: "DevSecOps Leader", logo: "/logos/gitlab.svg", highlight: "Remote-first scale" }
+      { name: "GitHub", result: "$1B+ ARR", logo: "/logos/github.svg?v=3", highlight: "Global developer OS" },
+      { name: "GitLab", result: "DevSecOps Leader", logo: "/logos/gitlab.svg?v=3", highlight: "Remote-first scale" }
     ],
   },
 };
@@ -381,8 +381,8 @@ export default function VelocityCalculator() {
                   <div className="space-y-4">
                     {legends.map((l) => (
                       <div key={l.name} className="flex items-center gap-4 group">
-                        <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all">
-                          <img src={l.logo} alt={l.name} className="max-w-full max-h-full" />
+                        <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-all">
+                          <img src={l.logo} alt={l.name} className="max-w-full max-h-full" loading="eager" decoding="async" />
                         </div>
                         <div>
                           <div className="text-sm font-bold text-white">{l.name} <span className="text-accent text-[10px] ml-2">{l.result}</span></div>
