@@ -15,8 +15,17 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | n+Alpha",
-  description: "Selected work and GTM frameworks by n+Alpha.",
+  title: "Portfolio | Case Studies & GTM Frameworks | n+Alpha",
+  description: "Explore selected work and stylized GTM frameworks by n+Alpha. See how we architect growth marketing and revenue operations for B2B SaaS companies.",
+  alternates: {
+    canonical: "https://nplusalpha.com/portfolio",
+  },
+  openGraph: {
+    title: "Portfolio | Case Studies & GTM Frameworks | n+Alpha",
+    description: "Explore selected work and stylized GTM frameworks by n+Alpha. See how we architect growth marketing and revenue operations for B2B SaaS companies.",
+    url: "https://nplusalpha.com/portfolio",
+    type: "website",
+  },
 };
 
 export default function PortfolioLayout({

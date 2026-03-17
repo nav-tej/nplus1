@@ -6,9 +6,9 @@
       "title": "Scaling PLG → SLG at an AI Video Platform",
       "role": "VP Marketing & GTM Strategy",
       "period": "Series A → Hyper-Growth",
-      "challenge": "Product-led AI company hitting inflection point needed to build enterprise GTM from scratch — new personas, new sales motion, new marketing stack — while maintaining PLG momentum.",
-      "approach": "Built the full marketing function: messaging architecture, persona framework, enterprise sales enablement, pricing strategy, community-led growth, and a RevOps stack connecting 15+ systems.",
-      "outcomes": "Path to $20M+ in enterprise revenue. Aligned org around Active Seats as Tier 1 KPI. Built 78K+ member community. Launched SEO localization across 15 languages and 5 regions.",
+      "challenge": "A product-led AI company hitting an inflection point needed to build an enterprise GTM from scratch. This involved new personas, a new sales motion, and a new marketing stack, all while maintaining their PLG momentum.",
+      "approach": "We built the full marketing function from the ground up: messaging architecture, persona frameworks, enterprise sales enablement, pricing strategy, community-led growth, and a RevOps stack connecting over 15 systems.",
+      "outcomes": "Established a clear path to $20M+ in enterprise revenue. We aligned the organization around Active Seats as a Tier 1 KPI, built a 78K+ member community, and launched an SEO localization program across 15 languages and 5 regions.",
       "artifacts": [
         { "label": "GTM SYSTEMS ARCHITECTURE", "component": "GTMArchDiagram" },
         { "label": "STRATEGIC FRAMEWORK — 'WINNING FORMULA'", "component": "WinningFormula" },
@@ -26,9 +26,9 @@
       "title": "Competitive Positioning for a DevSecOps Platform",
       "role": "Marketing Strategy & Sales Enablement",
       "period": "Growth Stage · Series B+",
-      "challenge": "Developer security platform competing against 10x larger incumbents needed differentiated positioning, a POV-based sales process, and content that resonated with technical buyers.",
-      "approach": "Built competitive comparison pages with data-driven messaging. Created POV templates and success criteria frameworks for enterprise deals. Developed battlecards and enablement programs.",
-      "outcomes": "Comparison pages became top converting assets. POV win rates increased through structured evaluation criteria. Sales confidence improved via systematic enablement program.",
+      "challenge": "A developer security platform was competing against incumbents 10 times their size. They needed differentiated positioning, a POV-based sales process, and content that truly resonated with technical buyers.",
+      "approach": "We built competitive comparison pages with data-driven messaging. This included creating POV templates and success criteria frameworks for enterprise deals, along with battlecards and enablement programs.",
+      "outcomes": "The comparison pages became top converting assets. We saw POV win rates increase through structured evaluation criteria, while sales confidence improved via a systematic enablement program.",
       "artifacts": [
         { "label": "COMPETITIVE COMPARISON PAGE FRAMEWORK", "component": "CompetitivePage" },
         { "label": "POV (PROOF OF VALUE) DEAL FRAMEWORK", "component": "POVDealFramework" }
@@ -40,9 +40,9 @@
       "title": "Underdog Marketing for an Enterprise Content Platform",
       "role": "Product Marketing & Growth",
       "period": "Mid-Market → Enterprise Expansion",
-      "challenge": "Enterprise content governance platform competing against household-name cloud storage giants (think: 50x brand awareness gap) needed to win on differentiation, not budget.",
-      "approach": "Led product tour experiences, interactive demos, and content that reframed the category around compliance and governance — where incumbents were weakest. Built integrated campaigns spanning SEO, events, and customer advocacy.",
-      "outcomes": "Product tours became primary conversion driver. Repositioned brand from 'file sharing' to 'content governance' — a defensible category. Analyst recognition followed.",
+      "challenge": "An enterprise content governance platform was competing against household-name cloud storage giants. Facing a 50x brand awareness gap, they needed to win on differentiation rather than budget.",
+      "approach": "We led the design of product tour experiences, interactive demos, and content that reframed the category around compliance and governance — the area where incumbents were weakest. We also built integrated campaigns spanning SEO, events, and customer advocacy.",
+      "outcomes": "Product tours became the primary conversion driver. We successfully repositioned the brand from 'file sharing' to 'content governance,' creating a defensible category that earned analyst recognition.",
       "artifacts": [
         { "label": "PRODUCT-LED EXPERIENCE FLOW", "component": "PLEFlow" },
         { "label": "CATEGORY REFRAMING STRATEGY", "component": "CategoryReframing" }

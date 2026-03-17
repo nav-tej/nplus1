@@ -53,7 +53,7 @@ export default function PortfolioPage() {
              style={{ ["--textMuted" as any]: COLORS.textMuted }}>
             Stylized representations of GTM strategy, marketing systems, and growth programs
             built for high-growth B2B SaaS companies. All artifacts are generalized examples
-            inspired by real engagements — no confidential data shown.
+            inspired by real engagements, with no confidential data shown.
           </p>
         </div>
 
@@ -128,9 +128,9 @@ export default function PortfolioPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
-                { n: "01", title: "Diagnose", desc: "Audit the GTM motion — where pipeline leaks, where messaging gaps exist, which systems aren't talking to each other." },
-                { n: "02", title: "Architect", desc: "Build the strategy, systems, and frameworks. Messaging architecture, persona research, funnel design, tech stack rationalization." },
-                { n: "03", title: "Accelerate", desc: "Execute and iterate. Campaigns, enablement programs, competitive positioning, pricing, community — whatever drives the next growth lever." },
+                { n: "01", title: "Diagnose", desc: "We audit your GTM motion to find where pipeline is leaking, identify messaging gaps, and pinpoint why systems aren't talking to each other." },
+                { n: "02", title: "Architect", desc: "We build the strategy, systems, and frameworks. This includes messaging architecture, persona research, funnel design, and tech stack rationalization." },
+                { n: "03", title: "Accelerate", desc: "We execute and iterate on the strategy. Whether it's campaigns, enablement programs, or pricing, we focus on driving the next growth lever." },
               ].map((s, i) => (
                 <div
                   key={i}

@@ -86,7 +86,7 @@ export default function Hero() {
             </svg>
           </Link>
           <Link
-            href="/case-studies/heygen"
+            href="/portfolio"
             className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 px-8 py-4 text-base font-medium text-foreground hover:bg-white/[0.04] hover:border-white/20 transition-all duration-300"
           >
             See Case Studies
