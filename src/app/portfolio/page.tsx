@@ -18,6 +18,7 @@ import { PLEFlow } from "@/components/portfolio/PLEFlow";
 import { CategoryReframing } from "@/components/portfolio/CategoryReframing";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PortfolioJsonLd from "@/components/portfolio/PortfolioJsonLd";
 import caseStudyData from "@/data/portfolio/case-studies.json";
 
 export default function PortfolioPage() {
@@ -25,6 +26,7 @@ export default function PortfolioPage() {
 
   return (
     <>
+      <PortfolioJsonLd />
       <Navbar />
       <div
         className="min-h-screen font-sans selection:bg-[--accentGlow] selection:text-[--accent] pt-20"
