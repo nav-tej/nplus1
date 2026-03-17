@@ -16,7 +16,7 @@ export function GTMArchDiagram() {
       { name: "GA4 + GTM", sub: "Web Analytics" },
     ]},
     { label: "GTM & CRM", color: COLORS.accent, items: [
-      { name: "Salesforce", sub: "CRM + LeanData" },
+      { name: "Salesforce", sub: "CRM & Revenue Cloud" },
       { name: "Apollo.io", sub: "Sales Intelligence" },
       { name: "ChiliPiper", sub: "Routing & Scheduling" },
     ]},
