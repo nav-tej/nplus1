@@ -1,0 +1,52 @@
+{
+  "caseStudies": [
+    {
+      "id": "ai-video-platform",
+      "subtitle": "CASE STUDY 01",
+      "title": "Scaling PLG → SLG at an AI Video Platform",
+      "role": "VP Marketing & GTM Strategy",
+      "period": "Series A → Hyper-Growth",
+      "challenge": "Product-led AI company hitting inflection point needed to build enterprise GTM from scratch — new personas, new sales motion, new marketing stack — while maintaining PLG momentum.",
+      "approach": "Built the full marketing function: messaging architecture, persona framework, enterprise sales enablement, pricing strategy, community-led growth, and a RevOps stack connecting 15+ systems.",
+      "outcomes": "Path to $20M+ in enterprise revenue. Aligned org around Active Seats as Tier 1 KPI. Built 78K+ member community. Launched SEO localization across 15 languages and 5 regions.",
+      "artifacts": [
+        { "label": "GTM SYSTEMS ARCHITECTURE", "component": "GTMArchDiagram" },
+        { "label": "STRATEGIC FRAMEWORK — 'WINNING FORMULA'", "component": "WinningFormula" },
+        { "label": "FULL-FUNNEL MARKETING APPROACH", "component": "FullFunnel" },
+        { "label": "MESSAGING ARCHITECTURE", "component": "MessagingArch" },
+        { "label": "ENTERPRISE GROWTH DASHBOARD (REPRESENTATIVE)", "component": "MetricsDash" },
+        { "label": "COMMUNITY GROWTH PLATFORM", "component": "CommunityDash" },
+        { "label": "BUYER PERSONA MATRIX", "component": "PersonaMatrix" },
+        { "label": "SEO LOCALIZATION PROGRAM", "component": "LocalizationMap" }
+      ]
+    },
+    {
+      "id": "devsec-ops-platform",
+      "subtitle": "CASE STUDY 02",
+      "title": "Competitive Positioning for a DevSecOps Platform",
+      "role": "Marketing Strategy & Sales Enablement",
+      "period": "Growth Stage · Series B+",
+      "challenge": "Developer security platform competing against 10x larger incumbents needed differentiated positioning, a POV-based sales process, and content that resonated with technical buyers.",
+      "approach": "Built competitive comparison pages with data-driven messaging. Created POV templates and success criteria frameworks for enterprise deals. Developed battlecards and enablement programs.",
+      "outcomes": "Comparison pages became top converting assets. POV win rates increased through structured evaluation criteria. Sales confidence improved via systematic enablement program.",
+      "artifacts": [
+        { "label": "COMPETITIVE COMPARISON PAGE FRAMEWORK", "component": "CompetitivePage" },
+        { "label": "POV (PROOF OF VALUE) DEAL FRAMEWORK", "component": "POVDealFramework" }
+      ]
+    },
+    {
+      "id": "enterprise-content-platform",
+      "subtitle": "CASE STUDY 03",
+      "title": "Underdog Marketing for an Enterprise Content Platform",
+      "role": "Product Marketing & Growth",
+      "period": "Mid-Market → Enterprise Expansion",
+      "challenge": "Enterprise content governance platform competing against household-name cloud storage giants (think: 50x brand awareness gap) needed to win on differentiation, not budget.",
+      "approach": "Led product tour experiences, interactive demos, and content that reframed the category around compliance and governance — where incumbents were weakest. Built integrated campaigns spanning SEO, events, and customer advocacy.",
+      "outcomes": "Product tours became primary conversion driver. Repositioned brand from 'file sharing' to 'content governance' — a defensible category. Analyst recognition followed.",
+      "artifacts": [
+        { "label": "PRODUCT-LED EXPERIENCE FLOW", "component": "PLEFlow" },
+        { "label": "CATEGORY REFRAMING STRATEGY", "component": "CategoryReframing" }
+      ]
+    }
+  ]
+}
