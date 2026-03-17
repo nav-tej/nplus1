@@ -13,6 +13,7 @@ export const NAV_LINKS = [
   { label: "Services", href: "/#services" },
   { label: "Framework", href: "/framework" },
   { label: "Tools", href: "/tools/funnel-velocity" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies/heygen" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
@@ -153,7 +154,7 @@ export const FOUNDER = {
       location: "San Francisco, CA",
       highlight: "$20M → $100M+ ARR",
       description:
-        "Drove 5× ARR growth from $20M to $100M+. Built SEO program, 100K+ member community platform, and $25M ABM enterprise pipeline. Reported directly to CEO.",
+        "Drove 5× ARR growth from $20M to over $100M. We built an SEO program, a 100K+ member community platform, and a $25M ABM enterprise pipeline, reporting directly to the CEO.",
     },
     {
       company: "Semgrep",
@@ -162,7 +163,7 @@ export const FOUNDER = {
       location: "San Francisco, CA",
       highlight: "5× Revenue YoY",
       description:
-        "Achieved 5× year-over-year revenue growth. Built PLG onboarding reducing CAC by 40%. Integrated MarTech stack including Marketo and Metadata.io.",
+        "Achieved 5× year-over-year revenue growth. We built a PLG onboarding process that reduced CAC by 40% and integrated the full MarTech stack.",
     },
     {
       company: "Egnyte",
@@ -171,7 +172,7 @@ export const FOUNDER = {
       location: "Mountain View, CA",
       highlight: "$50M → $250M Pipeline",
       description:
-        "Led 15-person marketing operations team. Grew marketing-sourced pipeline 5× from $50M to $250M. Spearheaded complete brand refresh.",
+        "Led a 15-person marketing operations team. We grew marketing-sourced pipeline 5× from $50M to $250M and spearheaded a complete brand refresh.",
     },
     {
       company: "a16z",
