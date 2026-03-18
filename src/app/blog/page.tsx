@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import VideoEmbed from "@/components/VideoEmbed";
 import { BLOG_POSTS } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -59,23 +60,49 @@ export default function BlogIndexPage() {
         description="Frameworks and playbooks from 10 years of building GTM systems at B2B SaaS companies."
         path="/blog"
         itemList={blogList}
+        video={{
+          name: "Your GTM Playbook Is Already Obsolete",
+          description: "Why traditional GTM playbooks are failing in the AI era and how to architect for 2026.",
+          thumbnailUrl: "https://img.youtube.com/vi/N-ys9Gjmy8A/maxresdefault.jpg",
+          uploadDate: "2026-03-17T08:00:00Z",
+          contentUrl: "https://www.youtube.com/watch?v=N-ys9Gjmy8A",
+          embedUrl: "https://www.youtube-nocookie.com/embed/N-ys9Gjmy8A",
+        }}
       />
       <Navbar />
       <main id="main-content">
         {/* Hero */}
         <section className="pt-32 pb-16 border-b border-white/5">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
-            <div className="max-w-3xl">
-              <p className="text-sm font-semibold text-orange-400 tracking-wide uppercase mb-4">
-                Blog
-              </p>
-              <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight">
-                GTM Frameworks &amp; Growth Playbooks
-              </h1>
-              <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed">
-                Real strategies from building $500M+ in revenue growth across
-                HeyGen, Semgrep, Egnyte, and 20+ B2B companies.
-              </p>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="max-w-3xl">
+                <p className="text-sm font-semibold text-orange-400 tracking-wide uppercase mb-4">
+                  Blog & Resources
+                </p>
+                <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight">
+                  GTM Frameworks &amp; Growth Playbooks
+                </h1>
+                <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed">
+                  Real strategies from building $500M+ in revenue growth across
+                  HeyGen, Semgrep, Egnyte, and 20+ B2B companies.
+                </p>
+              </div>
+              <div className="w-full max-w-md mx-auto lg:ml-auto">
+                <div className="relative">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-400 to-accent rounded-2xl blur opacity-20" />
+                  <div className="relative bg-[#0B1221] rounded-2xl p-2 border border-white/10">
+                    <VideoEmbed 
+                      videoId="N-ys9Gjmy8A" 
+                      title="Your GTM Playbook Is Already Obsolete" 
+                      format="vertical"
+                    />
+                    <div className="px-4 py-3">
+                      <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-1">Featured Short</p>
+                      <p className="text-sm font-bold text-white">Your GTM Playbook Is Already Obsolete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DirectAnswer from "@/components/DirectAnswer";
 import JsonLd from "@/components/JsonLd";
+import VideoEmbed from "@/components/VideoEmbed";
 
 export const metadata: Metadata = {
   title:
@@ -62,6 +63,14 @@ export default function GrowthMarketingPage() {
         title={metadata.title as string}
         description={metadata.description as string}
         faqs={GROWTH_MARKETING_FAQS}
+        video={{
+          name: "The AI-Native GTM Engine: Scale B2B SaaS Past $100M ARR",
+          description: "Learn the proprietary 5-pillar architecture used to scale B2B SaaS companies from $20M to $100M+ ARR.",
+          thumbnailUrl: "https://img.youtube.com/vi/VT0Zgj23p1s/maxresdefault.jpg",
+          uploadDate: "2026-03-17T08:00:00Z",
+          contentUrl: "https://www.youtube.com/watch?v=VT0Zgj23p1s",
+          embedUrl: "https://www.youtube-nocookie.com/embed/VT0Zgj23p1s",
+        }}
       />
       <Navbar />
       <main id="main-content">
@@ -118,6 +127,22 @@ export default function GrowthMarketingPage() {
                 </Link>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* The Methodology Video */}
+        <section className="py-20 border-b border-white/5 bg-white/[0.01]">
+          <div className="mx-auto max-w-5xl px-6 lg:px-10 text-center">
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Our Methodology
+            </h2>
+            <p className="text-muted mb-10 max-w-2xl mx-auto">
+              How we architect the AI-native GTM engine to drive repeatable, scalable revenue.
+            </p>
+            <VideoEmbed 
+              videoId="VT0Zgj23p1s" 
+              title="The AI-Native GTM Engine" 
+            />
           </div>
         </section>
 

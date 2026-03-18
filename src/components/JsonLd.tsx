@@ -11,6 +11,14 @@ interface JsonLdProps {
   faqs?: any[];
   steps?: any[];
   serviceType?: string;
+  video?: {
+    name: string;
+    description: string;
+    thumbnailUrl: string;
+    uploadDate: string;
+    contentUrl: string;
+    embedUrl: string;
+  };
 }
 
 export default function JsonLd({
@@ -24,6 +32,7 @@ export default function JsonLd({
   faqs,
   steps,
   serviceType,
+  video,
 }: JsonLdProps) {
   const baseUrl = "https://nplusalpha.com";
   const url = `${baseUrl}${path}`;
@@ -236,6 +245,25 @@ export default function JsonLd({
   if (type === "Service" && serviceType) {
     pageSchema.serviceType = serviceType;
     pageSchema.provider = { "@id": `${baseUrl}/#organization` };
+  }
+
+  if (video) {
+    graph.push({
+      "@type": "VideoObject",
+      "name": video.name,
+      "description": video.description,
+      "thumbnailUrl": video.thumbnailUrl,
+      "uploadDate": video.uploadDate,
+      "contentUrl": video.contentUrl,
+      "embedUrl": video.embedUrl,
+      "publisher": {
+        "@type": "Organization",
+        "name": "n+α Ventures",
+        "logo": {
+          "@id": `${baseUrl}/#organization`,
+        },
+      },
+    });
   }
 
   graph.push(pageSchema);

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import VideoEmbed from "@/components/VideoEmbed";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -33,11 +34,28 @@ const CASE_STUDY_SCHEMA = JSON.stringify({
       isPartOf: { "@id": "https://nplusalpha.com/#website" },
     },
     {
+      "@type": "VideoObject",
+      "name": "How I Scaled B2B SaaS from $20M to $100M+ ARR",
+      "description": "The inside story of scaling HeyGen from $20M to $100M+ ARR through rebrand, SEO, and community.",
+      "thumbnailUrl": "https://img.youtube.com/vi/ogk5uMVFJh0/maxresdefault.jpg",
+      "uploadDate": "2026-03-17T08:00:00Z",
+      "contentUrl": "https://www.youtube.com/watch?v=ogk5uMVFJh0",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/ogk5uMVFJh0",
+      "publisher": {
+        "@type": "Organization",
+        "name": "n+α Ventures",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://nplusalpha.com/logo.png"
+        }
+      }
+    },
+    {
       "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://nplusalpha.com" },
-        { "@type": "ListItem", position: 2, name: "Case Studies", item: "https://nplusalpha.com/case-studies/heygen" },
-        { "@type": "ListItem", position: 3, name: "HeyGen: $20M to $100M+ ARR", item: "https://nplusalpha.com/case-studies/heygen" },
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nplusalpha.com" },
+        { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://nplusalpha.com/case-studies/heygen" },
+        { "@type": "ListItem", "position": 3, "name": "HeyGen: $20M to $100M+ ARR", "item": "https://nplusalpha.com/case-studies/heygen" },
       ],
     },
   ],
@@ -73,9 +91,18 @@ export default function CaseStudyPage() {
             <div className="prose prose-invert prose-orange max-w-none space-y-12">
               <section>
                 <h2 className="text-3xl font-bold mb-4">The Challenge</h2>
-                <p>
-                  In April 2024, HeyGen had extraordinary product-market fit but limited marketing infrastructure. To reach the next stage of growth, they needed systematic programs to capture, convert, and expand the massive demand they were generating.
-                </p>
+                <div className="grid lg:grid-cols-[1fr_300px] gap-12 items-start">
+                  <p>
+                    In April 2024, HeyGen had extraordinary product-market fit but limited marketing infrastructure. To reach the next stage of growth, they needed systematic programs to capture, convert, and expand the massive demand they were generating.
+                  </p>
+                  <div className="not-prose">
+                    <VideoEmbed 
+                      videoId="ogk5uMVFJh0" 
+                      title="Scaling B2B SaaS to $100M" 
+                      format="vertical"
+                    />
+                  </div>
+                </div>
               </section>
 
               <section>
