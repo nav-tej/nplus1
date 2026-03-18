@@ -86,7 +86,7 @@ export default function GrowthMarketingPage() {
               </h1>
               <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed mb-12">
                 Build the integrated growth engine that takes you from $5M to
-                $50M ARR. We don&apos;t just advise—we start shipping within 
+                $50M ARR. We don&apos;t just advise: we start shipping within 
                 the first 14 days. Distribution wins markets, and timing is 
                 everything.
               </p>

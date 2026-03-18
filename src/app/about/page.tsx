@@ -288,7 +288,7 @@ export default function AboutPage() {
         >
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <h2 className="text-2xl font-bold text-foreground mb-2">
-              Building Revenue Engines from $1M–$200M+
+              Building Revenue Engines from $1M to $200M+
             </h2>
             <p className="text-muted mb-10 max-w-2xl">
               What makes working with Nav different: operators who have done it,
@@ -380,7 +380,7 @@ export default function AboutPage() {
       <div className="border-t border-white/5 py-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <p className="text-xs text-white/20 text-center leading-relaxed">
-            🧪 this site was an experiment in vibe coding — built over two days, several hours, with lots of agents &amp; love ♥{" "}
+            🧪 this site was an experiment in vibe coding: built over two days, several hours, with lots of agents &amp; love ♥{" "}
             <span className="text-white/30">
               claude code · claude · gpt · gemini cli · ob-1 · heygen · posthog · supabase · resend · vercel · cloudflare · github · google tag manager · semgrep
             </span>

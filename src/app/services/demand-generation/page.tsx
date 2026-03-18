@@ -64,7 +64,7 @@ export default function DemandGenerationPage() {
               </h1>
               <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed mb-12">
                 I have built $400M+ in marketing-sourced pipeline. We don&apos;t just 
-                plan—we start shipping your first high-intent campaigns within the 
+                plan: we start shipping your first high-intent campaigns within the 
                 first 14 days. Distribution wins markets.
               </p>
 

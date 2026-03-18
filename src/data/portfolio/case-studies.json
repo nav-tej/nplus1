@@ -11,7 +11,7 @@
       "outcomes": "Established a clear path to $20M+ in enterprise revenue. We aligned the organization around Active Seats as a Tier 1 KPI, built a 78K+ member community, and launched an SEO localization program across 15 languages and 5 regions.",
       "artifacts": [
         { "label": "GTM SYSTEMS ARCHITECTURE", "component": "GTMArchDiagram" },
-        { "label": "STRATEGIC FRAMEWORK — 'WINNING FORMULA'", "component": "WinningFormula" },
+        { "label": "STRATEGIC FRAMEWORK: 'WINNING FORMULA'", "component": "WinningFormula" },
         { "label": "FULL-FUNNEL MARKETING APPROACH", "component": "FullFunnel" },
         { "label": "MESSAGING ARCHITECTURE", "component": "MessagingArch" },
         { "label": "ENTERPRISE GROWTH DASHBOARD (REPRESENTATIVE)", "component": "MetricsDash" },
@@ -41,7 +41,7 @@
       "role": "Product Marketing & Growth",
       "period": "Mid-Market → Enterprise Expansion",
       "challenge": "An enterprise content governance platform was competing against household-name cloud storage giants. Facing a 50x brand awareness gap, they needed to win on differentiation rather than budget.",
-      "approach": "We led the design of product tour experiences, interactive demos, and content that reframed the category around compliance and governance — the area where incumbents were weakest. We also built integrated campaigns spanning SEO, events, and customer advocacy.",
+      "approach": "We led the design of product tour experiences, interactive demos, and content that reframed the category around compliance and governance, the area where incumbents were weakest. We also built integrated campaigns spanning SEO, events, and customer advocacy.",
       "outcomes": "Product tours became the primary conversion driver. We successfully repositioned the brand from 'file sharing' to 'content governance,' creating a defensible category that earned analyst recognition.",
       "artifacts": [
         { "label": "PRODUCT-LED EXPERIENCE FLOW", "component": "PLEFlow" },

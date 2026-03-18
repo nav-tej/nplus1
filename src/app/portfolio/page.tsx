@@ -65,7 +65,7 @@ export default function PortfolioPage() {
               <GTMArchDiagram />
             </ArtifactCard>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <ArtifactCard label="STRATEGIC FRAMEWORK — 'WINNING FORMULA'">
+              <ArtifactCard label="STRATEGIC FRAMEWORK: 'WINNING FORMULA'">
                 <WinningFormula />
               </ArtifactCard>
               <ArtifactCard label="FULL-FUNNEL MARKETING APPROACH">

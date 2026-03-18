@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-2" aria-label="n+α Ventures — Home">
+            <Link href="/" className="flex items-center gap-2" aria-label="n+α Ventures: Home">
               <svg width="30" height="30" viewBox="0 0 64 64" fill="none" aria-hidden="true">
                 <defs>
                   <linearGradient id="footerAg" x1="31" y1="21" x2="54" y2="45" gradientUnits="userSpaceOnUse">

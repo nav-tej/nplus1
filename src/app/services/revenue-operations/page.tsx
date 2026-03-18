@@ -117,7 +117,7 @@ export default function RevenueOperationsPage() {
               <p>
                 Revenue Operations is not a support function. It is an
                 architectural requirement for scale. Most companies wait until
-                $20M ARR to hire their first RevOps leader—at that point, you
+                $20M ARR to hire their first RevOps leader. At that point, you
                 are already paying an &ldquo;efficiency tax&rdquo; on every
                 dollar of spend.
               </p>
