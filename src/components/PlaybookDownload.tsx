@@ -184,7 +184,7 @@ export default function PlaybookDownload() {
                 <div className="h-px flex-1 bg-white/5" />
               </div>
 
-              <div className="flex flex-wrap items-center gap-x-10 gap-y-6 grayscale opacity-40">
+              <div className="flex flex-wrap items-center gap-x-10 gap-y-6 opacity-60">
                 {TRUST_LOGOS.map((logo) => (
                   <img key={logo.name} src={logo.src} alt={logo.name} className="h-6 w-auto" />
                 ))}

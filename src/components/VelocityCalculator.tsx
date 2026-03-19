@@ -70,7 +70,7 @@ const STAGE_VERTICAL_LEGENDS: Record<Vertical, Record<Stage, Legend[]>> = {
       { name: "Cognition", result: "$1M ARR launch", logo: "/logos/cognition.svg?v=4", highlight: "Agentic breakthrough" }
     ],
     "Series A": [
-      { name: "HeyGen", result: "$35M ARR raise", logo: "/logos/heygen.svg?v=4", highlight: "Nav architected this engine" },
+      { name: "HeyGen", result: "$35M ARR raise", logo: "/logos/heygen-white.svg?v=5", highlight: "Nav architected this engine" },
       { name: "Perplexity", result: "Search dominance", logo: "/logos/perplexity.svg?v=4", highlight: "AI-native adoption" }
     ],
     "Series B": [
