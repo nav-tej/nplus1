@@ -104,8 +104,8 @@ export default function Navbar() {
             <Link 
               href="/" 
               className="flex items-center gap-2.5 group"
-              title="nPlusAlpha Ventures - AI-Native GTM Consulting Home"
-              aria-label="nPlusAlpha Ventures Home"
+              title="n+α Ventures - AI-Native GTM Consulting Home"
+              aria-label="n+α Ventures Home"
             >
               <Logo gradientId="navMain" />
               <Wordmark />
@@ -218,7 +218,7 @@ export default function Navbar() {
       >
         {/* Mobile Header */}
         <div className="flex items-center justify-between px-6 h-20 border-b border-white/5">
-          <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5" title="nPlusAlpha Home">
+          <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5" title="n+α Home">
             <Logo gradientId="navMobile" />
             <Wordmark />
           </Link>

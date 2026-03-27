@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://nplusalpha.com"),
   title: {
     default:
-      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | n+Alpha Ventures",
-    template: "%s | n+Alpha Ventures",
+      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | n+α Ventures",
+    template: "%s | n+α Ventures",
   },
   description:
     "Nav Singh, fractional VP Marketing and Revenue Operations consultant for B2B SaaS companies scaling $1M to $100M+ ARR. Scaled HeyGen $20M to $100M ARR. Ex-Andreessen Horowitz. Based in San Francisco.",
@@ -44,10 +44,10 @@ export const metadata: Metadata = {
     "product-led growth",
     "ABM",
     "marketing automation",
-    "n+Alpha Ventures",
+    "n+α Ventures",
     "nPlusAlpha",
   ],
-  authors: [{ name: "n+Alpha Ventures" }],
+  authors: [{ name: "n+α Ventures" }],
   alternates: {
     canonical: "https://nplusalpha.com",
   },
@@ -55,16 +55,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://nplusalpha.com",
-    siteName: "n+Alpha Ventures",
+    siteName: "n+α Ventures",
     title:
-      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | n+Alpha Ventures",
+      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | n+α Ventures",
     description:
       "Fractional VP Marketing and Revenue Operations for B2B SaaS. Scaled HeyGen $20M to $100M ARR. Ex-Andreessen Horowitz. Based in San Francisco.",
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | n+Alpha Ventures",
+      "Nav Singh | Fractional VP Marketing & RevOps for B2B SaaS | n+α Ventures",
     description:
       "Fractional VP Marketing and Revenue Operations for B2B SaaS. Scaled HeyGen $20M to $100M ARR. Ex-Andreessen Horowitz. Based in San Francisco.",
   },

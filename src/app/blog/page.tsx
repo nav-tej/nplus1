@@ -72,35 +72,51 @@ export default function BlogIndexPage() {
       <Navbar />
       <main id="main-content">
         {/* Hero */}
-        <section className="pt-32 pb-16 border-b border-white/5">
+        <section className="pt-32 pb-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="max-w-3xl">
-                <p className="text-sm font-semibold text-orange-400 tracking-wide uppercase mb-4">
-                  Blog & Resources
-                </p>
-                <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight">
-                  GTM Frameworks &amp; Growth Playbooks
-                </h1>
-                <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed">
-                  Real strategies from building $500M+ in revenue growth across
-                  HeyGen, Semgrep, Egnyte, and 20+ B2B companies.
-                </p>
-              </div>
-              <div className="w-full max-w-md mx-auto lg:ml-auto">
-                <div className="relative">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-400 to-accent rounded-2xl blur opacity-20" />
-                  <div className="relative bg-[#0B1221] rounded-2xl p-2 border border-white/10">
-                    <VideoEmbed 
-                      videoId="N-ys9Gjmy8A" 
-                      title="Your GTM Playbook Is Already Obsolete" 
-                      format="vertical"
-                    />
-                    <div className="px-4 py-3">
-                      <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-1">Featured Short</p>
-                      <p className="text-sm font-bold text-white">Your GTM Playbook Is Already Obsolete</p>
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold text-orange-400 tracking-wide uppercase mb-4">
+                Blog & Resources
+              </p>
+              <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight">
+                GTM Frameworks &amp; Growth Playbooks
+              </h1>
+              <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed">
+                Real strategies from building $500M+ in revenue growth across
+                HeyGen, Semgrep, Egnyte, and 20+ B2B companies.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Video Section — High prominence for GSC indexing */}
+        <section className="pb-16 border-b border-white/5">
+          <div className="mx-auto max-w-7xl px-6 lg:px-10">
+            <div className="relative group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8 lg:p-12">
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-400/10 to-accent/10 blur opacity-20" />
+              <div className="relative grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                  <span className="inline-flex items-center rounded-full border border-orange-400/30 bg-orange-400/10 px-3 py-1 text-xs font-medium text-orange-400 mb-6">
+                    Featured GTM Insight
+                  </span>
+                  <h2 className="text-3xl font-bold text-white mb-4">Your GTM Playbook Is Already Obsolete</h2>
+                  <p className="text-muted text-lg mb-8">
+                    Why traditional GTM playbooks are failing in the AI era and how to architect your revenue engine for 2026. Watch the full breakdown.
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full bg-orange-400/20 flex items-center justify-center">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-orange-400">
+                        <path d="M7 4v16l13-8L7 4z" fill="currentColor" />
+                      </svg>
                     </div>
+                    <span className="text-sm font-semibold text-white">Full Video Breakdown</span>
                   </div>
+                </div>
+                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                  <VideoEmbed 
+                    videoId="N-ys9Gjmy8A" 
+                    title="Your GTM Playbook Is Already Obsolete" 
+                  />
                 </div>
               </div>
             </div>

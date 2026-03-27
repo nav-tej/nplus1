@@ -18,7 +18,7 @@ export default function PrivacyPage() {
           <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-8">
             Privacy Policy
           </h1>
-          <p className="text-muted mb-12">Last Updated: March 12, 2026</p>
+          <p className="text-muted mb-12">Last Updated: March 27, 2026</p>
 
           <div className="prose prose-invert prose-orange max-w-none space-y-8">
             <section>
@@ -68,14 +68,21 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4">6. Your Rights</h2>
+              <h2 className="text-2xl font-bold mb-4">6. Online Data Tracking & Marketing</h2>
+              <p>
+                When you visit or log in to our website, cookies and similar technologies may be used by our online data partners or vendors to associate these activities with other personal information they or others have about you, including by association with your email or home address. We (or service providers on our behalf) may then send communications and marketing to these email or home addresses. You may opt out of receiving this advertising by visiting <a href="https://app.retention.com/optout" className="text-orange-400 hover:underline" target="_blank" rel="noopener noreferrer">https://app.retention.com/optout</a> and <a href="https://www.rb2b.com/rb2b-gdpr-opt-out" className="text-orange-400 hover:underline" target="_blank" rel="noopener noreferrer">https://www.rb2b.com/rb2b-gdpr-opt-out</a>.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold mb-4">7. Your Rights</h2>
               <p>
                 You have the right to access, correct, or delete your personal information. To exercise these rights, please contact us at <a href={`mailto:${SITE_CONFIG.email}`} className="text-orange-400 hover:underline">{SITE_CONFIG.email}</a>.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4">7. Contact Us</h2>
+              <h2 className="text-2xl font-bold mb-4">8. Contact Us</h2>
               <p>
                 If you have any questions about this Privacy Policy, please contact us at <a href={`mailto:${SITE_CONFIG.email}`} className="text-orange-400 hover:underline">{SITE_CONFIG.email}</a>.
               </p>

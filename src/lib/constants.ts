@@ -1,10 +1,11 @@
 export const SITE_CONFIG = {
-  name: "n+Alpha Ventures",
+  name: "n+α Ventures",
   domain: "nplusalpha.com",
-  tagline: "Your Growth, Catalyzed.",
+  tagline: "AI-Native GTM Architect",
   description:
-    "n+Alpha Ventures helps ambitious B2B companies build and execute repeatable go-to-market strategies that drive revenue growth.",
+    "n+α Ventures helps ambitious B2B companies build and execute repeatable go-to-market strategies that drive revenue growth.",
   email: "hello@nplusalpha.com",
+
   calendarLink: "/#contact",
 };
 

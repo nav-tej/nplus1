@@ -41,7 +41,7 @@ export default function JsonLd({
     {
       "@type": "Organization",
       "@id": `${baseUrl}/#organization`,
-      name: "n+Alpha Ventures",
+      name: "n+α Ventures",
       url: baseUrl,
       logo: {
         "@type": "ImageObject",
@@ -67,7 +67,7 @@ export default function JsonLd({
     {
       "@type": "ProfessionalService",
       "@id": `${baseUrl}/#service`,
-      "name": "n+Alpha Ventures",
+      "name": "n+α Ventures",
       "url": baseUrl,
       "logo": `${baseUrl}/logo-square.png`,
       "image": `${baseUrl}/nav-singh.jpg`,
@@ -128,8 +128,9 @@ export default function JsonLd({
     {
       "@type": "Person",
       "@id": `${baseUrl}/about#navsingh`,
-      "name": "Navtej Singh",
-      "url": baseUrl,
+      "name": "Navtej (Nav) Singh",
+      "url": `${baseUrl}/about`,
+      "mainEntityOfPage": type === "ProfilePage" ? { "@id": `${url}/#webpage` } : undefined,
       "jobTitle": "AI-Native Revenue Architect",
       "description": "AI-Native Revenue Architect. Scaled HeyGen from $20M to $100M ARR leveraging agentic workflows and predictive revenue intelligence. Former Partner at Andreessen Horowitz (a16z), and GTM leader at Semgrep and Egnyte.",
       "image": `${baseUrl}/nav-singh.jpg`,
@@ -196,7 +197,7 @@ export default function JsonLd({
       "@type": "WebSite",
       "@id": `${baseUrl}/#website`,
       "url": baseUrl,
-      "name": "n+Alpha Ventures",
+      "name": "n+α Ventures",
       "publisher": {
         "@id": `${baseUrl}/#organization`,
       },
@@ -208,12 +209,39 @@ export default function JsonLd({
     "@type": type,
     "@id": `${url}/#webpage`,
     "url": url,
-    "name": title || "n+Alpha Ventures | AI-Native Go-To-Market Consulting",
+    "name": title || "n+α Ventures | AI-Native Go-To-Market Consulting",
     "isPartOf": {
       "@id": `${baseUrl}/#website`,
     },
     "description": description || "Expert AI-native go-to-market consulting for ambitious B2B teams. Fractional VP Marketing and RevOps for companies scaling from $1M to $100M+ ARR.",
   };
+
+  if (video) {
+    const videoId = `${url}#video`;
+    graph.push({
+      "@type": "VideoObject",
+      "@id": videoId,
+      "name": video.name,
+      "description": video.description,
+      "thumbnailUrl": video.thumbnailUrl,
+      "uploadDate": video.uploadDate,
+      "contentUrl": video.contentUrl,
+      "embedUrl": video.embedUrl,
+      "publisher": {
+        "@type": "Organization",
+        "name": "n+α Ventures",
+        "logo": {
+          "@id": `${baseUrl}/#organization`,
+        },
+      },
+    });
+    // Link video as main entity of the page to signal "watch page" prominence
+    pageSchema.mainEntity = { "@id": videoId };
+  }
+
+  if (type === "ProfilePage") {
+    pageSchema.mainEntity = { "@id": `${baseUrl}/about#navsingh` };
+  }
 
   if (type === "Article" && datePublished) {
     pageSchema.datePublished = datePublished;
@@ -245,25 +273,6 @@ export default function JsonLd({
   if (type === "Service" && serviceType) {
     pageSchema.serviceType = serviceType;
     pageSchema.provider = { "@id": `${baseUrl}/#organization` };
-  }
-
-  if (video) {
-    graph.push({
-      "@type": "VideoObject",
-      "name": video.name,
-      "description": video.description,
-      "thumbnailUrl": video.thumbnailUrl,
-      "uploadDate": video.uploadDate,
-      "contentUrl": video.contentUrl,
-      "embedUrl": video.embedUrl,
-      "publisher": {
-        "@type": "Organization",
-        "name": "n+α Ventures",
-        "logo": {
-          "@id": `${baseUrl}/#organization`,
-        },
-      },
-    });
   }
 
   graph.push(pageSchema);

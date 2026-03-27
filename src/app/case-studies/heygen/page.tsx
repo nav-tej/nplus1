@@ -20,6 +20,14 @@ const CASE_STUDY_SCHEMA = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://nplusalpha.com/case-studies/heygen#webpage",
+      "url": "https://nplusalpha.com/case-studies/heygen",
+      "name": "HeyGen GTM Case Study: $20M to $100M ARR",
+      "mainEntity": { "@id": "https://nplusalpha.com/case-studies/heygen#video" },
+      "isPartOf": { "@id": "https://nplusalpha.com/#website" },
+    },
+    {
       "@type": "Article",
       "@id": "https://nplusalpha.com/case-studies/heygen#article",
       url: "https://nplusalpha.com/case-studies/heygen",
@@ -30,11 +38,11 @@ const CASE_STUDY_SCHEMA = JSON.stringify({
       datePublished: "2024-04-01",
       author: { "@id": "https://nplusalpha.com/about#navsingh" },
       publisher: { "@id": "https://nplusalpha.com/#organization" },
-      mainEntityOfPage: { "@type": "WebPage", "@id": "https://nplusalpha.com/case-studies/heygen" },
-      isPartOf: { "@id": "https://nplusalpha.com/#website" },
+      mainEntityOfPage: { "@id": "https://nplusalpha.com/case-studies/heygen#webpage" },
     },
     {
       "@type": "VideoObject",
+      "@id": "https://nplusalpha.com/case-studies/heygen#video",
       "name": "How I Scaled B2B SaaS from $20M to $100M+ ARR",
       "description": "The inside story of scaling HeyGen from $20M to $100M+ ARR through rebrand, SEO, and community.",
       "thumbnailUrl": "https://img.youtube.com/vi/ogk5uMVFJh0/maxresdefault.jpg",
@@ -88,21 +96,29 @@ export default function CaseStudyPage() {
               Building the systems that drove 5× growth for the leader in AI video. Rebranding, community building, and enterprise operations at scale.
             </p>
 
+            {/* Featured Video — Prominent layout to fix GSC "Video isn't on a watch page" issue */}
+            <div className="mb-20">
+              <div className="relative group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
+                <div className="absolute -inset-1 bg-gradient-to-r from-orange-400/20 to-accent/20 blur opacity-25 group-hover:opacity-40 transition-opacity duration-500" />
+                <div className="relative aspect-video max-w-4xl mx-auto shadow-2xl">
+                  <VideoEmbed 
+                    videoId="ogk5uMVFJh0" 
+                    title="Scaling B2B SaaS to $100M" 
+                  />
+                </div>
+                <div className="p-6 bg-black/40 backdrop-blur-sm border-t border-white/5">
+                  <h3 className="text-sm font-bold text-orange-400 uppercase tracking-widest mb-1 text-center">Featured Playbook Video</h3>
+                  <p className="text-white text-center font-medium">Inside the HeyGen GTM Engine with Nav Singh</p>
+                </div>
+              </div>
+            </div>
+
             <div className="prose prose-invert prose-orange max-w-none space-y-12">
               <section>
                 <h2 className="text-3xl font-bold mb-4">The Challenge</h2>
-                <div className="grid lg:grid-cols-[1fr_300px] gap-12 items-start">
-                  <p>
-                    In April 2024, HeyGen had extraordinary product-market fit but limited marketing infrastructure. To reach the next stage of growth, they needed systematic programs to capture, convert, and expand the massive demand they were generating.
-                  </p>
-                  <div className="not-prose">
-                    <VideoEmbed 
-                      videoId="ogk5uMVFJh0" 
-                      title="Scaling B2B SaaS to $100M" 
-                      format="vertical"
-                    />
-                  </div>
-                </div>
+                <p>
+                  In April 2024, HeyGen had extraordinary product-market fit but limited marketing infrastructure. To reach the next stage of growth, they needed systematic programs to capture, convert, and expand the massive demand they were generating.
+                </p>
               </section>
 
               <section>
