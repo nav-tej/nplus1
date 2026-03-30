@@ -7,19 +7,18 @@ import type { NextRequest } from "next/server";
  * entries transfer cleanly to the new primary domain.
  */
 export function middleware(request: NextRequest) {
-  const host = request.headers.get("host") ?? "";
+  const { hostname, pathname, search } = request.nextUrl;
   const proto = request.headers.get("x-forwarded-proto") ?? "https";
 
-  // Redirect to https and primary domain
-  const isHttp = proto === "http";
-  const isNotPrimaryHost = host && host !== "nplusalpha.com" && !host.includes("localhost");
+  // Case-insensitive check for protocol and host
+  const isHttp = proto.toLowerCase() === "http";
+  const isWww = hostname.startsWith("www.");
+  const isNotPrimaryHost = hostname !== "nplusalpha.com" && !hostname.includes("localhost");
 
-  if (isHttp || isNotPrimaryHost) {
-    const url = request.nextUrl.clone();
-    url.protocol = "https";
-    url.host = "nplusalpha.com";
-    url.port = "";
-    return NextResponse.redirect(url, { status: 301 });
+  if (isHttp || isWww || isNotPrimaryHost) {
+    // Construct the target URL explicitly to ensure consistency
+    const targetUrl = new URL(pathname + search, "https://nplusalpha.com");
+    return NextResponse.redirect(targetUrl, { status: 301 });
   }
 
   return NextResponse.next();

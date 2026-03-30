@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "n+α Ventures" }],
   alternates: {
-    canonical: "https://nplusalpha.com",
+    canonical: "/",
   },
   openGraph: {
     type: "website",

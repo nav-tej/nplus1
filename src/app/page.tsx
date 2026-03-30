@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://nplusalpha.com" },
+  alternates: { canonical: "/" },
 };
 
 // Below-fold "use client" components — split into separate JS chunks
