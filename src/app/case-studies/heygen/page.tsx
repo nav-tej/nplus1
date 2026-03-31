@@ -108,7 +108,15 @@ export default function CaseStudyPage() {
                 </div>
                 <div className="p-6 bg-black/40 backdrop-blur-sm border-t border-white/5">
                   <h3 className="text-sm font-bold text-orange-400 uppercase tracking-widest mb-1 text-center">Featured Playbook Video</h3>
-                  <p className="text-white text-center font-medium">Inside the HeyGen GTM Engine with Nav Singh</p>
+                  <p className="text-white text-center font-medium mb-4">Inside the HeyGen GTM Engine with Nav Singh</p>
+                  <div className="text-center">
+                    <Link 
+                      href="/videos/scaling-heygen-gtm"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-muted hover:text-orange-400 transition-colors"
+                    >
+                      Watch on dedicated page →
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

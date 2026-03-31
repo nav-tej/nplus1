@@ -118,9 +118,18 @@ export default function BlogIndexPage() {
                     title="Your GTM Playbook Is Already Obsolete" 
                   />
                 </div>
-              </div>
-            </div>
-          </div>
+                <div className="mt-4 text-center">
+                  <Link 
+                    href="/videos/gtm-playbook-obsolete"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-muted hover:text-orange-400 transition-colors"
+                  >
+                    Watch on dedicated page →
+                  </Link>
+                </div>
+                </div>
+                </div>
+                </div>
+
         </section>
 
         {/* Posts grid */}

@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { BLOG_POSTS } from "@/lib/blog";
 import { SITE_CONFIG } from "@/lib/constants";
+import { VIDEOS } from "@/lib/videos";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = `https://${SITE_CONFIG.domain}`;
@@ -30,5 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...routes, ...blogPosts];
+  const videoRoutes = Object.keys(VIDEOS).map((slug) => ({
+    url: `${baseUrl}/videos/${slug}`,
+    lastModified: new Date(VIDEOS[slug].uploadDate),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...routes, ...blogPosts, ...videoRoutes];
 }
