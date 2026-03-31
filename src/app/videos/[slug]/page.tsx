@@ -59,6 +59,11 @@ export default async function VideoWatchPage({ params }: Props) {
         title={video.title}
         description={video.description}
         path={`/videos/${slug}`}
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: video.articleTitle, item: video.articleUrl },
+          { name: video.title, item: `/videos/${slug}` },
+        ]}
         video={{
           name: video.title,
           description: video.description,

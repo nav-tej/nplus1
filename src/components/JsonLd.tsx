@@ -11,6 +11,10 @@ interface JsonLdProps {
   faqs?: any[];
   steps?: any[];
   serviceType?: string;
+  breadcrumbs?: {
+    name: string;
+    item: string;
+  }[];
   video?: {
     name: string;
     description: string;
@@ -32,6 +36,7 @@ export default function JsonLd({
   faqs,
   steps,
   serviceType,
+  breadcrumbs,
   video,
 }: JsonLdProps) {
   const baseUrl = "https://nplusalpha.com";
@@ -273,6 +278,18 @@ export default function JsonLd({
   if (type === "Service" && serviceType) {
     pageSchema.serviceType = serviceType;
     pageSchema.provider = { "@id": `${baseUrl}/#organization` };
+  }
+
+  if (breadcrumbs) {
+    graph.push({
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumbs.map((crumb, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": crumb.name,
+        "item": crumb.item.startsWith("http") ? crumb.item : `${baseUrl}${crumb.item}`,
+      })),
+    });
   }
 
   graph.push(pageSchema);
