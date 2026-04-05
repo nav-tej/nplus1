@@ -10,7 +10,7 @@ const SOCIAL_PROOF = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden" aria-labelledby="hero-heading">
       {/* Ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-accent/[0.07] rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-accent/[0.04] rounded-full blur-[120px] pointer-events-none" />
@@ -35,7 +35,7 @@ export default function Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="text-4xl sm:text-5xl lg:text-[3.75rem] font-bold tracking-tight leading-[1.08] mb-6 max-w-4xl">
+        <h1 id="hero-heading" className="text-4xl sm:text-5xl lg:text-[3.75rem] font-bold tracking-tight leading-[1.08] mb-6 max-w-4xl">
           Fractional VP Marketing &amp; Revenue Operations for{" "}
           <span className="bg-gradient-to-r from-accent to-[#27AE60] bg-clip-text text-transparent">
             B2B SaaS Scaling $1M → $100M+
