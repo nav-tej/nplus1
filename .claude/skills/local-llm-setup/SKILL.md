@@ -9,6 +9,33 @@ Goal: a stable local model server (Ollama) running a model that actually fits
 this machine's memory, with tool-calling support so it can drive agents
 (coding tasks, ComfyUI).
 
+**Fast path:** `fix-hermes.sh` in this directory automates Steps 0–4 end to
+end (restart → logs → sized Qwen swap → stability env vars → verification):
+
+```bash
+bash .claude/skills/local-llm-setup/fix-hermes.sh          # interactive
+bash .claude/skills/local-llm-setup/fix-hermes.sh --yes    # accept all defaults
+```
+
+The manual steps below are the same procedure, for when you want to see and
+decide each move yourself (or you're on Windows).
+
+## Step 0 — "It's not responding at all"
+
+A dead-silent agent almost always means the Ollama server process is hung or
+was OOM-killed — not a model problem. Check and restart the server first:
+
+```bash
+curl -s --max-time 5 http://127.0.0.1:11434/api/version   # no reply = server down/hung
+```
+
+- **macOS**: quit the Ollama menu-bar app (or `pkill -x ollama`), reopen it
+- **Linux**: `sudo systemctl restart ollama`
+- **Windows**: quit Ollama from the system tray, relaunch
+
+If it responds again, continue to Step 1 anyway — whatever killed it (usually
+memory pressure) will kill it again until the model/context fits.
+
 ## Step 1 — Diagnose before changing anything
 
 Run these and read the output before acting:
