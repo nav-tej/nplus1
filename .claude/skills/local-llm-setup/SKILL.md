@@ -20,6 +20,10 @@ bash .claude/skills/local-llm-setup/fix-hermes.sh --yes    # accept all defaults
 The manual steps below are the same procedure, for when you want to see and
 decide each move yourself (or you're on Windows).
 
+The script has an offline test suite (mock Ollama, no models downloaded):
+`bash .claude/skills/local-llm-setup/test/run-tests.sh` — run it after
+changing `fix-hermes.sh`.
+
 ## Step 0 — "It's not responding at all"
 
 A dead-silent agent almost always means the Ollama server process is hung or
