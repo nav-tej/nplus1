@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VideoEmbed from "@/components/VideoEmbed";
+import RelatedCaseStudies from "@/components/RelatedCaseStudies";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -62,7 +63,7 @@ const CASE_STUDY_SCHEMA = JSON.stringify({
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nplusalpha.com" },
-        { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://nplusalpha.com/case-studies/heygen" },
+        { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://nplusalpha.com/case-studies" },
         { "@type": "ListItem", "position": 3, "name": "HeyGen: $20M to $100M+ ARR", "item": "https://nplusalpha.com/case-studies/heygen" },
       ],
     },
@@ -81,7 +82,7 @@ export default function CaseStudyPage() {
             <nav className="flex items-center gap-2 text-sm text-muted mb-8" aria-label="Breadcrumb">
               <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
               <span className="text-white/20">/</span>
-              <span className="text-foreground/60">Case Studies</span>
+              <Link href="/case-studies" className="hover:text-foreground transition-colors">Case Studies</Link>
               <span className="text-white/20">/</span>
               <span className="text-foreground/60">HeyGen</span>
             </nav>
@@ -153,6 +154,8 @@ export default function CaseStudyPage() {
                 <p className="text-muted">– Nav Singh</p>
               </section>
             </div>
+
+            <RelatedCaseStudies currentSlug="heygen" />
 
             <div className="mt-20 text-center">
               <Link

@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import Process from "@/components/Process";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
+import CaseStudiesStrip from "@/components/CaseStudiesStrip";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
@@ -27,6 +28,7 @@ export default function Home() {
         <Services />
         <Process />
         <Testimonials />
+        <CaseStudiesStrip />
         <About />
         <FAQ />
         <CTA />

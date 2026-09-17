@@ -46,6 +46,13 @@ export const metadata: Metadata = {
     "marketing automation",
     "n+α Ventures",
     "nPlusAlpha",
+    "n plus alpha",
+    "n plus alpha ventures",
+    "n+alpha",
+    "n+alpha ventures",
+    "nplusalpha",
+    "nplusalpha ventures",
+    "n alpha ventures",
   ],
   authors: [{ name: "n+α Ventures" }],
   alternates: {

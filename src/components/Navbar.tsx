@@ -5,6 +5,7 @@ import Link from "next/link";
 import { X, Menu, Plus, ArrowRight } from "lucide-react";
 
 import { NAV_LINKS, SERVICE_PAGES, SITE_CONFIG } from "@/lib/constants";
+import NPlusAlphaMark from "@/components/NPlusAlphaMark";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -51,32 +52,10 @@ export default function Navbar() {
     }
   }, [mobileOpen]);
 
-  const Logo = ({ gradientId }: { gradientId: string }) => (
-    <svg width="36" height="36" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-      <defs>
-        <linearGradient id={gradientId} x1="31" y1="21" x2="54" y2="45" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#F97316" />
-          <stop offset="100%" stopColor="#60A5FA" />
-        </linearGradient>
-      </defs>
-      <path d="M7,44 V21 C7,14 25,14 25,21 V44" stroke="white" strokeWidth="4.5" fill="none" strokeLinecap="round" />
-      <circle cx="16" cy="14" r="2.8" fill="#F97316" />
-      <line x1="28.5" y1="32" x2="33.5" y2="32" stroke="white" strokeWidth="2" opacity="0.4" />
-      <line x1="31" y1="29.5" x2="31" y2="34.5" stroke="white" strokeWidth="2" opacity="0.4" />
-      <path d="M54,22 C46,20 34,24 34,33 C34,42 46,46 54,44" stroke={`url(#${gradientId})`} strokeWidth="4.5" fill="none" strokeLinecap="round" />
-      <path d="M54,21 L54,45" stroke={`url(#${gradientId})`} strokeWidth="4.5" fill="none" strokeLinecap="round" />
-    </svg>
-  );
-
-  const Wordmark = () => (
-    <div className="flex flex-col leading-none">
-      <span className="text-[17px] font-extrabold text-white tracking-tight">
-        n+<span className="text-orange-400">α</span>
-      </span>
-      <span className="text-[8.5px] font-semibold text-white/50 tracking-[0.28em] uppercase mt-0.5">
-        Ventures
-      </span>
-    </div>
+  // Primary brand mark — the cropped n+α, mark-only for a clean, premium nav.
+  // (The full n+α Ventures lockup lives in the hero and footer.)
+  const Brand = () => (
+    <NPlusAlphaMark static width={104} title="n plus alpha Ventures" />
   );
 
   const navigationSchema = {
@@ -107,8 +86,7 @@ export default function Navbar() {
               title="n+α Ventures - AI-Native GTM Consulting Home"
               aria-label="n+α Ventures Home"
             >
-              <Logo gradientId="navMain" />
-              <Wordmark />
+              <Brand />
             </Link>
 
             {/* Desktop Nav */}
@@ -219,8 +197,7 @@ export default function Navbar() {
         {/* Mobile Header */}
         <div className="flex items-center justify-between px-6 h-20 border-b border-white/5">
           <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5" title="n+α Home">
-            <Logo gradientId="navMobile" />
-            <Wordmark />
+            <Brand />
           </Link>
           <button
             onClick={() => setMobileOpen(false)}
