@@ -34,11 +34,19 @@ CONTACT_EMAIL=
 
 - `src/app/` — App Router pages and API routes
 - `src/components/` — All UI components (no sub-directories; flat structure)
-- `src/lib/` — Shared logic: `constants.ts` (all site content/copy), `blog.ts` (post metadata), `blog-content.tsx` (full post JSX content), `blog-content-md.ts` (markdown versions), `supabase.ts` (lazy singleton client)
+- `src/lib/` — Shared logic: `constants.ts` (all site content/copy), `blog.ts` (post metadata), `blog-content.tsx` (full post JSX content), `blog-content-md.ts` (markdown versions), `case-studies.ts` (all case study content), `supabase.ts` (lazy singleton client)
 
 ### Content management
 
 All site copy lives in `src/lib/constants.ts` — FOUNDER, SERVICES, TESTIMONIALS, NAV_LINKS, etc. Blog post metadata is in `src/lib/blog.ts` (BLOG_POSTS array); full post content is in `src/lib/blog-content.tsx` as exported JSX functions keyed by slug, with a markdown variant in `src/lib/blog-content-md.ts`.
+
+### Case study system
+
+All case study content lives in `src/lib/case-studies.ts`. That one array drives the `/case-studies` hub, the `/case-studies/[slug]` detail pages, the `/md` routes, the sitemap, `llms.txt`, the homepage strip, the footer column and every cross-link. Add a study by appending to `CASE_STUDIES`; everything else follows automatically.
+
+HeyGen is the exception: it keeps a hand-built route at `src/app/case-studies/heygen/page.tsx` for its VideoObject schema, and is flagged `hasCustomPage: true` so the dynamic route skips it. A static segment always wins over `[slug]`, so both coexist.
+
+`BLOG_TO_CASE_STUDY` maps a post slug to the engagement that proves its argument, rendered by `CaseStudyCallout` at the foot of each post.
 
 ### Blog system
 
@@ -51,7 +59,19 @@ Blog is statically rendered. Add a new post by: (1) adding an entry to `BLOG_POS
 
 ### Analytics
 
-PostHog is initialized lazily via `requestIdleCallback` in `PostHogProvider` (client component). `PostHogLoader` in `layout.tsx` wraps it in a server component boundary. Page views are captured manually (`capture_pageview: false`).
+PostHog is initialized in a `useEffect` inside `PostHogProvider` (client component). `PostHogLoader` code-splits it via `next/dynamic` and wraps the app tree in `layout.tsx`. Page views are captured manually (`capture_pageview: false`); `PostHogPageView` uses `useSearchParams` and must stay inside its own `Suspense` boundary.
+
+**Never pass `ssr: false` to that dynamic import.** It wrapped `{children}`, so from Feb to Sep 2026 every route shipped an empty shell (Next emits `BAILOUT_TO_CLIENT_SIDE_RENDERING`), which broke in-page anchors and left pages in Search Console as "Crawled - currently not indexed". Regression check:
+
+```bash
+curl -s https://nplusalpha.com/ | grep -c '<h1'   # must be >= 1
+```
+
+### SEO notes
+
+- OG image routes serve `X-Robots-Tag: noindex` via `next.config.ts`; Google was crawling them as pages.
+- `src/proxy.ts` 301s everything to the apex except `localhost` and `*.vercel.app` previews.
+- `scripts/indexnow.mjs` submits the live sitemap to Bing, Yandex and DuckDuckGo. Google does not participate in IndexNow, so Google needs Search Console.
 
 ### Performance patterns
 

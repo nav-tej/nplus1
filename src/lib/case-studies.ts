@@ -590,8 +590,22 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
 ];
 
-export function getCaseStudy
-(slug: string): CaseStudy | undefined {
+/**
+ * Which case study proves the argument a given blog post makes. Links the two
+ * clusters so posts pass authority to the pages that sell the work.
+ */
+export const BLOG_TO_CASE_STUDY: Record<string, string> = {
+  "heygen-gtm-playbook-20m-to-100m-arr": "heygen",
+  "seo-from-zero-b2b-saas-organic-growth": "comfy",
+  "ai-native-gtm-marketing-operations-2025": "comfy",
+  "revenue-operations-ai-forecasting-2025": "comfy",
+  "plg-to-enterprise-gtm-transition-playbook": "semgrep",
+  "demand-generation-b2b-saas-pipeline-framework": "egnyte",
+  "community-led-growth-b2b-saas-strategy": "heygen",
+  "abm-strategy-b2b-saas-enterprise-pipeline": "heygen",
+};
+
+export function getCaseStudy(slug: string): CaseStudy | undefined {
   return CASE_STUDIES.find((c) => c.slug === slug);
 }
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CASE_STUDIES } from "@/lib/case-studies";
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
 import BrandLockup from "@/components/BrandLockup";
 
@@ -36,6 +37,19 @@ export default function Footer() {
               >
                 Privacy
               </Link>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <span className="text-xs font-bold text-white uppercase tracking-widest">Case Studies</span>
+              {CASE_STUDIES.map((study) => (
+                <Link
+                  key={study.slug}
+                  href={`/case-studies/${study.slug}`}
+                  className="text-sm text-muted hover:text-foreground transition-colors"
+                >
+                  {study.client}
+                </Link>
+              ))}
             </div>
 
             <div className="flex flex-col gap-3">

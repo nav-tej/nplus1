@@ -4,6 +4,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import CaseStudyCallout from "@/components/CaseStudyCallout";
 import { BLOG_POSTS } from "@/lib/blog";
 import { BLOG_CONTENT } from "@/lib/blog-content";
 
@@ -170,6 +171,8 @@ export default async function BlogPostPage({ params }: Props) {
             </Link>
           </div>
         </section>
+
+        <CaseStudyCallout postSlug={slug} />
 
         {/* Related posts */}
         {related.length > 0 && (
