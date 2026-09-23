@@ -37,6 +37,9 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Run on all routes except Next.js internals and static assets
-  matcher: "/((?!_next/static|_next/image|logos|favicon|icon|apple-touch-icon).*)",
+  // Pages need this middleware for the canonical-host redirect. Static files do
+  // not, and every matched request costs an edge invocation, so skip anything
+  // with a file extension alongside the Next.js internals.
+  matcher:
+    "/((?!_next/static|_next/image|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|txt|xml|json|webmanifest|css|js|woff2?|mp4)$).*)",
 };
