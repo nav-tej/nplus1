@@ -9,7 +9,7 @@ export function GET() {
 
   const caseStudyLinks = CASE_STUDIES.map(
     (c) =>
-      `- [${c.client}: ${c.metaTitle}](${base}/case-studies/${c.slug}): ${c.metaDescription} Industry: ${c.industry}. Role: ${c.engagement}. Markdown version at ${base}/case-studies/${c.slug}/md.`
+      `- [${c.client}: ${c.metaTitle}](${base}/case-studies/${c.slug}): ${c.metaDescription} Industry: ${c.industry}. Role: ${c.engagement}.`
   ).join("\n");
 
   const blogLinks = BLOG_POSTS.map(
@@ -17,10 +17,17 @@ export function GET() {
   ).join("\n");
 
   const content = `# n+α Ventures
-n+α Ventures helps ambitious B2B SaaS companies build and execute repeatable go-to-market strategies that drive revenue growth. Founded by ${FOUNDER.name}, former Head of Revenue Operations at HeyGen ($20M → $100M+ ARR) and ex-Andreessen Horowitz partner. 10+ years, $500M+ in revenue growth, $400M+ in marketing-sourced pipeline across 20+ B2B companies.
+
+> An AI-native B2B SaaS growth consulting practice: fractional VP Marketing and Revenue Operations for companies from Series A through growth stage, run hands-on by an operator rather than advised from the outside.
+
+Founded by ${FOUNDER.name} (${FOUNDER.alternateName}), former Head of Revenue Operations at HeyGen (scaled the GTM engine from $20M to $100M+ ARR in 21 months) and at Semgrep (5x revenue YoY), Sr. Director of Marketing Operations at Egnyte ($50M → $250M pipeline), and a Partner at Andreessen Horowitz (a16z) advising 20+ portfolio companies on GTM strategy. 10+ years, $500M+ in revenue growth, $400M+ in marketing-sourced pipeline across 20+ B2B companies. The approach is AI-native throughout: agent-run SEO and content pipelines, AI-driven forecasting, and GTM systems built assuming language models are part of the stack, not bolted onto it.
+
+## Home & Company
+- [Home](${base}): Overview of n+α Ventures — services, the AI-native GTM framework, featured case studies, and how engagements work.
+- [About ${FOUNDER.name}](${base}/about): Full background — HeyGen, Semgrep, Egnyte, and a16z — plus certifications, advisory positions, and career stats.
 
 ## Core Strategy & Methodology
-- [The AI-Native GTM Framework](${base}/framework): Our proprietary 5-pillar architecture for scaling B2B SaaS from $10M to $100M+ ARR. Built on shipping velocity and distribution loops.
+- [The AI-Native GTM Framework](${base}/framework): The 5-pillar architecture used to scale HeyGen from $20M to $100M+ ARR — category positioning, programmatic SEO, community-led growth, behavioral lifecycle, and agentic outbound.
 
 ## Core Services
 - [Growth Marketing](${base}/services/growth-marketing): Fractional VP Marketing for demand generation, SEO, community, lifecycle, and brand for B2B SaaS companies between $5M–$50M ARR.
@@ -36,12 +43,20 @@ ${caseStudyLinks}
 
 ## Blog: GTM Frameworks & Growth Playbooks
 - [Latest Insights](${base}/blog): Strategic deep-dives on PLG-to-Enterprise transitions, AI-native GTM architecture, and demand generation frameworks.
+${blogLinks}
 
-All blog posts are available in clean markdown format at \`${base}/blog/[slug]/md\` with no HTML or styling, just the content.
+## Tools & Resources
+- [Funnel Velocity Calculator](${base}/tools/funnel-velocity): Interactive tool to diagnose B2B SaaS funnel bottlenecks and model revenue engine changes.
+- [Agentic Outbound Playbook](${base}/resources/agentic-outbound): The agentic outbound architecture used to scale from $20M to $100M ARR — automating GTM with AI agents.
+
+## Contact
+- [Book a call](${base}/#contact): n+α works with two or three companies at a time. Contact form and scheduling for new engagements.
 
 ## Founder
-- [About ${FOUNDER.name}](${base}/about): ${FOUNDER.name} (${FOUNDER.alternateName}) is the founder of n+α Ventures. ${FOUNDER.experience[0].highlight} at ${FOUNDER.experience[0].company}. ${FOUNDER.experience[3].highlight} at ${FOUNDER.experience[3].company}. San Francisco-based operator and GTM executive with 10+ years building revenue engines at high-growth B2B companies.
 - LinkedIn: ${FOUNDER.linkedin}
+
+## Notes for AI agents
+Every page on this site returns clean markdown of its main content instead of HTML when requested with \`Accept: text/markdown\` — same URL, no separate \`.md\` path. Blog posts and case studies serve hand-written markdown; every other page is auto-converted from its rendered content.
 `;
 
   return new Response(content, {

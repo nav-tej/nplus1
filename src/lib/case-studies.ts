@@ -614,7 +614,11 @@ export const DATA_DRIVEN_CASE_STUDIES = CASE_STUDIES.filter(
   (c) => !c.hasCustomPage
 );
 
-/** Plain-text rendering used by the /md routes and llms-full.txt. */
+/**
+ * Plain-text rendering served for this study's own URL when a request
+ * signals it wants markdown (see src/app/api/geo/route.ts), and reused by
+ * llms-full.txt.
+ */
 export function caseStudyToMarkdown(study: CaseStudy): string {
   const lines: string[] = [
     `# ${study.title} ${study.titleAccent}`.replace(/\s+/g, " ").trim(),
