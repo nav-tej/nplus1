@@ -33,6 +33,11 @@
   }
 }
 
+html {
+  /* Fixed navbar height, so /#contact and friends do not land under the header. */
+  scroll-padding-top: 6.5rem;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -94,4 +99,30 @@ body {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+/* Brand lockup entrance — fade + rise (respects reduced-motion) */
+@keyframes brandRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.brand-rise {
+  animation: brandRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-rise { animation: none; }
+}
+
+/* Lockup descriptor reveal — fades in after the mark draws itself + the plot
+   clears (combo build resolves ~5.5s), so the plot never crosses the word. */
+@keyframes descriptorIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.descriptor-in {
+  opacity: 0;
+  animation: descriptorIn 0.6s ease 5.2s forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .descriptor-in { opacity: 1; animation: none; }
 }

@@ -55,6 +55,15 @@ export default function PortfolioPage() {
             built for high-growth B2B SaaS companies. All artifacts are generalized examples
             inspired by real engagements, with no confidential data shown.
           </p>
+          <p className="text-[--textMuted] text-base leading-relaxed max-w-2xl mt-4"
+             style={{ ["--textMuted" as any]: COLORS.textMuted }}>
+            For the named engagements with the numbers attached, read the{" "}
+            <a href="/case-studies" className="text-[--accent] underline underline-offset-4 hover:opacity-80"
+               style={{ ["--accent" as any]: COLORS.accent }}>
+              case studies
+            </a>
+            .
+          </p>
         </div>
 
         {/* ── Case Studies ── */}

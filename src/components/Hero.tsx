@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SITE_CONFIG } from "@/lib/constants";
+import BrandLockup from "@/components/BrandLockup";
 
 const SOCIAL_PROOF = [
   "Scaled HeyGen $20M → $100M+ ARR",
@@ -26,6 +27,11 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 pt-28 pb-20 w-full">
+        {/* Brand lockup — states the full n+α Ventures name above the fold */}
+        <div className="brand-rise mb-10">
+          <BrandLockup animate descriptor="Ventures" markWidth={280} />
+        </div>
+
         {/* Badge */}
         <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 mb-10">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />

@@ -26,6 +26,18 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // OG images are assets, not pages. Google was crawling them as URLs
+        // (e.g. /about/opengraph-image?7c0791f90376e57d showed up under
+        // "Crawled - currently not indexed"). noindex keeps them fetchable for
+        // social and LLM unfurlers while removing them from the index queue.
+        source: "/:path*/opengraph-image",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
+      {
+        source: "/opengraph-image",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
+      {
         source: "/:path*",
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },

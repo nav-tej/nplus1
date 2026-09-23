@@ -40,17 +40,29 @@ export default function JsonLd({
   video,
 }: JsonLdProps) {
   const baseUrl = "https://nplusalpha.com";
-  const url = `${baseUrl}${path}`;
+  const url = path === "" || path === "/" ? `${baseUrl}/` : `${baseUrl}${path}`;
 
   const graph: any[] = [
     {
       "@type": "Organization",
       "@id": `${baseUrl}/#organization`,
       name: "n+α Ventures",
+      // Spelled-out + ASCII brand variants so search engines connect queries like
+      // "n plus alpha", "n+alpha", "nplusalpha" to the Greek-glyph brand name.
+      alternateName: [
+        "n plus alpha",
+        "n plus alpha Ventures",
+        "nPlusAlpha",
+        "nPlusAlpha Ventures",
+        "n+alpha",
+        "n+alpha Ventures",
+        "nplusalpha",
+        "N+A Ventures",
+      ],
       url: baseUrl,
       logo: {
         "@type": "ImageObject",
-        url: `${baseUrl}/logo.png`,
+        url: `${baseUrl}/logo-square.png`,
         width: 512,
         height: 512,
       },
@@ -88,7 +100,9 @@ export default function JsonLd({
         "latitude": "37.7749",
         "longitude": "-122.4194"
       },
-      "telephone": "+1-415-000-0000",
+      // No telephone: the previous value was a +1-415-000-0000 placeholder, and
+      // publishing a fabricated contact point in structured data is worse than
+      // omitting the field.
       "priceRange": "$$$",
       "provider": {
         "@id": `${baseUrl}/#organization`
@@ -203,6 +217,7 @@ export default function JsonLd({
       "@id": `${baseUrl}/#website`,
       "url": baseUrl,
       "name": "n+α Ventures",
+      "alternateName": ["n plus alpha", "nPlusAlpha", "n+alpha", "nplusalpha"],
       "publisher": {
         "@id": `${baseUrl}/#organization`,
       },

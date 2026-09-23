@@ -46,6 +46,13 @@ export const metadata: Metadata = {
     "marketing automation",
     "n+α Ventures",
     "nPlusAlpha",
+    "n plus alpha",
+    "n plus alpha ventures",
+    "n+alpha",
+    "n+alpha ventures",
+    "nplusalpha",
+    "nplusalpha ventures",
+    "n alpha ventures",
   ],
   authors: [{ name: "n+α Ventures" }],
   alternates: {
@@ -100,6 +107,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://us.i.posthog.com" />
         <link rel="dns-prefetch" href="https://us.i.posthog.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body className={`${inter.variable} antialiased`}>
         <GtmProvider />
