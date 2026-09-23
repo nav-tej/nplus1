@@ -105,15 +105,15 @@ export const CASE_STUDIES: CaseStudy[] = [
     clientUrl: "https://www.comfy.org",
     industry: "Open-source AI · Developer tools",
     engagement: "Growth lead: SEO, analytics, lifecycle",
-    period: "2026 to present",
+    period: "2026",
     badge: "Open source, measured properly",
     title: "Comfy:",
     titleAccent: "Organic growth, and the analytics foundation underneath it.",
     metaTitle: "Comfy Case Study: Open-Source SEO and Growth Analytics",
     metaDescription:
-      "Rebuilding organic growth for comfy.org: index recovery, a non-branded page network, answer-engine optimization, and the growth analytics foundation the team runs on. Written by the operator running it.",
+      "Rebuilding organic growth for comfy.org through 2026: index recovery, a non-branded page network, answer-engine optimization, and the growth analytics foundation the team runs on. Written by the operator who built it.",
     summary:
-      "Comfy builds ComfyUI, one of the largest open-source generative AI projects, plus the cloud platform around it. Huge audience, huge traffic, and very little of it captured on purpose. I lead growth there. This is the organic engine and the measurement layer we built underneath it. The program is early and still compounding, so what follows is the approach and the direction of travel.",
+      "Comfy builds ComfyUI, one of the largest open-source generative AI projects, plus the cloud platform around it. Huge audience, huge traffic, and very little of it captured on purpose. I led growth there through 2026. This is the organic engine we built, the measurement layer underneath it, and where both stood when I handed over.",
     services: [GROWTH_MARKETING, DEMAND_GEN, REVOPS],
     metrics: [
       { value: "0 → 1", label: "Growth analytics foundation" },
@@ -158,7 +158,7 @@ export const CASE_STUDIES: CaseStudy[] = [
           "Brand traffic has a ceiling you do not control. It grows when the product gets famous and shrinks when an assistant absorbs the click.",
           "So we built the demand map first. Every use case and model people search for, scored on volume, difficulty, commercial value and fit with the customers sales was actually closing, each one carrying an estimated traffic value at position one. That is what let us argue about priority with numbers, not opinions.",
           "The finding that changed the roadmap: SEO demand and enterprise demand only partly overlap. That splits the work into three lanes rather than one ranked list. Pages that are high intent and high fit get built first. Pure traffic pages get built for volume and judged on volume. And the demand with real revenue behind it and no search volume at all, things like on-prem deployment and custom model training, belongs to sales, not to SEO. Writing that down stopped a quarter of arguing.",
-          "Each page in the network is backed by one of the hundreds of real workflow templates. A thin generated page ranks for a week. A page with a working demo behind it earns links. The model release playbook does the same job on a clock: when a major model ships, the docs page, the template, the landing page and the announcement go out interlinked inside 48 hours, while the interest spike is still live.",
+          "Each page in the network was backed by one of the hundreds of real workflow templates. A thin generated page ranks for a week. A page with a working demo behind it earns links. The model release playbook does the same job on a clock: when a major model ships, the docs page, the template, the landing page and the announcement go out interlinked inside 48 hours, while the interest spike is still live.",
         ],
         bullets: [
           {
@@ -186,7 +186,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         heading: "The analytics foundation",
         body: [
-          "None of it is worth much if you cannot tell whether it worked, so the other half of this job was building the measurement layer the growth team now runs on.",
+          "None of it is worth much if you cannot tell whether it worked, so the other half of this job was building the measurement layer the growth team runs on.",
           "We agreed the definitions and wrote them down. What counts as a signup, sourced from one canonical table after we measured every candidate event against ground truth and found the obvious one missing a large share of real signups. What counts as activation, inside what window. Which revenue basis a number is quoted on, since recognized and bookings differ enough to start an argument in a board meeting.",
           "Then identity, so a person is the same person across the open-source desktop app, the cloud product and the website. That is the piece that makes channel attribution possible at all, and it paid for itself the moment it worked: organic signups convert at a meaningfully higher rate than direct, and referrals from AI assistants convert higher still. Before this work nobody could produce that comparison, which meant nobody could justify the SEO investment.",
           "Then we made it self-serve. Dashboards rebuilt on live models, a glossary so every chart has a definition behind it, an event catalog and an enablement guide, and a scheduled agent that pulls the funnel from the warehouse every weekday morning and drafts the standup read before anyone opens a dashboard.",
@@ -207,10 +207,10 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
-        heading: "Where it stands",
+        heading: "Where it stood at handoff",
         body: [
-          "This is early. The page network is still being built out, and the compounding part of SEO is the part that takes quarters rather than weeks. What has changed already is the shape of the thing: the site is crawlable again, the organic program has a scored roadmap instead of a brand term propping it up, the release playbook fires on every model launch, and the pages are written so machines can read them.",
-          "The measurement side moved faster, because that work lands the day it ships. The growth team stopped arguing about whose number was right. One definition, one dashboard, and a daily read that arrives before standup. That is the boring half of growth work, and it is why everything after it moves faster.",
+          "SEO compounds over quarters, so the honest version is that I handed over a machine mid-build rather than a finished number. What had changed by then was the shape of it. The site was crawlable again, the organic program ran off a scored roadmap instead of one brand term holding it up, the release playbook fired on every model launch, and the pages were written so machines could read them.",
+          "The measurement side moved faster, because that work lands the day it ships. The growth team stopped arguing about whose number was right. One definition, one dashboard, and a daily read that arrived before standup. That is the boring half of growth work, and it is why everything after it moves faster.",
         ],
       },
     ],
@@ -232,7 +232,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     publishDate: "2026-06-01",
-    dateModified: "2026-09-17",
+    dateModified: "2026-09-23",
   },
   {
     slug: "charta-health",
@@ -240,7 +240,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     clientUrl: "https://www.chartahealth.com",
     industry: "Healthcare AI · Revenue cycle",
     engagement: "Marketing and growth foundation",
-    period: "2026 to present",
+    period: "2026",
     badge: "AI agents for top-of-funnel SEO",
     title: "Charta Health:",
     titleAccent: "A growth foundation, with agents doing the heavy lifting.",
@@ -330,10 +330,10 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
-        heading: "What the team owns now",
+        heading: "What the team was left with",
         body: [
           "A documented view of their own go-to-market infrastructure. Positioning and ICP definitions the whole team can repeat. A 90 day roadmap with the sequence made explicit. An agent-assisted content engine that turns a keyword cluster into a reviewed, on-brand page without adding headcount. Event and lifecycle nurture that runs itself. And the attribution to say which of it worked.",
-          "A foundation engagement is only worth the money if it keeps producing after I leave, so that is what we design for and what we measure against.",
+          "A foundation engagement is only worth the money if it keeps producing once the consultant is gone, so that is what it gets designed and measured against.",
         ],
       },
     ],
@@ -355,7 +355,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     publishDate: "2026-04-24",
-    dateModified: "2026-09-17",
+    dateModified: "2026-09-23",
   },
   {
     slug: "semgrep",
