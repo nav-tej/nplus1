@@ -221,12 +221,6 @@ export default async function CaseStudyPage({ params }: Props) {
                     {service.label}
                   </Link>
                 ))}
-                <Link
-                  href={`/case-studies/${study.slug}/md`}
-                  className="rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-muted hover:border-accent/40 hover:text-accent transition-colors"
-                >
-                  Read as markdown
-                </Link>
               </div>
             </section>
 

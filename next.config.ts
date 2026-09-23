@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
+import { withGeo } from "next-geo/config";
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
@@ -57,6 +58,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-};
+} satisfies NextConfig;
 
-export default nextConfig;
+export default withGeo(nextConfig);
