@@ -49,6 +49,21 @@ function matchSegment(path: string, prefix: string): string | null {
   return rest && !rest.includes("/") ? rest : null;
 }
 
+/**
+ * `Vary: Accept, User-Agent` belongs here and nowhere else.
+ *
+ * The HTML responses deliberately do NOT declare it. Never `Vary` a cacheable
+ * page on User-Agent: UA strings run to thousands of distinct values and every
+ * CDN, Vercel's included, folds Vary into the cache key, so one entry per page
+ * becomes thousands and the hit rate collapses.
+ *
+ * We do not need it anyway. The branch happens in proxy.ts, which runs at the
+ * edge *before* the CDN cache lookup and rewrites agent traffic to this route.
+ * The two representations therefore live at different cache keys structurally
+ * rather than by negotiation, and a browser request can never reach a cached
+ * markdown entry. Declaring it here is still correct for any intermediary cache
+ * downstream, and costs nothing: this route is force-dynamic and never CDN-cached.
+ */
 function markdownResponse(content: string) {
   return new NextResponse(content, {
     headers: {
