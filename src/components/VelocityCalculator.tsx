@@ -203,14 +203,14 @@ export default function VelocityCalculator() {
 
   return (
     <div className="w-full max-w-4xl mx-auto space-y-12">
-      <div className="bg-[#1A1D23] border border-white/10 backdrop-blur-xl rounded-[2.5rem] shadow-2xl overflow-hidden">
+      <div className="bg-[#1A2839] border border-white/10 backdrop-blur-xl rounded-[2.5rem] shadow-2xl overflow-hidden">
         {/* Step Indicator */}
         <div className="flex bg-black/20 p-2 m-4 rounded-2xl gap-2">
           {[1, 2, 3, 4].map((s) => (
             <div 
               key={s} 
               className={`flex-1 py-2.5 rounded-xl text-center text-[9px] font-black tracking-widest uppercase transition-all ${
-                step === s ? "bg-accent text-[#0B1221]" : "text-muted/30"
+                step === s ? "bg-accent text-[#131F2E]" : "text-muted"
               }`}
             >
               {s === 1 ? "Metrics" : s === 2 ? "Benchmarks" : s === 3 ? "Unlock" : "Roadmap"}
@@ -230,7 +230,7 @@ export default function VelocityCalculator() {
                       <button
                         key={s} onClick={() => handleInputChange("stage", s)}
                         className={`py-3 px-4 rounded-xl text-xs font-bold border transition-all ${
-                          inputs.stage === s ? "bg-accent text-[#0B1221] border-accent" : "bg-white/5 border-white/5 text-muted hover:border-white/10"
+                          inputs.stage === s ? "bg-accent text-[#131F2E] border-accent" : "bg-white/5 border-white/5 text-muted hover:border-white/10"
                         }`}
                       >
                         {s}
@@ -245,7 +245,7 @@ export default function VelocityCalculator() {
                       <button
                         key={v} onClick={() => handleInputChange("vertical", v)}
                         className={`py-3 px-4 rounded-xl text-[10px] font-bold border transition-all ${
-                          inputs.vertical === v ? "bg-accent text-[#0B1221] border-accent" : "bg-white/5 border-white/5 text-muted hover:border-white/10"
+                          inputs.vertical === v ? "bg-accent text-[#131F2E] border-accent" : "bg-white/5 border-white/5 text-muted hover:border-white/10"
                         }`}
                       >
                         {v}
@@ -276,7 +276,7 @@ export default function VelocityCalculator() {
                       {ARR_VALUES.filter((_, i) => i % 4 === 0 || i === ARR_VALUES.length - 1).map((val) => (
                         <div key={val} className="flex flex-col items-center gap-1.5">
                           <div className="w-1 h-1 rounded-full bg-white/20" />
-                          <span className="text-[8px] font-mono text-muted/50 uppercase tracking-tighter">{formatCurrency(val)}</span>
+                          <span className="text-[8px] font-mono text-muted uppercase tracking-tighter">{formatCurrency(val)}</span>
                         </div>
                       ))}
                     </div>
@@ -295,7 +295,7 @@ export default function VelocityCalculator() {
                       {[5, 125, 250, 375, 500].map((v) => (
                         <div key={v} className="flex flex-col items-center gap-1.5">
                           <div className="w-1 h-1 rounded-full bg-white/20" />
-                          <span className="text-[8px] font-mono text-muted/50 tracking-tighter">{v}</span>
+                          <span className="text-[8px] font-mono text-muted tracking-tighter">{v}</span>
                         </div>
                       ))}
                     </div>
@@ -314,7 +314,7 @@ export default function VelocityCalculator() {
                       {[1, 15, 30, 45, 60].map((v) => (
                         <div key={v} className="flex flex-col items-center gap-1.5">
                           <div className="w-1 h-1 rounded-full bg-white/20" />
-                          <span className="text-[8px] font-mono text-muted/50 tracking-tighter">{v}%</span>
+                          <span className="text-[8px] font-mono text-muted tracking-tighter">{v}%</span>
                         </div>
                       ))}
                     </div>
@@ -333,7 +333,7 @@ export default function VelocityCalculator() {
                       {[5000, 65000, 125000, 185000, 250000].map((v) => (
                         <div key={v} className="flex flex-col items-center gap-1.5">
                           <div className="w-1 h-1 rounded-full bg-white/20" />
-                          <span className="text-[8px] font-mono text-muted/50 tracking-tighter">{formatCurrency(v)}</span>
+                          <span className="text-[8px] font-mono text-muted tracking-tighter">{formatCurrency(v)}</span>
                         </div>
                       ))}
                     </div>
@@ -343,7 +343,7 @@ export default function VelocityCalculator() {
 
               <button
                 onClick={() => setStep(2)}
-                className="w-full group bg-accent text-[#0B1221] font-black text-xl rounded-2xl py-6 hover:shadow-[0_0_50px_rgba(46,204,113,0.4)] transition-all flex items-center justify-center gap-3 active:scale-[0.98]"
+                className="w-full group bg-accent text-[#131F2E] font-black text-xl rounded-2xl py-6 transition-all flex items-center justify-center gap-3 active:scale-[0.98]"
               >
                 Diagnose GTM Efficiency
                 <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-2" />
@@ -404,7 +404,7 @@ export default function VelocityCalculator() {
                   </p>
                   <button
                     onClick={() => setStep(3)}
-                    className="inline-flex items-center gap-3 bg-white text-[#0B1221] px-10 py-5 rounded-2xl font-black text-xl hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all scale-100 hover:scale-105 active:scale-95"
+                    className="inline-flex items-center gap-3 bg-white text-[#131F2E] px-10 py-5 rounded-2xl font-black text-xl transition-all scale-100 hover:scale-105 active:scale-95"
                   >
                     Unlock 6-Month GTM Roadmap
                     <ChevronRight className="w-6 h-6" />
@@ -434,7 +434,7 @@ export default function VelocityCalculator() {
                 />
                 <button
                   type="submit" disabled={loading}
-                  className="w-full bg-accent text-[#0B1221] font-black text-xl rounded-3xl py-6 hover:shadow-[0_0_40px_rgba(46,204,113,0.3)] transition-all"
+                  className="w-full bg-accent text-[#131F2E] font-black text-xl rounded-3xl py-6 transition-all"
                 >
                   {loading ? "Processing..." : "Generate Roadmap"}
                 </button>
@@ -455,7 +455,7 @@ export default function VelocityCalculator() {
                 </p>
               </div>
 
-              <div className="bg-white text-[#0B1221] rounded-[3rem] p-10 lg:p-16 space-y-8 shadow-[0_0_100px_rgba(255,255,255,0.1)] relative overflow-hidden">
+              <div className="bg-white text-[#131F2E] rounded-[3rem] p-10 lg:p-16 space-y-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-8 opacity-5 rotate-12">
                   <TrendingUp className="w-64 h-64" />
                 </div>
@@ -469,9 +469,9 @@ export default function VelocityCalculator() {
                   <div className="pt-4">
                     <Link
                       href="/#contact"
-                      className="inline-flex items-center gap-3 bg-accent text-[#0B1221] px-12 py-6 rounded-2xl font-black text-2xl hover:shadow-[0_0_50px_rgba(46,204,113,0.4)] transition-all scale-100 hover:scale-105 active:scale-95"
+                      className="inline-flex items-center gap-3 bg-accent text-[#131F2E] px-12 py-6 rounded-2xl font-black text-2xl transition-all scale-100 hover:scale-105 active:scale-95"
                     >
-                      <Calendar className="w-7 h-7 fill-[#0B1221]" />
+                      <Calendar className="w-7 h-7 fill-[#131F2E]" />
                       Schedule GTM Strategy Audit
                     </Link>
                   </div>

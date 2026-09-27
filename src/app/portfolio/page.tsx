@@ -42,7 +42,7 @@ export default function PortfolioPage() {
           <div className="text-[--accent] text-xs tracking-[0.2em] font-bold mb-4" style={{ ["--accent" as any]: COLORS.accent }}>
             PORTFOLIO · SELECTED WORK
           </div>
-          <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.1] mb-5 bg-gradient-to-br from-[--text] to-[--accent] bg-clip-text text-transparent"
+          <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.1] mb-5"
               style={{ ["--text" as any]: COLORS.text, ["--accent" as any]: COLORS.accent }}>
             Frameworks that scale.<br />
             <span className="font-serif italic font-normal" style={{ fontFamily: "var(--font-instrument-serif)" }}>
@@ -175,8 +175,8 @@ export default function PortfolioPage() {
                  style={{ ["--textMuted" as any]: COLORS.textMuted }}>
               I work with 2-3 companies at a time. Currently accepting new engagements.
             </div>
-            <a href="/#contact" className="inline-flex items-center gap-2 bg-accent text-[#0B1221] px-8 py-3.5 rounded-full font-bold text-sm tracking-wide hover:brightness-110 hover:shadow-[0_0_30px_rgba(46,204,113,0.3)] transition-all duration-300 active:scale-95">
-              Get in Touch →
+            <a href="/#contact" className="inline-flex items-center gap-2 bg-accent text-[#131F2E] px-8 py-3.5 rounded-full font-bold text-sm tracking-wide hover:brightness-110 transition-all duration-300 active:scale-95">
+              Book a free GTM audit →
             </a>
           </div>
         </div>

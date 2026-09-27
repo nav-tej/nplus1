@@ -1,32 +1,18 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { X, Menu, Plus, ArrowRight } from "lucide-react";
 
 import { NAV_LINKS, SERVICE_PAGES, SITE_CONFIG } from "@/lib/constants";
-import NPlusAlphaMark from "@/components/NPlusAlphaMark";
+import { Wordmark } from "@/components/brand";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
-
-  useEffect(() => {
-    let rafId: number;
-    const onScroll = () => {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => setScrolled(window.scrollY > 20));
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(rafId);
-    };
-  }, []);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -52,12 +38,6 @@ export default function Navbar() {
     }
   }, [mobileOpen]);
 
-  // Primary brand mark — the cropped n+α, mark-only for a clean, premium nav.
-  // (The full n+α Ventures lockup lives in the hero and footer.)
-  const Brand = () => (
-    <NPlusAlphaMark static width={104} title="n plus alpha Ventures" />
-  );
-
   const navigationSchema = {
     "@context": "https://schema.org",
     "@type": "SiteNavigationElement",
@@ -73,11 +53,9 @@ export default function Navbar() {
       />
       {/* ─── Top bar ─── */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-[#0B1221]/90 backdrop-blur-md border-b border-white/5 py-3" : "bg-transparent py-5"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 h-[var(--nav-height)] flex items-center bg-[var(--bg-glass)] backdrop-blur-md border-b border-line"
       >
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto w-full max-w-[1200px] px-5 sm:px-8">
           <nav className="flex items-center justify-between" aria-label="Main Navigation">
             {/* Logo */}
             <Link 
@@ -86,7 +64,7 @@ export default function Navbar() {
               title="n+α Ventures - AI-Native GTM Consulting Home"
               aria-label="n+α Ventures Home"
             >
-              <Brand />
+              <Wordmark size={24} />
             </Link>
 
             {/* Desktop Nav */}
@@ -105,7 +83,7 @@ export default function Navbar() {
                         <Plus className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-45" : ""}`} />
                       </button>
                       <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-[300px] transition-all duration-200 ${servicesOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}>
-                        <div className="bg-[#0B1221] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                        <div className="bg-surface border border-line rounded-[14px] overflow-hidden shadow-[var(--shadow-pop)]">
                           {SERVICE_PAGES.map((page) => (
                             <Link 
                               key={page.href} 
@@ -113,7 +91,7 @@ export default function Navbar() {
                               className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 group"
                               title={page.label}
                             >
-                              <span className="text-sm font-semibold text-foreground group-hover:text-orange-400 transition-colors">{page.label}</span>
+                              <span className="text-sm font-semibold text-foreground group-hover:text-alpha-text transition-colors">{page.label}</span>
                               <span className="text-[11px] text-muted leading-tight">{page.description}</span>
                             </Link>
                           ))}
@@ -135,13 +113,13 @@ export default function Navbar() {
                         <Plus className={`w-3.5 h-3.5 transition-transform duration-200 ${toolsOpen ? "rotate-45" : ""}`} />
                       </button>
                       <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-[300px] transition-all duration-200 ${toolsOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}>
-                        <div className="bg-[#0B1221] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                        <div className="bg-surface border border-line rounded-[14px] overflow-hidden shadow-[var(--shadow-pop)]">
                           <Link href="/tools/funnel-velocity" className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors border-b border-white/5 group" title="SaaS Funnel Velocity Calculator">
-                            <span className="text-sm font-semibold text-foreground group-hover:text-orange-400 transition-colors">Velocity Calculator</span>
+                            <span className="text-sm font-semibold text-foreground group-hover:text-alpha-text transition-colors">Velocity Calculator</span>
                             <span className="text-[11px] text-muted leading-tight">Diagnose growth bottlenecks</span>
                           </Link>
                           <Link href="/resources/agentic-outbound" className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors last:border-0 group" title="Agentic Outbound Architecture Playbook">
-                            <span className="text-sm font-semibold text-foreground group-hover:text-orange-400 transition-colors">Outbound Playbook</span>
+                            <span className="text-sm font-semibold text-foreground group-hover:text-alpha-text transition-colors">Outbound Playbook</span>
                             <span className="text-[11px] text-muted leading-tight">Build an agentic engine</span>
                           </Link>
                         </div>
@@ -164,10 +142,10 @@ export default function Navbar() {
               <li>
                 <Link 
                   href={SITE_CONFIG.calendarLink} 
-                  className="bg-accent text-[#0B1221] px-6 py-2.5 rounded-full text-sm font-bold hover:shadow-[0_0_20px_rgba(46,204,113,0.3)] transition-all"
-                  title="Book a Strategy Call"
+                  className="inline-flex items-center h-[38px] bg-accent text-[#131F2E] px-4 rounded-full text-sm font-medium hover:bg-[var(--alpha-fill-hover)] transition-colors"
+                  title="Book a free GTM audit"
                 >
-                  Get in Touch
+                  Book a GTM audit
                 </Link>
               </li>
             </ul>
@@ -175,7 +153,7 @@ export default function Navbar() {
             {/* Mobile Trigger */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="md:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-white/10 border border-white/10 text-white active:scale-95 transition-all"
+              className="md:hidden flex items-center justify-center w-11 h-11 rounded-full border border-[var(--line-strong)] text-foreground"
               aria-label="Open Mobile Menu"
               title="Open Navigation"
             >
@@ -187,7 +165,7 @@ export default function Navbar() {
 
       {/* ─── Smooth Mobile Menu Overlay ─── */}
       <div 
-        className={`fixed inset-0 z-[100] bg-[#0B1221] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+        className={`fixed inset-0 z-[100] bg-background transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] motion-reduce:transition-none ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
         role="dialog"
@@ -195,13 +173,13 @@ export default function Navbar() {
         aria-label="Mobile Navigation"
       >
         {/* Mobile Header */}
-        <div className="flex items-center justify-between px-6 h-20 border-b border-white/5">
+        <div className="flex items-center justify-between px-5 h-[var(--nav-height)] border-b border-line">
           <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5" title="n+α Home">
-            <Brand />
+            <Wordmark size={24} />
           </Link>
           <button
             onClick={() => setMobileOpen(false)}
-            className="flex items-center justify-center w-11 h-11 rounded-xl bg-white/10 border border-white/10 text-white active:scale-95 transition-all"
+            className="flex items-center justify-center w-11 h-11 rounded-full border border-[var(--line-strong)] text-foreground"
             aria-label="Close Mobile Menu"
             title="Close Navigation"
           >
@@ -210,7 +188,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Content */}
-        <nav className="flex flex-col h-[calc(100vh-80px)] overflow-y-auto px-6 py-10 space-y-4" aria-label="Mobile Navigation Links">
+        <nav className="flex flex-col h-[calc(100dvh-var(--nav-height))] overflow-y-auto px-6 py-10 space-y-4" aria-label="Mobile Navigation Links">
           {NAV_LINKS.map((link) => {
             if (link.label === "Services") {
               return (
@@ -218,12 +196,12 @@ export default function Navbar() {
                   <button 
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                     className={`flex items-center justify-between w-full p-5 rounded-2xl border transition-all ${
-                      mobileServicesOpen ? "bg-white/10 border-orange-400/30 text-orange-400" : "bg-white/[0.03] border-white/5 text-white"
+                      mobileServicesOpen ? "bg-surface border-[var(--line-strong)] text-alpha-text" : "bg-white/[0.03] border-white/5 text-white"
                     }`}
                     aria-expanded={mobileServicesOpen}
                     title="Toggle Services Menu"
                   >
-                    <span className="text-xl font-bold">Services</span>
+                    <span className="text-2xl font-serif">Services</span>
                     <Plus className={`w-5 h-5 transition-transform duration-300 ${mobileServicesOpen ? "rotate-45" : ""}`} />
                   </button>
                   {mobileServicesOpen && (
@@ -236,7 +214,7 @@ export default function Navbar() {
                           className="flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5"
                           title={page.label}
                         >
-                          <span className="font-bold text-white">{page.label}</span>
+                          <span className="font-medium text-foreground">{page.label}</span>
                           <span className="text-xs text-muted leading-tight">{page.description}</span>
                         </Link>
                       ))}
@@ -251,12 +229,12 @@ export default function Navbar() {
                   <button 
                     onClick={() => setMobileToolsOpen(!mobileToolsOpen)}
                     className={`flex items-center justify-between w-full p-5 rounded-2xl border transition-all ${
-                      mobileToolsOpen ? "bg-white/10 border-orange-400/30 text-orange-400" : "bg-white/[0.03] border-white/5 text-white"
+                      mobileToolsOpen ? "bg-surface border-[var(--line-strong)] text-alpha-text" : "bg-white/[0.03] border-white/5 text-white"
                     }`}
                     aria-expanded={mobileToolsOpen}
                     title="Toggle Tools Menu"
                   >
-                    <span className="text-xl font-bold">Tools</span>
+                    <span className="text-2xl font-serif">Tools</span>
                     <Plus className={`w-5 h-5 transition-transform duration-300 ${mobileToolsOpen ? "rotate-45" : ""}`} />
                   </button>
                   {mobileToolsOpen && (
@@ -267,7 +245,7 @@ export default function Navbar() {
                         className="flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5"
                         title="Velocity Calculator"
                       >
-                        <span className="font-bold text-white">Velocity Calculator</span>
+                        <span className="font-medium text-foreground">Velocity Calculator</span>
                         <span className="text-xs text-muted">Diagnose growth bottlenecks</span>
                       </Link>
                       <Link 
@@ -276,7 +254,7 @@ export default function Navbar() {
                         className="flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5"
                         title="Outbound Playbook"
                       >
-                        <span className="font-bold text-white">Outbound Playbook</span>
+                        <span className="font-medium text-foreground">Outbound Playbook</span>
                         <span className="text-xs text-muted">Build an agentic engine</span>
                       </Link>
                     </div>
@@ -289,7 +267,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-between w-full p-5 rounded-2xl bg-white/[0.03] border border-white/5 text-xl font-bold text-white hover:bg-white/5 transition-all"
+                className="flex items-center justify-between w-full p-5 rounded-2xl bg-white/[0.03] border border-white/5 text-2xl font-serif text-white hover:bg-white/5 transition-all"
                 title={link.label}
               >
                 {link.label}
@@ -302,10 +280,10 @@ export default function Navbar() {
             <Link
               href={SITE_CONFIG.calendarLink}
               onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-center gap-3 w-full p-5 rounded-2xl bg-accent text-[#0B1221] text-lg font-black hover:shadow-[0_0_30px_rgba(46,204,113,0.4)] transition-all"
-              title="Book a Strategy Call"
+              className="flex items-center justify-center gap-3 w-full h-12 rounded-full bg-accent text-[#131F2E] text-base font-medium"
+              title="Book a free GTM audit"
             >
-              Get in Touch
+              Book a GTM audit
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

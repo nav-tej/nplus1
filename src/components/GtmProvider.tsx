@@ -8,9 +8,10 @@ export default function GtmProvider() {
   return (
     <>
       {/* Google Tag Manager (Script) */}
+      {/* lazyOnload: keeps 300KB of tag JS off the mobile critical path (LCP was 5.1s). */}
       <Script
         id="gtm-script"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

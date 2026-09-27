@@ -50,7 +50,7 @@ export default function FunnelVelocityPage() {
           </div>
 
           {/* Context Footer */}
-          <div className="mt-20 text-center text-sm text-muted/50 max-w-md mx-auto">
+          <div className="mt-20 text-center text-sm text-muted max-w-md mx-auto">
             <p>
               Built for scaling B2B SaaS teams. All data is handled according to our Privacy Policy.
             </p>

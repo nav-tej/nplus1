@@ -13,7 +13,7 @@ export default function DirectAnswer({ question, answer, category = "Expert Insi
       {/* Background Glow */}
       <div className="absolute inset-0 bg-accent/5 rounded-3xl blur-xl transition-all group-hover:bg-accent/10" />
       
-      <div className="relative bg-[#1A1D23] border border-white/10 rounded-3xl p-8 lg:p-10 shadow-2xl">
+      <div className="relative bg-[#1A2839] border border-white/10 rounded-3xl p-8 lg:p-10 shadow-2xl">
         <div className="flex flex-col gap-6">
           <div className="flex items-center justify-between">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-[10px] font-black uppercase tracking-widest">
@@ -37,7 +37,7 @@ export default function DirectAnswer({ question, answer, category = "Expert Insi
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
                 <svg width="16" height="16" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-                  <path d="M7,44 V21 C7,14 25,14 25,21 V44" stroke="#2ECC71" strokeWidth="6" fill="none" strokeLinecap="round" />
+                  <path d="M7,44 V21 C7,14 25,14 25,21 V44" stroke="#E8784E" strokeWidth="6" fill="none" strokeLinecap="round" />
                   <circle cx="16" cy="14" r="4" fill="#F97316" />
                 </svg>
               </div>

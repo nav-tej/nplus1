@@ -150,13 +150,13 @@ export default function FrameworkPage() {
               <div className="bg-[#0D1117] border border-white/10 rounded-[2.5rem] p-8 lg:p-12 shadow-2xl relative overflow-hidden group">
                 {/* Visual Diagram Placeholder - CSS Recursive Loop */}
                 <div className="flex flex-col items-center justify-center space-y-6 aspect-square max-w-[400px] mx-auto">
-                  <div className="w-20 h-20 bg-accent/10 border border-accent/20 rounded-2xl flex items-center justify-center animate-pulse">
+                  <div className="w-20 h-20 bg-accent/10 border border-accent/20 rounded-2xl flex items-center justify-center">
                     <Target className="w-10 h-10 text-accent" />
                   </div>
                   <ArrowDown className="w-6 h-6 text-white/10" />
                   <div className="flex gap-6 items-center w-full justify-center">
                     <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center"><BarChart3 className="w-8 h-8 text-muted" /></div>
-                    <RefreshCw className="w-8 h-8 text-accent animate-spin-slow" />
+                    <RefreshCw className="w-8 h-8 text-accent" />
                     <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center"><MessageSquare className="w-8 h-8 text-muted" /></div>
                   </div>
                   <ArrowDown className="w-6 h-6 text-white/10" />
@@ -253,7 +253,7 @@ export default function FrameworkPage() {
           </section>
 
           {/* Final CTA */}
-          <div className="bg-white text-[#0B1221] rounded-[3.5rem] p-10 lg:p-24 text-center relative overflow-hidden shadow-[0_0_100px_rgba(255,255,255,0.1)]">
+          <div className="bg-white text-[#131F2E] rounded-[3.5rem] p-10 lg:p-24 text-center relative overflow-hidden">
             <div className="absolute top-0 right-0 p-10 opacity-5 rotate-12">
               <Layers className="w-80 h-84" />
             </div>
@@ -265,7 +265,7 @@ export default function FrameworkPage() {
               <div className="pt-4">
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center gap-4 bg-accent text-[#0B1221] px-12 py-6 rounded-2xl font-black text-2xl hover:shadow-[0_0_50px_rgba(46,204,113,0.4)] transition-all active:scale-95 group"
+                  className="inline-flex items-center gap-4 bg-accent text-[#131F2E] px-12 py-6 rounded-2xl font-black text-2xl transition-all active:scale-95 group"
                 >
                   Start Shipping
                   <ArrowRight className="w-7 h-7 transition-transform group-hover:translate-x-2" />

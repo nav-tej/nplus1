@@ -9,9 +9,9 @@
 import type { ReactElement } from "react";
 
 export const BRAND = {
-  bg: "#0B1221", // site navy
+  bg: "#131F2E", // site navy
   // Lighter diagonal navy — lifts the cards out of near-black.
-  bgGradient: "linear-gradient(135deg, #1C2F4D 0%, #122340 42%, #0B1221 100%)",
+  bgGradient: "linear-gradient(135deg, #1C2F4D 0%, #122340 42%, #131F2E 100%)",
   ink: "#FFFFFF",
   inkWarm: "#E8E4DE",
   mute: "rgba(255,255,255,0.66)",

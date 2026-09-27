@@ -100,9 +100,9 @@ export default function GrowthMarketingPage() {
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-[#0B1221] hover:brightness-110 transition-all duration-300"
+                  className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
                 >
-                  Book a Free Strategy Call
+                  Book a free GTM audit
                   <svg
                     width="14"
                     height="14"
@@ -505,9 +505,9 @@ export default function GrowthMarketingPage() {
             </p>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#0B1221] hover:shadow-[0_0_30px_rgba(46,204,113,0.3)] hover:brightness-110 transition-all duration-300"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
             >
-              Get in Touch
+              Book a free GTM audit
               <svg
                 width="14"
                 height="14"

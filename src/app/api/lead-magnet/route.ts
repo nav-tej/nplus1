@@ -46,7 +46,7 @@ export async function POST(request: Request) {
           replyTo: email,
           html: `
             <div style="font-family: sans-serif; max-width: 600px;">
-              <h2 style="color: #0B1221;">New Lead Magnet Submission</h2>
+              <h2 style="color: #131F2E;">New Lead Magnet Submission</h2>
               <p><strong>Type:</strong> ${magnetName}</p>
               <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
               <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px;">${JSON.stringify(payloadData, null, 2)}</pre>

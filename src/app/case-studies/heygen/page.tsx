@@ -209,7 +209,7 @@ export default function CaseStudyPage() {
             <div className="mt-20 text-center">
               <Link
                 href="/#contact"
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#0B1221] hover:shadow-[0_0_40px_rgba(46,204,113,0.4)] hover:brightness-110 transition-all duration-300"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
               >
                 Apply these frameworks to your company
               </Link>
