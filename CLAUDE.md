@@ -17,7 +17,7 @@ No test suite is configured.
 Playbooks for the owner's local AI tooling live in `.claude/skills/`:
 
 - `local-llm-setup` — diagnose/fix a crashing local Ollama model (Hermes) and swap to Qwen/Gemma with tool-calling support
-- `comfyui-agent-setup` — connect agents to ComfyUI, locally via ComfyUI-Agent-Kit or hosted via Comfy Cloud MCP
+- `comfyui-agent-setup` — connect agents to ComfyUI via the first-party Comfy MCP (local `comfy-mcp` or Comfy Cloud), the in-app Comfy agent, or the third-party ComfyUI-Agent-Kit
 
 These target the owner's laptop; invoke them when running Claude Code locally, not in remote/cloud sessions.
 
