@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DirectAnswer from "@/components/DirectAnswer";
 import JsonLd from "@/components/JsonLd";
+import PageFaqs from "@/components/PageFaqs";
 
 export const metadata: Metadata = {
   title: "Demand Generation Consulting for B2B SaaS | Pipeline Growth",
@@ -49,6 +50,10 @@ export default function DemandGenerationPage() {
         description="Expert demand generation consulting for B2B SaaS. ABM, content, SEO, and paid programs that build predictable pipeline. Nav Singh generated $400M+ in pipeline."
         path="/services/demand-generation"
         faqs={DG_FAQS}
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Demand Generation", item: "/services/demand-generation" },
+        ]}
       />
       <Navbar />
       <main id="main-content">
@@ -111,11 +116,11 @@ export default function DemandGenerationPage() {
         <section className="py-20 border-b border-white/5">
           <div className="mx-auto max-w-4xl px-6 lg:px-10">
             <h2 className="text-3xl font-bold text-foreground mb-6">
-              What Demand Generation Actually Means in 2025
+              What Demand Generation Actually Means Now
             </h2>
             <div className="space-y-5 text-[15px] text-muted leading-relaxed">
               <p>
-                Demand generation in 2025 is not about running campaigns. It is
+                Demand generation today is not about running campaigns. It is
                 about building a system that creates awareness, captures intent,
                 and converts pipeline predictably, month after month, regardless
                 of whether you are running a specific campaign.
@@ -410,6 +415,7 @@ export default function DemandGenerationPage() {
             </Link>
           </div>
         </section>
+        <PageFaqs faqs={DG_FAQS} />
       </main>
       <Footer />
     </>

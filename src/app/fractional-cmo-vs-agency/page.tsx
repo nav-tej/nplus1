@@ -11,7 +11,8 @@ const DESCRIPTION =
   "An honest comparison of the three ways to fix B2B marketing leadership: a fractional CMO, an agency, or a full-time VP. What each one is good at, what each costs you, and when to pick which.";
 
 export const metadata: Metadata = {
-  title: `${TITLE} | n+α Ventures`,
+  // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
+  title: { absolute: `${TITLE} | n+α Ventures` },
   description: DESCRIPTION,
   alternates: {
     canonical: `https://${SITE_CONFIG.domain}/fractional-cmo-vs-agency`,

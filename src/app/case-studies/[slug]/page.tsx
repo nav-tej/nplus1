@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import RelatedCaseStudies from "@/components/RelatedCaseStudies";
+import Byline from "@/components/Byline";
 import {
   DATA_DRIVEN_CASE_STUDIES,
   getCaseStudy,
@@ -29,7 +30,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const url = `https://${SITE_CONFIG.domain}/case-studies/${study.slug}`;
 
   return {
-    title: `${study.metaTitle} | n+α Ventures`,
+    // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
+    title: { absolute: `${study.metaTitle} | n+α Ventures` },
     description: study.metaDescription,
     alternates: { canonical: url },
     openGraph: {
@@ -93,9 +95,13 @@ export default async function CaseStudyPage({ params }: Props) {
               {study.title}{" "}
               <span className="text-muted">{study.titleAccent}</span>
             </h1>
-            <p className="text-xl lg:text-2xl text-muted leading-relaxed mb-12">
+            <p className="text-xl lg:text-2xl text-muted leading-relaxed mb-10">
               {study.summary}
             </p>
+
+            <div className="mb-12">
+              <Byline published={study.publishDate} updated={study.dateModified} />
+            </div>
 
             {/* At a glance */}
             <dl className="grid grid-cols-2 lg:grid-cols-4 gap-6 rounded-3xl border border-white/10 bg-white/[0.02] p-8 mb-16">

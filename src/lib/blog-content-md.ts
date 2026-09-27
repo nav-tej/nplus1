@@ -501,11 +501,11 @@ The flywheel: content builds authority → SEO generates organic demand → ABM 
 `,
 
   // ── POST 5 ─────────────────────────────────────────────────────────────────
-  "revenue-operations-ai-forecasting-2025": `# Revenue Operations in 2025: What Actually Moves the Needle
+  "revenue-operations-ai-forecasting-2025": `# Revenue Operations: What Actually Moves the Needle
 
 ${postMeta("revenue-operations-ai-forecasting-2025")}
 
-Revenue operations in 2025 looks fundamentally different from what it looked like three years ago. The introduction of AI across the GTM stack for forecasting, enrichment, conversation intelligence, and pipeline management has changed what "good RevOps" means.
+Revenue operations today looks fundamentally different from what it looked like three years ago. The introduction of AI across the GTM stack for forecasting, enrichment, conversation intelligence, and pipeline management has changed what "good RevOps" means.
 
 But the core challenge hasn't changed. It's still about aligning marketing, sales, and customer success around shared data, processes, and goals to maximize revenue efficiency.
 
@@ -716,7 +716,7 @@ Live sessions drove single-session traffic spikes, but more importantly, they cr
 `,
 
   // ── POST 7 ─────────────────────────────────────────────────────────────────
-  "abm-strategy-b2b-saas-enterprise-pipeline": `# The ABM Playbook That Generated $XXM+ in Enterprise Pipeline
+  "abm-strategy-b2b-saas-enterprise-pipeline": `# The ABM Playbook That Generated $25M in Enterprise Pipeline
 
 ${postMeta("abm-strategy-b2b-saas-enterprise-pipeline")}
 

@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DirectAnswer from "@/components/DirectAnswer";
 import JsonLd from "@/components/JsonLd";
+import PageFaqs from "@/components/PageFaqs";
 import { 
   CheckCircle2, 
   Zap, 
@@ -19,7 +20,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "The AI-Native GTM Framework | n+α Ventures",
+  // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
+  title: { absolute: "The AI-Native GTM Framework | n+α Ventures" },
   description: "The proprietary 5-pillar GTM architecture used to scale HeyGen to $100M ARR. Learn how we build AI-native revenue engines.",
   alternates: { canonical: "https://nplusalpha.com/framework" },
   openGraph: {
@@ -87,17 +89,14 @@ export default function FrameworkPage() {
   return (
     <>
       <JsonLd 
-        type="HowTo"
+        type="WebPage"
         title="The AI-Native GTM Framework | n+α Ventures"
         description="The proprietary 5-pillar GTM architecture used to scale HeyGen to $100M ARR. Learn how we build AI-native revenue engines."
         path="/framework"
         faqs={FRAMEWORK_FAQS}
-        steps={[
-          { name: "Category Positioning", text: "ICP refinement, messaging hierarchy, and enterprise narrative development." },
-          { name: "Programmatic SEO", text: "Architecting programmatic cascades that dominate high-intent keyword clusters." },
-          { name: "Community-Led Growth", text: "Scaling ecosystems that turn users into advocates and drive acquisition." },
-          { name: "Behavioral Lifecycle", text: "Building automated layers that activate users based on real-time product signals." },
-          { name: "Agentic Outbound", text: "Architecting signal-based outbound motions using agentic workflows." }
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Framework", item: "/framework" },
         ]}
       />
       <Navbar />
@@ -274,6 +273,7 @@ export default function FrameworkPage() {
             </div>
           </div>
         </div>
+        <PageFaqs faqs={FRAMEWORK_FAQS} />
       </main>
       <Footer />
     </>

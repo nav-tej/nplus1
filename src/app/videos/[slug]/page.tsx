@@ -25,7 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!video) return {};
 
   return {
-    title: `${video.title} | Watch | n+α Ventures`,
+    // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
+    title: { absolute: `${video.title} | Watch | n+α Ventures` },
     description: video.description,
     alternates: { canonical: `https://nplusalpha.com/videos/${slug}` },
     openGraph: {

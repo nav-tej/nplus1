@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DirectAnswer from "@/components/DirectAnswer";
 import JsonLd from "@/components/JsonLd";
+import PageFaqs from "@/components/PageFaqs";
 
 export const metadata: Metadata = {
   title: "Revenue Operations Consulting for B2B SaaS | RevOps Strategy",
@@ -49,6 +50,10 @@ export default function RevenueOperationsPage() {
         title={metadata.title as string}
         description={metadata.description as string}
         faqs={REVOPS_FAQS}
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Revenue Operations", item: "/services/revenue-operations" },
+        ]}
       />
       <Navbar />
       <main id="main-content">
@@ -238,7 +243,7 @@ export default function RevenueOperationsPage() {
               The AI-Native RevOps Advantage
             </h2>
             <p className="text-[15px] text-muted leading-relaxed mb-8">
-              I approach RevOps the way the best operators in 2025 do: with AI
+              I approach RevOps the way the best operators do now: with AI
               embedded in every system, not bolted on afterward. At HeyGen, we
               automated 70% of previously manual processes, saving thousands of
               hours annually.
@@ -465,6 +470,7 @@ export default function RevenueOperationsPage() {
             </Link>
           </div>
         </section>
+        <PageFaqs faqs={REVOPS_FAQS} />
       </main>
       <Footer />
     </>

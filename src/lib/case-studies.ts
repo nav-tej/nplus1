@@ -51,6 +51,7 @@ export interface CaseStudy {
   metrics: CaseStudyMetric[];
   sections: CaseStudySection[];
   faqs: CaseStudyFaq[];
+  /** Date this page went live on nplusalpha.com. Not the engagement start: search engines read it as the publish date. */
   publishDate: string;
   dateModified: string;
   /** True when the study has a hand-built route instead of [slug]. */
@@ -95,7 +96,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     sections: [],
     faqs: [],
-    publishDate: "2024-04-01",
+    publishDate: "2026-03-11",
     dateModified: "2026-09-17",
     hasCustomPage: true,
   },
@@ -231,7 +232,7 @@ export const CASE_STUDIES: CaseStudy[] = [
           "Canonical metric definitions, an event taxonomy and catalog, identity resolution across products, the warehouse and transformation layer feeding the dashboards, the dashboards, and the enablement material that lets the team self-serve. The test is simple: any growth question has one correct answer, and anyone can find it without asking the data team.",
       },
     ],
-    publishDate: "2026-06-01",
+    publishDate: "2026-09-17",
     dateModified: "2026-09-23",
   },
   {
@@ -354,7 +355,7 @@ export const CASE_STUDIES: CaseStudy[] = [
           "Yes. Regulation changes the review process more than the strategy. Accuracy review is non-negotiable, claims need evidence attached, and automation has to be built with a human sign-off between the draft and the publish button. The upside is that competitors move slowly, so a team that can publish accurately and quickly pulls ahead faster than it would anywhere else.",
       },
     ],
-    publishDate: "2026-04-24",
+    publishDate: "2026-09-17",
     dateModified: "2026-09-23",
   },
   {
@@ -443,7 +444,7 @@ export const CASE_STUDIES: CaseStudy[] = [
           "Usually the onboarding, not the ad spend. If the free path converts, sales stops doing work the product should have done and the blended cost falls on its own. The prerequisite is instrumentation, because you cannot fix a funnel step you cannot see. That is why the measurement work comes before the optimization work.",
       },
     ],
-    publishDate: "2022-05-01",
+    publishDate: "2026-09-17",
     dateModified: "2026-09-17",
   },
   {
@@ -518,7 +519,7 @@ export const CASE_STUDIES: CaseStudy[] = [
           "It decides how much of the demand you generate survives the trip to a forecastable deal. Routing, data hygiene, lifecycle stages, attribution, and dashboards leadership trusts. It is invisible when it works, and it is the reason a repositioning becomes a pipeline number instead of a brand exercise.",
       },
     ],
-    publishDate: "2019-11-01",
+    publishDate: "2026-09-17",
     dateModified: "2026-09-17",
   },
   {
@@ -585,7 +586,7 @@ export const CASE_STUDIES: CaseStudy[] = [
           "Force the decisions that are easy to defer. Who this is for, what the first valuable action is, and how you will know whether the launch worked. Those answers determine the instrumentation, and the instrumentation determines whether the next six months run on evidence or on opinion.",
       },
     ],
-    publishDate: "2026-02-01",
+    publishDate: "2026-09-17",
     dateModified: "2026-09-17",
   },
 ];

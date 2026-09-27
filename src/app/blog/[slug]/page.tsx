@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import CaseStudyCallout from "@/components/CaseStudyCallout";
+import Byline from "@/components/Byline";
 import { BLOG_POSTS } from "@/lib/blog";
 import { BLOG_CONTENT } from "@/lib/blog-content";
 
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: post.metaTitle,
       description: post.description,
       publishedTime: post.publishDate,
+      modifiedTime: post.dateModified ?? post.publishDate,
       authors: ["Nav Singh"],
       section: post.category,
     },
@@ -48,14 +50,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.description,
     },
   };
-}
-
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -78,7 +72,12 @@ export default async function BlogPostPage({ params }: Props) {
         description={post.description}
         path={`/blog/${post.slug}`}
         datePublished={post.publishDate}
-        dateModified={post.publishDate}
+        dateModified={post.dateModified ?? post.publishDate}
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Blog", item: "/blog" },
+          { name: post.title, item: `/blog/${post.slug}` },
+        ]}
       />
       <Navbar />
       <main id="main-content">
@@ -112,17 +111,10 @@ export default async function BlogPostPage({ params }: Props) {
             </h1>
 
             {/* Author + date */}
-            <div className="flex items-center gap-4">
-              <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-accent/20 border border-accent/30 flex-shrink-0">
-                <span className="text-xs font-bold text-accent">NS</span>
-              </div>
-              <div>
-                <p className="text-sm font-medium text-foreground">Nav Singh</p>
-                <p className="text-xs text-muted">
-                  {formatDate(post.publishDate)} · {post.readTime} min read
-                </p>
-              </div>
-            </div>
+            <Byline
+              published={post.publishDate}
+              updated={post.dateModified}
+            />
           </div>
         </section>
 

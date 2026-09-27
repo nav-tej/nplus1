@@ -11,7 +11,8 @@ const DESCRIPTION =
   "Every number behind n+α Ventures in one place: $500M+ in revenue growth, $400M+ in sourced pipeline, and the engagements each figure came from.";
 
 export const metadata: Metadata = {
-  title: `${TITLE}: The Numbers Behind the Work | n+α Ventures`,
+  // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
+  title: { absolute: `${TITLE}: The Numbers Behind the Work | n+α Ventures` },
   description: DESCRIPTION,
   alternates: { canonical: `https://${SITE_CONFIG.domain}/results` },
   openGraph: {

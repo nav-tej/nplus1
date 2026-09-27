@@ -6,7 +6,8 @@ import DirectAnswer from "@/components/DirectAnswer";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "SaaS Funnel Velocity Calculator | n+α Ventures",
+  // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
+  title: { absolute: "SaaS Funnel Velocity Calculator | n+α Ventures" },
   description: "Diagnose growth bottlenecks and optimize your revenue engine with our interactive B2B SaaS funnel velocity tool.",
   alternates: { canonical: "https://nplusalpha.com/tools/funnel-velocity" },
 };
@@ -15,10 +16,14 @@ export default function FunnelVelocityPage() {
   return (
     <>
       <JsonLd 
-        type="SoftwareApplication"
+        type="WebPage"
         title="SaaS Funnel Velocity Calculator | n+α Ventures"
         description="Diagnose growth bottlenecks and optimize your revenue engine with our interactive B2B SaaS funnel velocity tool."
         path="/tools/funnel-velocity"
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Funnel Velocity Calculator", item: "/tools/funnel-velocity" },
+        ]}
       />
       <Navbar />
       <main id="main-content" className="pt-32 pb-24">

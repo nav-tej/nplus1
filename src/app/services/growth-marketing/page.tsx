@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DirectAnswer from "@/components/DirectAnswer";
 import JsonLd from "@/components/JsonLd";
+import PageFaqs from "@/components/PageFaqs";
 import VideoEmbed from "@/components/VideoEmbed";
 
 export const metadata: Metadata = {
@@ -63,6 +64,10 @@ export default function GrowthMarketingPage() {
         title={metadata.title as string}
         description={metadata.description as string}
         faqs={GROWTH_MARKETING_FAQS}
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Growth Marketing", item: "/services/growth-marketing" },
+        ]}
         video={{
           name: "The AI-Native GTM Engine: Scale B2B SaaS Past $100M ARR",
           description: "Learn the proprietary 5-pillar architecture used to scale B2B SaaS companies from $20M to $100M+ ARR.",
@@ -526,6 +531,7 @@ export default function GrowthMarketingPage() {
             </Link>
           </div>
         </section>
+        <PageFaqs faqs={GROWTH_MARKETING_FAQS} />
       </main>
       <Footer />
     </>

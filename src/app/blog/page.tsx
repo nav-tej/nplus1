@@ -7,7 +7,8 @@ import VideoEmbed from "@/components/VideoEmbed";
 import { BLOG_POSTS } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "GTM & Growth Blog | n+α Ventures",
+  // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
+  title: { absolute: "GTM & Growth Blog | n+α Ventures" },
   description:
     "Frameworks and playbooks from 10 years of building GTM systems at B2B SaaS companies. Real strategies. Proven results.",
   keywords: [
@@ -60,6 +61,10 @@ export default function BlogIndexPage() {
         description="Frameworks and playbooks from 10 years of building GTM systems at B2B SaaS companies."
         path="/blog"
         itemList={blogList}
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Blog", item: "/blog" },
+        ]}
         video={{
           name: "Your GTM Playbook Is Already Obsolete",
           description: "Why traditional GTM playbooks are failing in the AI era and how to architect for 2026.",

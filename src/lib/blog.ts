@@ -6,6 +6,8 @@ export interface BlogPost {
   category: BlogCategory;
   readTime: number; // minutes
   publishDate: string; // ISO date
+  /** Last substantive edit. Falls back to publishDate. */
+  dateModified?: string;
 }
 
 export type BlogCategory =
@@ -33,16 +35,18 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Growth Marketing",
     readTime: 12,
     publishDate: "2026-01-15",
+    dateModified: "2026-09-27",
   },
   {
     slug: "ai-native-gtm-marketing-operations-2025",
     title: "What \"AI-Native GTM\" Actually Means (And How to Build It)",
-    metaTitle: "Building an AI-Native GTM Stack in 2025 | B2B SaaS",
+    metaTitle: "Building an AI-Native GTM Stack | B2B SaaS",
     description:
       "What it actually means to build AI-native marketing and RevOps: the stack, the workflows, and the results from doing it at HeyGen and Semgrep.",
     category: "AI & GTM",
     readTime: 9,
     publishDate: "2026-01-22",
+    dateModified: "2026-09-27",
   },
   {
     slug: "plg-to-enterprise-gtm-transition-playbook",
@@ -53,6 +57,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Product-Led Growth",
     readTime: 10,
     publishDate: "2026-01-29",
+    dateModified: "2026-09-27",
   },
   {
     slug: "demand-generation-b2b-saas-pipeline-framework",
@@ -63,17 +68,19 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Demand Generation",
     readTime: 11,
     publishDate: "2026-02-05",
+    dateModified: "2026-09-27",
   },
   {
     slug: "revenue-operations-ai-forecasting-2025",
-    title: "Revenue Operations in 2025: What Actually Moves the Needle",
+    title: "Revenue Operations: What Actually Moves the Needle",
     metaTitle:
       "Revenue Operations in the AI Era: Forecasting, Stack Design & What Moves the Needle",
     description:
-      "How to build a modern RevOps function in 2025: AI-driven forecasting, GTM stack architecture, PLG-to-sales motion design, and what I learned building these at HeyGen.",
+      "How to build a modern RevOps function: AI-driven forecasting, GTM stack architecture, PLG-to-sales motion design, and what I learned building these at HeyGen.",
     category: "Revenue Operations",
     readTime: 10,
     publishDate: "2026-02-12",
+    dateModified: "2026-09-27",
   },
   {
     slug: "community-led-growth-b2b-saas-strategy",
@@ -89,13 +96,14 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "abm-strategy-b2b-saas-enterprise-pipeline",
-    title: "The ABM Playbook That Generated $XXM+ in Enterprise Pipeline",
+    title: "The ABM Playbook That Generated $25M in Enterprise Pipeline",
     metaTitle: "ABM Strategy for B2B SaaS: How to Build Enterprise Pipeline at Scale",
     description:
-      "The ABM playbook behind $XXM+ in enterprise pipeline at HeyGen and 3× pipeline efficiency at Egnyte. Tiered ABM, Clay personalization, intent signals, and what actually converts.",
+      "The ABM playbook behind $25M in enterprise pipeline at HeyGen and 3× pipeline efficiency at Egnyte. Tiered ABM, Clay personalization, intent signals, and what actually converts.",
     category: "Demand Generation",
     readTime: 9,
     publishDate: "2026-02-26",
+    dateModified: "2026-09-27",
   },
   {
     slug: "seo-from-zero-b2b-saas-organic-growth",

@@ -20,7 +20,7 @@ import {
   SectionHeader,
   TrackRecord,
 } from "@/components/brand";
-import { SERVICE_PAGES, SITE_CONFIG } from "@/lib/constants";
+import { FAQS, SERVICE_PAGES, SITE_CONFIG } from "@/lib/constants";
 import { CASES } from "@/lib/brand-data";
 
 export const metadata: Metadata = {
@@ -35,7 +35,7 @@ const BOOK = SITE_CONFIG.calendarLink;
 export default function Home() {
   return (
     <>
-      <JsonLd />
+      <JsonLd faqs={FAQS} />
       <Navbar />
       <main id="main-content" className="na">
         <Hero

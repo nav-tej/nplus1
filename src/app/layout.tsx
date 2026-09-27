@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     "nplusalpha ventures",
     "n alpha ventures",
   ],
-  authors: [{ name: "n+α Ventures" }],
+  authors: [{ name: "Nav Singh", url: "https://nplusalpha.com/about" }],
   alternates: {
     canonical: "/",
   },
