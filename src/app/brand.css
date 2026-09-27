@@ -1,5 +1,5 @@
 /* n+α component styles, ported from the n+α design system bundle.css
-   (claude.ai/artifact/LkJFJ1m81KYet9EeMNzd3z). Fonts come from next/font in
+   (claude.ai/artifact/LkJFJ1m81KYet9EeMNzd3z), premium pass version 1790537702. Fonts come from next/font in
    layout.tsx, not a Google Fonts @import. Site-specific changes are marked "site:". */
 /* n+α site primitives. Every color, space and radius is a token from tokens.css. */
 .na, .na * { box-sizing: border-box; }
@@ -295,6 +295,96 @@
 /* Mobile sticky CTA */
 .na-sticky { display: none; }
 @media (max-width: 640px) { .na-sticky { display: flex; position: sticky; bottom: 0; z-index: 9; padding: var(--space-3) var(--space-4); background: var(--bg-glass); backdrop-filter: blur(12px); border-top: 1px solid var(--line); gap: var(--space-2); } .na-sticky .na-btn { flex: 1; } }
+
+/* ---------- Premium pass: editorial refinements ---------- */
+.na { text-rendering: optimizeLegibility; font-feature-settings: "kern", "liga", "calt"; }
+.na p, .na li { text-wrap: pretty; }
+.na ::selection { background: var(--alpha-soft); color: var(--ink); }
+.na-h1 { font-size: clamp(44px, 6.4vw, 88px); line-height: .98; letter-spacing: -0.026em; font-optical-sizing: auto; hanging-punctuation: first; }
+.na-h2 { font-optical-sizing: auto; }
+.na-btn { border-radius: var(--radius-md); }
+.na-btn-sm { border-radius: var(--radius-md); }
+.na-body a, .na-notes a, .na-tldr a { color: var(--alpha-text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+/* Annotations on the α curve */
+.na-curve .ann-dot { fill: var(--ink); }
+.na-curve .ann-v { font: 400 15px var(--font-serif); fill: var(--ink); }
+.na-curve .ann-s { font: 500 10px var(--font-mono); fill: var(--ink-muted); letter-spacing: .04em; }
+.na-curve.draw .ann { opacity: 0; animation: na-fade 1.2s cubic-bezier(.16,1,.3,1) 1.9s forwards; }
+@media (prefers-reduced-motion: reduce) { .na-curve.draw .ann { animation: none; opacity: 1; } }
+
+/* Breadcrumbs */
+.na-crumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.na-crumbs li { display: inline-flex; gap: var(--space-2); }
+.na-crumbs li + li::before { content: "/"; color: var(--ink-muted); }
+.na-crumbs [aria-current] { color: var(--ink); }
+
+/* Byline */
+.na-byline { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
+.na-byline-mono, .na-byline-img { width: 44px; height: 44px; border-radius: 50%; flex: none; }
+.na-byline-mono { display: grid; place-items: center; background: var(--ink); color: var(--bg); font: 500 15px/1 var(--font-serif); letter-spacing: .02em; }
+.na-byline-img { object-fit: cover; filter: grayscale(1); }
+.na-byline-name { font-size: 15px; font-weight: 500; }
+.na-byline-meta { font-size: 13px; color: var(--ink-muted); }
+.na-byline-date { margin-left: auto; display: flex; gap: var(--space-4); font: 500 12px var(--font-mono); color: var(--ink-muted); letter-spacing: .02em; }
+@media (max-width: 640px) { .na-byline-date { margin-left: 0; width: 100%; } }
+
+/* TL;DR */
+.na-tldr { border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); padding: var(--space-4) 0 var(--space-5); display: grid; gap: var(--space-3); }
+.na-tldr ul { margin: 0; padding: 0 0 0 1.1em; display: grid; gap: var(--space-2); font: 400 19px/28px var(--font-serif); }
+.na-tldr li::marker { color: var(--alpha); }
+
+/* Article layout with sticky contents rail */
+.na-article { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: var(--space-8); padding-top: var(--space-6); padding-bottom: var(--space-8); }
+.na-article-rail { position: relative; }
+.na-article-body { display: grid; gap: var(--space-8); max-width: 780px; }
+.na-article-sec { scroll-margin-top: calc(var(--nav-height) + 24px); display: grid; gap: var(--space-5); }
+.na-toc { position: sticky; top: calc(var(--nav-height) + 32px); display: grid; gap: var(--space-3); }
+.na-toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; border-left: 1px solid var(--line); }
+.na-toc a { display: flex; gap: var(--space-3); padding: 6px var(--space-3); font-size: 14px; line-height: 20px; color: var(--ink-muted); margin-left: -1px; border-left: 1px solid transparent; }
+.na-toc a:hover { color: var(--ink); border-left-color: var(--alpha); }
+.na-toc .na-num { font: 500 11px/20px var(--font-mono); color: var(--ink-muted); }
+@media (max-width: 960px) { .na-article { grid-template-columns: 1fr; gap: var(--space-5); } .na-toc { position: static; } }
+
+/* Footnotes */
+.na-ref { font: 500 10px var(--font-mono); margin-left: 2px; vertical-align: super; line-height: 0; }
+.na-ref a { color: var(--alpha-text); }
+.na-notes { margin: 0; padding-left: 1.4em; display: grid; gap: var(--space-2); font-size: 13px; line-height: 20px; color: var(--ink-muted); }
+.na-notes li::marker { font-family: var(--font-mono); font-size: 11px; }
+
+/* Editorial case index */
+.na-index { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--line); }
+.na-index li { border-top: 1px solid var(--line); }
+.na-index a { display: grid; grid-template-columns: 48px 200px minmax(0, 1fr) 170px 160px 24px; gap: var(--space-5); align-items: center; padding: var(--space-5) 0; transition: background-color .5s cubic-bezier(.16,1,.3,1), padding .5s cubic-bezier(.16,1,.3,1); }
+.na-index a:hover { background: var(--surface); padding-left: var(--space-4); padding-right: var(--space-4); }
+.na-index-n { font: 500 12px var(--font-mono); color: var(--ink-muted); }
+.na-index-org { font: 400 24px/28px var(--font-serif); letter-spacing: -0.01em; display: grid; gap: 4px; }
+.na-index-org small, .na-index-m small { font: 500 11px/16px var(--font-mono); color: var(--ink-muted); letter-spacing: .03em; }
+.na-index-t { font-size: 16px; line-height: 24px; color: var(--ink-muted); }
+.na-index-m { display: grid; gap: 2px; }
+.na-index-m strong { font: 400 26px/1 var(--font-serif); letter-spacing: -0.02em; }
+.na-index-art { opacity: .55; transition: opacity .5s; }
+.na-index a:hover .na-index-art { opacity: 1; }
+.na-index-go { color: var(--alpha-text); font-size: 18px; transition: transform .6s cubic-bezier(.16,1,.3,1); }
+.na-index a:hover .na-index-go { transform: translateX(4px); }
+@media (max-width: 1080px) { .na-index a { grid-template-columns: 40px 170px minmax(0, 1fr) 150px 24px; } .na-index-art { display: none; } }
+@media (max-width: 720px) { .na-index a { grid-template-columns: 32px 1fr 20px; row-gap: var(--space-2); } .na-index-t, .na-index-m { grid-column: 2; } .na-index-go { grid-row: 1; grid-column: 3; } }
+
+/* Essays */
+.na-essays { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-8); }
+.na-essay-lead { display: grid; gap: var(--space-3); align-content: start; padding-top: var(--space-4); border-top: 2px solid var(--ink); }
+.na-essay-lead h3 { margin: 0; font: 400 clamp(30px, 3.4vw, 42px)/1.1 var(--font-serif); letter-spacing: -0.018em; text-wrap: balance; }
+.na-essay-lead p { margin: 0; font-size: 17px; line-height: 27px; color: var(--ink-muted); max-width: 560px; }
+.na-essay-lead:hover h3, .na-essay-list a:hover h4 { color: var(--alpha-text); }
+.na-essay-meta { font: 500 12px var(--font-mono); color: var(--ink-muted); letter-spacing: .02em; }
+.na-essay-list { list-style: none; margin: 0; padding: 0; display: grid; }
+.na-essay-list li { border-top: 1px solid var(--line); }
+.na-essay-list a { display: grid; gap: 6px; padding: var(--space-4) 0; }
+.na-essay-list h4 { margin: 0; font: 400 21px/27px var(--font-serif); letter-spacing: -0.01em; transition: color .3s; }
+@media (max-width: 860px) { .na-essays { grid-template-columns: 1fr; gap: var(--space-5); } }
+
+.na-code { margin: 0; padding: var(--space-4); background: var(--bg-sunken); border: 1px solid var(--line); border-radius: var(--radius-md); font: 12px/18px var(--font-mono); color: var(--ink); overflow: auto; max-height: 420px; white-space: pre; }
+@media (max-width: 960px) { .na-article-rail { display: none; } }
 
 /* site: the navbar is fixed, so the hero clears it. */
 .na-hero { padding-top: calc(var(--nav-height) + var(--space-8)); }

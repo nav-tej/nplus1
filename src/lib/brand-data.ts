@@ -52,3 +52,20 @@ export const PROCESS = [
   { n: "02", t: "Architect", b: "Design the strategy, systems and frameworks. ICP, positioning, channel mix, stack and the dashboards that prove it.", w: "Weeks 3–6" },
   { n: "03", t: "Accelerate", b: "Ship it with your team. Agents handle research and ops work. We measure weekly and cut what does not move pipeline.", w: "Months 2–6" },
 ];
+
+export interface Post {
+  slug: string;
+  title: string;
+  dek?: string;
+  date: string;
+  read: string;
+  cat: string;
+}
+
+/** Homepage "Point of view". Titles in sentence case per the brand voice; slugs and dates match src/lib/blog.ts. */
+export const POSTS: Post[] = [
+  { slug: "heygen-gtm-playbook-20m-to-100m-arr", title: "How HeyGen scaled from $20M to $100M ARR: the GTM playbook", dek: "The rebrand, SEO program, community, AI-native lifecycle and enterprise ABM behind 5× ARR growth.", date: "Jan 15, 2026", read: "12 min", cat: "Growth marketing" },
+  { slug: "ai-native-gtm-marketing-operations-2025", title: "What “AI-native GTM” actually means, and how to build it", date: "Jan 22, 2026", read: "9 min", cat: "AI and GTM" },
+  { slug: "plg-to-enterprise-gtm-transition-playbook", title: "PLG to enterprise: the GTM transition playbook", date: "Jan 29, 2026", read: "10 min", cat: "Product-led growth" },
+  { slug: "demand-generation-b2b-saas-pipeline-framework", title: "The demand generation framework behind $400M+ in marketing pipeline", date: "Feb 5, 2026", read: "11 min", cat: "Demand generation" },
+];

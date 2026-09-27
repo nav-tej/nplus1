@@ -6,7 +6,9 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import {
-  CaseStudyGrid,
+  CaseIndex,
+  CaseStudyCard,
+  EssayList,
   CTASection,
   Button,
   Hero,
@@ -19,6 +21,7 @@ import {
   TrackRecord,
 } from "@/components/brand";
 import { SERVICE_PAGES, SITE_CONFIG } from "@/lib/constants";
+import { CASES } from "@/lib/brand-data";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -92,31 +95,28 @@ export default function Home() {
                 </Button>
               }
             />
-            <CaseStudyGrid />
+            <div className="na-cards" style={{ marginBottom: 8 }}>
+              <CaseStudyCard index="01" wide {...CASES[0]} />
+            </div>
+            <CaseIndex cases={CASES.slice(1)} start={2} />
           </div>
         </section>
 
-        <section id="services" className="na-section" aria-labelledby="services-heading">
+        <section className="na-section" aria-labelledby="pov-heading">
           <div className="na-wrap">
             <SectionHeader
-              id="services-heading"
+              id="pov-heading"
               index="03"
-              eyebrow="Services"
-              title="Three ways to work together."
-              lede="Most engagements combine two. All of them start with the audit."
+              eyebrow="Point of view"
+              title="Notes from the operating seat."
+              lede="Long-form playbooks, written by the person who ran them."
+              action={
+                <Button variant="secondary" href="/blog" arrow>
+                  All writing
+                </Button>
+              }
             />
-            <div className="na-steps" style={{ "--n": 3 } as React.CSSProperties}>
-              {SERVICE_PAGES.map((s, i) => (
-                <Link key={s.href} href={s.href} className="na-step na-step-link">
-                  <span className="na-step-n">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="na-step-t">{s.label}</h3>
-                  <p>{s.description}</p>
-                  <span className="na-step-w">
-                    How it works <span aria-hidden="true">→</span>
-                  </span>
-                </Link>
-              ))}
-            </div>
+            <EssayList />
           </div>
         </section>
 
@@ -133,11 +133,35 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="services" className="na-section" aria-labelledby="services-heading">
+          <div className="na-wrap">
+            <SectionHeader
+              id="services-heading"
+              index="05"
+              eyebrow="Services"
+              title="Three ways to work together."
+              lede="Most engagements combine two. All of them start with the audit."
+            />
+            <div className="na-steps" style={{ "--n": 3 } as React.CSSProperties}>
+              {SERVICE_PAGES.map((s, i) => (
+                <Link key={s.href} href={s.href} className="na-step na-step-link">
+                  <span className="na-step-n">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="na-step-t">{s.label.charAt(0) + s.label.slice(1).toLowerCase()}</h3>
+                  <p>{s.description}</p>
+                  <span className="na-step-w">
+                    How it works <span aria-hidden="true">→</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="na-section" aria-labelledby="tool-heading">
           <div className="na-wrap">
             <SectionHeader
               id="tool-heading"
-              index="05"
+              index="06"
               eyebrow="Free tool"
               title="How fast does your funnel turn into revenue?"
               lede="Four inputs. Benchmarked by stage. Tells you which lever is worth the most."

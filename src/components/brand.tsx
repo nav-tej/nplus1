@@ -6,7 +6,7 @@
  */
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
-import { CASES, PROCESS, TRACK, type CaseCard, type Pair, type Stop } from "@/lib/brand-data";
+import { CASES, POSTS, PROCESS, TRACK, type CaseCard, type Pair, type Post, type Stop } from "@/lib/brand-data";
 
 const cx = (...a: (string | false | undefined | null)[]) => a.filter(Boolean).join(" ");
 const Arrow = () => (
@@ -122,6 +122,7 @@ export function AlphaCurve({
   baseLabel = "n · baseline",
   animate = false,
   ariaLabel,
+  annotations = [],
 }: {
   values?: number[];
   baseline?: number[];
@@ -132,8 +133,10 @@ export function AlphaCurve({
   baseLabel?: string;
   animate?: boolean;
   ariaLabel?: string;
+  /** Real endpoints only (reported figures with dates). The path between stays stylized. */
+  annotations?: { i: number; label: string; sub?: string }[];
 }) {
-  const pad = { t: 24, r: 28, b: labels ? 26 : 8, l: 8 };
+  const pad = { t: annotations.length ? 48 : 24, r: 28, b: labels ? 26 : 8, l: 8 };
   const W = width - pad.l - pad.r;
   const H = height - pad.t - pad.b;
   const n = values.length;
@@ -192,6 +195,25 @@ export function AlphaCurve({
           α
         </text>
       )}
+      {annotations.map((a) => {
+        const [x, y] = P[a.i];
+        const right = a.i > n / 2;
+        const tx = right ? x + 4 : x + 10;
+        const ty = right ? y - 28 : y - 22;
+        return (
+          <g key={a.i} className="ann">
+            <circle cx={x} cy={y} r="3.5" className="ann-dot" />
+            <text x={tx} y={ty} textAnchor={right ? "end" : "start"} className="ann-v">
+              {a.label}
+            </text>
+            {a.sub && (
+              <text x={tx} y={ty + 14} textAnchor={right ? "end" : "start"} className="ann-s">
+                {a.sub}
+              </text>
+            )}
+          </g>
+        );
+      })}
     </svg>
   );
 }
@@ -251,17 +273,22 @@ export function HeroPanel({
   figure = "$20M → $100M+",
   unit = "21 months",
   values,
+  annotations = [
+    { i: 0, label: "$20M", sub: "Apr 2024" },
+    { i: 8, label: "$100M+", sub: "Jan 2026" },
+  ],
   foot = [
     ["5×", "ARR growth"],
     ["100K+", "community"],
     ["$25M", "ABM pipeline"],
   ],
-  note = "Stylized. Shape of the curve, not the data.",
+  note = "Endpoints are reported ARR. The path between them is stylized.",
 }: {
   kicker?: string;
   figure?: string;
   unit?: string;
   values?: number[];
+  annotations?: { i: number; label: string; sub?: string }[];
   foot?: Pair[];
   note?: string;
 }) {
@@ -275,7 +302,7 @@ export function HeroPanel({
         {figure}
         <small>{unit}</small>
       </div>
-      <AlphaCurve values={values} animate height={200} baseLabel="n · baseline growth" ariaLabel="HeyGen ARR rising well above a baseline growth line" />
+      <AlphaCurve values={values} annotations={annotations} animate height={200} baseLabel="n · baseline growth" ariaLabel="HeyGen ARR rising well above a baseline growth line" />
       <div className="na-hero-panel-foot">
         {foot.map(([v, l]) => (
           <div key={l}>
@@ -435,6 +462,67 @@ export function CaseStudyGrid({ cases = CASES, featureFirst = true }: { cases?: 
         const lay = featureFirst && i === 0 ? { feature: true } : r === 1 && last === 0 ? { wide: true } : r === 2 && last < 2 ? { half: true } : {};
         return <CaseStudyCard key={c.slug} index={String(i + 1).padStart(2, "0")} {...c} {...lay} />;
       })}
+    </div>
+  );
+}
+
+/** Editorial index of work: rules, not boxes. */
+export function CaseIndex({ cases = CASES.slice(1), start = 2 }: { cases?: CaseCard[]; start?: number }) {
+  return (
+    <ol className="na-index">
+      {cases.map((c, i) => (
+        <li key={c.slug}>
+          <Link href={"/case-studies/" + c.slug}>
+            <span className="na-index-n na-num">{String(start + i).padStart(2, "0")}</span>
+            <span className="na-index-org">
+              {c.org}
+              <small>
+                {c.cat} · {c.years}
+              </small>
+            </span>
+            <span className="na-index-t">{c.title}</span>
+            <span className="na-index-m">
+              <strong className="na-num">{c.metrics[0][0]}</strong>
+              <small>{c.metrics[0][1]}</small>
+            </span>
+            <span className="na-index-art" aria-hidden="true">
+              <AlphaCurve values={c.curve} variant={c.variant} width={160} height={64} labels={false} />
+            </span>
+            <span className="na-index-go" aria-hidden="true">
+              →
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export function EssayList({ posts = POSTS }: { posts?: Post[] }) {
+  const [lead, ...rest] = posts;
+  return (
+    <div className="na-essays">
+      <Link className="na-essay-lead" href={"/blog/" + lead.slug}>
+        <span className="na-eyebrow">{lead.cat}</span>
+        <h3>{lead.title}</h3>
+        {lead.dek && <p>{lead.dek}</p>}
+        <span className="na-essay-meta">
+          Nav Singh · {lead.date} · {lead.read} read
+        </span>
+      </Link>
+      <ol className="na-essay-list">
+        {rest.map((p) => (
+          <li key={p.slug}>
+            <Link href={"/blog/" + p.slug}>
+              <span className="na-eyebrow">{p.cat}</span>
+              <h4>{p.title}</h4>
+              <span className="na-essay-meta">
+                {p.date} · {p.read} read
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ol>
     </div>
   );
 }

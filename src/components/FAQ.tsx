@@ -5,7 +5,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="na-section" aria-labelledby="faq-heading">
       <div className="na-wrap">
-        <SectionHeader id="faq-heading" index="06" eyebrow="FAQ" title="Questions founders ask first." />
+        <SectionHeader id="faq-heading" index="07" eyebrow="FAQ" title="Questions founders ask first." />
         <div className="na-faq">
           {FAQS.map((faq) => (
             <details key={faq.question}>

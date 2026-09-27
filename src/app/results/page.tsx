@@ -210,7 +210,7 @@ export default function ResultsPage() {
             </p>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
             >
               Start a conversation
             </Link>

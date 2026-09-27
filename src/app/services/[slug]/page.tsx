@@ -117,15 +117,15 @@ export default async function ServicePage({ params }: Props) {
               <h2 className="text-2xl font-bold mb-4">What we deliver</h2>
               <ul className="space-y-4 mb-12">
                 <li className="flex items-start gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-lg bg-accent flex-shrink-0" />
                   <span>Strategic roadmap tailored to your specific market and product.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-lg bg-accent flex-shrink-0" />
                   <span>Hands-on execution of high-leverage growth experiments.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-lg bg-accent flex-shrink-0" />
                   <span>Systematic optimization of your funnel from awareness to expansion.</span>
                 </li>
               </ul>
@@ -133,7 +133,7 @@ export default async function ServicePage({ params }: Props) {
 
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
             >
               Book a free GTM audit
             </Link>

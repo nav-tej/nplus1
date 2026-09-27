@@ -77,7 +77,7 @@ export default function RevenueOperationsPage() {
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
+                  className="inline-flex items-center gap-2 rounded-lg bg-accent px-7 py-3.5 text-sm font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
                 >
                   Book a RevOps Audit
                   <svg
@@ -444,7 +444,7 @@ export default function RevenueOperationsPage() {
             </p>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
             >
               Book a free GTM audit
               <svg

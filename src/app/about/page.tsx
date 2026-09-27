@@ -121,7 +121,7 @@ export default function AboutPage() {
                   </a>
                   <Link
                     href="/#contact"
-                    className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
+                    className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
                   >
                     Work Together →
                   </Link>
@@ -369,7 +369,7 @@ export default function AboutPage() {
             </p>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
             >
               Book a free GTM audit →
             </Link>

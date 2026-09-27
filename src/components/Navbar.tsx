@@ -142,7 +142,7 @@ export default function Navbar() {
               <li>
                 <Link 
                   href={SITE_CONFIG.calendarLink} 
-                  className="inline-flex items-center h-[38px] bg-accent text-[#131F2E] px-4 rounded-full text-sm font-medium hover:bg-[var(--alpha-fill-hover)] transition-colors"
+                  className="inline-flex items-center h-[38px] bg-accent text-[#131F2E] px-4 rounded-lg text-sm font-medium hover:bg-[var(--alpha-fill-hover)] transition-colors"
                   title="Book a free GTM audit"
                 >
                   Book a GTM audit
@@ -280,7 +280,7 @@ export default function Navbar() {
             <Link
               href={SITE_CONFIG.calendarLink}
               onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-center gap-3 w-full h-12 rounded-full bg-accent text-[#131F2E] text-base font-medium"
+              className="flex items-center justify-center gap-3 w-full h-12 rounded-lg bg-accent text-[#131F2E] text-base font-medium"
               title="Book a free GTM audit"
             >
               Book a GTM audit

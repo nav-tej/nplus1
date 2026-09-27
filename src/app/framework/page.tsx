@@ -105,7 +105,7 @@ export default function FrameworkPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           {/* Header */}
           <div className="max-w-4xl mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-black uppercase tracking-widest mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-accent/10 border border-accent/20 text-accent text-xs font-black uppercase tracking-widest mb-6">
               <Cpu className="w-3 h-3" /> Proprietary Architecture
             </div>
             <h1 className="text-5xl lg:text-8xl font-black tracking-tighter mb-8 leading-[0.9]">
