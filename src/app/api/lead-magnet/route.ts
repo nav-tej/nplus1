@@ -57,6 +57,51 @@ export async function POST(request: Request) {
       } catch (e) {
         console.error("Resend notification failed:", e);
       }
+
+      // The calculator promises "Email me this breakdown", so send the visitor
+      // their numbers. Only coerced numbers and a whitelisted stage reach the HTML.
+      if (magnetType === "velocity_calculator" && payloadData && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
+        try {
+          const resend = new Resend(resendApiKey);
+          const n = (v: unknown) => (Number.isFinite(Number(v)) ? Number(v) : 0);
+          const usd = (v: number) => "$" + Math.round(v).toLocaleString("en-US");
+          const stages = ["Seed", "Series A", "Series B", "Series C+"];
+          const stage = stages.includes(payloadData.stage) ? payloadData.stage : "your stage";
+          const levers: Record<string, string> = { "win rate": "win rate", "sales cycle length": "sales cycle length" };
+          const lever = levers[payloadData.lever as string];
+          const row = (k: string, v: string) =>
+            `<tr><td style="padding:6px 16px 6px 0;color:#4F5B69;">${k}</td><td style="padding:6px 0;font-weight:600;">${v}</td></tr>`;
+          await resend.emails.send({
+            from: process.env.RESEND_FROM_EMAIL?.trim() ?? "n+α Ventures <hello@nplusalpha.com>",
+            to: email,
+            replyTo: process.env.CONTACT_EMAIL?.trim() ?? "hello@nplusalpha.com",
+            subject: `Your funnel velocity: ${usd(n(payloadData.velocityPerDay))} per day`,
+            html: `
+              <div style="font-family: Georgia, serif; max-width: 560px; color: #131F2E;">
+                <p style="font-size:15px;">Here are the numbers you ran on nplusalpha.com.</p>
+                <table style="font-family: sans-serif; font-size:14px; border-collapse:collapse;">
+                  ${row("Stage", stage)}
+                  ${row("Qualified opps per quarter", String(n(payloadData.opps)))}
+                  ${row("Win rate", n(payloadData.winRate) + "%")}
+                  ${row("Average contract value", usd(n(payloadData.acv)))}
+                  ${row("Sales cycle", n(payloadData.cycle) + " days")}
+                  ${row("Funnel velocity", usd(n(payloadData.velocityPerDay)) + " per day")}
+                  ${row("New ARR per quarter at this pace", usd(n(payloadData.newArrPerQuarter)))}
+                </table>
+                ${
+                  lever
+                    ? `<p style="font-size:15px;">Your biggest lever: bring ${lever} to the ${stage} median. That is worth about ${usd(n(payloadData.leverGainPerQuarter))} more new ARR per quarter.</p>`
+                    : `<p style="font-size:15px;">Your win rate and sales cycle are at or better than the ${stage} median.</p>`
+                }
+                <p style="font-size:15px;">If you want a second opinion on the plan to close the gap, reply to this email or book a free GTM audit at <a href="https://nplusalpha.com/#contact">nplusalpha.com</a>.</p>
+                <p style="font-size:15px;">Nav Singh<br/>n+α Ventures</p>
+              </div>
+            `,
+          });
+        } catch (e) {
+          console.error("Resend visitor email failed:", e);
+        }
+      }
     }
 
     return NextResponse.json({ success: true }, { status: 200 });
