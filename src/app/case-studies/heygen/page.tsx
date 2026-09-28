@@ -6,7 +6,7 @@ import VideoEmbed from "@/components/VideoEmbed";
 import Byline from "@/components/Byline";
 import { getCaseStudy } from "@/lib/case-studies";
 import { SITE_CONFIG } from "@/lib/constants";
-import { CASES } from "@/lib/brand-data";
+import { CASES, HEYGEN_ARR, HEYGEN_ARR_ANNOTATIONS } from "@/lib/brand-data";
 import {
   AlphaCurve,
   ArtifactFrame,
@@ -199,21 +199,18 @@ export default function CaseStudyPage() {
                 title="ARR vs a steady baseline"
                 caption={
                   <>
-                    <b>Endpoints are reported ARR.</b> The path between them and the baseline are stylized. The shaded
-                    gap is the α.
+                    <b>$20M when I started in April 2024. $100M+ when HeyGen announced it in October 2025.</b> The
+                    path between those points and the baseline are stylized. The shaded gap is the α.
                   </>
                 }
               >
                 <AlphaCurve
-                  values={[20, 22, 26, 31, 38, 47, 58, 71, 86, 100]}
+                  values={HEYGEN_ARR}
                   width={760}
                   height={260}
                   baseLabel="n · steady baseline"
-                  annotations={[
-                    { i: 0, label: "$20M", sub: "Apr 2024" },
-                    { i: 9, label: "$100M+", sub: "Jan 2026" },
-                  ]}
-                  ariaLabel="HeyGen ARR rising from $20M in April 2024 to over $100M in January 2026, well above a steady baseline"
+                  annotations={HEYGEN_ARR_ANNOTATIONS}
+                  ariaLabel="HeyGen ARR rising from $20M in April 2024 past $100M in October 2025, well above a steady baseline. Stylized between the two labelled points."
                 />
               </ArtifactFrame>
             </section>

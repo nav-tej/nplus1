@@ -69,3 +69,15 @@ export const POSTS: Post[] = [
   { slug: "plg-to-enterprise-gtm-transition-playbook", title: "PLG to enterprise: the GTM transition playbook", date: "Jan 29, 2026", read: "10 min", cat: "Product-led growth" },
   { slug: "demand-generation-b2b-saas-pipeline-framework", title: "The demand generation framework behind $400M+ in marketing pipeline", date: "Feb 5, 2026", read: "11 min", cat: "Demand generation" },
 ];
+
+/**
+ * HeyGen ARR, one point per month of Nav's tenure (Apr 2024 = index 0 to Jan 2026 = 21).
+ * Only two points are facts: $20M at the start of the tenure, and $100M+ ARR, which
+ * HeyGen's CEO announced on X on Oct 16, 2025 (index 18). The path between is stylized
+ * and must be labelled so wherever it is drawn.
+ */
+export const HEYGEN_ARR = [20, 21.9, 24, 26.3, 28.8, 31.6, 34.6, 38, 41.6, 45.6, 50, 54.8, 60, 65.8, 72.1, 79, 86.6, 94.9, 104, 113.9, 124.9, 136.8];
+export const HEYGEN_ARR_ANNOTATIONS = [
+  { i: 0, label: "$20M", sub: "Apr 2024" },
+  { i: 18, label: "$100M+", sub: "Oct 2025" },
+];

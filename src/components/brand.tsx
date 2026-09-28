@@ -6,7 +6,7 @@
  */
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
-import { CASES, POSTS, PROCESS, TRACK, type CaseCard, type Pair, type Post, type Stop } from "@/lib/brand-data";
+import { CASES, HEYGEN_ARR, HEYGEN_ARR_ANNOTATIONS, POSTS, PROCESS, TRACK, type CaseCard, type Pair, type Post, type Stop } from "@/lib/brand-data";
 
 const cx = (...a: (string | false | undefined | null)[]) => a.filter(Boolean).join(" ");
 const Arrow = () => (
@@ -101,13 +101,18 @@ export function SectionHeader({
 /* ---------- AlphaCurve: the brand motif. n = baseline, α = the gap above it. ---------- */
 type Pt = [number, number];
 const polyline = (pts: Pt[]) => pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+/** Catmull-Rom through every point, as cubic Béziers. Tangents follow the neighbours, so dense series stay smooth instead of stepping. */
 function smooth(pts: Pt[]) {
-  let d = "M" + pts[0][0].toFixed(1) + " " + pts[0][1].toFixed(1);
-  for (let i = 1; i < pts.length; i++) {
-    const [x0, y0] = pts[i - 1];
-    const [x1, y1] = pts[i];
-    const mx = (x0 + x1) / 2;
-    d += ` C${mx.toFixed(1)} ${y0.toFixed(1)} ${mx.toFixed(1)} ${y1.toFixed(1)} ${x1.toFixed(1)} ${y1.toFixed(1)}`;
+  const f = (n: number) => n.toFixed(1);
+  let d = "M" + f(pts[0][0]) + " " + f(pts[0][1]);
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[i - 1] || pts[i];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const p3 = pts[i + 2] || p2;
+    const c1: Pt = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+    const c2: Pt = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+    d += ` C${f(c1[0])} ${f(c1[1])} ${f(c2[0])} ${f(c2[1])} ${f(p2[0])} ${f(p2[1])}`;
   }
   return d;
 }
@@ -272,17 +277,14 @@ export function HeroPanel({
   kicker = "HeyGen · ARR",
   figure = "$20M → $100M+",
   unit = "21 months",
-  values,
-  annotations = [
-    { i: 0, label: "$20M", sub: "Apr 2024" },
-    { i: 8, label: "$100M+", sub: "Jan 2026" },
-  ],
+  values = HEYGEN_ARR,
+  annotations = HEYGEN_ARR_ANNOTATIONS,
   foot = [
     ["5×", "ARR growth"],
     ["100K+", "community"],
     ["$25M", "ABM pipeline"],
   ],
-  note = "Endpoints are reported ARR. The path between them is stylized.",
+  note = "HeyGen announced $100M+ ARR in October 2025. The path between the two labelled points is stylized.",
 }: {
   kicker?: string;
   figure?: string;
@@ -302,7 +304,7 @@ export function HeroPanel({
         {figure}
         <small>{unit}</small>
       </div>
-      <AlphaCurve values={values} annotations={annotations} animate height={200} baseLabel="n · baseline growth" ariaLabel="HeyGen ARR rising well above a baseline growth line" />
+      <AlphaCurve values={values} annotations={annotations} animate height={200} baseLabel="n · baseline growth" ariaLabel="HeyGen ARR rising from $20M in April 2024 past $100M in October 2025, well above a baseline growth line. Stylized." />
       <div className="na-hero-panel-foot">
         {foot.map(([v, l]) => (
           <div key={l}>

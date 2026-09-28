@@ -451,3 +451,5 @@
 .na-link, .na-art-cap a { color: var(--alpha-text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .na-prose b { font-weight: 600; }
 .na-art-body .video-responsive-container { margin: 0; }
+/* site: the unit next to the hero figure wraps as one piece ("21 months"), never mid-phrase. */
+.na-hero-panel-fig small { white-space: nowrap; display: inline-block; }
