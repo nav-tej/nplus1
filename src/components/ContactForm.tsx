@@ -192,7 +192,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full rounded-lg bg-accent px-8 py-4 text-base font-medium text-[#131F2E] hover:brightness-110 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full rounded-lg bg-accent px-8 py-4 text-base font-medium text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {status === "sending" ? "Sending..." : "Request a free GTM audit"}
       </button>

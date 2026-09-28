@@ -252,7 +252,7 @@ export default function FrameworkPage() {
           </section>
 
           {/* Final CTA */}
-          <div className="bg-white text-[#131F2E] rounded-[3.5rem] p-10 lg:p-24 text-center relative overflow-hidden">
+          <div className="bg-white text-[var(--on-alpha)] rounded-[3.5rem] p-10 lg:p-24 text-center relative overflow-hidden">
             <div className="absolute top-0 right-0 p-10 opacity-5 rotate-12">
               <Layers className="w-80 h-84" />
             </div>
@@ -264,7 +264,7 @@ export default function FrameworkPage() {
               <div className="pt-4">
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center gap-4 bg-accent text-[#131F2E] px-12 py-6 rounded-2xl font-black text-2xl transition-all active:scale-95 group"
+                  className="inline-flex items-center gap-4 bg-accent text-[var(--on-alpha)] px-12 py-6 rounded-2xl font-black text-2xl transition-all active:scale-95 group"
                 >
                   Start Shipping
                   <ArrowRight className="w-7 h-7 transition-transform group-hover:translate-x-2" />

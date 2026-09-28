@@ -47,6 +47,42 @@
   --border: var(--line);
 }
 
+/* Paper theme: long reads (case studies, essays, /about). Set data-theme="paper"
+   on the reading container. Legacy names are restated so Tailwind utilities
+   inside it resolve to paper too. */
+[data-theme="paper"] {
+  color-scheme: light;
+  --bg: #F6F3EE;
+  --bg-sunken: #EFEAE2;
+  --bg-glass: rgba(246, 243, 238, 0.85);
+  --surface: #FFFFFF;
+  --surface-2: #F2EEE7;
+  --line: #E2DBD0;
+  --line-strong: #857B6F;
+  --ink: #131F2E;
+  --ink-muted: #4F5B69;
+  --ink-faint: #5F6A78;
+  --alpha-text: #A8431D;
+  --alpha-fill: #B84A22;
+  --alpha-fill-hover: #A8431D;
+  --on-alpha: #FFFFFF;
+  --alpha-soft: #FBE6DC;
+  --steel: #2F5E8C;
+  --steel-soft: #E3ECF5;
+  --up: #1F7A4D;
+  --caution: #8A5A00;
+  --focus: #A8431D;
+  --shadow-pop: 0 12px 32px rgba(19, 31, 46, 0.12);
+  --background: var(--bg);
+  --foreground: var(--ink);
+  --accent: var(--alpha-fill);
+  --muted: var(--ink-muted);
+  --card-bg: var(--surface);
+  --border: var(--line);
+  background: var(--bg);
+  color: var(--ink);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

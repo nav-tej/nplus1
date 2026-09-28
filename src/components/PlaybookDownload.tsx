@@ -144,7 +144,7 @@ export default function PlaybookDownload() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="#"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-semibold text-[#131F2E] hover:brightness-110 transition-all"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all"
                 >
                   <Download className="w-5 h-5" />
                   Download PDF
@@ -172,7 +172,7 @@ export default function PlaybookDownload() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="rounded-xl bg-accent px-8 py-4 text-base font-semibold text-[#131F2E] hover:brightness-110 transition-all disabled:opacity-50"
+                  className="rounded-xl bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all disabled:opacity-50"
                 >
                   {status === "loading" ? "Processing..." : "Get Playbook"}
                 </button>
@@ -222,7 +222,7 @@ export default function PlaybookDownload() {
                 <h3 className="text-2xl font-bold">Interactive AI Session</h3>
                 <p className="text-muted max-w-sm">Initializing Nav&apos;s AI Avatar for your 5-minute GTM strategy session...</p>
               </div>
-              <div className="bg-accent text-[#131F2E] px-6 py-2 rounded-full text-sm font-bold">
+              <div className="bg-accent text-[var(--on-alpha)] px-6 py-2 rounded-full text-sm font-bold">
                 HeyGen Streaming Active
               </div>
             </div>

@@ -432,3 +432,19 @@
    First paint on phones was waiting on the whole 10,000px page. `auto` in the
    intrinsic size remembers each section's real height after first render. */
 .na-section { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+
+/* site: long-read pages (paper theme). */
+.na-pillar-t { margin: 0; font: 500 18px/26px var(--font-sans); }
+.na-prose { display: grid; gap: var(--space-4); max-width: var(--measure); }
+.na-prose p { margin: 0; font-size: 17px; line-height: 28px; color: var(--ink); }
+.na-cs-head { padding-top: calc(var(--nav-height) + var(--space-7)); }
+.na-cs-head .na-h1 { font-size: clamp(38px, 5.6vw, 72px); }
+.na-cs-head .na-h1 .muted { color: var(--ink-muted); }
+.na-cs-meta { grid-template-columns: repeat(4, minmax(0, auto)); }
+.na-services { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.na-services a { display: inline-flex; align-items: center; height: 38px; padding: 0 var(--space-4); border: 1px solid var(--line-strong); border-radius: var(--radius-md); font-size: 14px; }
+.na-services a:hover { border-color: var(--ink); }
+@media (max-width: 760px) { .na-cs-meta { grid-template-columns: 1fr 1fr; } }
+/* site: the frame bar wraps on phones instead of crushing three labels together. */
+.na-art-bar { flex-wrap: wrap; row-gap: 2px; }
+@media (max-width: 640px) { .na-art-bar .r { margin-left: 0; width: 100%; } }

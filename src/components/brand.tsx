@@ -551,6 +551,7 @@ export function CTASection({
   ),
   body = "A free 30-minute GTM audit. You bring the numbers. I bring the pattern library from HeyGen, Semgrep, Egnyte and a16z. You leave with the three moves I would make first.",
   children,
+  primary,
   note = "Working with 2 to 3 companies at a time. Currently open.",
   email = "hello@nplusalpha.com",
 }: {
@@ -558,9 +559,24 @@ export function CTASection({
   title?: ReactNode;
   body?: string;
   children?: ReactNode;
+  /** A primary button, for pages where the form lives elsewhere. */
+  primary?: [label: string, href: string];
   note?: string;
   email?: string;
 }) {
+  const actions = (
+    <div className="na-cta-act">
+      {primary && (
+        <Button href={primary[1]} arrow>
+          {primary[0]}
+        </Button>
+      )}
+      <Button variant="ghost" href={`mailto:${email}`}>
+        {email}
+      </Button>
+      {note && <span className="na-cta-note">{note}</span>}
+    </div>
+  );
   return (
     <section className="na-cta" aria-labelledby="cta-heading">
       <span className="na-cta-glyph" aria-hidden="true">
@@ -574,14 +590,9 @@ export function CTASection({
         <p className="na-lede" style={{ fontSize: 17, lineHeight: "27px" }}>
           {body}
         </p>
-        <div className="na-cta-act">
-          <Button variant="ghost" href={`mailto:${email}`}>
-            {email}
-          </Button>
-          {note && <span className="na-cta-note">{note}</span>}
-        </div>
+        {children ? actions : null}
       </div>
-      {children}
+      {children ?? actions}
     </section>
   );
 }
@@ -594,4 +605,86 @@ export function MobileStickyCTA({ label = "Book a GTM audit", href }: { label?: 
       </Button>
     </div>
   );
+}
+
+/* ---------- Long-read devices ---------- */
+
+/** Visible breadcrumb trail. The BreadcrumbList JSON-LD comes from JsonLd, so this renders markup only. */
+export function Breadcrumbs({ items }: { items: [name: string, href: string][] }) {
+  return (
+    <nav className="na-crumbs" aria-label="Breadcrumb">
+      <ol>
+        {items.map(([name, href], i) => (
+          <li key={href}>
+            {i < items.length - 1 ? <Link href={href}>{name}</Link> : <span aria-current="page">{name}</span>}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
+export function TableOfContents({ items, title = "On this page" }: { items: [id: string, label: string][]; title?: string }) {
+  return (
+    <nav className="na-toc" aria-label={title}>
+      <span className="na-eyebrow">{title}</span>
+      <ol>
+        {items.map(([id, label], i) => (
+          <li key={id}>
+            <a href={"#" + id}>
+              <span className="na-num">{String(i + 1).padStart(2, "0")}</span>
+              {label}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
+export function Pillars({ items }: { items: { title: string; body: string }[] }) {
+  return (
+    <div className="na-pillars">
+      {items.map((p, i) => (
+        <div className="na-pillar" key={p.title}>
+          <div className="na-pillar-n na-num">{String(i + 1).padStart(2, "0")}</div>
+          <h3 className="na-pillar-t">{p.title}</h3>
+          <p>{p.body}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export function ArtifactFrame({
+  kind = "Artifact",
+  title,
+  meta = "Stylized · figures obfuscated",
+  caption,
+  children,
+}: {
+  kind?: string;
+  title: string;
+  meta?: string;
+  caption?: ReactNode;
+  children: ReactNode;
+}) {
+  return (
+    <figure className="na-art" style={{ margin: 0 }}>
+      <div className="na-art-bar">
+        <span className="k">{kind}</span>
+        <span>{title}</span>
+        <span className="r">{meta}</span>
+      </div>
+      <div className="na-art-body">{children}</div>
+      {caption && <figcaption className="na-art-cap">{caption}</figcaption>}
+    </figure>
+  );
+}
+
+/** Split a published metric like "5x", "40%" or "$100M+" into value and unit, so the unit takes alpha-text. */
+export function splitMetric(raw: string): { value: string; unit?: string } {
+  const m = raw.match(/^(.*?\d)(x|×|%|\+)$/);
+  if (!m) return { value: raw };
+  return { value: m[1], unit: m[2] === "x" ? "×" : m[2] };
 }

@@ -132,7 +132,7 @@ export default function AboutPage() {
                   </a>
                   <Link
                     href="/#contact"
-                    className="inline-flex items-center gap-2 h-11 rounded-lg bg-accent px-5 text-sm font-medium text-[#131F2E] hover:bg-[var(--alpha-fill-hover)] transition-colors"
+                    className="inline-flex items-center gap-2 h-11 rounded-lg bg-accent px-5 text-sm font-medium text-[var(--on-alpha)] hover:bg-[var(--alpha-fill-hover)] transition-colors"
                   >
                     Book a free GTM audit <span aria-hidden="true">→</span>
                   </Link>
@@ -380,7 +380,7 @@ export default function AboutPage() {
             </p>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300"
             >
               Book a free GTM audit →
             </Link>

@@ -1,16 +1,28 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import RelatedCaseStudies from "@/components/RelatedCaseStudies";
 import Byline from "@/components/Byline";
 import {
   DATA_DRIVEN_CASE_STUDIES,
   getCaseStudy,
 } from "@/lib/case-studies";
 import { SITE_CONFIG } from "@/lib/constants";
+import { CASES } from "@/lib/brand-data";
+import {
+  AlphaCurve,
+  ArtifactFrame,
+  Breadcrumbs,
+  CaseIndex,
+  CTASection,
+  MetricRow,
+  MobileStickyCTA,
+  Pillars,
+  SectionHeader,
+  TableOfContents,
+  splitMetric,
+} from "@/components/brand";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -45,10 +57,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+const slugify = (s: string) =>
+  s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
   const study = getCaseStudy(slug);
   if (!study || study.hasCustomPage) notFound();
+
+  const card = CASES.find((c) => c.slug === study.slug);
+  const more = CASES.filter((c) => c.slug !== study.slug).slice(0, 3);
+  const sections = study.sections.map((sec) => ({ ...sec, id: slugify(sec.heading) }));
+  const toc: [string, string][] = [
+    ...(card ? ([["shape", "The shape of it"]] as [string, string][]) : []),
+    ...sections.map((sec) => [sec.id, sec.heading] as [string, string]),
+    ...(study.faqs.length ? ([["questions", "Questions"]] as [string, string][]) : []),
+  ];
 
   return (
     <>
@@ -66,72 +90,28 @@ export default async function CaseStudyPage({ params }: Props) {
           { name: study.client, item: `/case-studies/${study.slug}` },
         ]}
       />
-      <Navbar />
-      <main id="main-content" className="pt-32 pb-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="max-w-4xl">
-            <nav
-              className="flex items-center gap-2 text-sm text-muted mb-8"
-              aria-label="Breadcrumb"
-            >
-              <Link href="/" className="hover:text-foreground transition-colors">
-                Home
-              </Link>
-              <span className="text-white/20">/</span>
-              <Link
-                href="/case-studies"
-                className="hover:text-foreground transition-colors"
-              >
-                Case Studies
-              </Link>
-              <span className="text-white/20">/</span>
-              <span className="text-foreground/60">{study.client}</span>
-            </nav>
-
-            <span className="inline-flex items-center rounded-full border border-alpha/30 bg-alpha/10 px-3 py-1 text-xs font-medium text-alpha-text mb-6">
-              {study.badge}
-            </span>
-            <h1 className="text-4xl lg:text-7xl font-extrabold tracking-tight mb-8">
-              {study.title}{" "}
-              <span className="text-muted">{study.titleAccent}</span>
+      <Navbar theme="paper" />
+      <main id="main-content" className="na" data-theme="paper">
+        <div className="na-wrap">
+          <header className="na-cs-head">
+            <Breadcrumbs
+              items={[
+                ["Home", "/"],
+                ["Case studies", "/case-studies"],
+                [study.client, `/case-studies/${study.slug}`],
+              ]}
+            />
+            <h1 className="na-h1" style={{ maxWidth: 1000 }}>
+              {study.title} <span className="muted">{study.titleAccent}</span>
             </h1>
-            <p className="text-xl lg:text-2xl text-muted leading-relaxed mb-10">
-              {study.summary}
-            </p>
-
-            <div className="mb-12">
-              <Byline published={study.publishDate} updated={study.dateModified} />
-            </div>
-
-            {/* At a glance */}
-            <dl className="grid grid-cols-2 lg:grid-cols-4 gap-6 rounded-3xl border border-white/10 bg-white/[0.02] p-8 mb-16">
-              {study.metrics.map((metric) => (
-                <div key={metric.label}>
-                  <dt className="sr-only">{metric.label}</dt>
-                  <dd>
-                    <span className="block text-2xl lg:text-3xl font-extrabold text-accent">
-                      {metric.value}
-                    </span>
-                    <span className="block text-xs text-muted mt-1 leading-snug">
-                      {metric.label}
-                    </span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-
-            {/* Engagement facts, useful for both readers and crawlers */}
-            <dl className="grid sm:grid-cols-3 gap-6 text-sm border-y border-white/5 py-6 mb-16">
+            <p className="na-lede">{study.summary}</p>
+            <Byline published={study.publishDate} updated={study.dateModified} />
+            <dl className="na-cs-meta">
               <div>
-                <dt className="text-muted mb-1">Client</dt>
-                <dd className="font-semibold">
+                <dt>Client</dt>
+                <dd>
                   {study.clientUrl ? (
-                    <a
-                      href={study.clientUrl}
-                      className="hover:text-accent transition-colors"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <a href={study.clientUrl} target="_blank" rel="noopener noreferrer">
                       {study.client}
                     </a>
                   ) : (
@@ -140,114 +120,106 @@ export default async function CaseStudyPage({ params }: Props) {
                 </dd>
               </div>
               <div>
-                <dt className="text-muted mb-1">Role</dt>
-                <dd className="font-semibold">{study.engagement}</dd>
+                <dt>Role</dt>
+                <dd>{study.engagement}</dd>
               </div>
               <div>
-                <dt className="text-muted mb-1">Industry</dt>
-                <dd className="font-semibold">{study.industry}</dd>
+                <dt>Years</dt>
+                <dd>{study.period}</dd>
+              </div>
+              <div>
+                <dt>Category</dt>
+                <dd>{study.industry}</dd>
               </div>
             </dl>
+            <MetricRow small items={study.metrics.map((m) => ({ ...splitMetric(m.value), label: m.label }))} />
+          </header>
+        </div>
 
-            <div className="space-y-16">
-              {study.sections.map((section) => (
-                <section key={section.heading}>
-                  <h2 className="text-3xl font-bold mb-6">{section.heading}</h2>
-                  <div className="space-y-5">
-                    {section.body.map((paragraph) => (
-                      <p
-                        key={paragraph.slice(0, 40)}
-                        className="text-muted leading-relaxed text-lg"
-                      >
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
-                  {section.bullets && (
-                    <ul className="grid sm:grid-cols-3 gap-6 mt-10 list-none p-0">
-                      {section.bullets.map((bullet) => (
-                        <li
-                          key={bullet.title}
-                          className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
-                        >
-                          <h3 className="text-alpha-text font-bold mb-2 text-sm">
-                            {bullet.title}
-                          </h3>
-                          <p className="text-sm text-muted leading-relaxed">
-                            {bullet.text}
-                          </p>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </section>
-              ))}
-            </div>
+        <div className="na-wrap na-article">
+          <aside className="na-article-rail">
+            <TableOfContents items={toc} />
+          </aside>
+          <div className="na-article-body">
+            {card && (
+              <section id="shape" className="na-article-sec">
+                <ArtifactFrame
+                  kind="Artifact 01"
+                  title={card.variant === "steps" ? "Foundation, built in steps" : "Growth above a steady baseline"}
+                  caption={
+                    <>
+                      <b>{card.metrics[0][0]}: {card.metrics[0][1]}.</b> The shape is stylized. It shows the kind of
+                      result, not client data.
+                    </>
+                  }
+                >
+                  <AlphaCurve
+                    values={card.curve}
+                    variant={card.variant}
+                    width={760}
+                    height={240}
+                    ariaLabel={`${study.client}: stylized ${card.variant === "steps" ? "stepped foundation build" : "growth curve above a baseline"}`}
+                  />
+                </ArtifactFrame>
+              </section>
+            )}
+
+            {sections.map((sec) => (
+              <section key={sec.id} id={sec.id} className="na-article-sec">
+                <h2 className="na-h3">{sec.heading}</h2>
+                <div className="na-prose">
+                  {sec.body.map((paragraph) => (
+                    <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                  ))}
+                </div>
+                {sec.bullets && <Pillars items={sec.bullets.map((b) => ({ title: b.title, body: b.text }))} />}
+              </section>
+            ))}
 
             {study.faqs.length > 0 && (
-              <section className="mt-20">
-                <h2 className="text-3xl font-bold mb-8">
-                  Questions people ask about this work
-                </h2>
-                <div className="space-y-4">
+              <section id="questions" className="na-article-sec">
+                <h2 className="na-h3">Questions people ask about this work</h2>
+                <div className="na-faq">
                   {study.faqs.map((faq) => (
-                    <details
-                      key={faq.question}
-                      className="group rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden"
-                    >
-                      <summary className="flex items-center justify-between gap-4 px-5 lg:px-6 py-5 cursor-pointer list-none font-semibold">
-                        <h3 className="text-base font-semibold">
-                          {faq.question}
-                        </h3>
-                        <span className="text-accent text-xl transition-transform duration-300 group-open:rotate-45">
-                          +
-                        </span>
+                    <details key={faq.question}>
+                      <summary>
+                        <h3 className="na-faq-q">{faq.question}</h3>
                       </summary>
-                      <div className="px-5 lg:px-6 pb-5 lg:pb-6 text-muted leading-relaxed">
-                        {faq.answer}
-                      </div>
+                      <p>{faq.answer}</p>
                     </details>
                   ))}
                 </div>
               </section>
             )}
 
-            {/* Service cross-links: the money pages this work maps to */}
-            <section className="mt-20 rounded-3xl border border-white/10 bg-white/[0.02] p-8">
-              <h2 className="text-sm font-bold uppercase tracking-widest text-muted mb-5">
+            <section className="na-article-sec" aria-labelledby="services-behind">
+              <span className="na-eyebrow" id="services-behind">
                 Services behind this engagement
-              </h2>
-              <div className="flex flex-wrap gap-3">
+              </span>
+              <div className="na-services">
                 {study.services.map((service) => (
-                  <Link
-                    key={service.href}
-                    href={service.href}
-                    className="rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium hover:border-accent/40 hover:text-accent transition-colors"
-                  >
-                    {service.label}
-                  </Link>
+                  <a key={service.href} href={service.href}>
+                    {service.label.charAt(0) + service.label.slice(1).toLowerCase()}
+                  </a>
                 ))}
-                <Link
-                  href={`/case-studies/${study.slug}/md`}
-                  className="rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-muted hover:border-accent/40 hover:text-accent transition-colors"
-                >
-                  Read as markdown
-                </Link>
+                <a href={`/case-studies/${study.slug}/md`}>Read as markdown</a>
               </div>
             </section>
-
-            <RelatedCaseStudies currentSlug={study.slug} />
-
-            <div className="mt-20 text-center">
-              <Link
-                href="/#contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
-              >
-                Apply these frameworks to your company
-              </Link>
-            </div>
           </div>
         </div>
+
+        <section className="na-section">
+          <div className="na-wrap">
+            <SectionHeader eyebrow="Keep reading" title="More work" />
+            <CaseIndex cases={more} start={1} />
+          </div>
+        </section>
+        <section className="na-section">
+          <div className="na-wrap">
+            <CTASection title="Want these systems at your company?" primary={["Book a free GTM audit", "/#contact"]} />
+          </div>
+        </section>
+        <MobileStickyCTA href="/#contact" />
       </main>
       <Footer />
     </>
