@@ -427,3 +427,8 @@
 /* site: the feature figure and its label never collide at any font fallback. */
 .na-card-fig { gap: var(--space-2); }
 .na-card-fig strong { line-height: 1; }
+
+/* site: skip layout and paint for sections until they near the viewport.
+   First paint on phones was waiting on the whole 10,000px page. `auto` in the
+   intrinsic size remembers each section's real height after first render. */
+.na-section { content-visibility: auto; contain-intrinsic-size: auto 900px; }
