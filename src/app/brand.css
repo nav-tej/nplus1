@@ -448,3 +448,6 @@
 /* site: the frame bar wraps on phones instead of crushing three labels together. */
 .na-art-bar { flex-wrap: wrap; row-gap: 2px; }
 @media (max-width: 640px) { .na-art-bar .r { margin-left: 0; width: 100%; } }
+.na-link, .na-art-cap a { color: var(--alpha-text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.na-prose b { font-weight: 600; }
+.na-art-body .video-responsive-container { margin: 0; }

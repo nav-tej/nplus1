@@ -3,10 +3,23 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VideoEmbed from "@/components/VideoEmbed";
-import RelatedCaseStudies from "@/components/RelatedCaseStudies";
 import Byline from "@/components/Byline";
 import { getCaseStudy } from "@/lib/case-studies";
 import { SITE_CONFIG } from "@/lib/constants";
+import { CASES } from "@/lib/brand-data";
+import {
+  AlphaCurve,
+  ArtifactFrame,
+  Breadcrumbs,
+  CaseIndex,
+  CTASection,
+  MetricRow,
+  MobileStickyCTA,
+  Pillars,
+  SectionHeader,
+  TableOfContents,
+  splitMetric,
+} from "@/components/brand";
 
 const HEYGEN = getCaseStudy("heygen")!;
 const HEYGEN_METRICS = HEYGEN.metrics;
@@ -77,152 +90,201 @@ const CASE_STUDY_SCHEMA = JSON.stringify({
   ],
 });
 
+const PILLARS = [
+  {
+    title: "Repositioning for enterprise",
+    body: "ICP moved from individual creators to enterprise communications teams, with the messaging hierarchy rebuilt around training, marketing, localization and HR. The site had to serve enterprise buyers without breaking the PLG top of funnel, so the brand architecture carried both motions at once.",
+  },
+  {
+    title: "SEO from zero",
+    body: "Organic was not a channel when I arrived. Technical foundation first, then programmatic content against real use-case demand, which produced over 50% year-on-year organic traffic growth.",
+  },
+  {
+    title: "A 100,000 member community",
+    body: "Built from nothing to six figures of members in six months, on a dedicated platform rather than Discord so the content stayed discoverable. Weekly tips, user showcases, AMAs and a 50+ creator ambassador program. Community members retained materially better than everyone else, and enterprise deals started coming out of relationships that began there.",
+  },
+  {
+    title: "AI-native lifecycle",
+    body: "Free-to-paid conversion was strong and unsystematic. We segmented on behavior instead of plan type, fired sequences off specific product actions, and built a product-qualified lead model so sales reached people at the moment it helped rather than the moment it annoyed.",
+  },
+  {
+    title: "Enterprise ABM",
+    body: "An enterprise motion built on top of the PLG base: intent data and ICP criteria combined with existing user presence inside target accounts, hyper-personalized outreach at a scale manual research cannot reach, and the enterprise content that unblocks procurement. ROI calculators, SOC 2 and SSO documentation, video case studies.",
+  },
+];
+
+const TOC: [string, string][] = [
+  ["video", "The playbook video"],
+  ["shape", "The shape of the run"],
+  ["walked-into", "What I walked into"],
+  ["pillars", "The five pillars"],
+  ["founder", "What I would tell a founder"],
+];
+
 export default function CaseStudyPage() {
   return (
     <>
-      {/* Static JSON-LD — no user input */}
+      {/* Static JSON-LD, no user input */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: CASE_STUDY_SCHEMA }} />
-      <Navbar />
-      <main id="main-content" className="pt-32 pb-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="max-w-4xl">
-            <nav className="flex items-center gap-2 text-sm text-muted mb-8" aria-label="Breadcrumb">
-              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-              <span className="text-white/20">/</span>
-              <Link href="/case-studies" className="hover:text-foreground transition-colors">Case Studies</Link>
-              <span className="text-white/20">/</span>
-              <span className="text-foreground/60">HeyGen</span>
-            </nav>
-
-            <span className="inline-flex items-center rounded-full border border-alpha/30 bg-alpha/10 px-3 py-1 text-xs font-medium text-alpha-text mb-6">
-              $20M → $100M+ ARR
-            </span>
-            <h1 className="text-4xl lg:text-7xl font-extrabold tracking-tight mb-8">
-              Scaling HeyGen: <span className="text-muted">The GTM Playbook.</span>
+      <Navbar theme="paper" />
+      <main id="main-content" className="na" data-theme="paper">
+        <div className="na-wrap">
+          <header className="na-cs-head">
+            <Breadcrumbs
+              items={[
+                ["Home", "/"],
+                ["Case studies", "/case-studies"],
+                ["HeyGen", "/case-studies/heygen"],
+              ]}
+            />
+            <h1 className="na-h1" style={{ maxWidth: 1000 }}>
+              Scaling HeyGen: <span className="muted">the GTM playbook.</span>
             </h1>
-            <p className="text-xl lg:text-2xl text-muted leading-relaxed mb-10">
-              Building the systems that drove 5× growth for the leader in AI video. Rebranding, community building, and enterprise operations at scale.
+            <p className="na-lede">
+              Building the systems that drove 5× growth for the leader in AI video. Rebranding, community building, and
+              enterprise operations at scale.
             </p>
-
-            <div className="mb-12">
-              <Byline published={HEYGEN.publishDate} updated={HEYGEN.dateModified} />
-            </div>
-
-            {/* Featured Video — Prominent layout to fix GSC "Video isn't on a watch page" issue */}
-            <div className="mb-20">
-              <div className="relative group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
-                <div className="relative aspect-video max-w-4xl mx-auto shadow-2xl">
-                  <VideoEmbed 
-                    videoId="ogk5uMVFJh0" 
-                    title="Scaling B2B SaaS to $100M" 
-                  />
-                </div>
-                <div className="p-6 bg-black/40 backdrop-blur-sm border-t border-white/5">
-                  <h3 className="text-sm font-bold text-alpha-text uppercase tracking-widest mb-1 text-center">Featured Playbook Video</h3>
-                  <p className="text-white text-center font-medium mb-4">Inside the HeyGen GTM Engine with Nav Singh</p>
-                  <div className="text-center">
-                    <Link 
-                      href="/videos/scaling-heygen-gtm"
-                      className="inline-flex items-center gap-2 text-xs font-bold text-muted hover:text-alpha-text transition-colors"
-                    >
-                      Watch on dedicated page →
-                    </Link>
-                  </div>
-                </div>
+            <Byline published={HEYGEN.publishDate} updated={HEYGEN.dateModified} />
+            <dl className="na-cs-meta">
+              <div>
+                <dt>Client</dt>
+                <dd>
+                  <a href={HEYGEN.clientUrl} target="_blank" rel="noopener noreferrer">
+                    HeyGen
+                  </a>
+                </dd>
               </div>
-            </div>
-
-            {/* At a glance */}
-            <dl className="grid grid-cols-2 lg:grid-cols-4 gap-6 rounded-3xl border border-white/10 bg-white/[0.02] p-8 mb-16">
-              {HEYGEN_METRICS.map((metric) => (
-                <div key={metric.label}>
-                  <dt className="sr-only">{metric.label}</dt>
-                  <dd>
-                    <span className="block text-2xl lg:text-3xl font-extrabold text-accent">{metric.value}</span>
-                    <span className="block text-xs text-muted mt-1 leading-snug">{metric.label}</span>
-                  </dd>
-                </div>
-              ))}
+              <div>
+                <dt>Role</dt>
+                <dd>{HEYGEN.engagement}</dd>
+              </div>
+              <div>
+                <dt>Years</dt>
+                <dd>Apr 2024 to Jan 2026</dd>
+              </div>
+              <div>
+                <dt>Category</dt>
+                <dd>{HEYGEN.industry}</dd>
+              </div>
             </dl>
+            <MetricRow small items={HEYGEN_METRICS.map((m) => ({ ...splitMetric(m.value), label: m.label }))} />
+          </header>
+        </div>
 
-            <div className="prose prose-invert prose-orange max-w-none space-y-12">
-              <section>
-                <h2 className="text-3xl font-bold mb-4">What I walked into</h2>
+        <div className="na-wrap na-article">
+          <aside className="na-article-rail">
+            <TableOfContents items={TOC} />
+          </aside>
+          <div className="na-article-body">
+            {/* The video stays near the top: Search Console flagged it when it was not the page's main content. */}
+            <section id="video" className="na-article-sec">
+              <ArtifactFrame
+                kind="Video"
+                title="Inside the HeyGen GTM engine"
+                meta="Nav Singh · YouTube"
+                caption={
+                  <>
+                    <b>The playbook, in Nav&apos;s words.</b>{" "}
+                    <Link href="/videos/scaling-heygen-gtm">Watch on the dedicated page →</Link>
+                  </>
+                }
+              >
+                <VideoEmbed videoId="ogk5uMVFJh0" title="Scaling B2B SaaS to $100M" />
+              </ArtifactFrame>
+            </section>
+
+            <section id="shape" className="na-article-sec">
+              <ArtifactFrame
+                kind="Artifact 01"
+                title="ARR vs a steady baseline"
+                caption={
+                  <>
+                    <b>Endpoints are reported ARR.</b> The path between them and the baseline are stylized. The shaded
+                    gap is the α.
+                  </>
+                }
+              >
+                <AlphaCurve
+                  values={[20, 22, 26, 31, 38, 47, 58, 71, 86, 100]}
+                  width={760}
+                  height={260}
+                  baseLabel="n · steady baseline"
+                  annotations={[
+                    { i: 0, label: "$20M", sub: "Apr 2024" },
+                    { i: 9, label: "$100M+", sub: "Jan 2026" },
+                  ]}
+                  ariaLabel="HeyGen ARR rising from $20M in April 2024 to over $100M in January 2026, well above a steady baseline"
+                />
+              </ArtifactFrame>
+            </section>
+
+            <section id="walked-into" className="na-article-sec">
+              <h2 className="na-h3">What I walked into</h2>
+              <div className="na-prose">
                 <p>
-                  In April 2024 HeyGen had product-market fit most companies never get near, a user base in the tens of millions, and almost no marketing infrastructure underneath it. No SEO program, no content engine, no community, no structured lifecycle automation, and no enterprise motion at all.
+                  In April 2024 HeyGen had product-market fit most companies never get near, a user base in the tens of
+                  millions, and almost no marketing infrastructure underneath it. No SEO program, no content engine, no
+                  community, no structured lifecycle automation, and no enterprise motion at all.
                 </p>
                 <p>
-                  The brand had also outgrown its own positioning. HeyGen had spread virally as an AI video tool, which is a category that undersells what an enterprise buyer is actually purchasing, and the revenue operations architecture was not built for the motion the company was moving toward.
+                  The brand had also outgrown its own positioning. HeyGen had spread virally as an AI video tool, which
+                  is a category that undersells what an enterprise buyer is actually purchasing, and the revenue
+                  operations architecture was not built for the motion the company was moving toward.
                 </p>
+                <p>What followed was 21 months of building five systems that had to work together.</p>
+              </div>
+            </section>
+
+            <section id="pillars" className="na-article-sec">
+              <h2 className="na-h3">The five pillars</h2>
+              <Pillars items={PILLARS} />
+              <div className="na-prose">
                 <p>
-                  What followed was 21 months of building five systems that had to work together.
+                  <b>Why five and not one.</b> Each pillar fed the next. Repositioning made the SEO content credible to
+                  enterprise readers. SEO and community filled the top of the funnel. Lifecycle converted it. ABM
+                  harvested the accounts already full of free users. Any one of them alone would have produced a
+                  fraction of the result.
                 </p>
-              </section>
+              </div>
+            </section>
 
-              <section>
-                <h2 className="text-3xl font-bold mb-4">The five pillars</h2>
-                <ul className="grid sm:grid-cols-2 gap-6 mt-8 list-none p-0">
-                  <li className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
-                    <h3 className="text-alpha-text font-bold mb-2">1. Repositioning for enterprise</h3>
-                    <p className="text-sm text-muted">ICP moved from individual creators to enterprise communications teams, with the messaging hierarchy rebuilt around training, marketing, localization and HR. The site had to serve enterprise buyers without breaking the PLG top of funnel, so the brand architecture carried both motions at once.</p>
-                  </li>
-                  <li className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
-                    <h3 className="text-alpha-text font-bold mb-2">2. SEO from zero</h3>
-                    <p className="text-sm text-muted">Organic was not a channel when I arrived. Technical foundation first, then programmatic content against real use-case demand, which produced over 50% year-on-year organic traffic growth.</p>
-                  </li>
-                  <li className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
-                    <h3 className="text-alpha-text font-bold mb-2">3. A 100,000 member community</h3>
-                    <p className="text-sm text-muted">Built from nothing to six figures of members in six months, on a dedicated platform rather than Discord so the content stayed discoverable. Weekly tips, user showcases, AMAs and a 50+ creator ambassador program. Community members retained materially better than everyone else, and enterprise deals started coming out of relationships that began there.</p>
-                  </li>
-                  <li className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
-                    <h3 className="text-alpha-text font-bold mb-2">4. AI-native lifecycle</h3>
-                    <p className="text-sm text-muted">Free-to-paid conversion was strong and unsystematic. We segmented on behavior instead of plan type, fired sequences off specific product actions, and built a product-qualified lead model so sales reached people at the moment it helped rather than the moment it annoyed.</p>
-                  </li>
-                  <li className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
-                    <h3 className="text-alpha-text font-bold mb-2">5. Enterprise ABM</h3>
-                    <p className="text-sm text-muted">An enterprise motion built on top of the PLG base: intent data and ICP criteria combined with existing user presence inside target accounts, hyper-personalized outreach at a scale manual research cannot reach, and the enterprise content that unblocks procurement. ROI calculators, SOC 2 and SSO documentation, video case studies.</p>
-                  </li>
-                  <li className="bg-accent/5 border border-accent/20 rounded-2xl p-6">
-                    <h3 className="text-accent font-bold mb-2">Why five and not one</h3>
-                    <p className="text-sm text-muted">Each pillar fed the next. Repositioning made the SEO content credible to enterprise readers. SEO and community filled the top of the funnel. Lifecycle converted it. ABM harvested the accounts already full of free users. Any one of them alone would have produced a fraction of the result.</p>
-                  </li>
-                </ul>
-              </section>
-
-              <section>
-                <h2 className="text-3xl font-bold mb-4">What I would tell a founder</h2>
+            <section id="founder" className="na-article-sec">
+              <h2 className="na-h3">What I would tell a founder</h2>
+              <div className="na-prose">
                 <p>
-                  Build the infrastructure before you need it. Every one of those five systems took months to compound, and the companies that start them at the moment they are needed spend that entire window flat.
+                  Build the infrastructure before you need it. Every one of those five systems took months to compound,
+                  and the companies that start them at the moment they are needed spend that entire window flat.
                 </p>
                 <p>
                   The full write-up, with the sequencing and what each pillar cost to learn, is in{" "}
-                  <Link href="/blog/heygen-gtm-playbook-20m-to-100m-arr" className="text-accent hover:underline">
+                  <Link href="/blog/heygen-gtm-playbook-20m-to-100m-arr" className="na-link">
                     the long-form playbook
                   </Link>
                   .
                 </p>
-              </section>
-
-              <section className="bg-accent/5 border border-accent/20 rounded-3xl p-8 lg:p-12 text-center">
-                <h2 className="text-2xl font-bold mb-4 italic text-accent">
-                  &ldquo;Building the infrastructure before you need it is the only way to sustain 5× growth.&rdquo;
-                </h2>
-                <p className="text-muted">– Nav Singh</p>
-              </section>
-            </div>
-
-            <RelatedCaseStudies currentSlug="heygen" />
-
-            <div className="mt-20 text-center">
-              <Link
-                href="/#contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300"
-              >
-                Apply these frameworks to your company
-              </Link>
-            </div>
+              </div>
+              <figure className="na-quote">
+                <blockquote>Building the infrastructure before you need it is the only way to sustain 5× growth.</blockquote>
+                <figcaption>
+                  <b>Nav Singh</b>, Founder, n+α
+                </figcaption>
+              </figure>
+            </section>
           </div>
         </div>
+
+        <section className="na-section">
+          <div className="na-wrap">
+            <SectionHeader eyebrow="Keep reading" title="More work" />
+            <CaseIndex cases={CASES.filter((c) => c.slug !== "heygen").slice(0, 3)} start={1} />
+          </div>
+        </section>
+        <section className="na-section">
+          <div className="na-wrap">
+            <CTASection title="Want these systems at your company?" primary={["Book a free GTM audit", "/#contact"]} />
+          </div>
+        </section>
+        <MobileStickyCTA href="/#contact" />
       </main>
       <Footer />
     </>
