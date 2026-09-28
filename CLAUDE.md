@@ -2,6 +2,17 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Shared context (read before changing UI or copy)
+
+- **Design system (source of truth):** the n+α Design System artifact, https://claude.ai/artifact/LkJFJ1m81KYet9EeMNzd3z. Read `project/README.md`, `project/tokens.json` and `project/guidelines/*.md` with the Artifact tool (read action) before touching UI, motion or copy. The site's port lives in `src/app/brand.css` and `src/components/brand.tsx`. When the two disagree, fix the site or update the artifact, and say which.
+- **Brand voice:** every word on the site goes through the humanizer skill (https://github.com/blader/humanizer, 25 AI-writing patterns). Sentence case, no em dashes, short sentences, numbers first, "I" for Nav. Full rules: the Obsidian note "nPlusAlpha Brand Voice" and the design system's Writing rules section.
+- **Working notes:** Obsidian vault at `~/Documents/Obsidian Vault`. Start at `Welcome`. Append what you did to the top of `Log` (newest first). Site status lives in `nPlus1 Ventures`, the platform in `nPlusAlpha Platform`. Never put secrets there.
+- **Sister repo:** `~/nplusalpha-app` is app.nplusalpha.com, the growth-ops platform (Supabase, Ahrefs, agents). Separate Vercel project and codebase. Don't mix them up.
+- **Deploys:** Vercel project `nplus1`. Every pushed branch builds a preview. Production has been deployed from the local working tree with `vercel --prod`, so check what is live before pushing `main`.
+- **Settled facts:** all six case study companies may be named, Charta Health included (confirmed 2026-09-27). The portrait is the New York Times photo by Michael Swensen; keep the credit on /about.
+- **Structured data rules:** no aggregateRating or Review markup for our own testimonials (self-serving, never eligible). Emit FAQPage only where the FAQs are visible on the page. Author is the Person `/about#navsingh`, not the company. `datePublished` is the date a page went live, not an engagement start.
+- **Cowork agents:** the Cowork VM has no GitHub credentials, so Nav pushes. Git there can't delete its own lock files unless delete permission is granted on this folder; remove `.git/index.lock` after any git write or Nav's next command fails.
+
 ## Commands
 
 ```bash
@@ -28,7 +39,7 @@ CONTACT_EMAIL=
 
 ## Architecture
 
-**Next.js 16 App Router** site for nPlus1 Ventures (Nav Singh's fractional VP Marketing / RevOps consultancy). Uses React 19, Tailwind CSS v4, TypeScript.
+**Next.js 16 App Router** site for n+α Ventures at nplusalpha.com (Nav Singh's fractional VP Marketing / RevOps consultancy; the repo keeps its old name, nplus1). Uses React 19, Tailwind CSS v4, TypeScript.
 
 ### Key structural patterns
 
