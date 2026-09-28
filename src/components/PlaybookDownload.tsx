@@ -70,7 +70,7 @@ export default function PlaybookDownload() {
                   <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-mono text-muted uppercase tracking-tighter">Data_LAKE</div>
                 </div>
 
-                <ArrowRight className="w-6 h-6 text-white/10" />
+                <ArrowRight className="w-6 h-6 text-[var(--ink-faint)]" />
 
                 <div className="relative">
                   <div className="w-20 h-20 bg-accent/10 border border-accent/20 rounded-2xl flex items-center justify-center">
@@ -79,7 +79,7 @@ export default function PlaybookDownload() {
                   <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] font-mono text-accent uppercase tracking-tighter whitespace-nowrap">Agent_CORE</div>
                 </div>
 
-                <ArrowRight className="w-6 h-6 text-white/10" />
+                <ArrowRight className="w-6 h-6 text-[var(--ink-faint)]" />
 
                 <div className="relative">
                   <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:border-accent/50 transition-colors">

@@ -61,7 +61,7 @@ export default function CaseStudiesIndexPage() {
             </p>
           </header>
           <div className="na-cards" style={{ marginBottom: 8 }}>
-            <CaseStudyCard index="01" wide {...CASES[0]} />
+            <CaseStudyCard index="01" wide headingLevel={2} {...CASES[0]} />
           </div>
           <CaseIndex cases={CASES.slice(1)} start={2} />
         </div>

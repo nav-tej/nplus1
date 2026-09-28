@@ -152,13 +152,13 @@ export default function FrameworkPage() {
                   <div className="w-20 h-20 bg-accent/10 border border-accent/20 rounded-2xl flex items-center justify-center">
                     <Target className="w-10 h-10 text-accent" />
                   </div>
-                  <ArrowDown className="w-6 h-6 text-white/10" />
+                  <ArrowDown className="w-6 h-6 text-[var(--ink-faint)]" />
                   <div className="flex gap-6 items-center w-full justify-center">
                     <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center"><BarChart3 className="w-8 h-8 text-muted" /></div>
                     <RefreshCw className="w-8 h-8 text-accent" />
                     <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center"><MessageSquare className="w-8 h-8 text-muted" /></div>
                   </div>
-                  <ArrowDown className="w-6 h-6 text-white/10" />
+                  <ArrowDown className="w-6 h-6 text-[var(--ink-faint)]" />
                   <div className="w-20 h-20 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-accent/50 transition-colors">
                     <Database className="w-10 h-10 text-muted" />
                   </div>

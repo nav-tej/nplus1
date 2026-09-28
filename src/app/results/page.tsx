@@ -64,7 +64,7 @@ export default function ResultsPage() {
             <Link href="/" className="hover:text-foreground transition-colors">
               Home
             </Link>
-            <span className="text-white/20">/</span>
+            <span className="text-[var(--ink-faint)]">/</span>
             <span className="text-foreground/60">Results</span>
           </nav>
 
@@ -130,7 +130,7 @@ export default function ResultsPage() {
                     <span className="text-sm text-muted">
                       {study.engagement}
                     </span>
-                    <span className="text-white/20">·</span>
+                    <span className="text-[var(--ink-faint)]">·</span>
                     <span className="text-sm text-muted">{study.period}</span>
                   </div>
                   <dl className="grid grid-cols-2 lg:grid-cols-4 gap-6">

@@ -411,8 +411,10 @@ export function CaseStudyCard({
   half,
   fig,
   figLabel,
-}: CaseCard & { index?: string; feature?: boolean; wide?: boolean; half?: boolean }) {
+  headingLevel = 3,
+}: CaseCard & { index?: string; feature?: boolean; wide?: boolean; half?: boolean; headingLevel?: 2 | 3 }) {
   const big = feature || wide;
+  const Title = headingLevel === 2 ? "h2" : "h3";
   return (
     <Link className={cx("na-card", feature && "feature", wide && "feature wide", half && "half")} href={"/case-studies/" + slug}>
       <div className="na-card-art">
@@ -430,7 +432,7 @@ export function CaseStudyCard({
           <b>{org}</b>
           <span>{years}</span>
         </div>
-        <h3 className="na-card-t">{title}</h3>
+        <Title className="na-card-t">{title}</Title>
         <div className="na-card-ms">
           {metrics.map(([v, l]) => (
             <div key={l}>

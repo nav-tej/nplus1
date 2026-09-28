@@ -100,9 +100,9 @@ export default async function ServicePage({ params }: Props) {
           <div className="max-w-3xl">
             <nav className="flex items-center gap-2 text-sm text-muted mb-8" aria-label="Breadcrumb">
               <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-              <span className="text-white/20">/</span>
+              <span className="text-[var(--ink-faint)]">/</span>
               <span className="text-foreground/60">Services</span>
-              <span className="text-white/20">/</span>
+              <span className="text-[var(--ink-faint)]">/</span>
               <span className="text-foreground/60">{service.label}</span>
             </nav>
 

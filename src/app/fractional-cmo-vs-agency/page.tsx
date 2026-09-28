@@ -109,7 +109,7 @@ export default function ComparisonPage() {
               <Link href="/" className="hover:text-foreground transition-colors">
                 Home
               </Link>
-              <span className="text-white/20">/</span>
+              <span className="text-[var(--ink-faint)]">/</span>
               <span className="text-foreground/60">
                 Fractional CMO vs Agency vs Hire
               </span>

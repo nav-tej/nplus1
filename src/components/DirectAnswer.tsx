@@ -41,7 +41,7 @@ export default function DirectAnswer({ question, answer, category = "Expert Insi
                   <circle cx="16" cy="14" r="4" fill="#F97316" />
                 </svg>
               </div>
-              <span className="text-xs font-bold text-white/50 uppercase tracking-widest">
+              <span className="text-xs font-bold text-[var(--ink-faint)] uppercase tracking-widest">
                 {SITE_CONFIG.name} Methodology
               </span>
             </div>

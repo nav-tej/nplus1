@@ -89,11 +89,11 @@ export default async function BlogPostPage({ params }: Props) {
               <Link href="/" className="hover:text-foreground transition-colors">
                 Home
               </Link>
-              <span className="text-white/20" aria-hidden="true">/</span>
+              <span className="text-[var(--ink-faint)]" aria-hidden="true">/</span>
               <Link href="/blog" className="hover:text-foreground transition-colors">
                 Blog
               </Link>
-              <span className="text-white/20" aria-hidden="true">/</span>
+              <span className="text-[var(--ink-faint)]" aria-hidden="true">/</span>
               <span className="text-foreground/60 truncate max-w-[200px]">{post.title}</span>
             </nav>
 
