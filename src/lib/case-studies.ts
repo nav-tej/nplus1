@@ -118,7 +118,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     metrics: [
       { value: "0 → 1", label: "Growth analytics foundation" },
       { value: "3 lanes", label: "SEO, product-led and sales-led demand" },
-      { value: "48 hrs", label: "Model release SEO playbook" },
+      { value: "24 hrs", label: "Model release playbook and launches" },
       { value: "Daily", label: "Automated growth pre-read" },
     ],
     sections: [
@@ -158,7 +158,7 @@ export const CASE_STUDIES: CaseStudy[] = [
           "Brand traffic has a ceiling you do not control. It grows when the product gets famous and shrinks when an assistant absorbs the click.",
           "So we built the demand map first. Every use case and model people search for, scored on volume, difficulty, commercial value and fit with the customers sales was actually closing, each one carrying an estimated traffic value at position one. That is what let us argue about priority with numbers, not opinions.",
           "The finding that changed the roadmap: SEO demand and enterprise demand only partly overlap. That splits the work into three lanes rather than one ranked list. Pages that are high intent and high fit get built first. Pure traffic pages get built for volume and judged on volume. And the demand with real revenue behind it and no search volume at all, things like on-prem deployment and custom model training, belongs to sales, not to SEO. Writing that down stopped a quarter of arguing.",
-          "Each page in the network was backed by one of the hundreds of real workflow templates. A thin generated page ranks for a week. A page with a working demo behind it earns links. The model release playbook does the same job on a clock: when a major model ships, the docs page, the template, the landing page and the announcement go out interlinked inside 48 hours, while the interest spike is still live.",
+          "Each page in the network was backed by one of the hundreds of real workflow templates. A thin generated page ranks for a week. A page with a working demo behind it earns links. The model release playbook does the same job on a clock: when a major model ships, the docs page, the template, the landing page and the announcement go out interlinked inside 24 hours, while the interest spike is still live.",
         ],
         bullets: [
           {
