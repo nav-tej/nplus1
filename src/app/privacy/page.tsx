@@ -4,7 +4,8 @@ import Footer from "@/components/Footer";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | n+α Ventures",
+  // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
+  title: { absolute: "Privacy Policy | n+α Ventures" },
   description: "Privacy Policy for n+α Ventures. Information on how we collect, use, and protect your data.",
   alternates: { canonical: "https://nplusalpha.com/privacy" },
 };

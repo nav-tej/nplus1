@@ -4,13 +4,16 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VideoEmbed from "@/components/VideoEmbed";
 import RelatedCaseStudies from "@/components/RelatedCaseStudies";
+import Byline from "@/components/Byline";
 import { getCaseStudy } from "@/lib/case-studies";
 import { SITE_CONFIG } from "@/lib/constants";
 
-const HEYGEN_METRICS = getCaseStudy("heygen")!.metrics;
+const HEYGEN = getCaseStudy("heygen")!;
+const HEYGEN_METRICS = HEYGEN.metrics;
 
 export const metadata: Metadata = {
-  title: "HeyGen GTM Case Study: $20M to $100M ARR | n+α Ventures",
+  // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
+  title: { absolute: "HeyGen GTM Case Study: $20M to $100M ARR | n+α Ventures" },
   description: "How n+α helped scale HeyGen from $20M to $100M+ ARR through a complete GTM rebrand, SEO, and community construction.",
   alternates: { canonical: `https://${SITE_CONFIG.domain}/case-studies/heygen` },
   openGraph: {
@@ -39,7 +42,8 @@ const CASE_STUDY_SCHEMA = JSON.stringify({
       description:
         "How Nav Singh scaled HeyGen from $20M to $100M+ ARR through a complete GTM rebrand, SEO program, 100K-member community, enterprise ABM, and lifecycle automation.",
       image: "https://nplusalpha.com/opengraph-image",
-      datePublished: "2024-04-01",
+      datePublished: HEYGEN.publishDate,
+      dateModified: HEYGEN.dateModified,
       author: { "@id": "https://nplusalpha.com/about#navsingh" },
       publisher: { "@id": "https://nplusalpha.com/#organization" },
       mainEntityOfPage: { "@id": "https://nplusalpha.com/case-studies/heygen#webpage" },
@@ -96,9 +100,13 @@ export default function CaseStudyPage() {
             <h1 className="text-4xl lg:text-7xl font-extrabold tracking-tight mb-8">
               Scaling HeyGen: <span className="text-muted">The GTM Playbook.</span>
             </h1>
-            <p className="text-xl lg:text-2xl text-muted leading-relaxed mb-12">
+            <p className="text-xl lg:text-2xl text-muted leading-relaxed mb-10">
               Building the systems that drove 5× growth for the leader in AI video. Rebranding, community building, and enterprise operations at scale.
             </p>
+
+            <div className="mb-12">
+              <Byline published={HEYGEN.publishDate} updated={HEYGEN.dateModified} />
+            </div>
 
             {/* Featured Video — Prominent layout to fix GSC "Video isn't on a watch page" issue */}
             <div className="mb-20">

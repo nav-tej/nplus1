@@ -7,7 +7,8 @@ import JsonLd from "@/components/JsonLd";
 import { FOUNDER, TESTIMONIALS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Nav Singh, Founder | n+α Ventures",
+  // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
+  title: { absolute: "Nav Singh, Founder | n+α Ventures" },
   description:
     "Nav Singh (Navtej Singh) is the founder of n+α Ventures, a San Francisco-based B2B GTM consulting firm. 10+ years driving $500M+ in revenue growth across HeyGen ($20M to $100M+ ARR), Semgrep, Egnyte, and a16z.",
   keywords: [
@@ -52,6 +53,10 @@ export default function AboutPage() {
         title="Nav Singh, Founder | n+α Ventures"
         description="Nav Singh (Navtej Singh) is the founder of n+α Ventures, a San Francisco-based B2B GTM consulting firm. 10+ years driving $500M+ in revenue growth across HeyGen ($20M to $100M+ ARR), Semgrep, Egnyte, and a16z."
         path="/about"
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "About", item: "/about" },
+        ]}
       />
       <Navbar />
       <main id="main-content">
@@ -62,14 +67,20 @@ export default function AboutPage() {
         >
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <div className="flex flex-col sm:flex-row gap-10 items-start">
-              <Image
-                src="/nav-singh.jpg"
-                alt="Nav Singh, Founder & Managing Partner of n+α Ventures"
-                width={96}
-                height={96}
-                className="flex-shrink-0 w-24 h-24 rounded-full object-cover ring-2 ring-white/10"
-                priority
-              />
+              <figure className="flex-shrink-0 w-40 sm:w-[200px]">
+                <Image
+                  src="/nav-singh-portrait.jpg"
+                  alt="Nav Singh, founder of n+α Ventures"
+                  width={200}
+                  height={250}
+                  sizes="(min-width: 640px) 200px, 160px"
+                  className="w-full h-auto rounded-2xl object-cover grayscale ring-1 ring-white/10"
+                  priority
+                />
+                <figcaption className="mt-2 text-[11px] leading-snug text-muted">
+                  Photo: Michael Swensen for The New York Times
+                </figcaption>
+              </figure>
 
               {/* Identity */}
               <div className="flex-1">

@@ -11,7 +11,8 @@ const DESCRIPTION =
   "Case studies from inside the work: scaling HeyGen from $20M to $100M+ ARR, rebuilding organic growth and analytics at Comfy, and building an AI-agent SEO engine at Charta Health.";
 
 export const metadata: Metadata = {
-  title: `${TITLE} | n+α Ventures`,
+  // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
+  title: { absolute: `${TITLE} | n+α Ventures` },
   description: DESCRIPTION,
   alternates: { canonical: `https://${SITE_CONFIG.domain}/case-studies` },
   openGraph: {

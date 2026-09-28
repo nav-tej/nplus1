@@ -260,7 +260,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         </Li>
       </Ul>
       <P>
-        <Bold>Result: $XXM in enterprise pipeline.</Bold>
+        <Bold>Result: $25M in enterprise pipeline.</Bold>
       </P>
 
       <H3>Move 6: Lifecycle Automation</H3>
@@ -819,7 +819,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </P>
       <P>
         At HeyGen, the enterprise motion we built on top of a massive PLG user
-        base generated $XXM in enterprise pipeline and improved win rates by 25%.
+        base generated $25M in enterprise pipeline and improved win rates by 25%.
       </P>
       <P>
         The companies that execute this transition well don&apos;t just double or
@@ -998,7 +998,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <H3>Account-Based Marketing (ABM)</H3>
       <P>
         For enterprise motion, ABM is the highest-conversion approach. I&apos;ve
-        run ABM programs that generated $XXM in pipeline targeting Global 2000
+        run ABM programs that generated $25M in pipeline targeting Global 2000
         accounts and improved pipeline efficiency 3× at Egnyte. The key: tight
         ICP definition, quality intent signals, and personalized outreach that
         actually references account-specific research.
@@ -1095,7 +1095,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         I&apos;ll be sharing more on this topic at an upcoming webinar, but I
         wanted to get the core ideas down here first, because this is a question I
         get constantly: what does a high-functioning RevOps organization actually
-        look like in 2025?
+        look like today?
       </P>
       <P>The short answer: very different from what most companies have built.</P>
 
@@ -1130,7 +1130,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </Ul>
       <P>
         These are real problems that need solving. But they&apos;re table stakes.
-        If you&apos;re still fighting these fires in 2025, your RevOps function is
+        If you&apos;re still fighting these fires today, your RevOps function is
         behind.
       </P>
       <P>
@@ -1141,7 +1141,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
 
       <Hr />
 
-      <H2>What High-Functioning RevOps Looks Like in 2025</H2>
+      <H2>What High-Functioning RevOps Looks Like Now</H2>
 
       <H3>1. A Real-Time Data Architecture</H3>
       <P>
@@ -1512,7 +1512,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         spray-and-pray outbound with a company name inserted in the subject line.
       </P>
       <P>
-        Real ABM, the kind that generated $XXM in pipeline at HeyGen and
+        Real ABM, the kind that generated $25M in pipeline at HeyGen and
         improved pipeline efficiency 3× at Egnyte, is a fundamentally different
         discipline. Here&apos;s the playbook.
       </P>
@@ -1708,7 +1708,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </P>
       <P>
         At HeyGen, the ABM program targeting Global 2000 accounts across Agency,
-        L&D, and API segments generated $XXM in enterprise pipeline. The key
+        L&D, and API segments generated $25M in enterprise pipeline. The key
         enabler was segment-specific messaging and content, treating Agency
         buyers, L&D buyers, and enterprise API buyers as completely distinct
         audiences with distinct problems and distinct value propositions.

@@ -1,497 +1,311 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { usePostHog } from "posthog-js/react";
-import Link from "next/link";
-import { 
-  TrendingUp, 
-  Lock, 
-  CheckCircle2, 
-  Zap, 
-  Target, 
-  BarChart3,
-  Clock,
-  ArrowRight,
-  Info,
-  Calendar,
-  ChevronRight,
-  Gauge
-} from "lucide-react";
+import { Eyebrow } from "@/components/brand";
+
+/*
+ * SaaS funnel velocity calculator, rebuilt from the n+α design system
+ * (VelocityCalculator in claude.ai/artifact/LkJFJ1m81KYet9EeMNzd3z).
+ *
+ * One screen, live results, no wizard. Velocity = opps × win rate × ACV ÷ cycle days.
+ * The old form never asked for cycle length even though the formula divides by it.
+ * Benchmarks exist for win rate and sales cycle only, so only those two get a
+ * median tick and can be named as "the lever". Opps and ACV are never compared to
+ * numbers we don't have.
+ */
 
 type Stage = "Seed" | "Series A" | "Series B" | "Series C+";
-type Vertical = "Enterprise SaaS" | "Fintech" | "AI Infrastructure" | "Cybersecurity" | "DevTools";
+const STAGES: Stage[] = ["Seed", "Series A", "Series B", "Series C+"];
 
-type Inputs = {
-  stage: Stage;
-  vertical: Vertical;
-  opps: number; // Qualified Opps per Quarter
-  acv: number;
-  cycle: number;
-  winRate: number;
-  arr: number;
-};
-
-type Legend = { name: string; result: string; logo: string; highlight: string };
-
+// Same figures as the previous version (refreshed March 13, 2026).
 const STAGE_BENCHMARKS: Record<Stage, { medianWin: number; eliteWin: number; medianCycle: number }> = {
-  "Seed": { medianWin: 15, eliteWin: 25, medianCycle: 30 },
+  Seed: { medianWin: 15, eliteWin: 25, medianCycle: 30 },
   "Series A": { medianWin: 21, eliteWin: 35, medianCycle: 60 },
   "Series B": { medianWin: 25, eliteWin: 40, medianCycle: 90 },
   "Series C+": { medianWin: 28, eliteWin: 45, medianCycle: 120 },
 };
 
-const ARR_VALUES = [
-  5000000, 10000000, 15000000, 20000000, 25000000, 30000000, 35000000, 40000000, 45000000, 50000000,
-  150000000, 250000000, 350000000, 450000000, 550000000, 650000000, 750000000, 850000000, 950000000, 1000000000
-];
+type Inputs = { stage: Stage; opps: number; winRate: number; acv: number; cycle: number };
 
-const STAGE_VERTICAL_LEGENDS: Record<Vertical, Record<Stage, Legend[]>> = {
-  "Enterprise SaaS": {
-    "Seed": [
-      { name: "Webflow", result: "$1M in 12mo", logo: "/logos/webflow.svg?v=9", highlight: "PLG wedge mastery" },
-      { name: "Mercury", result: "$1M in 6mo", logo: "/logos/mercury.svg?v=9", highlight: "Brand trust outlier" }
-    ],
-    "Series A": [
-      { name: "Slack", result: "$10M in 12mo", logo: "/logos/slack.svg?v=9", highlight: "Enterprise viral loop" },
-      { name: "Klaviyo", result: "$20M+ ARR", logo: "/logos/klaviyo.svg?v=9", highlight: "Mastered high-velocity ROI" }
-    ],
-    "Series B": [
-      { name: "Brex", result: "$100M in 24mo", logo: "/logos/brex.svg?v=9", highlight: "Fintech infra blitz" },
-      { name: "HubSpot", result: "Hyper-efficient scale", logo: "/logos/hubspot.svg?v=9", highlight: "GTM platform standard" }
-    ],
-    "Series C+": [
-      { name: "Stripe", result: "$1B+ ARR", logo: "/logos/stripe.svg?v=9", highlight: "Global payment velocity" },
-      { name: "Salesforce", result: "The OG GTM Giant", logo: "/logos/salesforce.svg?v=9", highlight: "Created the category" }
-    ],
-  },
-  "AI Infrastructure": {
-    "Seed": [
-      { name: "Cursor", result: "$1M in 4mo", logo: "/logos/cursor.svg?v=9", highlight: "The hypergrowth record" },
-      { name: "Cognition", result: "$1M ARR launch", logo: "/logos/cognition.svg?v=9", highlight: "Agentic breakthrough" }
-    ],
-    "Series A": [
-      { name: "HeyGen", result: "$35M ARR raise", logo: "/logos/heygen-white.svg?v=9", highlight: "Nav architected this engine" },
-      { name: "Perplexity", result: "Search dominance", logo: "/logos/perplexity.svg?v=9", highlight: "AI-native adoption" }
-    ],
-    "Series B": [
-      { name: "ElevenLabs", result: "$50M in 12mo", logo: "/logos/elevenlabs.svg?v=9", highlight: "Voice AI category leader" },
-      { name: "Mistral", result: "$100M+ valuation burst", logo: "/logos/mistral.svg?v=9", highlight: "Open-source efficiency" }
-    ],
-    "Series C+": [
-      { name: "OpenAI", result: "$3B+ ARR", logo: "/logos/openai.svg?v=9", highlight: "Defining the AI business model" },
-      { name: "Anthropic", result: "Enterprise AI standard", logo: "/logos/anthropic.svg?v=9", highlight: "Safety-first scaling" }
-    ],
-  },
-  "Fintech": {
-    "Seed": [
-      { name: "Mercury", result: "Startup Banking", logo: "/logos/mercury.svg?v=9", highlight: "Seamless UX wedge" },
-      { name: "Unit", result: "Embedded Finance", logo: "/logos/unit.svg?v=9", highlight: "Infrastructure-first" }
-    ],
-    "Series A": [
-      { name: "Ramp", result: "$10M in 12mo", logo: "/logos/ramp.svg?v=9", highlight: "$100M ARR speedrun record" },
-      { name: "Deel", result: "Global Compliance", logo: "/logos/deel.svg?v=9", highlight: "Horizontal scale speed" }
-    ],
-    "Series B": [
-      { name: "Brex", result: "$100M in 24mo", logo: "/logos/brex.svg?v=9", highlight: "Market share blitz" },
-      { name: "Navan", result: "Travel Fintech", logo: "/logos/navan.svg?v=9", highlight: "Enterprise consolidation" }
-    ],
-    "Series C+": [
-      { name: "Stripe", result: "$1B+ ARR", logo: "/logos/stripe.svg?v=9", highlight: "Internet economy infra" },
-      { name: "Adyen", result: "Global Payments", logo: "/logos/adyen.svg?v=9", highlight: "Operational excellence" }
-    ],
-  },
-  "Cybersecurity": {
-    "Seed": [
-      { name: "Oleria", result: "Identity Security", logo: "/logos/oleria.svg?v=9", highlight: "AI-native security" },
-      { name: "Sentra", result: "Data Security", logo: "/logos/sentra.svg?v=9", highlight: "Cloud-speed scaling" }
-    ],
-    "Series A": [
-      { name: "Abnormal", result: "Email AI", logo: "/logos/abnormal.svg?v=9", highlight: "Fastest security scale-up" },
-      { name: "Orca", result: "Agentless Security", logo: "/logos/orca.svg?v=9", highlight: "Frictionless deployment" }
-    ],
-    "Series B": [
-      { name: "Wiz", result: "$100M in 18mo", logo: "/logos/wiz.svg?v=9", highlight: "Growth record holder" },
-      { name: "Snyk", result: "Developer Security", logo: "/logos/snyk.svg?v=9", highlight: "Mastered the dev wedge" }
-    ],
-    "Series C+": [
-      { name: "CrowdStrike", result: "$3B+ ARR", logo: "/logos/crowdstrike.svg?v=9", highlight: "Platform dominance" },
-      { name: "Zscaler", result: "Zero Trust Leader", logo: "/logos/zscaler.svg?v=9", highlight: "Cloud-native infra" }
-    ],
-  },
-  "DevTools": {
-    "Seed": [
-      { name: "Supabase", result: "$1M in 9mo", logo: "/logos/supabase.svg?v=9", highlight: "The Firebase alternative" },
-      { name: "Resend", result: "Email for Devs", logo: "/logos/resend.svg?v=9", highlight: "Elite UX-led growth" }
-    ],
-    "Series A": [
-      { name: "Cognition", result: "$73M in 9mo", logo: "/logos/cognition.svg?v=9", highlight: "Agentic dev standard" },
-      { name: "Cursor", result: "AI-Native Coding", logo: "/logos/cursor.svg?v=9", highlight: "Redefining the IDE" }
-    ],
-    "Series B": [
-      { name: "Vercel", result: "$50M in 24mo", logo: "/logos/vercel.svg?v=9", highlight: "Frontend cloud standard" },
-      { name: "PostHog", result: "OS Product OS", logo: "/logos/posthog.svg?v=9", highlight: "Community-led outlier" }
-    ],
-    "Series C+": [
-      { name: "GitHub", result: "$1B+ ARR", logo: "/logos/github.svg?v=9", highlight: "Global developer OS" },
-      { name: "GitLab", result: "DevSecOps Leader", logo: "/logos/gitlab.svg?v=9", highlight: "Remote-first scale" }
-    ],
-  },
+const velocity = (i: Pick<Inputs, "opps" | "winRate" | "acv" | "cycle">) =>
+  i.cycle > 0 ? (i.opps * (i.winRate / 100) * i.acv) / i.cycle : 0;
+
+const money = (v: number) => {
+  if (!isFinite(v)) return "$0";
+  if (v < 100_000) return "$" + Math.round(v).toLocaleString("en-US");
+  if (v < 1_000_000) return "$" + Math.round(v / 1000) + "K";
+  return "$" + (v / 1_000_000).toFixed(v >= 10_000_000 ? 0 : 1) + "M";
 };
 
-export default function VelocityCalculator() {
-  const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
-  const [inputs, setInputs] = useState<Inputs>({
-    stage: "Series A",
-    vertical: "Enterprise SaaS",
-    opps: 50,
-    acv: 25000,
-    cycle: 90,
-    winRate: 21,
-    arr: 5000000,
-  });
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-  const ph = usePostHog();
+function Field({
+  label,
+  hint,
+  value,
+  onChange,
+  min,
+  max,
+  step = 1,
+  prefix,
+  suffix,
+  benchmark,
+}: {
+  label: string;
+  hint?: string;
+  value: number;
+  onChange: (v: number) => void;
+  min: number;
+  max: number;
+  step?: number;
+  prefix?: string;
+  suffix?: string;
+  benchmark?: number;
+}) {
+  const id = useId();
+  const clamped = Math.min(max, Math.max(min, value));
+  const pct = ((clamped - min) / (max - min)) * 100;
+  const bp = benchmark != null ? ((benchmark - min) / (max - min)) * 100 : null;
+  return (
+    <div className="na-field">
+      <div className="na-field-top">
+        <label htmlFor={id}>{label}</label>
+        {hint && <span className="na-field-hint">{hint}</span>}
+      </div>
+      <div className="na-input-wrap">
+        {prefix && <span className="pre">{prefix}</span>}
+        <input
+          id={id}
+          className="na-input"
+          inputMode="decimal"
+          value={value}
+          onChange={(e) => {
+            const v = Number(e.target.value.replace(/[^0-9.]/g, ""));
+            if (!isNaN(v)) onChange(v);
+          }}
+        />
+        {suffix && <span className="suf">{suffix}</span>}
+      </div>
+      <div className="na-range-wrap" style={{ paddingBottom: bp != null ? 14 : 0 }}>
+        <input
+          type="range"
+          className="na-range"
+          aria-label={`${label} slider`}
+          min={min}
+          max={max}
+          step={step}
+          value={clamped}
+          style={{ ["--p" as string]: pct + "%" }}
+          onChange={(e) => onChange(Number(e.target.value))}
+        />
+        {bp != null && bp >= 0 && bp <= 100 && (
+          <span className="na-range-mark" style={{ left: `calc(${bp}% + ${(0.5 - bp / 100) * 20}px)` }}>
+            median
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
 
-  const handleInputChange = (name: keyof Inputs, value: any) => {
-    setInputs((prev) => ({ ...prev, [name]: value }));
+function Bar({
+  label,
+  you,
+  median,
+  top,
+  max,
+  format,
+  invert = false,
+}: {
+  label: string;
+  you: number;
+  median: number;
+  top?: number;
+  max: number;
+  format: (v: number) => string;
+  invert?: boolean;
+}) {
+  const pct = (v: number) => Math.max(0, Math.min(100, (v / max) * 100));
+  const ratio = invert ? median / Math.max(you, 1) : you / Math.max(median, 0.0001);
+  const status = ratio >= 1.05 ? "above" : ratio >= 0.95 ? "at" : "below";
+  const word = { above: "Better than median", at: "At median", below: "Behind median" }[status];
+  const glyph = { above: "▲ ", at: "● ", below: "▼ " }[status];
+  return (
+    <div className="na-bb">
+      <div className="na-bb-top">
+        <b>{label}</b>
+        <span className="na-num">{format(you)}</span>
+      </div>
+      <div
+        className="na-bb-track"
+        role="img"
+        aria-label={`${label}: ${format(you)}. Median ${format(median)}${top != null ? `. Top performers ${format(top)}` : ""}. ${word}.`}
+      >
+        <div className={`na-bb-fill${status !== "below" ? " ok" : ""}`} style={{ width: pct(you) + "%" }} />
+        <div className="na-bb-tick" style={{ left: pct(median) + "%" }} />
+        {top != null && <div className="na-bb-tick top" style={{ left: pct(top) + "%" }} />}
+      </div>
+      <div className="na-bb-foot">
+        <span className={`na-bb-status ${status}`}>
+          {glyph}
+          {word}
+        </span>
+        <span>
+          med {format(median)}
+          {top != null ? ` · top ${format(top)}` : ""}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+export default function VelocityCalculator() {
+  const [s, setS] = useState<Inputs>({ stage: "Series A", opps: 50, winRate: 18, acv: 25_000, cycle: 75 });
+  const [email, setEmail] = useState("");
+  const [sent, setSent] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const ph = usePostHog();
+  const set = <K extends keyof Inputs>(k: K) => (v: Inputs[K]) => setS((o) => ({ ...o, [k]: v }));
+
+  const b = STAGE_BENCHMARKS[s.stage];
+  const you = velocity(s);
+
+  const levers = useMemo(() => {
+    const out: { name: string; gain: number }[] = [];
+    if (s.winRate < b.medianWin) out.push({ name: "win rate", gain: (velocity({ ...s, winRate: b.medianWin }) - you) * 90 });
+    if (s.cycle > b.medianCycle) out.push({ name: "sales cycle length", gain: (velocity({ ...s, cycle: b.medianCycle }) - you) * 90 });
+    return out.sort((x, y) => y.gain - x.gain);
+  }, [s, b, you]);
+
+  const topGain = s.winRate < b.eliteWin ? (velocity({ ...s, winRate: b.eliteWin }) - you) * 90 : 0;
+  // Index on the two benchmarked inputs only: 100 = stage median win rate and cycle.
+  const index = Math.round((s.winRate / b.medianWin) * (b.medianCycle / Math.max(s.cycle, 1)) * 100);
+
+  const results = {
+    velocityPerDay: Math.round(you),
+    newArrPerQuarter: Math.round(you * 90),
+    index,
+    lever: levers[0]?.name ?? null,
+    leverGainPerQuarter: levers[0] ? Math.round(levers[0].gain) : 0,
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
+    setSent("sending");
     try {
       const res = await fetch("/api/lead-magnet", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, magnetType: "velocity_calculator", payloadData: inputs }),
+        body: JSON.stringify({ email, magnetType: "velocity_calculator", payloadData: { ...s, ...results } }),
       });
-      if (res.ok) {
-        ph?.capture("lead_magnet_submitted", { type: "velocity_calculator", ...inputs });
-        setStep(4);
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
+      if (!res.ok) throw new Error(String(res.status));
+      ph?.capture("lead_magnet_submitted", { type: "velocity_calculator", ...s, ...results });
+      setSent("sent");
+    } catch {
+      setSent("error");
     }
   };
 
-  const getEfficiencyGrade = () => {
-    const cycleRatio = inputs.cycle / (inputs.acv / 1000);
-    if (cycleRatio < 1.0) return "A+";
-    if (cycleRatio < 1.5) return "A";
-    if (cycleRatio < 2.5) return "B";
-    if (cycleRatio < 4.0) return "C";
-    return "F";
-  };
-
-  const getRevenueGap = () => {
-    const currentQuarterRevenue = inputs.opps * (inputs.winRate / 100) * inputs.acv;
-    const targetWinRate = Math.max(inputs.winRate, 35); // 35% is the "Elite" floor
-    const potentialQuarterRevenue = inputs.opps * (targetWinRate / 100) * inputs.acv;
-    return (potentialQuarterRevenue - currentQuarterRevenue) * 4; // Annualized Gap
-  };
-
-  const legends = STAGE_VERTICAL_LEGENDS[inputs.vertical][inputs.stage];
-
-  const formatCurrency = (val: number) => {
-    if (val >= 1000000000) return `$${(val / 1000000000).toFixed(1)}B+`;
-    if (val >= 1000000) return `$${(val / 1000000).toFixed(0)}M`;
-    return `$${(val / 1000).toFixed(0)}K`;
-  };
-
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-12">
-      <div className="bg-[#1A2839] border border-white/10 backdrop-blur-xl rounded-[2.5rem] shadow-2xl overflow-hidden">
-        {/* Step Indicator */}
-        <div className="flex bg-black/20 p-2 m-4 rounded-2xl gap-2">
-          {[1, 2, 3, 4].map((s) => (
-            <div 
-              key={s} 
-              className={`flex-1 py-2.5 rounded-xl text-center text-[9px] font-black tracking-widest uppercase transition-all ${
-                step === s ? "bg-accent text-[#131F2E]" : "text-muted"
-              }`}
-            >
-              {s === 1 ? "Metrics" : s === 2 ? "Benchmarks" : s === 3 ? "Unlock" : "Roadmap"}
-            </div>
-          ))}
-        </div>
-
-        <div className="p-8 lg:p-16">
-          {/* STEP 1: CONTEXT & VOLUME */}
-          {step === 1 && (
-            <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div className="space-y-6">
-                  <label className="text-xs font-black text-muted uppercase tracking-[0.3em]">01. Current Stage</label>
-                  <div className="grid grid-cols-2 gap-2">
-                    {(["Seed", "Series A", "Series B", "Series C+"] as Stage[]).map((s) => (
-                      <button
-                        key={s} onClick={() => handleInputChange("stage", s)}
-                        className={`py-3 px-4 rounded-xl text-xs font-bold border transition-all ${
-                          inputs.stage === s ? "bg-accent text-[#131F2E] border-accent" : "bg-white/5 border-white/5 text-muted hover:border-white/10"
-                        }`}
-                      >
-                        {s}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                <div className="space-y-6">
-                  <label className="text-xs font-black text-muted uppercase tracking-[0.3em]">02. Market Vertical</label>
-                  <div className="grid grid-cols-2 gap-2">
-                    {(Object.keys(STAGE_VERTICAL_LEGENDS) as Vertical[]).map((v) => (
-                      <button
-                        key={v} onClick={() => handleInputChange("vertical", v)}
-                        className={`py-3 px-4 rounded-xl text-[10px] font-bold border transition-all ${
-                          inputs.vertical === v ? "bg-accent text-[#131F2E] border-accent" : "bg-white/5 border-white/5 text-muted hover:border-white/10"
-                        }`}
-                      >
-                        {v}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
-                {/* ARR with snapped values */}
-                <div className="space-y-6">
-                  <div className="flex justify-between items-end">
-                    <label className="text-sm font-bold text-foreground flex items-center gap-2"><BarChart3 className="w-4 h-4 text-accent" /> Current ARR</label>
-                    <span className="text-3xl font-black text-accent">{formatCurrency(inputs.arr)}</span>
-                  </div>
-                  <div className="relative pt-2">
-                    <input 
-                      type="range" 
-                      min="0" 
-                      max={ARR_VALUES.length - 1} 
-                      step="1" 
-                      value={ARR_VALUES.indexOf(inputs.arr)} 
-                      onChange={(e) => handleInputChange("arr", ARR_VALUES[parseInt(e.target.value)])} 
-                      className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent" 
-                    />
-                    <div className="flex justify-between w-full px-1 mt-3">
-                      {ARR_VALUES.filter((_, i) => i % 4 === 0 || i === ARR_VALUES.length - 1).map((val) => (
-                        <div key={val} className="flex flex-col items-center gap-1.5">
-                          <div className="w-1 h-1 rounded-full bg-white/20" />
-                          <span className="text-[8px] font-mono text-muted uppercase tracking-tighter">{formatCurrency(val)}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Opps */}
-                <div className="space-y-6">
-                  <div className="flex justify-between items-end">
-                    <label className="text-sm font-bold text-foreground flex items-center gap-2"><TrendingUp className="w-4 h-4 text-accent" /> Opps / Quarter</label>
-                    <span className="text-3xl font-black text-accent">{inputs.opps}</span>
-                  </div>
-                  <div className="relative pt-2">
-                    <input type="range" min="5" max="500" step="5" value={inputs.opps} onChange={(e) => handleInputChange("opps", parseInt(e.target.value))} className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent" />
-                    <div className="flex justify-between w-full px-1 mt-3">
-                      {[5, 125, 250, 375, 500].map((v) => (
-                        <div key={v} className="flex flex-col items-center gap-1.5">
-                          <div className="w-1 h-1 rounded-full bg-white/20" />
-                          <span className="text-[8px] font-mono text-muted tracking-tighter">{v}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Win Rate */}
-                <div className="space-y-6">
-                  <div className="flex justify-between items-end">
-                    <label className="text-sm font-bold text-foreground flex items-center gap-2"><Target className="w-4 h-4 text-accent" /> Win Rate</label>
-                    <span className="text-3xl font-black text-accent">{inputs.winRate}%</span>
-                  </div>
-                  <div className="relative pt-2">
-                    <input type="range" min="1" max="60" step="1" value={inputs.winRate} onChange={(e) => handleInputChange("winRate", parseInt(e.target.value))} className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent" />
-                    <div className="flex justify-between w-full px-1 mt-3">
-                      {[1, 15, 30, 45, 60].map((v) => (
-                        <div key={v} className="flex flex-col items-center gap-1.5">
-                          <div className="w-1 h-1 rounded-full bg-white/20" />
-                          <span className="text-[8px] font-mono text-muted tracking-tighter">{v}%</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* ACV */}
-                <div className="space-y-6">
-                  <div className="flex justify-between items-end">
-                    <label className="text-sm font-bold text-foreground flex items-center gap-2"><Zap className="w-4 h-4 text-accent" /> Average ACV</label>
-                    <span className="text-3xl font-black text-accent">{formatCurrency(inputs.acv)}</span>
-                  </div>
-                  <div className="relative pt-2">
-                    <input type="range" min="5000" max="250000" step="5000" value={inputs.acv} onChange={(e) => handleInputChange("acv", parseInt(e.target.value))} className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent" />
-                    <div className="flex justify-between w-full px-1 mt-3">
-                      {[5000, 65000, 125000, 185000, 250000].map((v) => (
-                        <div key={v} className="flex flex-col items-center gap-1.5">
-                          <div className="w-1 h-1 rounded-full bg-white/20" />
-                          <span className="text-[8px] font-mono text-muted tracking-tighter">{formatCurrency(v)}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <button
-                onClick={() => setStep(2)}
-                className="w-full group bg-accent text-[#131F2E] font-black text-xl rounded-2xl py-6 transition-all flex items-center justify-center gap-3 active:scale-[0.98]"
-              >
-                Diagnose GTM Efficiency
-                <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-2" />
-              </button>
-            </div>
-          )}
-
-          {/* STEP 2: COMPARATIVE DASHBOARD */}
-          {step === 2 && (
-            <div className="space-y-12 animate-in fade-in zoom-in-95 duration-700">
-              <div className="text-center space-y-4">
-                <span className="text-xs font-black uppercase tracking-[0.4em] text-accent">Efficiency Diagnosis</span>
-                <h2 className="text-4xl lg:text-6xl font-black tracking-tighter">Your GTM Grade: <span className="text-red-400 italic underline decoration-red-400/20">{getEfficiencyGrade()}</span></h2>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Revenue Gap Card */}
-                <div className="bg-red-400/5 border border-red-400/20 rounded-3xl p-8 space-y-6">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-red-400/60 uppercase tracking-widest">The Efficiency Tax</span>
-                    <TrendingUp className="w-5 h-5 text-red-400" />
-                  </div>
-                  <div className="text-4xl font-black text-red-400">-${(getRevenueGap()/1000000).toFixed(1)}M / Yr</div>
-                  <p className="text-sm text-muted leading-relaxed">
-                    Based on your {inputs.winRate}% win rate, you are leaving substantial revenue on the table relative to top-quartile performers. 
-                  </p>
-                </div>
-
-                {/* Legends Card */}
-                <div className="bg-white/5 border border-white/10 rounded-3xl p-8 space-y-6">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-muted uppercase tracking-widest">{inputs.stage} {inputs.vertical} Legends</span>
-                    <Gauge className="w-5 h-5 text-accent" />
-                  </div>
-                  <div className="space-y-4">
-                    {legends.map((l) => (
-                      <div key={l.name} className="flex items-center gap-4 group">
-                        <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-all">
-                          <img src={l.logo} alt={l.name} className="max-w-full max-h-full" loading="eager" decoding="async" />
-                        </div>
-                        <div>
-                          <div className="text-sm font-bold text-white">{l.name} <span className="text-accent text-[10px] ml-2">{l.result}</span></div>
-                          <div className="text-[10px] text-muted uppercase tracking-tight">{l.highlight}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-accent/5 border border-accent/20 rounded-[2.5rem] p-10 lg:p-16 text-center space-y-8 relative overflow-hidden">
-                <div className="relative z-10 space-y-6">
-                  <h3 className="text-3xl lg:text-5xl font-black tracking-tight leading-tight">
-                    We drive 15-30% lift in win rate within <span className="text-accent italic">6 months</span>.
-                  </h3>
-                  <p className="text-lg text-muted max-w-xl mx-auto leading-relaxed">
-                    By implementing the same agentic architectures used at <strong>HeyGen</strong> and <strong>Semgrep</strong>, we eliminate mid-funnel friction and accelerate velocity.
-                  </p>
-                  <button
-                    onClick={() => setStep(3)}
-                    className="inline-flex items-center gap-3 bg-white text-[#131F2E] px-10 py-5 rounded-2xl font-black text-xl transition-all scale-100 hover:scale-105 active:scale-95"
-                  >
-                    Unlock 6-Month GTM Roadmap
-                    <ChevronRight className="w-6 h-6" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* STEP 3: UNLOCK ROADMAP */}
-          {step === 3 && (
-            <div className="text-center space-y-10 py-12 animate-in fade-in zoom-in-95 duration-500">
-              <div className="mx-auto w-24 h-24 bg-accent/10 rounded-[2.5rem] flex items-center justify-center rotate-12 mb-8 shadow-2xl border border-accent/20">
-                <Lock className="w-12 h-12 text-accent" />
-              </div>
-              <div className="space-y-4">
-                <h2 className="text-4xl lg:text-5xl font-black tracking-tight">Strategy Blueprint Locked.</h2>
-                <p className="text-muted text-lg max-w-md mx-auto leading-relaxed">
-                  Enter your work email to receive the specific tactical roadmap to bridge your <strong>${(getRevenueGap()/1000000).toFixed(1)}M</strong> gap.
-                </p>
-              </div>
-              <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
-                <input
-                  type="email" required value={email} onChange={e => setEmail(e.target.value)}
-                  placeholder="name@company.com"
-                  className="w-full bg-white/5 border border-white/10 rounded-3xl px-6 py-5 text-xl outline-none focus:ring-2 focus:ring-accent text-center font-bold"
-                />
-                <button
-                  type="submit" disabled={loading}
-                  className="w-full bg-accent text-[#131F2E] font-black text-xl rounded-3xl py-6 transition-all"
-                >
-                  {loading ? "Processing..." : "Generate Roadmap"}
+    <div className="na" style={{ background: "transparent" }}>
+      <div className="na-calc">
+        <div className="na-calc-in">
+          <div className="na-field">
+            <span className="na-field-lbl">Stage</span>
+            <div className="na-seg" role="group" aria-label="Stage">
+              {STAGES.map((st) => (
+                <button key={st} type="button" aria-pressed={st === s.stage} onClick={() => set("stage")(st)}>
+                  {st}
                 </button>
-              </form>
+              ))}
+            </div>
+          </div>
+          <Field label="Qualified opps per quarter" value={s.opps} onChange={set("opps")} min={0} max={500} step={5} />
+          <Field label="Win rate" suffix="%" value={s.winRate} onChange={set("winRate")} min={0} max={60} benchmark={b.medianWin} />
+          <Field label="Average contract value" prefix="$" value={s.acv} onChange={set("acv")} min={0} max={250_000} step={1000} />
+          <Field label="Sales cycle" hint="first meeting to close" suffix="days" value={s.cycle} onChange={set("cycle")} min={0} max={Math.max(240, b.medianCycle * 2)} benchmark={b.medianCycle} />
+        </div>
+
+        <div className="na-calc-out" aria-live="polite">
+          <div className="na-calc-big">
+            <Eyebrow>Funnel velocity</Eyebrow>
+            <div className="v na-num">
+              {money(you)}
+              <small>per day</small>
+            </div>
+          </div>
+
+          <div className="na-calc-sub">
+            <div>
+              <strong className="na-num">{money(you * 90)}</strong>
+              <span>new ARR per quarter at this pace</span>
+            </div>
+            <div>
+              <strong className="na-num" style={{ color: index >= 100 ? "var(--steel)" : "var(--alpha-text)" }}>{index}</strong>
+              <span>win rate and cycle vs the {s.stage} median (100)</span>
+            </div>
+          </div>
+
+          {levers[0] ? (
+            <div className="na-calc-lever">
+              <span className="k">Your biggest lever</span>
+              <p>
+                Bring <b>{levers[0].name}</b> to the {s.stage} median. That is worth about <b>{money(levers[0].gain)}</b> more new ARR per quarter.
+              </p>
+            </div>
+          ) : (
+            <div className="na-calc-lever">
+              <span className="k">At or better than median</span>
+              <p>
+                Win rate and cycle both beat the {s.stage} median.
+                {topGain > 0 && (
+                  <>
+                    {" "}
+                    Reaching a top-performer win rate of {b.eliteWin}% is worth about <b>{money(topGain)}</b> more per quarter.
+                  </>
+                )}
+              </p>
             </div>
           )}
 
-          {/* STEP 4: SUCCESS & FINAL CTA */}
-          {step === 4 && (
-            <div className="text-center space-y-12 animate-in fade-in duration-700">
-              <div className="mx-auto w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center border border-emerald-500/20">
-                <CheckCircle2 className="w-10 h-10 text-emerald-500" />
-              </div>
-              <div className="space-y-4">
-                <h2 className="text-4xl lg:text-6xl font-black tracking-tighter italic">Growth Plan Sent.</h2>
-                <p className="text-xl text-muted max-w-xl mx-auto">
-                  Check <strong>{email}</strong> for your customized {inputs.vertical} efficiency audit.
-                </p>
-              </div>
+          <div className="na-calc-legend">
+            <span><i style={{ background: "var(--alpha)" }} />you, behind</span>
+            <span><i style={{ background: "var(--steel)" }} />you, at or better</span>
+            <span><i style={{ background: "var(--ink)", width: 3 }} />median</span>
+            <span><i style={{ background: "var(--ink-muted)", width: 3 }} />top performers</span>
+          </div>
+          <Bar label="Win rate" you={s.winRate} median={b.medianWin} top={b.eliteWin} max={Math.max(60, s.winRate)} format={(v) => v + "%"} />
+          <Bar label="Sales cycle (lower is better)" you={s.cycle} median={b.medianCycle} max={Math.max(s.cycle, b.medianCycle) * 1.25} invert format={(v) => v + "d"} />
 
-              <div className="bg-white text-[#131F2E] rounded-[3rem] p-10 lg:p-16 space-y-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-8 opacity-5 rotate-12">
-                  <TrendingUp className="w-64 h-64" />
-                </div>
-                <div className="relative z-10 space-y-8">
-                  <h3 className="text-3xl lg:text-5xl font-black tracking-tight leading-tight">
-                    Want to execute this roadmap with an expert?
-                  </h3>
-                  <p className="text-xl font-medium max-w-2xl mx-auto opacity-80 leading-relaxed">
-                    Schedule a 15-minute strategy session to see how we&apos;d bridge your ${(getRevenueGap()/1000000).toFixed(1)}M gap using the exact agentic playbooks we built at <strong>HeyGen</strong> and <strong>Semgrep</strong>.
-                  </p>
-                  <div className="pt-4">
-                    <Link
-                      href="/#contact"
-                      className="inline-flex items-center gap-3 bg-accent text-[#131F2E] px-12 py-6 rounded-2xl font-black text-2xl transition-all scale-100 hover:scale-105 active:scale-95"
-                    >
-                      <Calendar className="w-7 h-7 fill-[#131F2E]" />
-                      Schedule GTM Strategy Audit
-                    </Link>
-                  </div>
-                </div>
+          {sent === "sent" ? (
+            <p className="na-lead-ok">Sent. Your numbers are on their way to {email}.</p>
+          ) : (
+            <form className="na-lead" onSubmit={submit}>
+              <label htmlFor="calc-email" className="na-field-lbl">Email me this breakdown</label>
+              <div className="na-lead-row">
+                <input
+                  id="calc-email"
+                  name="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  placeholder="you@company.com"
+                  className="na-input"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <button type="submit" className="na-btn na-btn-primary" disabled={sent === "sending"}>
+                  {sent === "sending" ? "Sending" : "Send it"}
+                </button>
               </div>
-            </div>
+              <span className="na-field-hint">
+                {sent === "error" ? "That didn't go through. Try again, or email hello@nplusalpha.com." : "Your numbers and the lever, in one email. No newsletter."}
+              </span>
+            </form>
           )}
-        </div>
-      </div>
 
-      <div className="pt-16 border-t border-white/5 space-y-8">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 flex items-center gap-2">
-            <Info className="w-4 h-4" /> Methodology & 2026 Data Sources
-          </h3>
-          <span className="text-[10px] font-mono text-muted uppercase bg-white/5 px-2 py-1 rounded">Last Refreshed: March 13, 2026</span>
+          <p className="na-calc-fine">
+            Velocity = qualified opps × win rate × ACV ÷ cycle days. Win rate and cycle benchmarks by stage come from 2025 to 2026 GTM indices (PeerSignal, Growth Unhinged, Gartner), last refreshed March 13, 2026.
+          </p>
         </div>
-        <p className="text-sm text-muted leading-relaxed max-w-3xl">
-          Calculations are based on the <strong>AI-Native Efficiency Matrix</strong>, comparing your ACV-to-Cycle ratio and Win Rate against 2025-2026 GTM indices from <strong>PeerSignal</strong>, <strong>GrowthUnhinged</strong>, and <strong>Gartner</strong>. Legends are outliers representing top 1% performance trajectories.
-        </p>
       </div>
     </div>
   );
