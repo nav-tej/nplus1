@@ -35,7 +35,7 @@ export default function RelatedCaseStudies({
             href={`/case-studies/${study.slug}`}
             className="group rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:border-accent/30 hover:bg-white/[0.04] transition-colors"
           >
-            <span className="text-xs font-medium text-orange-400">
+            <span className="text-xs font-medium text-alpha-text">
               {study.badge}
             </span>
             <h3 className="text-lg font-bold mt-2 mb-2 group-hover:text-accent transition-colors">

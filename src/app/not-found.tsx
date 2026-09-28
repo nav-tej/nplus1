@@ -14,7 +14,7 @@ export default function NotFound() {
         id="main-content"
         className="flex min-h-[70vh] flex-col items-center justify-center px-6 text-center"
       >
-        <p className="text-sm font-semibold text-orange-400 tracking-wide uppercase mb-4">
+        <p className="text-sm font-semibold text-alpha-text tracking-wide uppercase mb-4">
           404
         </p>
         <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight mb-4">

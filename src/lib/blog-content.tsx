@@ -33,7 +33,7 @@ function Ul({ children }: { children: React.ReactNode }) {
 function Li({ children }: { children: React.ReactNode }) {
   return (
     <li className="flex items-start gap-2.5 text-[15px] text-muted">
-      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-orange-400 flex-shrink-0" />
+      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-alpha flex-shrink-0" />
       <span>{children}</span>
     </li>
   );
@@ -54,7 +54,7 @@ function InternalCta({
 }) {
   return (
     <p className="text-sm mt-8">
-      <Link href={href} className="text-orange-400 hover:underline font-medium">
+      <Link href={href} className="text-alpha-text hover:underline font-medium">
         {children}
       </Link>
     </p>
@@ -76,7 +76,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         No SEO program, no content engine, no community, and no structured lifecycle
         automation. There was no enterprise GTM motion. The brand had outgrown its
-        early-stage positioning, and the <Link href="/services/revenue-operations" className="text-orange-400 hover:underline">revenue operations</Link> architecture
+        early-stage positioning, and the <Link href="/services/revenue-operations" className="text-alpha-text hover:underline">revenue operations</Link> architecture
         wasn&apos;t built to support the enterprise motion the company was moving
         toward.
       </P>
@@ -119,7 +119,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         <Bold>3. No enterprise motion.</Bold> HeyGen had enormous enterprise
         potential: L&D teams, marketing agencies, enterprise video production.
-        But there was no targeted <Link href="/services/demand-generation" className="text-orange-400 hover:underline">enterprise GTM</Link>, no ABM program, and no
+        But there was no targeted <Link href="/services/demand-generation" className="text-alpha-text hover:underline">enterprise GTM</Link>, no ABM program, and no
         enterprise-specific positioning.
       </P>
       <P>
@@ -353,7 +353,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         it, but almost nobody has actually built it.
       </P>
       <P>
-        Here&apos;s what I&apos;ve learned building <Link href="/services/revenue-operations" className="text-orange-400 hover:underline">AI-native GTM systems</Link> at
+        Here&apos;s what I&apos;ve learned building <Link href="/services/revenue-operations" className="text-alpha-text hover:underline">AI-native GTM systems</Link> at
         HeyGen and Semgrep: what it actually means in practice, what the stack
         looks like, and what results it delivers.
       </P>
@@ -627,10 +627,10 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
               <th className="text-left py-3 pr-6 text-muted font-semibold">
                 Dimension
               </th>
-              <th className="text-left py-3 pr-6 text-orange-400 font-semibold">
+              <th className="text-left py-3 pr-6 text-alpha-text font-semibold">
                 PLG
               </th>
-              <th className="text-left py-3 text-orange-400 font-semibold">
+              <th className="text-left py-3 text-alpha-text font-semibold">
                 Enterprise
               </th>
             </tr>

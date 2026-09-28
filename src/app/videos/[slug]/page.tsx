@@ -79,7 +79,7 @@ export default async function VideoWatchPage({ params }: Props) {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Link 
             href={video.articleUrl}
-            className="inline-flex items-center gap-2 text-muted hover:text-orange-400 transition-colors mb-8 text-sm group"
+            className="inline-flex items-center gap-2 text-muted hover:text-alpha-text transition-colors mb-8 text-sm group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to {video.articleTitle}
@@ -107,7 +107,7 @@ export default async function VideoWatchPage({ params }: Props) {
                     <span>Uploaded {new Date(video.uploadDate).toLocaleDateString("en-US", { month: "long", year: "numeric" })}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Play className="w-4 h-4 text-orange-400" />
+                    <Play className="w-4 h-4 text-alpha-text" />
                     <span>Featured Insight</span>
                   </div>
                 </div>
@@ -123,8 +123,8 @@ export default async function VideoWatchPage({ params }: Props) {
 
             {/* Sidebar / CTA Area */}
             <aside className="space-y-6">
-              <div className="p-8 rounded-3xl bg-orange-400/10 border border-orange-400/20 text-center">
-                <h3 className="text-lg font-bold text-orange-400 mb-2">Want to build this?</h3>
+              <div className="p-8 rounded-3xl bg-alpha/10 border border-alpha/20 text-center">
+                <h3 className="text-lg font-bold text-alpha-text mb-2">Want to build this?</h3>
                 <p className="text-sm text-muted mb-6">Learn how we architect these GTM engines for B2B SaaS teams.</p>
                 <Link
                   href="/#contact"
@@ -141,7 +141,7 @@ export default async function VideoWatchPage({ params }: Props) {
                 </p>
                 <Link
                   href={video.articleUrl}
-                  className="inline-flex items-center gap-2 text-sm font-bold text-orange-400 hover:underline group"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-alpha-text hover:underline group"
                 >
                   Read Full Article
                   <Share2 className="w-4 h-4 group-hover:rotate-12 transition-transform" />

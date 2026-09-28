@@ -77,7 +77,7 @@ export default function CaseStudiesIndexPage() {
                 className="group relative rounded-3xl border border-white/10 bg-white/[0.02] p-8 lg:p-10 transition-colors hover:border-accent/30 hover:bg-white/[0.04]"
               >
                 <div className="flex flex-wrap items-center gap-3 mb-5">
-                  <span className="inline-flex items-center rounded-full border border-orange-400/30 bg-orange-400/10 px-3 py-1 text-xs font-medium text-orange-400">
+                  <span className="inline-flex items-center rounded-full border border-alpha/30 bg-alpha/10 px-3 py-1 text-xs font-medium text-alpha-text">
                     {study.badge}
                   </span>
                   <span className="text-xs text-muted">{study.industry}</span>

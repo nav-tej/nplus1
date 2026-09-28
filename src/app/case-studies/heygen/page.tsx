@@ -94,7 +94,7 @@ export default function CaseStudyPage() {
               <span className="text-foreground/60">HeyGen</span>
             </nav>
 
-            <span className="inline-flex items-center rounded-full border border-orange-400/30 bg-orange-400/10 px-3 py-1 text-xs font-medium text-orange-400 mb-6">
+            <span className="inline-flex items-center rounded-full border border-alpha/30 bg-alpha/10 px-3 py-1 text-xs font-medium text-alpha-text mb-6">
               $20M → $100M+ ARR
             </span>
             <h1 className="text-4xl lg:text-7xl font-extrabold tracking-tight mb-8">
@@ -111,7 +111,6 @@ export default function CaseStudyPage() {
             {/* Featured Video — Prominent layout to fix GSC "Video isn't on a watch page" issue */}
             <div className="mb-20">
               <div className="relative group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
-                <div className="absolute -inset-1 bg-gradient-to-r from-orange-400/20 to-accent/20 blur opacity-25 group-hover:opacity-40 transition-opacity duration-500" />
                 <div className="relative aspect-video max-w-4xl mx-auto shadow-2xl">
                   <VideoEmbed 
                     videoId="ogk5uMVFJh0" 
@@ -119,12 +118,12 @@ export default function CaseStudyPage() {
                   />
                 </div>
                 <div className="p-6 bg-black/40 backdrop-blur-sm border-t border-white/5">
-                  <h3 className="text-sm font-bold text-orange-400 uppercase tracking-widest mb-1 text-center">Featured Playbook Video</h3>
+                  <h3 className="text-sm font-bold text-alpha-text uppercase tracking-widest mb-1 text-center">Featured Playbook Video</h3>
                   <p className="text-white text-center font-medium mb-4">Inside the HeyGen GTM Engine with Nav Singh</p>
                   <div className="text-center">
                     <Link 
                       href="/videos/scaling-heygen-gtm"
-                      className="inline-flex items-center gap-2 text-xs font-bold text-muted hover:text-orange-400 transition-colors"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-muted hover:text-alpha-text transition-colors"
                     >
                       Watch on dedicated page →
                     </Link>
@@ -164,23 +163,23 @@ export default function CaseStudyPage() {
                 <h2 className="text-3xl font-bold mb-4">The five pillars</h2>
                 <ul className="grid sm:grid-cols-2 gap-6 mt-8 list-none p-0">
                   <li className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
-                    <h3 className="text-orange-400 font-bold mb-2">1. Repositioning for enterprise</h3>
+                    <h3 className="text-alpha-text font-bold mb-2">1. Repositioning for enterprise</h3>
                     <p className="text-sm text-muted">ICP moved from individual creators to enterprise communications teams, with the messaging hierarchy rebuilt around training, marketing, localization and HR. The site had to serve enterprise buyers without breaking the PLG top of funnel, so the brand architecture carried both motions at once.</p>
                   </li>
                   <li className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
-                    <h3 className="text-orange-400 font-bold mb-2">2. SEO from zero</h3>
+                    <h3 className="text-alpha-text font-bold mb-2">2. SEO from zero</h3>
                     <p className="text-sm text-muted">Organic was not a channel when I arrived. Technical foundation first, then programmatic content against real use-case demand, which produced over 50% year-on-year organic traffic growth.</p>
                   </li>
                   <li className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
-                    <h3 className="text-orange-400 font-bold mb-2">3. A 100,000 member community</h3>
+                    <h3 className="text-alpha-text font-bold mb-2">3. A 100,000 member community</h3>
                     <p className="text-sm text-muted">Built from nothing to six figures of members in six months, on a dedicated platform rather than Discord so the content stayed discoverable. Weekly tips, user showcases, AMAs and a 50+ creator ambassador program. Community members retained materially better than everyone else, and enterprise deals started coming out of relationships that began there.</p>
                   </li>
                   <li className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
-                    <h3 className="text-orange-400 font-bold mb-2">4. AI-native lifecycle</h3>
+                    <h3 className="text-alpha-text font-bold mb-2">4. AI-native lifecycle</h3>
                     <p className="text-sm text-muted">Free-to-paid conversion was strong and unsystematic. We segmented on behavior instead of plan type, fired sequences off specific product actions, and built a product-qualified lead model so sales reached people at the moment it helped rather than the moment it annoyed.</p>
                   </li>
                   <li className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
-                    <h3 className="text-orange-400 font-bold mb-2">5. Enterprise ABM</h3>
+                    <h3 className="text-alpha-text font-bold mb-2">5. Enterprise ABM</h3>
                     <p className="text-sm text-muted">An enterprise motion built on top of the PLG base: intent data and ICP criteria combined with existing user presence inside target accounts, hyper-personalized outreach at a scale manual research cannot reach, and the enterprise content that unblocks procurement. ROI calculators, SOC 2 and SSO documentation, video case studies.</p>
                   </li>
                   <li className="bg-accent/5 border border-accent/20 rounded-2xl p-6">

@@ -20,7 +20,7 @@ export default function CaseStudyCallout({ postSlug }: { postSlug: string }) {
           href={`/case-studies/${study.slug}`}
           className="group block rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-accent/30 hover:bg-white/[0.05] transition-all duration-300"
         >
-          <span className="inline-flex items-center rounded-full border border-orange-400/30 bg-orange-400/10 px-2.5 py-0.5 text-xs font-medium text-orange-400 mb-4">
+          <span className="inline-flex items-center rounded-full border border-alpha/30 bg-alpha/10 px-2.5 py-0.5 text-xs font-medium text-alpha-text mb-4">
             {study.badge}
           </span>
           <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-accent transition-colors">

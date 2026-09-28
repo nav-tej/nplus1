@@ -88,7 +88,7 @@ export default async function CaseStudyPage({ params }: Props) {
               <span className="text-foreground/60">{study.client}</span>
             </nav>
 
-            <span className="inline-flex items-center rounded-full border border-orange-400/30 bg-orange-400/10 px-3 py-1 text-xs font-medium text-orange-400 mb-6">
+            <span className="inline-flex items-center rounded-full border border-alpha/30 bg-alpha/10 px-3 py-1 text-xs font-medium text-alpha-text mb-6">
               {study.badge}
             </span>
             <h1 className="text-4xl lg:text-7xl font-extrabold tracking-tight mb-8">
@@ -170,7 +170,7 @@ export default async function CaseStudyPage({ params }: Props) {
                           key={bullet.title}
                           className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
                         >
-                          <h3 className="text-orange-400 font-bold mb-2 text-sm">
+                          <h3 className="text-alpha-text font-bold mb-2 text-sm">
                             {bullet.title}
                           </h3>
                           <p className="text-sm text-muted leading-relaxed">

@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Category + read time */}
             <div className="flex items-center gap-3 mb-5">
-              <span className="inline-flex items-center rounded-full border border-orange-400/30 bg-orange-400/10 px-3 py-1 text-xs font-medium text-orange-400">
+              <span className="inline-flex items-center rounded-full border border-alpha/30 bg-alpha/10 px-3 py-1 text-xs font-medium text-alpha-text">
                 {post.category}
               </span>
               <span className="text-xs text-muted">{post.readTime} min read</span>
@@ -128,12 +128,12 @@ export default async function BlogPostPage({ params }: Props) {
         {/* Bottom CTA */}
         <section className="py-16 border-t border-white/5 bg-white/[0.02]">
           <div className="mx-auto max-w-3xl px-6 lg:px-10 text-center">
-            <p className="text-xs font-semibold text-orange-400 tracking-wide uppercase mb-3">
+            <p className="text-xs font-semibold text-alpha-text tracking-wide uppercase mb-3">
               Work with Nav Singh
             </p>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
               Want these frameworks applied to{" "}
-              <span className="text-orange-400">your GTM?</span>
+              <span className="text-alpha-text">your GTM?</span>
             </h2>
             <p className="text-muted text-base mb-8 max-w-lg mx-auto leading-relaxed">
               Book a free GTM audit. I&apos;ll review your current motion and
@@ -180,16 +180,16 @@ export default async function BlogPostPage({ params }: Props) {
                     href={`/blog/${rel.slug}`}
                     className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-white/20 hover:bg-white/[0.05] transition-all duration-300"
                   >
-                    <span className="inline-flex items-center rounded-full border border-orange-400/30 bg-orange-400/10 px-2.5 py-0.5 text-xs font-medium text-orange-400 mb-3 self-start">
+                    <span className="inline-flex items-center rounded-full border border-alpha/30 bg-alpha/10 px-2.5 py-0.5 text-xs font-medium text-alpha-text mb-3 self-start">
                       {rel.category}
                     </span>
-                    <h3 className="text-sm font-bold text-foreground leading-snug mb-2 group-hover:text-orange-400 transition-colors">
+                    <h3 className="text-sm font-bold text-foreground leading-snug mb-2 group-hover:text-alpha-text transition-colors">
                       {rel.title}
                     </h3>
                     <p className="text-xs text-muted leading-relaxed flex-1 mb-3">
                       {rel.description}
                     </p>
-                    <span className="text-xs font-semibold text-orange-400 group-hover:translate-x-0.5 transition-transform inline-block">
+                    <span className="text-xs font-semibold text-alpha-text group-hover:translate-x-0.5 transition-transform inline-block">
                       Read →
                     </span>
                   </Link>

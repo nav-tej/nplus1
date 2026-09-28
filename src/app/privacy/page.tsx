@@ -25,7 +25,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">1. Introduction</h2>
               <p>
-                n+α Ventures (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website, <a href={`https://${SITE_CONFIG.domain}`} className="text-orange-400 hover:underline">{SITE_CONFIG.domain}</a>, and when you engage with our services.
+                n+α Ventures (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website, <a href={`https://${SITE_CONFIG.domain}`} className="text-alpha-text hover:underline">{SITE_CONFIG.domain}</a>, and when you engage with our services.
               </p>
             </section>
 
@@ -71,14 +71,14 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">6. Your Rights</h2>
               <p>
-                You have the right to access, correct, or delete your personal information. To exercise these rights, please contact us at <a href={`mailto:${SITE_CONFIG.email}`} className="text-orange-400 hover:underline">{SITE_CONFIG.email}</a>.
+                You have the right to access, correct, or delete your personal information. To exercise these rights, please contact us at <a href={`mailto:${SITE_CONFIG.email}`} className="text-alpha-text hover:underline">{SITE_CONFIG.email}</a>.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold mb-4">7. Contact Us</h2>
               <p>
-                If you have any questions about this Privacy Policy, please contact us at <a href={`mailto:${SITE_CONFIG.email}`} className="text-orange-400 hover:underline">{SITE_CONFIG.email}</a>.
+                If you have any questions about this Privacy Policy, please contact us at <a href={`mailto:${SITE_CONFIG.email}`} className="text-alpha-text hover:underline">{SITE_CONFIG.email}</a>.
               </p>
             </section>
           </div>

@@ -62,32 +62,32 @@ export default function AboutPage() {
       <main id="main-content">
         {/* ── Hero ── */}
         <section
-          className="pt-32 pb-16 border-b border-white/5"
+          className="pt-32 pb-16 border-b border-line"
           aria-label="Nav Singh introduction"
         >
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
-            <div className="flex flex-col sm:flex-row gap-10 items-start">
-              <figure className="flex-shrink-0 w-40 sm:w-[200px]">
+            <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-start sm:items-end">
+              <figure className="flex-shrink-0 w-48 sm:w-[240px] lg:w-[280px] m-0">
                 <Image
                   src="/nav-singh-portrait.jpg"
                   alt="Nav Singh, founder of n+α Ventures"
-                  width={200}
-                  height={250}
-                  sizes="(min-width: 640px) 200px, 160px"
-                  className="w-full h-auto rounded-2xl object-cover grayscale ring-1 ring-white/10"
+                  width={280}
+                  height={350}
+                  sizes="(min-width: 1024px) 280px, (min-width: 640px) 240px, 192px"
+                  className="w-full h-auto aspect-[4/5] rounded-[14px] object-cover grayscale border border-line"
                   priority
                 />
-                <figcaption className="mt-2 text-[11px] leading-snug text-muted">
+                <figcaption className="mt-2 font-mono text-[11px] leading-snug tracking-[0.02em] text-muted">
                   Photo: Michael Swensen for The New York Times
                 </figcaption>
               </figure>
 
               {/* Identity */}
               <div className="flex-1">
-                <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight">
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl text-foreground leading-[1]">
                   {FOUNDER.name}
                 </h1>
-                <p className="mt-2 text-lg font-semibold text-orange-400">
+                <p className="mt-3 text-lg font-medium text-alpha-text">
                   {FOUNDER.title}
                 </p>
                 <p className="mt-1 text-sm text-muted">
@@ -100,7 +100,7 @@ export default function AboutPage() {
                     href={FOUNDER.linkedin}
                     target="_blank"
                     rel="me noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-foreground hover:border-orange-400/60 hover:text-orange-400 transition-colors"
+                    className="inline-flex items-center gap-2 h-11 rounded-lg border border-[var(--line-strong)] px-5 text-sm font-medium text-foreground hover:border-foreground transition-colors"
                   >
                     <svg
                       width="15"
@@ -117,7 +117,7 @@ export default function AboutPage() {
                     href={FOUNDER.twitter}
                     target="_blank"
                     rel="me noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-foreground hover:border-orange-400/60 hover:text-orange-400 transition-colors"
+                    className="inline-flex items-center gap-2 h-11 rounded-lg border border-[var(--line-strong)] px-5 text-sm font-medium text-foreground hover:border-foreground transition-colors"
                   >
                     <svg
                       width="14"
@@ -132,9 +132,9 @@ export default function AboutPage() {
                   </a>
                   <Link
                     href="/#contact"
-                    className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-[#131F2E] hover:brightness-110 transition-all duration-300"
+                    className="inline-flex items-center gap-2 h-11 rounded-lg bg-accent px-5 text-sm font-medium text-[#131F2E] hover:bg-[var(--alpha-fill-hover)] transition-colors"
                   >
-                    Work Together →
+                    Book a free GTM audit <span aria-hidden="true">→</span>
                   </Link>
                 </div>
               </div>
@@ -193,7 +193,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {FOUNDER.stats.map((stat) => (
                 <div key={stat.label}>
-                  <p className="text-3xl sm:text-4xl font-extrabold text-orange-400">
+                  <p className="text-3xl sm:text-4xl font-extrabold text-alpha-text">
                     {stat.value}
                   </p>
                   <p className="mt-1.5 text-sm text-muted">{stat.label}</p>
@@ -216,7 +216,7 @@ export default function AboutPage() {
               {FOUNDER.experience.map((exp) => (
                 <article
                   key={exp.company}
-                  className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-orange-400/25 transition-colors"
+                  className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-alpha/25 transition-colors"
                 >
                   <div className="flex items-start justify-between gap-4 mb-3">
                     <div>
@@ -225,7 +225,7 @@ export default function AboutPage() {
                       </p>
                       <p className="text-sm text-muted">{exp.role}</p>
                     </div>
-                    <span className="flex-shrink-0 mt-0.5 text-xs font-semibold text-orange-400 bg-orange-400/10 px-3 py-1 rounded-full whitespace-nowrap">
+                    <span className="flex-shrink-0 mt-0.5 text-xs font-semibold text-alpha-text bg-alpha/10 px-3 py-1 rounded-full whitespace-nowrap">
                       {exp.highlight}
                     </span>
                   </div>
@@ -372,7 +372,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-3xl px-6 lg:px-10 text-center">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-4">
               Working with a VC-backed startup or{" "}
-              <span className="text-orange-400">PE portfolio company?</span>
+              <span className="text-alpha-text">PE portfolio company?</span>
             </h2>
             <p className="text-muted text-lg mb-8 max-w-xl mx-auto">
               Nav works directly with founders, investors, and executive teams.
