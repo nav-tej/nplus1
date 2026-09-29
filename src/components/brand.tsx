@@ -140,7 +140,7 @@ export function AlphaCurve({
   animate?: boolean;
   ariaLabel?: string;
   /** Real endpoints only (reported figures with dates). The path between stays stylized. */
-  annotations?: { i: number; label: string; sub?: string }[];
+  annotations?: { i: number; label: string; sub?: string; dy?: number }[];
   /** A moment (or, with `to`, a span) on the timeline with no value attached, e.g. Nav's tenure. */
   marker?: { i: number; to?: number; label: string };
 }) {
@@ -219,7 +219,8 @@ export function AlphaCurve({
         const [x, y] = P[a.i];
         const right = a.i > n / 2;
         const tx = right ? x + 4 : x + 10;
-        const ty = right ? y - 28 : y - 22;
+        // dy lifts a label clear of a line that climbs away from its point.
+        const ty = (right ? y - 28 : y - 22) + (a.dy ?? 0);
         return (
           <g key={a.i} className="ann">
             <circle cx={x} cy={y} r="3.5" className="ann-dot" />
@@ -290,23 +291,23 @@ export function Hero({
 
 export function HeroPanel({
   kicker = "HeyGen · ARR",
-  figure = "$20M → $100M+",
-  unit = "21 months",
+  figure = "Pre-Series A → $100M+",
+  unit = "Joined Apr 2024",
   values = HEYGEN_ARR,
   annotations = HEYGEN_ARR_ANNOTATIONS,
   marker = HEYGEN_NAV_JOINS,
   foot = [
-    ["5×", "ARR growth"],
+    ["$35M → $100M+", "ARR since the Series\u00a0A"],
     ["100K+", "community"],
     ["$25M", "ABM pipeline"],
   ],
-  note = "HeyGen's public milestones: $1M ARR (Apr 2023), $100M (Oct 2025), $200M (Jun 2026). The path between them is stylized.",
+  note = "HeyGen's public milestones: $1M ARR (Apr 2023), $35M+ at the Series\u00a0A (Jun\u00a02024), $100M (Oct 2025), $200M (Jun 2026). The path between them is stylized.",
 }: {
   kicker?: string;
   figure?: string;
   unit?: string;
   values?: number[];
-  annotations?: { i: number; label: string; sub?: string }[];
+  annotations?: { i: number; label: string; sub?: string; dy?: number }[];
   marker?: { i: number; to?: number; label: string };
   foot?: Pair[];
   note?: string;
@@ -321,7 +322,7 @@ export function HeroPanel({
         {figure}
         <small>{unit}</small>
       </div>
-      <AlphaCurve values={values} annotations={annotations} marker={marker} animate height={200} baseLabel="n · baseline growth" ariaLabel="HeyGen ARR rising from $1M in April 2023 to $100M in October 2025 and $200M in June 2026, with Nav joining in April 2024. Stylized between the labelled milestones." />
+      <AlphaCurve values={values} annotations={annotations} marker={marker} animate height={200} baseLabel="n · baseline growth" ariaLabel="HeyGen ARR rising from $1M in April 2023, past $35M at the June 2024 Series A, to $100M in October 2025 and $200M in June 2026. Nav joined before the Series A, in April 2024. Stylized between the labelled milestones." />
       <div className="na-hero-panel-foot">
         {foot.map(([v, l]) => (
           <div key={l}>

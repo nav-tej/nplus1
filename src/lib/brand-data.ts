@@ -75,15 +75,16 @@ export const POSTS: Post[] = [
  * Only the labelled points are public facts:
  *  - $1M ARR in April 2023 and $100M in October 2025: HeyGen's CEO on X, Oct 16, 2025
  *    (x.com/joshua_xu_/status/1978837985039888388).
- *  - $200M in June 2026: HeyGen press release, Business Wire, Jun 25, 2026
- *    ("HeyGen Doubles to $200M ARR in Eight Months").
- * The path between is one smooth stylized curve, 1 + a(e^(bt) - 1), fitted through the three
- * milestones. Label it stylized. Nav's own start figure is not
- * public, so the chart marks when he joined (Apr 2024, index 12) with no dollar value.
+ *  - $35M+ ARR in June 2024: HeyGen's $60M Series A announcement (heygen.com/blog/announcing-our-series-a).
+ *  - $200M in June 2026: HeyGen press release, Business Wire, Jun 25, 2026.
+ * The path is a monotone cubic (PCHIP) through the milestones in log space: smooth, never
+ * dipping, exact at each labelled point. Label it stylized. Nav joined pre-Series A in
+ * April 2024 (index 12); the chart marks that with no dollar value.
  */
-export const HEYGEN_ARR = [1, 1.8, 2.7, 3.6, 4.6, 5.7, 6.9, 8.2, 9.6, 11.1, 12.8, 14.6, 16.5, 18.7, 21, 23.5, 26.2, 29.1, 32.3, 35.8, 39.5, 43.6, 48, 52.8, 58, 63.7, 69.8, 76.4, 83.7, 91.5, 100, 109.2, 119.2, 130.1, 141.9, 154.7, 168.6, 183.6, 200];
+export const HEYGEN_ARR = [1, 1.3, 1.7, 2.3, 3.1, 4.2, 5.7, 7.7, 10.2, 13.4, 17.2, 21.5, 26.2, 30.9, 35, 38.7, 42.3, 45.9, 49.4, 52.8, 56.2, 59.5, 62.8, 66.2, 69.7, 73.4, 77.5, 82, 87.1, 93, 100, 108.2, 117.5, 128.1, 139.9, 153.1, 167.5, 183.2, 200];
 export const HEYGEN_ARR_ANNOTATIONS = [
   { i: 0, label: "$1M", sub: "Apr 2023" },
+  { i: 14, label: "$35M+", sub: "Series A · Jun 2024", dy: -34 },
   { i: 30, label: "$100M", sub: "Oct 2025" },
   { i: 38, label: "$200M", sub: "Jun 2026" },
 ];

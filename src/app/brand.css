@@ -457,3 +457,5 @@
 .na-curve .mark { stroke: var(--line-strong); stroke-width: 1; stroke-dasharray: 2 4; }
 .na-curve .mark-lbl { font: 500 10px var(--font-mono); fill: var(--ink-muted); letter-spacing: .04em; }
 .na-curve .band { fill: var(--ink); opacity: .05; }
+/* site: the first foot stat can be a range ("$35M → $100M+"), so it gets the widest column. */
+.na-hero-panel-foot { grid-template-columns: 1.6fr 1fr 1fr; }
