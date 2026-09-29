@@ -141,8 +141,8 @@ export function AlphaCurve({
   ariaLabel?: string;
   /** Real endpoints only (reported figures with dates). The path between stays stylized. */
   annotations?: { i: number; label: string; sub?: string }[];
-  /** A moment on the timeline with no value attached, e.g. when Nav joined. Dashed rule plus a label. */
-  marker?: { i: number; label: string };
+  /** A moment (or, with `to`, a span) on the timeline with no value attached, e.g. Nav's tenure. */
+  marker?: { i: number; to?: number; label: string };
 }) {
   const pad = { t: annotations.length ? 48 : 24, r: 28, b: labels ? 26 : 8, l: 8 };
   const W = width - pad.l - pad.r;
@@ -191,8 +191,12 @@ export function AlphaCurve({
       <path className="gap" d={gap} />
       {marker && (
         <g className="ann">
+          {marker.to != null && (
+            <rect className="band" x={X(marker.i)} width={X(marker.to) - X(marker.i)} y={pad.t - 8} height={H + 8} />
+          )}
           <line className="mark" x1={X(marker.i)} x2={X(marker.i)} y1={pad.t - 8} y2={pad.t + H} />
-          <text className="mark-lbl" x={X(marker.i) + 6} y={pad.t - 2}>
+          {marker.to != null && <line className="mark" x1={X(marker.to)} x2={X(marker.to)} y1={pad.t - 8} y2={pad.t + H} />}
+          <text className="mark-lbl" x={X(marker.i) + 6} y={pad.t + 4}>
             {marker.label}
           </text>
         </g>
@@ -296,14 +300,14 @@ export function HeroPanel({
     ["100K+", "community"],
     ["$25M", "ABM pipeline"],
   ],
-  note = "Milestones from HeyGen's CEO: $1M ARR in April 2023, $100M in October 2025. The path between them is stylized.",
+  note = "HeyGen's public milestones: $1M ARR (Apr 2023), $100M (Oct 2025), $200M (Jun 2026). The path between them is stylized.",
 }: {
   kicker?: string;
   figure?: string;
   unit?: string;
   values?: number[];
   annotations?: { i: number; label: string; sub?: string }[];
-  marker?: { i: number; label: string };
+  marker?: { i: number; to?: number; label: string };
   foot?: Pair[];
   note?: string;
 }) {
@@ -317,7 +321,7 @@ export function HeroPanel({
         {figure}
         <small>{unit}</small>
       </div>
-      <AlphaCurve values={values} annotations={annotations} marker={marker} animate height={200} baseLabel="n · baseline growth" ariaLabel="HeyGen ARR rising from $1M in April 2023 to $100M in October 2025, with Nav joining in April 2024. Stylized between the labelled milestones." />
+      <AlphaCurve values={values} annotations={annotations} marker={marker} animate height={200} baseLabel="n · baseline growth" ariaLabel="HeyGen ARR rising from $1M in April 2023 to $100M in October 2025 and $200M in June 2026, with Nav joining in April 2024. Stylized between the labelled milestones." />
       <div className="na-hero-panel-foot">
         {foot.map(([v, l]) => (
           <div key={l}>

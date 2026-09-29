@@ -456,3 +456,4 @@
 /* site: a value-free moment on a curve (e.g. "Nav joins"). */
 .na-curve .mark { stroke: var(--line-strong); stroke-width: 1; stroke-dasharray: 2 4; }
 .na-curve .mark-lbl { font: 500 10px var(--font-mono); fill: var(--ink-muted); letter-spacing: .04em; }
+.na-curve .band { fill: var(--ink); opacity: .05; }

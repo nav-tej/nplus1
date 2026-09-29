@@ -71,16 +71,20 @@ export const POSTS: Post[] = [
 ];
 
 /**
- * HeyGen ARR, one point per month from April 2023 (index 0) to October 2025 (index 30).
- * Only the two labelled points are public facts, both from HeyGen's CEO on X, Oct 16, 2025
- * (x.com/joshua_xu_/status/1978837985039888388): "$100M ARR this month, 29 months after we
- * first reached $1M in April 2023." The path between is stylized and must be labelled so.
- * Nav's own start figure is not public, so the chart marks when he joined (Apr 2024,
- * index 12) with no dollar value.
+ * HeyGen ARR, one point per month from April 2023 (index 0) to June 2026 (index 38).
+ * Only the labelled points are public facts:
+ *  - $1M ARR in April 2023 and $100M in October 2025: HeyGen's CEO on X, Oct 16, 2025
+ *    (x.com/joshua_xu_/status/1978837985039888388).
+ *  - $200M in June 2026: HeyGen press release, Business Wire, Jun 25, 2026
+ *    ("HeyGen Doubles to $200M ARR in Eight Months").
+ * The path between is one smooth stylized curve, 1 + a(e^(bt) - 1), fitted through the three
+ * milestones. Label it stylized. Nav's own start figure is not
+ * public, so the chart marks when he joined (Apr 2024, index 12) with no dollar value.
  */
-export const HEYGEN_ARR = [1, 2.2, 3.9, 6, 8.2, 10.6, 13.2, 15.9, 18.8, 21.7, 24.7, 27.9, 31.1, 34.4, 37.8, 41.2, 44.7, 48.3, 52, 55.7, 59.4, 63.3, 67.1, 71.1, 75.1, 79.1, 83.2, 87.3, 91.5, 95.7, 100];
+export const HEYGEN_ARR = [1, 1.8, 2.7, 3.6, 4.6, 5.7, 6.9, 8.2, 9.6, 11.1, 12.8, 14.6, 16.5, 18.7, 21, 23.5, 26.2, 29.1, 32.3, 35.8, 39.5, 43.6, 48, 52.8, 58, 63.7, 69.8, 76.4, 83.7, 91.5, 100, 109.2, 119.2, 130.1, 141.9, 154.7, 168.6, 183.6, 200];
 export const HEYGEN_ARR_ANNOTATIONS = [
   { i: 0, label: "$1M", sub: "Apr 2023" },
-  { i: 30, label: "$100M+", sub: "Oct 2025" },
+  { i: 30, label: "$100M", sub: "Oct 2025" },
+  { i: 38, label: "$200M", sub: "Jun 2026" },
 ];
 export const HEYGEN_NAV_JOINS = { i: 12, label: "Nav joins · Apr 2024" };
