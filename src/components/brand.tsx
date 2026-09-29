@@ -291,13 +291,13 @@ export function Hero({
 
 export function HeroPanel({
   kicker = "HeyGen · ARR",
-  figure = "Pre-Series A → $100M+",
-  unit = "Joined Apr 2024",
+  figure = "$20M → $100M+",
+  unit = "21 months",
   values = HEYGEN_ARR,
   annotations = HEYGEN_ARR_ANNOTATIONS,
   marker = HEYGEN_NAV_JOINS,
   foot = [
-    ["$35M → $100M+", "ARR since the Series\u00a0A"],
+    ["5×", "ARR growth"],
     ["100K+", "community"],
     ["$25M", "ABM pipeline"],
   ],
