@@ -71,13 +71,16 @@ export const POSTS: Post[] = [
 ];
 
 /**
- * HeyGen ARR, one point per month of Nav's tenure (Apr 2024 = index 0 to Jan 2026 = 21).
- * Only two points are facts: $20M at the start of the tenure, and $100M+ ARR, which
- * HeyGen's CEO announced on X on Oct 16, 2025 (index 18). The path between is stylized
- * and must be labelled so wherever it is drawn.
+ * HeyGen ARR, one point per month from April 2023 (index 0) to October 2025 (index 30).
+ * Only the two labelled points are public facts, both from HeyGen's CEO on X, Oct 16, 2025
+ * (x.com/joshua_xu_/status/1978837985039888388): "$100M ARR this month, 29 months after we
+ * first reached $1M in April 2023." The path between is stylized and must be labelled so.
+ * Nav's own start figure is not public, so the chart marks when he joined (Apr 2024,
+ * index 12) with no dollar value.
  */
-export const HEYGEN_ARR = [20, 21.9, 24, 26.3, 28.8, 31.6, 34.6, 38, 41.6, 45.6, 50, 54.8, 60, 65.8, 72.1, 79, 86.6, 94.9, 104, 113.9, 124.9, 136.8];
+export const HEYGEN_ARR = [1, 2.2, 3.9, 6, 8.2, 10.6, 13.2, 15.9, 18.8, 21.7, 24.7, 27.9, 31.1, 34.4, 37.8, 41.2, 44.7, 48.3, 52, 55.7, 59.4, 63.3, 67.1, 71.1, 75.1, 79.1, 83.2, 87.3, 91.5, 95.7, 100];
 export const HEYGEN_ARR_ANNOTATIONS = [
-  { i: 0, label: "$20M", sub: "Apr 2024" },
-  { i: 18, label: "$100M+", sub: "Oct 2025" },
+  { i: 0, label: "$1M", sub: "Apr 2023" },
+  { i: 30, label: "$100M+", sub: "Oct 2025" },
 ];
+export const HEYGEN_NAV_JOINS = { i: 12, label: "Nav joins · Apr 2024" };

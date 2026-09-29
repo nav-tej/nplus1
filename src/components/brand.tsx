@@ -6,7 +6,7 @@
  */
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
-import { CASES, HEYGEN_ARR, HEYGEN_ARR_ANNOTATIONS, POSTS, PROCESS, TRACK, type CaseCard, type Pair, type Post, type Stop } from "@/lib/brand-data";
+import { CASES, HEYGEN_ARR, HEYGEN_ARR_ANNOTATIONS, HEYGEN_NAV_JOINS, POSTS, PROCESS, TRACK, type CaseCard, type Pair, type Post, type Stop } from "@/lib/brand-data";
 
 const cx = (...a: (string | false | undefined | null)[]) => a.filter(Boolean).join(" ");
 const Arrow = () => (
@@ -128,6 +128,7 @@ export function AlphaCurve({
   animate = false,
   ariaLabel,
   annotations = [],
+  marker,
 }: {
   values?: number[];
   baseline?: number[];
@@ -140,6 +141,8 @@ export function AlphaCurve({
   ariaLabel?: string;
   /** Real endpoints only (reported figures with dates). The path between stays stylized. */
   annotations?: { i: number; label: string; sub?: string }[];
+  /** A moment on the timeline with no value attached, e.g. when Nav joined. Dashed rule plus a label. */
+  marker?: { i: number; label: string };
 }) {
   const pad = { t: annotations.length ? 48 : 24, r: 28, b: labels ? 26 : 8, l: 8 };
   const W = width - pad.l - pad.r;
@@ -186,6 +189,14 @@ export function AlphaCurve({
         <line key={f} className="grid" x1={pad.l} x2={width - pad.r} y1={pad.t + H * f} y2={pad.t + H * f} />
       ))}
       <path className="gap" d={gap} />
+      {marker && (
+        <g className="ann">
+          <line className="mark" x1={X(marker.i)} x2={X(marker.i)} y1={pad.t - 8} y2={pad.t + H} />
+          <text className="mark-lbl" x={X(marker.i) + 6} y={pad.t - 2}>
+            {marker.label}
+          </text>
+        </g>
+      )}
       <path className="base" d={polyline(B)} />
       <path className="line" d={d} />
       <circle className="halo" cx={end[0]} cy={end[1]} r="9" />
@@ -279,18 +290,20 @@ export function HeroPanel({
   unit = "21 months",
   values = HEYGEN_ARR,
   annotations = HEYGEN_ARR_ANNOTATIONS,
+  marker = HEYGEN_NAV_JOINS,
   foot = [
     ["5×", "ARR growth"],
     ["100K+", "community"],
     ["$25M", "ABM pipeline"],
   ],
-  note = "HeyGen announced $100M+ ARR in October 2025. The path between the two labelled points is stylized.",
+  note = "Milestones from HeyGen's CEO: $1M ARR in April 2023, $100M in October 2025. The path between them is stylized.",
 }: {
   kicker?: string;
   figure?: string;
   unit?: string;
   values?: number[];
   annotations?: { i: number; label: string; sub?: string }[];
+  marker?: { i: number; label: string };
   foot?: Pair[];
   note?: string;
 }) {
@@ -304,7 +317,7 @@ export function HeroPanel({
         {figure}
         <small>{unit}</small>
       </div>
-      <AlphaCurve values={values} annotations={annotations} animate height={200} baseLabel="n · baseline growth" ariaLabel="HeyGen ARR rising from $20M in April 2024 past $100M in October 2025, well above a baseline growth line. Stylized." />
+      <AlphaCurve values={values} annotations={annotations} marker={marker} animate height={200} baseLabel="n · baseline growth" ariaLabel="HeyGen ARR rising from $1M in April 2023 to $100M in October 2025, with Nav joining in April 2024. Stylized between the labelled milestones." />
       <div className="na-hero-panel-foot">
         {foot.map(([v, l]) => (
           <div key={l}>

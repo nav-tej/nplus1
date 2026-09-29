@@ -452,4 +452,7 @@
 .na-prose b { font-weight: 600; }
 .na-art-body .video-responsive-container { margin: 0; }
 /* site: the unit next to the hero figure wraps as one piece ("21 months"), never mid-phrase. */
-.na-hero-panel-fig small { white-space: nowrap; display: inline-block; }
+.na-hero-panel-fig small { white-space: nowrap; display: block; margin: var(--space-2) 0 0; }
+/* site: a value-free moment on a curve (e.g. "Nav joins"). */
+.na-curve .mark { stroke: var(--line-strong); stroke-width: 1; stroke-dasharray: 2 4; }
+.na-curve .mark-lbl { font: 500 10px var(--font-mono); fill: var(--ink-muted); letter-spacing: .04em; }

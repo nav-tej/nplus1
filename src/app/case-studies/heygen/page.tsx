@@ -6,7 +6,7 @@ import VideoEmbed from "@/components/VideoEmbed";
 import Byline from "@/components/Byline";
 import { getCaseStudy } from "@/lib/case-studies";
 import { SITE_CONFIG } from "@/lib/constants";
-import { CASES, HEYGEN_ARR, HEYGEN_ARR_ANNOTATIONS } from "@/lib/brand-data";
+import { CASES, HEYGEN_ARR, HEYGEN_ARR_ANNOTATIONS, HEYGEN_NAV_JOINS } from "@/lib/brand-data";
 import {
   AlphaCurve,
   ArtifactFrame,
@@ -196,11 +196,11 @@ export default function CaseStudyPage() {
             <section id="shape" className="na-article-sec">
               <ArtifactFrame
                 kind="Artifact 01"
-                title="ARR vs a steady baseline"
+                title="HeyGen ARR vs a steady baseline"
                 caption={
                   <>
-                    <b>$20M when I started in April 2024. $100M+ when HeyGen announced it in October 2025.</b> The
-                    path between those points and the baseline are stylized. The shaded gap is the α.
+                    <b>HeyGen&apos;s own milestones: $1M ARR in April 2023, $100M in October 2025.</b> I joined in
+                    April 2024. The path between the milestones and the baseline are stylized. The shaded gap is the α.
                   </>
                 }
               >
@@ -210,7 +210,8 @@ export default function CaseStudyPage() {
                   height={260}
                   baseLabel="n · steady baseline"
                   annotations={HEYGEN_ARR_ANNOTATIONS}
-                  ariaLabel="HeyGen ARR rising from $20M in April 2024 past $100M in October 2025, well above a steady baseline. Stylized between the two labelled points."
+                  marker={HEYGEN_NAV_JOINS}
+                  ariaLabel="HeyGen ARR rising from $1M in April 2023 to $100M in October 2025, with Nav joining in April 2024. Stylized between the labelled milestones."
                 />
               </ArtifactFrame>
             </section>
