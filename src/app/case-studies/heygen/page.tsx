@@ -199,8 +199,8 @@ export default function CaseStudyPage() {
                 title="HeyGen ARR vs a steady baseline"
                 caption={
                   <>
-                    <b>HeyGen&apos;s public milestones: $1M ARR in April 2023, $35M+ at the Series A in June 2024, $100M in
-                    October 2025, $200M in June 2026.</b> I joined in April 2024, before the Series A. The path between the milestones and the baseline are stylized. The
+                    <b>HeyGen&apos;s public milestones: $1M ARR in April 2023, $100M in October 2025, $200M in June
+                    2026.</b> I joined in April 2024, before the Series A. The path between the milestones and the baseline are stylized. The
                     shaded gap is the α.
                   </>
                 }
@@ -212,7 +212,7 @@ export default function CaseStudyPage() {
                   baseLabel="n · steady baseline"
                   annotations={HEYGEN_ARR_ANNOTATIONS}
                   marker={HEYGEN_NAV_JOINS}
-                  ariaLabel="HeyGen ARR rising from $1M in April 2023, past $35M at the June 2024 Series A, to $100M in October 2025 and $200M in June 2026. Nav joined before the Series A, in April 2024. Stylized between the labelled milestones."
+                  ariaLabel="HeyGen ARR rising from $1M in April 2023 to $100M in October 2025 and $200M in June 2026. Nav joined in April 2024, before the Series A. Stylized between the labelled milestones."
                 />
               </ArtifactFrame>
             </section>
