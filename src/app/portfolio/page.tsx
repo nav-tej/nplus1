@@ -175,7 +175,7 @@ export default function PortfolioPage() {
                  style={{ ["--textMuted" as any]: COLORS.textMuted }}>
               I work with 2-3 companies at a time. Currently accepting new engagements.
             </div>
-            <a href="/#contact" className="inline-flex items-center gap-2 bg-accent text-[var(--on-alpha)] px-8 py-3.5 rounded-full font-bold text-sm tracking-wide hover:brightness-110 transition-all duration-300 active:scale-95">
+            <a href="/book" className="inline-flex items-center gap-2 bg-accent text-[var(--on-alpha)] px-8 py-3.5 rounded-full font-bold text-sm tracking-wide hover:brightness-110 transition-all duration-300 active:scale-95">
               Book a free GTM audit →
             </a>
           </div>

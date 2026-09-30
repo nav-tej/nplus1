@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
     "n+α Ventures helps ambitious B2B companies build and execute repeatable go-to-market strategies that drive revenue growth.",
   email: "hello@nplusalpha.com",
 
-  calendarLink: "/#contact",
+  calendarLink: "/book",
 };
 
 

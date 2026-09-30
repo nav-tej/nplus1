@@ -209,8 +209,8 @@ export default function ResultsPage() {
               funnel is stuck and I will tell you whether I am the right person
               for it.
             </p>
-            <Link
-              href="/#contact"
+            <Link prefetch={false}
+              href="/book"
               className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300"
             >
               Start a conversation

@@ -262,8 +262,8 @@ export default function FrameworkPage() {
                 We partner with 1-2 companies at a time to implement this framework directly into your GTM architecture. There is no long discovery period; we start shipping within 14 days.
               </p>
               <div className="pt-4">
-                <Link
-                  href="/#contact"
+                <Link prefetch={false}
+                  href="/book"
                   className="inline-flex items-center gap-4 bg-accent text-[var(--on-alpha)] px-12 py-6 rounded-2xl font-black text-2xl transition-all active:scale-95 group"
                 >
                   Start Shipping

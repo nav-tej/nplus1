@@ -70,11 +70,11 @@ export default function CaseStudiesIndexPage() {
             <CTASection
               title="Your funnel, with the same treatment."
               body="I work with two or three companies at a time. If the problems above sound like yours, tell me where it is stuck."
-              primary={["Book a free GTM audit", "/#contact"]}
+              primary={["Book a free GTM audit", "/book"]}
             />
           </div>
         </section>
-        <MobileStickyCTA href="/#contact" />
+        <MobileStickyCTA href="/book" />
       </main>
       <Footer />
     </>

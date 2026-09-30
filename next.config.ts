@@ -4,6 +4,17 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  // One place to change the booking link. Temporary (307) so a new calendar URL
+  // never gets cached as permanent by browsers or search engines.
+  async redirects() {
+    return [
+      {
+        source: "/book",
+        destination: "https://cal.com/navtej-singh/15min",
+        permanent: false,
+      },
+    ];
+  },
   async headers() {
     return [
       {

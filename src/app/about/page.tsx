@@ -130,8 +130,8 @@ export default function AboutPage() {
                     </svg>
                     @navtejs
                   </a>
-                  <Link
-                    href="/#contact"
+                  <Link prefetch={false}
+                    href="/book"
                     className="inline-flex items-center gap-2 h-11 rounded-lg bg-accent px-5 text-sm font-medium text-[var(--on-alpha)] hover:bg-[var(--alpha-fill-hover)] transition-colors"
                   >
                     Book a free GTM audit <span aria-hidden="true">→</span>
@@ -378,8 +378,8 @@ export default function AboutPage() {
               Nav works directly with founders, investors, and executive teams.
               No pitch decks, just a conversation about fit.
             </p>
-            <Link
-              href="/#contact"
+            <Link prefetch={false}
+              href="/book"
               className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300"
             >
               Book a free GTM audit →

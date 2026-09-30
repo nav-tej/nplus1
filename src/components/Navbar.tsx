@@ -141,7 +141,7 @@ export default function Navbar({ theme }: { theme?: "paper" } = {}) {
                 );
               })}
               <li>
-                <Link 
+                <Link prefetch={false} 
                   href={SITE_CONFIG.calendarLink} 
                   className="inline-flex items-center h-[38px] bg-accent text-[var(--on-alpha)] px-4 rounded-lg text-sm font-medium hover:bg-[var(--alpha-fill-hover)] transition-colors"
                   title="Book a free GTM audit"
@@ -278,7 +278,7 @@ export default function Navbar({ theme }: { theme?: "paper" } = {}) {
           })}
 
           <div className="pt-6">
-            <Link
+            <Link prefetch={false}
               href={SITE_CONFIG.calendarLink}
               onClick={() => setMobileOpen(false)}
               className="flex items-center justify-center gap-3 w-full h-12 rounded-lg bg-accent text-[var(--on-alpha)] text-base font-medium"
