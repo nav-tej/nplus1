@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import { usePostHog } from "posthog-js/react";
+import { useFormGuard } from "@/components/useFormGuard";
 
 type FormData = {
   firstName: string;
@@ -25,6 +26,7 @@ export default function ContactForm() {
   );
   const ph = usePostHog();
   const started = useRef(false);
+  const { honeypot, guardFields } = useFormGuard();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -52,7 +54,7 @@ export default function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, ...guardFields() }),
       });
 
       if (!res.ok) throw new Error("Failed to submit");
@@ -94,6 +96,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+        {honeypot}
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label

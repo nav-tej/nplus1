@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePostHog } from "posthog-js/react";
+import { useFormGuard } from "@/components/useFormGuard";
 import { Database, Brain, Mail, Workflow, CheckCircle2, Download, ArrowRight, MessageSquare, Quote } from "lucide-react";
 
 export default function PlaybookDownload() {
@@ -10,6 +11,7 @@ export default function PlaybookDownload() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [showAvatar, setShowAvatar] = useState(false);
   const ph = usePostHog();
+  const { honeypot, guardFields } = useFormGuard();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,6 +24,7 @@ export default function PlaybookDownload() {
         body: JSON.stringify({
           email,
           magnetType: "outbound_playbook",
+          ...guardFields(),
         }),
       });
 
@@ -161,6 +164,7 @@ export default function PlaybookDownload() {
           ) : (
             <div className="space-y-6">
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full max-w-lg">
+                  {honeypot}
                 <input
                   type="email"
                   required
