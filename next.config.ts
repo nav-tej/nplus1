@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withBotId } from "botid/next/config";
 
 const nextConfig: NextConfig = {
   images: {
@@ -70,4 +71,5 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// withBotId adds the proxy rewrites Vercel BotID needs for its invisible check.
+export default withBotId(nextConfig);

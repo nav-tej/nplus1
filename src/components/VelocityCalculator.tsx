@@ -2,6 +2,7 @@
 
 import { useId, useMemo, useState } from "react";
 import { usePostHog } from "posthog-js/react";
+import { useFormGuard } from "@/components/useFormGuard";
 import { Eyebrow } from "@/components/brand";
 
 /*
@@ -163,6 +164,7 @@ export default function VelocityCalculator() {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const ph = usePostHog();
+  const { honeypot, guardFields } = useFormGuard();
   const set = <K extends keyof Inputs>(k: K) => (v: Inputs[K]) => setS((o) => ({ ...o, [k]: v }));
 
   const b = STAGE_BENCHMARKS[s.stage];
@@ -194,7 +196,7 @@ export default function VelocityCalculator() {
       const res = await fetch("/api/lead-magnet", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, magnetType: "velocity_calculator", payloadData: { ...s, ...results } }),
+        body: JSON.stringify({ email, magnetType: "velocity_calculator", payloadData: { ...s, ...results }, ...guardFields() }),
       });
       if (!res.ok) throw new Error(String(res.status));
       ph?.capture("lead_magnet_submitted", { type: "velocity_calculator", ...s, ...results });
@@ -279,6 +281,7 @@ export default function VelocityCalculator() {
             <p className="na-lead-ok">Sent. Your numbers are on their way to {email}.</p>
           ) : (
             <form className="na-lead" onSubmit={submit}>
+              {honeypot}
               <label htmlFor="calc-email" className="na-field-lbl">Email me this breakdown</label>
               <div className="na-lead-row">
                 <input

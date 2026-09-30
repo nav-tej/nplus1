@@ -1,18 +1,48 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { checkBotId } from "botid/server";
 import { getSupabase } from "@/lib/supabase";
+import { clean, escapeHtml, isEmail, isTrapped } from "@/lib/form-guard";
+
+// Only these forms may post here. The calculator one emails the visitor, so an
+// unknown type must never reach the send path.
+const MAGNET_TYPES = new Set(["velocity_calculator", "outbound_playbook"]);
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const { email, magnetType, payloadData } = body;
+    // Vercel BotID: this route can email any address a visitor types, so scripted
+    // requests are rejected before anything is stored or sent.
+    const verification = await checkBotId();
+    if (verification.isBot) {
+      return NextResponse.json({ error: "Access denied" }, { status: 403 });
+    }
 
-    // Basic validation
+    const body = (await request.json()) as Record<string, unknown>;
+
+    // Honeypot or too-fast submit: look like a success, store and send nothing.
+    if (isTrapped(body)) {
+      return NextResponse.json({ success: true }, { status: 200 });
+    }
+
+    const email = clean(body.email, 254);
+    const magnetType = clean(body.magnetType, 64);
+    const rawPayload = body.payloadData;
+    const payloadData =
+      rawPayload && typeof rawPayload === "object" && JSON.stringify(rawPayload).length <= 4000
+        ? (rawPayload as Record<string, unknown>)
+        : null;
+
     if (!email || !magnetType) {
       return NextResponse.json(
         { error: "Missing required fields: email and magnetType are mandatory." },
         { status: 400 }
       );
+    }
+    if (!isEmail(email)) {
+      return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
+    }
+    if (!MAGNET_TYPES.has(magnetType)) {
+      return NextResponse.json({ error: "Unknown form." }, { status: 400 });
     }
 
     const supabase = getSupabase();
@@ -24,7 +54,7 @@ export async function POST(request: Request) {
         {
           email,
           magnet_type: magnetType,
-          payload_data: payloadData || null,
+          payload_data: payloadData,
         },
       ]);
 
@@ -47,9 +77,9 @@ export async function POST(request: Request) {
           html: `
             <div style="font-family: sans-serif; max-width: 600px;">
               <h2 style="color: #131F2E;">New Lead Magnet Submission</h2>
-              <p><strong>Type:</strong> ${magnetName}</p>
-              <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-              <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px;">${JSON.stringify(payloadData, null, 2)}</pre>
+              <p><strong>Type:</strong> ${escapeHtml(magnetName)}</p>
+              <p><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
+              <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px;">${escapeHtml(JSON.stringify(payloadData, null, 2))}</pre>
               <p style="margin-top: 20px; font-size: 12px; color: #999;">Sent from nplusalpha.com</p>
             </div>
           `,
@@ -60,13 +90,13 @@ export async function POST(request: Request) {
 
       // The calculator promises "Email me this breakdown", so send the visitor
       // their numbers. Only coerced numbers and a whitelisted stage reach the HTML.
-      if (magnetType === "velocity_calculator" && payloadData && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
+      if (magnetType === "velocity_calculator" && payloadData) {
         try {
           const resend = new Resend(resendApiKey);
           const n = (v: unknown) => (Number.isFinite(Number(v)) ? Number(v) : 0);
           const usd = (v: number) => "$" + Math.round(v).toLocaleString("en-US");
           const stages = ["Seed", "Series A", "Series B", "Series C+"];
-          const stage = stages.includes(payloadData.stage) ? payloadData.stage : "your stage";
+          const stage = stages.find((st) => st === payloadData.stage) ?? "your stage";
           const levers: Record<string, string> = { "win rate": "win rate", "sales cycle length": "sales cycle length" };
           const lever = levers[payloadData.lever as string];
           const row = (k: string, v: string) =>
