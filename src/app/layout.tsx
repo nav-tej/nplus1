@@ -1,14 +1,43 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Newsreader, JetBrains_Mono } from "next/font/google";
 import PostHogLoader from "@/components/PostHogLoader";
 import GtmProvider from "@/components/GtmProvider";
-import Ga4Provider from "@/components/Ga4Provider";
 import "./globals.css";
+import "./brand.css";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
+});
+
+// The serif carries the brand (every H1 and H2), so the upright 400 preloads.
+// Static weight, not the variable font: about half the bytes on a phone.
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  subsets: ["latin"],
+  weight: "400",
+  style: "normal",
+  display: "swap",
+});
+
+// Italic is only the one accent word per headline; it can arrive late.
+const newsreaderItalic = Newsreader({
+  variable: "--font-newsreader-italic",
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+  display: "swap",
+  preload: false,
+});
+
+// Mono is used lightly (eyebrows, labels, data) and can load late.
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -46,8 +75,15 @@ export const metadata: Metadata = {
     "marketing automation",
     "n+α Ventures",
     "nPlusAlpha",
+    "n plus alpha",
+    "n plus alpha ventures",
+    "n+alpha",
+    "n+alpha ventures",
+    "nplusalpha",
+    "nplusalpha ventures",
+    "n alpha ventures",
   ],
-  authors: [{ name: "n+α Ventures" }],
+  authors: [{ name: "Nav Singh", url: "https://nplusalpha.com/about" }],
   alternates: {
     canonical: "/",
   },
@@ -96,17 +132,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html
+      lang="en"
+      className={`scroll-smooth ${inter.variable} ${newsreader.variable} ${newsreaderItalic.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
         <link rel="preconnect" href="https://us.i.posthog.com" />
         <link rel="dns-prefetch" href="https://us.i.posthog.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
-      <body className={`${inter.variable} antialiased`}>
+      <body className="antialiased">
         <GtmProvider />
-        <Ga4Provider />
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-6 focus:py-3 focus:text-sm focus:font-semibold focus:text-[#0B1221]"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-6 focus:py-3 focus:text-sm focus:font-semibold focus:text-[var(--on-alpha)]"
         >
           Skip to main content
         </a>

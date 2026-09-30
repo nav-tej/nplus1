@@ -14,7 +14,7 @@ export default function NotFound() {
         id="main-content"
         className="flex min-h-[70vh] flex-col items-center justify-center px-6 text-center"
       >
-        <p className="text-sm font-semibold text-orange-400 tracking-wide uppercase mb-4">
+        <p className="text-sm font-semibold text-alpha-text tracking-wide uppercase mb-4">
           404
         </p>
         <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight mb-4">
@@ -26,7 +26,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#0B1221] hover:shadow-[0_0_30px_rgba(46,204,113,0.3)] hover:brightness-110 transition-all duration-300"
+          className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300"
         >
           Back to home
           <svg

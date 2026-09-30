@@ -25,7 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!video) return {};
 
   return {
-    title: `${video.title} | Watch | n+α Ventures`,
+    // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
+    title: { absolute: `${video.title} | Watch | n+α Ventures` },
     description: video.description,
     alternates: { canonical: `https://nplusalpha.com/videos/${slug}` },
     openGraph: {
@@ -78,7 +79,7 @@ export default async function VideoWatchPage({ params }: Props) {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Link 
             href={video.articleUrl}
-            className="inline-flex items-center gap-2 text-muted hover:text-orange-400 transition-colors mb-8 text-sm group"
+            className="inline-flex items-center gap-2 text-muted hover:text-alpha-text transition-colors mb-8 text-sm group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to {video.articleTitle}
@@ -106,7 +107,7 @@ export default async function VideoWatchPage({ params }: Props) {
                     <span>Uploaded {new Date(video.uploadDate).toLocaleDateString("en-US", { month: "long", year: "numeric" })}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Play className="w-4 h-4 text-orange-400" />
+                    <Play className="w-4 h-4 text-alpha-text" />
                     <span>Featured Insight</span>
                   </div>
                 </div>
@@ -122,14 +123,14 @@ export default async function VideoWatchPage({ params }: Props) {
 
             {/* Sidebar / CTA Area */}
             <aside className="space-y-6">
-              <div className="p-8 rounded-3xl bg-orange-400/10 border border-orange-400/20 text-center">
-                <h3 className="text-lg font-bold text-orange-400 mb-2">Want to build this?</h3>
+              <div className="p-8 rounded-3xl bg-alpha/10 border border-alpha/20 text-center">
+                <h3 className="text-lg font-bold text-alpha-text mb-2">Want to build this?</h3>
                 <p className="text-sm text-muted mb-6">Learn how we architect these GTM engines for B2B SaaS teams.</p>
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center justify-center w-full rounded-xl bg-accent px-6 py-3 text-sm font-bold text-[#0B1221] hover:shadow-[0_0_20px_rgba(46,204,113,0.3)] transition-all"
+                  className="inline-flex items-center justify-center w-full rounded-xl bg-accent px-6 py-3 text-sm font-bold text-[var(--on-alpha)] transition-all"
                 >
-                  Book a Strategy Call
+                  Book a free GTM audit
                 </Link>
               </div>
 
@@ -140,7 +141,7 @@ export default async function VideoWatchPage({ params }: Props) {
                 </p>
                 <Link
                   href={video.articleUrl}
-                  className="inline-flex items-center gap-2 text-sm font-bold text-orange-400 hover:underline group"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-alpha-text hover:underline group"
                 >
                   Read Full Article
                   <Share2 className="w-4 h-4 group-hover:rotate-12 transition-transform" />

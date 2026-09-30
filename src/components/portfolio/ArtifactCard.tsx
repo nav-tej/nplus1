@@ -11,7 +11,7 @@ interface ArtifactCardProps {
 export function ArtifactCard({ label, children }: ArtifactCardProps) {
   return (
     <div
-      className="bg-[--bg] border rounded-2xl p-5 mb-4 relative transition-all duration-300 hover:border-[--accent] hover:shadow-[0_0_20px_var(--accentGlow)] group"
+      className="bg-[--bg] border rounded-2xl p-5 mb-4 relative transition-all duration-300 hover:border-[--accent] group"
       style={{
         ["--bg" as any]: COLORS.bg,
         borderColor: COLORS.border,

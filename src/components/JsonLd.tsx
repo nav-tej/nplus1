@@ -1,4 +1,3 @@
-import { FAQS, TESTIMONIALS } from "@/lib/constants";
 
 interface JsonLdProps {
   type?: string;
@@ -9,7 +8,6 @@ interface JsonLdProps {
   datePublished?: string;
   dateModified?: string;
   faqs?: any[];
-  steps?: any[];
   serviceType?: string;
   breadcrumbs?: {
     name: string;
@@ -34,23 +32,36 @@ export default function JsonLd({
   datePublished,
   dateModified,
   faqs,
-  steps,
   serviceType,
   breadcrumbs,
   video,
 }: JsonLdProps) {
   const baseUrl = "https://nplusalpha.com";
-  const url = `${baseUrl}${path}`;
+  const url = path === "" || path === "/" ? `${baseUrl}/` : `${baseUrl}${path}`;
+  // Home's url already ends in "/", so appending "/#webpage" produced "//#webpage".
+  const pageId = url.endsWith("/") ? `${url}#webpage` : `${url}/#webpage`;
 
   const graph: any[] = [
     {
       "@type": "Organization",
       "@id": `${baseUrl}/#organization`,
       name: "n+α Ventures",
+      // Spelled-out + ASCII brand variants so search engines connect queries like
+      // "n plus alpha", "n+alpha", "nplusalpha" to the Greek-glyph brand name.
+      alternateName: [
+        "n plus alpha",
+        "n plus alpha Ventures",
+        "nPlusAlpha",
+        "nPlusAlpha Ventures",
+        "n+alpha",
+        "n+alpha Ventures",
+        "nplusalpha",
+        "N+A Ventures",
+      ],
       url: baseUrl,
       logo: {
         "@type": "ImageObject",
-        url: `${baseUrl}/logo.png`,
+        url: `${baseUrl}/logo-square.png`,
         width: 512,
         height: 512,
       },
@@ -88,7 +99,9 @@ export default function JsonLd({
         "latitude": "37.7749",
         "longitude": "-122.4194"
       },
-      "telephone": "+1-415-000-0000",
+      // No telephone: the previous value was a +1-415-000-0000 placeholder, and
+      // publishing a fabricated contact point in structured data is worse than
+      // omitting the field.
       "priceRange": "$$$",
       "provider": {
         "@id": `${baseUrl}/#organization`
@@ -109,36 +122,24 @@ export default function JsonLd({
         "Account-Based Marketing (ABM)",
       ],
       "areaServed": ["San Francisco", "United States", "Worldwide"],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": String(TESTIMONIALS.length),
-        "bestRating": "5",
-        "worstRating": "1",
-      },
-      "review": TESTIMONIALS.map((t) => ({
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5",
-        },
-        "author": {
-          "@type": "Organization",
-          "name": t.company,
-        },
-        "reviewBody": t.quote,
-      })),
+      // No aggregateRating or review here. Google treats reviews an organization
+      // hosts about itself as self-serving: they never earn stars, and marking up
+      // our own testimonials as 5-star reviews risks a structured-data manual action.
     },
     {
       "@type": "Person",
       "@id": `${baseUrl}/about#navsingh`,
       "name": "Navtej (Nav) Singh",
       "url": `${baseUrl}/about`,
-      "mainEntityOfPage": type === "ProfilePage" ? { "@id": `${url}/#webpage` } : undefined,
+      "mainEntityOfPage": type === "ProfilePage" ? { "@id": pageId } : undefined,
       "jobTitle": "AI-Native Revenue Architect",
       "description": "AI-Native Revenue Architect. Scaled HeyGen from $20M to $100M ARR leveraging agentic workflows and predictive revenue intelligence. Former Partner at Andreessen Horowitz (a16z), and GTM leader at Semgrep and Egnyte.",
-      "image": `${baseUrl}/nav-singh.jpg`,
+      "image": {
+        "@type": "ImageObject",
+        "url": `${baseUrl}/nav-singh-portrait.jpg`,
+        "width": 986,
+        "height": 1232,
+      },
       "sameAs": [
         "https://www.linkedin.com/in/navtejs",
         "https://x.com/navtejs"
@@ -187,9 +188,26 @@ export default function JsonLd({
       ]
     },
     {
+      "@type": "WebSite",
+      "@id": `${baseUrl}/#website`,
+      "url": baseUrl,
+      "name": "n+α Ventures",
+      "alternateName": ["n plus alpha", "nPlusAlpha", "n+alpha", "nplusalpha"],
+      "publisher": {
+        "@id": `${baseUrl}/#organization`,
+      },
+    }
+  ];
+
+  // FAQPage only on pages that pass FAQs, and every page that passes them must
+  // render them visibly. Markup for content a reader can't see breaks Google's
+  // structured data guidelines. (FAQ rich results stopped showing in May 2026;
+  // the markup stays because answer engines still read it.)
+  if (faqs && faqs.length > 0) {
+    graph.push({
       "@type": "FAQPage",
-      "@id": `${baseUrl}/#faq`,
-      "mainEntity": (faqs || FAQS).map((faq) => ({
+      "@id": `${url.replace(/\/$/, "")}/#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
         "name": faq.question || faq.q,
         "acceptedAnswer": {
@@ -197,22 +215,13 @@ export default function JsonLd({
           "text": faq.answer || faq.a,
         },
       })),
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${baseUrl}/#website`,
-      "url": baseUrl,
-      "name": "n+α Ventures",
-      "publisher": {
-        "@id": `${baseUrl}/#organization`,
-      },
-    }
-  ];
+    });
+  }
 
   // Add the specific page to the graph
   const pageSchema: any = {
     "@type": type,
-    "@id": `${url}/#webpage`,
+    "@id": pageId,
     "url": url,
     "name": title || "n+α Ventures | AI-Native Go-To-Market Consulting",
     "isPartOf": {
@@ -249,6 +258,7 @@ export default function JsonLd({
   }
 
   if (type === "Article" && datePublished) {
+    pageSchema.headline = title;
     pageSchema.datePublished = datePublished;
     pageSchema.dateModified = dateModified || datePublished;
     pageSchema.author = { "@id": `${baseUrl}/about#navsingh` };
@@ -265,14 +275,6 @@ export default function JsonLd({
         "url": item.url,
       })),
     };
-  }
-
-  if (type === "HowTo" && steps) {
-    pageSchema.step = steps.map((step) => ({
-      "@type": "HowToStep",
-      "name": step.name,
-      "text": step.text,
-    }));
   }
 
   if (type === "Service" && serviceType) {

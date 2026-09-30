@@ -1,19 +1,19 @@
 export const COLORS = {
-  bg: "#080d14",           // Deep navy — darker than site's #0B1221 for immersive feel
-  bgCard: "#0f1828",       // Dark navy card
-  bgCardHover: "#152033",  // Card hover state
-  accent: "#c8a97e",       // Warm gold accent
-  accentDim: "#a08560",    // Muted gold
-  accentGlow: "rgba(200,169,126,0.15)",
-  text: "#e8e4de",         // Primary text (warm white)
-  textMuted: "#8a8680",    // Secondary text
-  textDim: "#5a5650",      // Tertiary text
-  border: "#2a2a35",       // Borders and dividers
-  success: "#4ade80",      // Positive indicators
-  info: "#60a5fa",         // Informational
-  warning: "#fbbf24",      // Caution/attention
-  purple: "#a78bfa",       // Category accent
-  rose: "#fb7185",         // Negative/competitor
+  bg: "#0E1823",           // bg-sunken (n+α brand)
+  bgCard: "#1A2839",       // Dark navy card
+  bgCardHover: "#22334A",  // Card hover state
+  accent: "#EE8660",       // alpha-text
+  accentDim: "#D85A30",    // alpha
+  accentGlow: "rgba(216,90,48,0.15)",
+  text: "#F3EFE8",         // Primary text (warm white)
+  textMuted: "#A9B4C2",    // Secondary text
+  textDim: "#8A97A8",      // Tertiary text
+  border: "#2A3B52",       // Borders and dividers
+  success: "#5FBF8F",      // Positive indicators
+  info: "#7FA7CF",         // Informational
+  warning: "#E8B64C",      // Caution/attention
+  purple: "#A9B4C2",       // Category accent
+  rose: "#EE8660",         // Negative/competitor
 } as const;
 
 export const FONTS = {

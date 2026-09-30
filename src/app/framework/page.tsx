@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DirectAnswer from "@/components/DirectAnswer";
 import JsonLd from "@/components/JsonLd";
+import PageFaqs from "@/components/PageFaqs";
 import { 
   CheckCircle2, 
   Zap, 
@@ -19,7 +20,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "The AI-Native GTM Framework | n+α Ventures",
+  // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
+  title: { absolute: "The AI-Native GTM Framework | n+α Ventures" },
   description: "The proprietary 5-pillar GTM architecture used to scale HeyGen to $100M ARR. Learn how we build AI-native revenue engines.",
   alternates: { canonical: "https://nplusalpha.com/framework" },
   openGraph: {
@@ -87,17 +89,14 @@ export default function FrameworkPage() {
   return (
     <>
       <JsonLd 
-        type="HowTo"
+        type="WebPage"
         title="The AI-Native GTM Framework | n+α Ventures"
         description="The proprietary 5-pillar GTM architecture used to scale HeyGen to $100M ARR. Learn how we build AI-native revenue engines."
         path="/framework"
         faqs={FRAMEWORK_FAQS}
-        steps={[
-          { name: "Category Positioning", text: "ICP refinement, messaging hierarchy, and enterprise narrative development." },
-          { name: "Programmatic SEO", text: "Architecting programmatic cascades that dominate high-intent keyword clusters." },
-          { name: "Community-Led Growth", text: "Scaling ecosystems that turn users into advocates and drive acquisition." },
-          { name: "Behavioral Lifecycle", text: "Building automated layers that activate users based on real-time product signals." },
-          { name: "Agentic Outbound", text: "Architecting signal-based outbound motions using agentic workflows." }
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Framework", item: "/framework" },
         ]}
       />
       <Navbar />
@@ -105,7 +104,7 @@ export default function FrameworkPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           {/* Header */}
           <div className="max-w-4xl mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-black uppercase tracking-widest mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-accent/10 border border-accent/20 text-accent text-xs font-black uppercase tracking-widest mb-6">
               <Cpu className="w-3 h-3" /> Proprietary Architecture
             </div>
             <h1 className="text-5xl lg:text-8xl font-black tracking-tighter mb-8 leading-[0.9]">
@@ -150,16 +149,16 @@ export default function FrameworkPage() {
               <div className="bg-[#0D1117] border border-white/10 rounded-[2.5rem] p-8 lg:p-12 shadow-2xl relative overflow-hidden group">
                 {/* Visual Diagram Placeholder - CSS Recursive Loop */}
                 <div className="flex flex-col items-center justify-center space-y-6 aspect-square max-w-[400px] mx-auto">
-                  <div className="w-20 h-20 bg-accent/10 border border-accent/20 rounded-2xl flex items-center justify-center animate-pulse">
+                  <div className="w-20 h-20 bg-accent/10 border border-accent/20 rounded-2xl flex items-center justify-center">
                     <Target className="w-10 h-10 text-accent" />
                   </div>
-                  <ArrowDown className="w-6 h-6 text-white/10" />
+                  <ArrowDown className="w-6 h-6 text-[var(--ink-faint)]" />
                   <div className="flex gap-6 items-center w-full justify-center">
                     <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center"><BarChart3 className="w-8 h-8 text-muted" /></div>
-                    <RefreshCw className="w-8 h-8 text-accent animate-spin-slow" />
+                    <RefreshCw className="w-8 h-8 text-accent" />
                     <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center"><MessageSquare className="w-8 h-8 text-muted" /></div>
                   </div>
-                  <ArrowDown className="w-6 h-6 text-white/10" />
+                  <ArrowDown className="w-6 h-6 text-[var(--ink-faint)]" />
                   <div className="w-20 h-20 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-accent/50 transition-colors">
                     <Database className="w-10 h-10 text-muted" />
                   </div>
@@ -253,7 +252,7 @@ export default function FrameworkPage() {
           </section>
 
           {/* Final CTA */}
-          <div className="bg-white text-[#0B1221] rounded-[3.5rem] p-10 lg:p-24 text-center relative overflow-hidden shadow-[0_0_100px_rgba(255,255,255,0.1)]">
+          <div className="bg-white text-[var(--on-alpha)] rounded-[3.5rem] p-10 lg:p-24 text-center relative overflow-hidden">
             <div className="absolute top-0 right-0 p-10 opacity-5 rotate-12">
               <Layers className="w-80 h-84" />
             </div>
@@ -265,7 +264,7 @@ export default function FrameworkPage() {
               <div className="pt-4">
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center gap-4 bg-accent text-[#0B1221] px-12 py-6 rounded-2xl font-black text-2xl hover:shadow-[0_0_50px_rgba(46,204,113,0.4)] transition-all active:scale-95 group"
+                  className="inline-flex items-center gap-4 bg-accent text-[var(--on-alpha)] px-12 py-6 rounded-2xl font-black text-2xl transition-all active:scale-95 group"
                 >
                   Start Shipping
                   <ArrowRight className="w-7 h-7 transition-transform group-hover:translate-x-2" />
@@ -274,6 +273,7 @@ export default function FrameworkPage() {
             </div>
           </div>
         </div>
+        <PageFaqs faqs={FRAMEWORK_FAQS} />
       </main>
       <Footer />
     </>

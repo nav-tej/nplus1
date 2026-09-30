@@ -57,32 +57,32 @@ export default function PlaybookDownload() {
               <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
               <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
               <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
-              <span className="ml-2 text-xs font-mono text-muted/50 uppercase tracking-widest">agentic_workflow.yaml</span>
+              <span className="ml-2 text-xs font-mono text-muted uppercase tracking-widest">agentic_workflow.yaml</span>
             </div>
 
             {/* Architecture Diagram */}
             <div className="p-8 lg:p-12 aspect-[4/3] flex flex-col items-center justify-center space-y-8">
               <div className="flex items-center gap-12">
                 <div className="relative">
-                  <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:border-accent/50 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.02)]">
+                  <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:border-accent/50 transition-colors">
                     <Database className="w-8 h-8 text-muted group-hover:text-accent transition-colors" />
                   </div>
                   <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-mono text-muted uppercase tracking-tighter">Data_LAKE</div>
                 </div>
 
-                <ArrowRight className="w-6 h-6 text-white/10" />
+                <ArrowRight className="w-6 h-6 text-[var(--ink-faint)]" />
 
                 <div className="relative">
-                  <div className="w-20 h-20 bg-accent/10 border border-accent/20 rounded-2xl flex items-center justify-center animate-pulse shadow-[0_0_30px_rgba(46,204,113,0.15)]">
+                  <div className="w-20 h-20 bg-accent/10 border border-accent/20 rounded-2xl flex items-center justify-center">
                     <Brain className="w-10 h-10 text-accent" />
                   </div>
                   <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] font-mono text-accent uppercase tracking-tighter whitespace-nowrap">Agent_CORE</div>
                 </div>
 
-                <ArrowRight className="w-6 h-6 text-white/10" />
+                <ArrowRight className="w-6 h-6 text-[var(--ink-faint)]" />
 
                 <div className="relative">
-                  <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:border-accent/50 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.02)]">
+                  <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:border-accent/50 transition-colors">
                     <Mail className="w-8 h-8 text-muted group-hover:text-accent transition-colors" />
                   </div>
                   <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-mono text-muted uppercase tracking-tighter">Channel_OUT</div>
@@ -144,7 +144,7 @@ export default function PlaybookDownload() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="#"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-semibold text-[#0B1221] hover:brightness-110 transition-all"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all"
                 >
                   <Download className="w-5 h-5" />
                   Download PDF
@@ -172,13 +172,13 @@ export default function PlaybookDownload() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="rounded-xl bg-accent px-8 py-4 text-base font-semibold text-[#0B1221] hover:shadow-[0_0_30px_rgba(46,204,113,0.3)] hover:brightness-110 transition-all disabled:opacity-50"
+                  className="rounded-xl bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all disabled:opacity-50"
                 >
                   {status === "loading" ? "Processing..." : "Get Playbook"}
                 </button>
               </form>
               
-              <div className="flex items-center gap-4 text-muted/40">
+              <div className="flex items-center gap-4 text-muted">
                 <div className="h-px flex-1 bg-white/5" />
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em]">Validated by Operators At</span>
                 <div className="h-px flex-1 bg-white/5" />
@@ -201,7 +201,7 @@ export default function PlaybookDownload() {
       {/* HeyGen Avatar Overlay Placeholder */}
       {showAvatar && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-6">
-          <div className="bg-[#0B1221] border border-white/10 rounded-3xl w-full max-w-4xl aspect-video relative overflow-hidden shadow-2xl animate-in zoom-in-95 duration-300">
+          <div className="bg-[#131F2E] border border-white/10 rounded-3xl w-full max-w-4xl aspect-video relative overflow-hidden shadow-2xl animate-in zoom-in-95 duration-300">
             <div className="absolute top-6 right-6 z-10">
               <button 
                 onClick={() => setShowAvatar(false)}
@@ -215,14 +215,14 @@ export default function PlaybookDownload() {
             
             {/* HeyGen Streaming Avatar Integration Point */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center space-y-6">
-              <div className="w-24 h-24 bg-accent/10 rounded-full flex items-center justify-center animate-pulse">
+              <div className="w-24 h-24 bg-accent/10 rounded-full flex items-center justify-center">
                 <Brain className="w-12 h-12 text-accent" />
               </div>
               <div className="space-y-2">
                 <h3 className="text-2xl font-bold">Interactive AI Session</h3>
                 <p className="text-muted max-w-sm">Initializing Nav&apos;s AI Avatar for your 5-minute GTM strategy session...</p>
               </div>
-              <div className="bg-accent text-[#0B1221] px-6 py-2 rounded-full text-sm font-bold animate-bounce">
+              <div className="bg-accent text-[var(--on-alpha)] px-6 py-2 rounded-full text-sm font-bold">
                 HeyGen Streaming Active
               </div>
             </div>

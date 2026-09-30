@@ -100,7 +100,7 @@ export default function ContactForm() {
             htmlFor="firstName"
             className="block text-sm font-medium text-muted mb-2"
           >
-            First Name *
+            First name *
           </label>
           <input
             type="text"
@@ -109,7 +109,7 @@ export default function ContactForm() {
             required
             value={form.firstName}
             onChange={handleChange}
-            className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-foreground placeholder:text-muted/50 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
+            className="w-full rounded-lg border border-[var(--line-strong)] bg-[var(--bg)] px-4 py-3 text-foreground placeholder:text-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
             placeholder="Jane"
           />
         </div>
@@ -118,7 +118,7 @@ export default function ContactForm() {
             htmlFor="lastName"
             className="block text-sm font-medium text-muted mb-2"
           >
-            Last Name *
+            Last name *
           </label>
           <input
             type="text"
@@ -127,7 +127,7 @@ export default function ContactForm() {
             required
             value={form.lastName}
             onChange={handleChange}
-            className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-foreground placeholder:text-muted/50 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
+            className="w-full rounded-lg border border-[var(--line-strong)] bg-[var(--bg)] px-4 py-3 text-foreground placeholder:text-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
             placeholder="Doe"
           />
         </div>
@@ -138,7 +138,7 @@ export default function ContactForm() {
           htmlFor="email"
           className="block text-sm font-medium text-muted mb-2"
         >
-          Work Email *
+          Work email *
         </label>
         <input
           type="email"
@@ -147,7 +147,7 @@ export default function ContactForm() {
           required
           value={form.email}
           onChange={handleChange}
-          className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-foreground placeholder:text-muted/50 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
+          className="w-full rounded-lg border border-[var(--line-strong)] bg-[var(--bg)] px-4 py-3 text-foreground placeholder:text-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
           placeholder="jane@company.com"
         />
       </div>
@@ -165,7 +165,7 @@ export default function ContactForm() {
           name="company"
           value={form.company}
           onChange={handleChange}
-          className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-foreground placeholder:text-muted/50 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
+          className="w-full rounded-lg border border-[var(--line-strong)] bg-[var(--bg)] px-4 py-3 text-foreground placeholder:text-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
           placeholder="Acme Inc."
         />
       </div>
@@ -184,7 +184,7 @@ export default function ContactForm() {
           rows={4}
           value={form.message}
           onChange={handleChange}
-          className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-foreground placeholder:text-muted/50 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors resize-none"
+          className="w-full rounded-lg border border-[var(--line-strong)] bg-[var(--bg)] px-4 py-3 text-foreground placeholder:text-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors resize-none"
           placeholder="Tell us about your growth challenges and goals..."
         />
       </div>
@@ -192,12 +192,12 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#0B1221] hover:shadow-[0_0_30px_rgba(46,204,113,0.3)] hover:brightness-110 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full rounded-lg bg-accent px-8 py-4 text-base font-medium text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {status === "sending" ? "Sending..." : "Get in Touch"}
+        {status === "sending" ? "Sending..." : "Request a free GTM audit"}
       </button>
 
-      <p className="text-[11px] text-muted/60 text-center px-4 leading-relaxed">
+      <p className="text-[11px] text-muted text-center px-4 leading-relaxed">
         By submitting this form, you agree to our{" "}
         <Link href="/privacy" className="underline hover:text-accent transition-colors">
           Privacy Policy

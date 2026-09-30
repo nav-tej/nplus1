@@ -33,7 +33,7 @@ function Ul({ children }: { children: React.ReactNode }) {
 function Li({ children }: { children: React.ReactNode }) {
   return (
     <li className="flex items-start gap-2.5 text-[15px] text-muted">
-      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-orange-400 flex-shrink-0" />
+      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-alpha flex-shrink-0" />
       <span>{children}</span>
     </li>
   );
@@ -54,7 +54,7 @@ function InternalCta({
 }) {
   return (
     <p className="text-sm mt-8">
-      <Link href={href} className="text-orange-400 hover:underline font-medium">
+      <Link href={href} className="text-alpha-text hover:underline font-medium">
         {children}
       </Link>
     </p>
@@ -76,7 +76,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         No SEO program, no content engine, no community, and no structured lifecycle
         automation. There was no enterprise GTM motion. The brand had outgrown its
-        early-stage positioning, and the <Link href="/services/revenue-operations" className="text-orange-400 hover:underline">revenue operations</Link> architecture
+        early-stage positioning, and the <Link href="/services/revenue-operations" className="text-alpha-text hover:underline">revenue operations</Link> architecture
         wasn&apos;t built to support the enterprise motion the company was moving
         toward.
       </P>
@@ -119,7 +119,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         <Bold>3. No enterprise motion.</Bold> HeyGen had enormous enterprise
         potential: L&D teams, marketing agencies, enterprise video production.
-        But there was no targeted <Link href="/services/demand-generation" className="text-orange-400 hover:underline">enterprise GTM</Link>, no ABM program, and no
+        But there was no targeted <Link href="/services/demand-generation" className="text-alpha-text hover:underline">enterprise GTM</Link>, no ABM program, and no
         enterprise-specific positioning.
       </P>
       <P>
@@ -260,7 +260,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         </Li>
       </Ul>
       <P>
-        <Bold>Result: $XXM in enterprise pipeline.</Bold>
+        <Bold>Result: $25M in enterprise pipeline.</Bold>
       </P>
 
       <H3>Move 6: Lifecycle Automation</H3>
@@ -353,7 +353,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         it, but almost nobody has actually built it.
       </P>
       <P>
-        Here&apos;s what I&apos;ve learned building <Link href="/services/revenue-operations" className="text-orange-400 hover:underline">AI-native GTM systems</Link> at
+        Here&apos;s what I&apos;ve learned building <Link href="/services/revenue-operations" className="text-alpha-text hover:underline">AI-native GTM systems</Link> at
         HeyGen and Semgrep: what it actually means in practice, what the stack
         looks like, and what results it delivers.
       </P>
@@ -627,10 +627,10 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
               <th className="text-left py-3 pr-6 text-muted font-semibold">
                 Dimension
               </th>
-              <th className="text-left py-3 pr-6 text-orange-400 font-semibold">
+              <th className="text-left py-3 pr-6 text-alpha-text font-semibold">
                 PLG
               </th>
-              <th className="text-left py-3 text-orange-400 font-semibold">
+              <th className="text-left py-3 text-alpha-text font-semibold">
                 Enterprise
               </th>
             </tr>
@@ -819,7 +819,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </P>
       <P>
         At HeyGen, the enterprise motion we built on top of a massive PLG user
-        base generated $XXM in enterprise pipeline and improved win rates by 25%.
+        base generated $25M in enterprise pipeline and improved win rates by 25%.
       </P>
       <P>
         The companies that execute this transition well don&apos;t just double or
@@ -998,7 +998,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <H3>Account-Based Marketing (ABM)</H3>
       <P>
         For enterprise motion, ABM is the highest-conversion approach. I&apos;ve
-        run ABM programs that generated $XXM in pipeline targeting Global 2000
+        run ABM programs that generated $25M in pipeline targeting Global 2000
         accounts and improved pipeline efficiency 3× at Egnyte. The key: tight
         ICP definition, quality intent signals, and personalized outreach that
         actually references account-specific research.
@@ -1095,7 +1095,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         I&apos;ll be sharing more on this topic at an upcoming webinar, but I
         wanted to get the core ideas down here first, because this is a question I
         get constantly: what does a high-functioning RevOps organization actually
-        look like in 2025?
+        look like today?
       </P>
       <P>The short answer: very different from what most companies have built.</P>
 
@@ -1130,7 +1130,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </Ul>
       <P>
         These are real problems that need solving. But they&apos;re table stakes.
-        If you&apos;re still fighting these fires in 2025, your RevOps function is
+        If you&apos;re still fighting these fires today, your RevOps function is
         behind.
       </P>
       <P>
@@ -1141,7 +1141,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
 
       <Hr />
 
-      <H2>What High-Functioning RevOps Looks Like in 2025</H2>
+      <H2>What High-Functioning RevOps Looks Like Now</H2>
 
       <H3>1. A Real-Time Data Architecture</H3>
       <P>
@@ -1512,7 +1512,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         spray-and-pray outbound with a company name inserted in the subject line.
       </P>
       <P>
-        Real ABM, the kind that generated $XXM in pipeline at HeyGen and
+        Real ABM, the kind that generated $25M in pipeline at HeyGen and
         improved pipeline efficiency 3× at Egnyte, is a fundamentally different
         discipline. Here&apos;s the playbook.
       </P>
@@ -1708,7 +1708,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </P>
       <P>
         At HeyGen, the ABM program targeting Global 2000 accounts across Agency,
-        L&D, and API segments generated $XXM in enterprise pipeline. The key
+        L&D, and API segments generated $25M in enterprise pipeline. The key
         enabler was segment-specific messaging and content, treating Agency
         buyers, L&D buyers, and enterprise API buyers as completely distinct
         audiences with distinct problems and distinct value propositions.

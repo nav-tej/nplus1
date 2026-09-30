@@ -1,0 +1,5 @@
+# Local tooling and scan output: never upload with a deploy.
+.gemini/
+GEMINI.md
+semgrep*.json
+SECURITY_SCAN_REPORT.md

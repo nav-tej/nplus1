@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DirectAnswer from "@/components/DirectAnswer";
 import JsonLd from "@/components/JsonLd";
+import PageFaqs from "@/components/PageFaqs";
 import VideoEmbed from "@/components/VideoEmbed";
 
 export const metadata: Metadata = {
@@ -63,6 +64,10 @@ export default function GrowthMarketingPage() {
         title={metadata.title as string}
         description={metadata.description as string}
         faqs={GROWTH_MARKETING_FAQS}
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Growth Marketing", item: "/services/growth-marketing" },
+        ]}
         video={{
           name: "The AI-Native GTM Engine: Scale B2B SaaS Past $100M ARR",
           description: "Learn the proprietary 5-pillar architecture used to scale B2B SaaS companies from $20M to $100M+ ARR.",
@@ -78,7 +83,7 @@ export default function GrowthMarketingPage() {
         <section className="pt-32 pb-20 border-b border-white/5">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <div className="max-w-3xl">
-              <p className="text-sm font-semibold text-orange-400 tracking-wide uppercase mb-4">
+              <p className="text-sm font-semibold text-alpha-text tracking-wide uppercase mb-4">
                 Growth Marketing
               </p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight">
@@ -100,9 +105,9 @@ export default function GrowthMarketingPage() {
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-[#0B1221] hover:brightness-110 transition-all duration-300"
+                  className="inline-flex items-center gap-2 rounded-lg bg-accent px-7 py-3.5 text-sm font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300"
                 >
-                  Book a Free Strategy Call
+                  Book a free GTM audit
                   <svg
                     width="14"
                     height="14"
@@ -121,7 +126,7 @@ export default function GrowthMarketingPage() {
                 </Link>
                 <Link
                   href="/case-studies/heygen"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-sm font-semibold text-foreground hover:border-orange-400/60 hover:text-orange-400 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-sm font-semibold text-foreground hover:border-alpha/60 hover:text-alpha-text transition-colors"
                 >
                   See HeyGen Case Study
                 </Link>
@@ -247,7 +252,7 @@ export default function GrowthMarketingPage() {
                         key={b}
                         className="flex items-start gap-2 text-sm text-muted"
                       >
-                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-orange-400 flex-shrink-0" />
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-alpha flex-shrink-0" />
                         {b}
                       </li>
                     ))}
@@ -297,7 +302,7 @@ export default function GrowthMarketingPage() {
                   key={step.period}
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-5"
                 >
-                  <p className="text-xs font-semibold text-orange-400 uppercase tracking-wide mb-1">
+                  <p className="text-xs font-semibold text-alpha-text uppercase tracking-wide mb-1">
                     {step.period}
                   </p>
                   <p className="text-sm font-bold text-foreground mb-1">
@@ -363,7 +368,7 @@ export default function GrowthMarketingPage() {
                         key={line}
                         className="flex items-start gap-2 text-sm text-muted"
                       >
-                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-orange-400 flex-shrink-0" />
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-alpha flex-shrink-0" />
                         {line}
                       </li>
                     ))}
@@ -461,7 +466,7 @@ export default function GrowthMarketingPage() {
         {/* Related Services */}
         <section className="py-16 border-b border-white/5">
           <div className="mx-auto max-w-4xl px-6 lg:px-10">
-            <p className="text-sm font-semibold text-orange-400 tracking-wide uppercase mb-6">
+            <p className="text-sm font-semibold text-alpha-text tracking-wide uppercase mb-6">
               Related Services
             </p>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -482,7 +487,7 @@ export default function GrowthMarketingPage() {
                   href={s.href}
                   className="group rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-white/20 hover:bg-white/[0.05] transition-all duration-300"
                 >
-                  <p className="text-sm font-bold text-foreground group-hover:text-orange-400 transition-colors mb-1">
+                  <p className="text-sm font-bold text-foreground group-hover:text-alpha-text transition-colors mb-1">
                     {s.label} →
                   </p>
                   <p className="text-xs text-muted leading-relaxed">{s.desc}</p>
@@ -497,7 +502,7 @@ export default function GrowthMarketingPage() {
           <div className="mx-auto max-w-3xl px-6 lg:px-10 text-center">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-4">
               Ready to build your{" "}
-              <span className="text-orange-400">growth engine?</span>
+              <span className="text-alpha-text">growth engine?</span>
             </h2>
             <p className="text-muted text-lg mb-8 max-w-xl mx-auto">
               Let&apos;s talk about your GTM challenges and see if there is a
@@ -505,9 +510,9 @@ export default function GrowthMarketingPage() {
             </p>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#0B1221] hover:shadow-[0_0_30px_rgba(46,204,113,0.3)] hover:brightness-110 transition-all duration-300"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300"
             >
-              Get in Touch
+              Book a free GTM audit
               <svg
                 width="14"
                 height="14"
@@ -526,6 +531,7 @@ export default function GrowthMarketingPage() {
             </Link>
           </div>
         </section>
+        <PageFaqs faqs={GROWTH_MARKETING_FAQS} />
       </main>
       <Footer />
     </>

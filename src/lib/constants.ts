@@ -11,14 +11,11 @@ export const SITE_CONFIG = {
 
 
 export const NAV_LINKS = [
+  { label: "Work", href: "/case-studies" },
   { label: "Services", href: "/#services" },
-  { label: "Framework", href: "/framework" },
   { label: "Tools", href: "/tools/funnel-velocity" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Case Studies", href: "/case-studies/heygen" },
-  { label: "Blog", href: "/blog" },
+  { label: "Writing", href: "/blog" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/#contact" },
 ];
 
 export const SERVICE_PAGES = [

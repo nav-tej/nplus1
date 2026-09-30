@@ -47,7 +47,7 @@ export async function POST(request: Request) {
           replyTo: email,
           html: `
             <div style="font-family: sans-serif; max-width: 600px;">
-              <h2 style="color: #0B1221;">New Contact Form Submission</h2>
+              <h2 style="color: #131F2E;">New Contact Form Submission</h2>
               <table style="width: 100%; border-collapse: collapse;">
                 <tr>
                   <td style="padding: 8px 12px; font-weight: bold; color: #555;">Name</td>

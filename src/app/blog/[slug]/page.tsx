@@ -4,6 +4,8 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import CaseStudyCallout from "@/components/CaseStudyCallout";
+import Byline from "@/components/Byline";
 import { BLOG_POSTS } from "@/lib/blog";
 import { BLOG_CONTENT } from "@/lib/blog-content";
 
@@ -38,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: post.metaTitle,
       description: post.description,
       publishedTime: post.publishDate,
+      modifiedTime: post.dateModified ?? post.publishDate,
       authors: ["Nav Singh"],
       section: post.category,
     },
@@ -47,14 +50,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.description,
     },
   };
-}
-
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -77,7 +72,12 @@ export default async function BlogPostPage({ params }: Props) {
         description={post.description}
         path={`/blog/${post.slug}`}
         datePublished={post.publishDate}
-        dateModified={post.publishDate}
+        dateModified={post.dateModified ?? post.publishDate}
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Blog", item: "/blog" },
+          { name: post.title, item: `/blog/${post.slug}` },
+        ]}
       />
       <Navbar />
       <main id="main-content">
@@ -89,17 +89,17 @@ export default async function BlogPostPage({ params }: Props) {
               <Link href="/" className="hover:text-foreground transition-colors">
                 Home
               </Link>
-              <span className="text-white/20" aria-hidden="true">/</span>
+              <span className="text-[var(--ink-faint)]" aria-hidden="true">/</span>
               <Link href="/blog" className="hover:text-foreground transition-colors">
                 Blog
               </Link>
-              <span className="text-white/20" aria-hidden="true">/</span>
+              <span className="text-[var(--ink-faint)]" aria-hidden="true">/</span>
               <span className="text-foreground/60 truncate max-w-[200px]">{post.title}</span>
             </nav>
 
             {/* Category + read time */}
             <div className="flex items-center gap-3 mb-5">
-              <span className="inline-flex items-center rounded-full border border-orange-400/30 bg-orange-400/10 px-3 py-1 text-xs font-medium text-orange-400">
+              <span className="inline-flex items-center rounded-full border border-alpha/30 bg-alpha/10 px-3 py-1 text-xs font-medium text-alpha-text">
                 {post.category}
               </span>
               <span className="text-xs text-muted">{post.readTime} min read</span>
@@ -111,17 +111,10 @@ export default async function BlogPostPage({ params }: Props) {
             </h1>
 
             {/* Author + date */}
-            <div className="flex items-center gap-4">
-              <div className="flex items-center justify-center w-9 h-9 rounded-full bg-accent/20 border border-accent/30 flex-shrink-0">
-                <span className="text-xs font-bold text-accent">NS</span>
-              </div>
-              <div>
-                <p className="text-sm font-medium text-foreground">Nav Singh</p>
-                <p className="text-xs text-muted">
-                  {formatDate(post.publishDate)} · {post.readTime} min read
-                </p>
-              </div>
-            </div>
+            <Byline
+              published={post.publishDate}
+              updated={post.dateModified}
+            />
           </div>
         </section>
 
@@ -135,12 +128,12 @@ export default async function BlogPostPage({ params }: Props) {
         {/* Bottom CTA */}
         <section className="py-16 border-t border-white/5 bg-white/[0.02]">
           <div className="mx-auto max-w-3xl px-6 lg:px-10 text-center">
-            <p className="text-xs font-semibold text-orange-400 tracking-wide uppercase mb-3">
+            <p className="text-xs font-semibold text-alpha-text tracking-wide uppercase mb-3">
               Work with Nav Singh
             </p>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
               Want these frameworks applied to{" "}
-              <span className="text-orange-400">your GTM?</span>
+              <span className="text-alpha-text">your GTM?</span>
             </h2>
             <p className="text-muted text-base mb-8 max-w-lg mx-auto leading-relaxed">
               Book a free GTM audit. I&apos;ll review your current motion and
@@ -149,9 +142,9 @@ export default async function BlogPostPage({ params }: Props) {
             </p>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-semibold text-[#0B1221] hover:shadow-[0_0_30px_rgba(46,204,113,0.3)] hover:brightness-110 transition-all duration-300"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300"
             >
-              Book a Free GTM Audit
+              Book a free GTM audit
               <svg
                 width="14"
                 height="14"
@@ -171,6 +164,8 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </section>
 
+        <CaseStudyCallout postSlug={slug} />
+
         {/* Related posts */}
         {related.length > 0 && (
           <section className="py-16 border-t border-white/5">
@@ -185,16 +180,16 @@ export default async function BlogPostPage({ params }: Props) {
                     href={`/blog/${rel.slug}`}
                     className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-white/20 hover:bg-white/[0.05] transition-all duration-300"
                   >
-                    <span className="inline-flex items-center rounded-full border border-orange-400/30 bg-orange-400/10 px-2.5 py-0.5 text-xs font-medium text-orange-400 mb-3 self-start">
+                    <span className="inline-flex items-center rounded-full border border-alpha/30 bg-alpha/10 px-2.5 py-0.5 text-xs font-medium text-alpha-text mb-3 self-start">
                       {rel.category}
                     </span>
-                    <h3 className="text-sm font-bold text-foreground leading-snug mb-2 group-hover:text-orange-400 transition-colors">
+                    <h3 className="text-sm font-bold text-foreground leading-snug mb-2 group-hover:text-alpha-text transition-colors">
                       {rel.title}
                     </h3>
                     <p className="text-xs text-muted leading-relaxed flex-1 mb-3">
                       {rel.description}
                     </p>
-                    <span className="text-xs font-semibold text-orange-400 group-hover:translate-x-0.5 transition-transform inline-block">
+                    <span className="text-xs font-semibold text-alpha-text group-hover:translate-x-0.5 transition-transform inline-block">
                       Read →
                     </span>
                   </Link>

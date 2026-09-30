@@ -1,10 +1,16 @@
 import { BLOG_POSTS } from "@/lib/blog";
+import { CASE_STUDIES } from "@/lib/case-studies";
 import { FOUNDER, SITE_CONFIG } from "@/lib/constants";
 
 export const dynamic = "force-static";
 
 export function GET() {
   const base = `https://${SITE_CONFIG.domain}`;
+
+  const caseStudyLinks = CASE_STUDIES.map(
+    (c) =>
+      `- [${c.client}: ${c.metaTitle}](${base}/case-studies/${c.slug}): ${c.metaDescription} Industry: ${c.industry}. Role: ${c.engagement}. Markdown version at ${base}/case-studies/${c.slug}/md.`
+  ).join("\n");
 
   const blogLinks = BLOG_POSTS.map(
     (p) => `- [${p.title}](${base}/blog/${p.slug}): ${p.description}`
@@ -23,7 +29,10 @@ n+α Ventures helps ambitious B2B SaaS companies build and execute repeatable go
 
 ## Portfolio & Case Studies
 - [GTM Portfolio](${base}/portfolio): Stylized representations of GTM strategy, marketing systems, and growth programs built across three engagements: AI Video Platform (PLG→SLG), DevSecOps Platform (competitive positioning), and Enterprise Content Platform (category creation). All artifacts are generalized examples with no confidential data shown.
-- [HeyGen GTM Case Study](${base}/case-studies/heygen): How ${FOUNDER.name} helped scale HeyGen from $20M to $100M+ ARR through a complete rebrand, SEO from zero, 100K+ member community, enterprise ABM, and full RevOps transformation. Written by the Head of RevOps who built it.
+- [Results](${base}/results): Every headline number with the engagement it came from, plus client testimonials in full.
+- [Fractional CMO vs Agency vs Full-Time Hire](${base}/fractional-cmo-vs-agency): An honest decision guide covering what each option is good at, what it costs, and when a fractional engagement is the wrong answer.
+- [All Case Studies](${base}/case-studies): Engagements written up in full, with the starting state, the work, and the numbers.
+${caseStudyLinks}
 
 ## Blog: GTM Frameworks & Growth Playbooks
 - [Latest Insights](${base}/blog): Strategic deep-dives on PLG-to-Enterprise transitions, AI-native GTM architecture, and demand generation frameworks.
