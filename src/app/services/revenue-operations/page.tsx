@@ -80,8 +80,8 @@ export default function RevenueOperationsPage() {
               />
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="/#contact"
+                <Link prefetch={false}
+                  href="/book"
                   className="inline-flex items-center gap-2 rounded-lg bg-accent px-7 py-3.5 text-sm font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300"
                 >
                   Book a RevOps Audit
@@ -447,8 +447,8 @@ export default function RevenueOperationsPage() {
               Let&apos;s talk about how to make your GTM infrastructure
               predictable, efficient, and scalable.
             </p>
-            <Link
-              href="/#contact"
+            <Link prefetch={false}
+              href="/book"
               className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300"
             >
               Book a free GTM audit

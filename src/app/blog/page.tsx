@@ -185,8 +185,8 @@ export default function BlogIndexPage() {
               These frameworks work. Let&apos;s talk about applying them to your
               GTM.
             </p>
-            <Link
-              href="/#contact"
+            <Link prefetch={false}
+              href="/book"
               className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300"
             >
               Book a free GTM audit

@@ -93,7 +93,7 @@ export async function POST(request: Request) {
                     ? `<p style="font-size:15px;">Your biggest lever: bring ${lever} to the ${stage} median. That is worth about ${usd(n(payloadData.leverGainPerQuarter))} more new ARR per quarter.</p>`
                     : `<p style="font-size:15px;">Your win rate and sales cycle are at or better than the ${stage} median.</p>`
                 }
-                <p style="font-size:15px;">If you want a second opinion on the plan to close the gap, reply to this email or book a free GTM audit at <a href="https://nplusalpha.com/#contact">nplusalpha.com</a>.</p>
+                <p style="font-size:15px;">If you want a second opinion on the plan to close the gap, reply to this email or book a free GTM audit at <a href="https://nplusalpha.com/book">nplusalpha.com/book</a>.</p>
                 <p style="font-size:15px;">Nav Singh<br/>n+α Ventures</p>
               </div>
             `,

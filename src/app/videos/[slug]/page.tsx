@@ -126,8 +126,8 @@ export default async function VideoWatchPage({ params }: Props) {
               <div className="p-8 rounded-3xl bg-alpha/10 border border-alpha/20 text-center">
                 <h3 className="text-lg font-bold text-alpha-text mb-2">Want to build this?</h3>
                 <p className="text-sm text-muted mb-6">Learn how we architect these GTM engines for B2B SaaS teams.</p>
-                <Link
-                  href="/#contact"
+                <Link prefetch={false}
+                  href="/book"
                   className="inline-flex items-center justify-center w-full rounded-xl bg-accent px-6 py-3 text-sm font-bold text-[var(--on-alpha)] transition-all"
                 >
                   Book a free GTM audit
