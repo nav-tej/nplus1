@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { checkBotId } from "botid/server";
 import { getSupabase } from "@/lib/supabase";
+import { MAIL_FROM, MAIL_TO } from "@/lib/mail";
 import { clean, escapeHtml, isEmail, isTrapped } from "@/lib/form-guard";
 
 // Only these forms may post here. The calculator one emails the visitor, so an
@@ -70,8 +71,8 @@ export async function POST(request: Request) {
         const magnetName = magnetType.replace(/_/g, " ").toUpperCase();
         
         await resend.emails.send({
-          from: process.env.RESEND_FROM_EMAIL?.trim() ?? "n+α Ventures <hello@nplus1ventures.com>",
-          to: process.env.CONTACT_EMAIL?.trim() ?? "hello@nplus1ventures.com",
+          from: MAIL_FROM,
+          to: MAIL_TO,
           subject: `Lead Magnet: ${magnetName} - ${email}`,
           replyTo: email,
           html: `
@@ -102,9 +103,9 @@ export async function POST(request: Request) {
           const row = (k: string, v: string) =>
             `<tr><td style="padding:6px 16px 6px 0;color:#4F5B69;">${k}</td><td style="padding:6px 0;font-weight:600;">${v}</td></tr>`;
           await resend.emails.send({
-            from: process.env.RESEND_FROM_EMAIL?.trim() ?? "n+α Ventures <hello@nplusalpha.com>",
+            from: MAIL_FROM,
             to: email,
-            replyTo: process.env.CONTACT_EMAIL?.trim() ?? "hello@nplusalpha.com",
+            replyTo: MAIL_TO,
             subject: `Your funnel velocity: ${usd(n(payloadData.velocityPerDay))} per day`,
             html: `
               <div style="font-family: Georgia, serif; max-width: 560px; color: #131F2E;">

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { checkBotId } from "botid/server";
 import { getSupabase } from "@/lib/supabase";
+import { MAIL_FROM, MAIL_TO } from "@/lib/mail";
 import { clean, escapeHtml, isEmail, isTrapped } from "@/lib/form-guard";
 
 export async function POST(request: Request) {
@@ -59,8 +60,8 @@ export async function POST(request: Request) {
         const resend = new Resend(resendApiKey);
         const e = { firstName: escapeHtml(firstName), lastName: escapeHtml(lastName), email: escapeHtml(email), company: escapeHtml(company), message: escapeHtml(message) };
         const { data, error: emailError } = await resend.emails.send({
-          from: process.env.RESEND_FROM_EMAIL?.trim() ?? "n+α Ventures <hello@n+αventures.com>",
-          to: process.env.CONTACT_EMAIL?.trim() ?? "hello@n+αventures.com",
+          from: MAIL_FROM,
+          to: MAIL_TO,
           subject: `New Contact: ${firstName} ${lastName}${company ? ` from ${company}` : ""}`,
           replyTo: email,
           html: `
