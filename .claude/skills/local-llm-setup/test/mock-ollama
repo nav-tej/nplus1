@@ -1,0 +1,140 @@
+#!/usr/bin/env python3
+"""Mock ollama CLI + server for end-to-end testing of fix-hermes.sh.
+
+State lives in $OLLAMA_MOCK_STATE:
+  models.txt — installed model tags, one per line
+  mode       — normal | prose | genfail  (controls API replies)
+"""
+import json
+import os
+import sys
+import time
+
+STATE = os.environ.get("OLLAMA_MOCK_STATE", "/tmp/ollama-mock-state")
+MODELS = os.path.join(STATE, "models.txt")
+MODE = os.path.join(STATE, "mode")
+
+
+def read_models():
+    try:
+        with open(MODELS) as f:
+            return [l.strip() for l in f if l.strip()]
+    except FileNotFoundError:
+        return []
+
+
+def write_models(models):
+    os.makedirs(STATE, exist_ok=True)
+    with open(MODELS, "w") as f:
+        f.write("\n".join(models) + "\n")
+
+
+def read_mode():
+    try:
+        with open(MODE) as f:
+            return f.read().strip()
+    except FileNotFoundError:
+        return "normal"
+
+
+def serve():
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+
+    # Real ollama's process comm is "ollama"; the env-shebang makes ours
+    # "python3", which would let fix-hermes.sh's `pkill -x ollama` miss us
+    # and leave a stale server answering with stale state. Match reality.
+    try:
+        import ctypes
+        ctypes.CDLL(None).prctl(15, b"ollama", 0, 0, 0)  # PR_SET_NAME
+    except Exception:
+        pass
+
+    class H(BaseHTTPRequestHandler):
+        def log_message(self, *a):
+            pass
+
+        def reply(self, obj, code=200):
+            body = json.dumps(obj).encode()
+            self.send_response(code)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+
+        def do_GET(self):
+            if self.path == "/api/version":
+                self.reply({"version": "0.9.9-mock"})
+            else:
+                self.reply({"error": "not found"}, 404)
+
+        def do_POST(self):
+            length = int(self.headers.get("Content-Length", 0))
+            req = json.loads(self.rfile.read(length) or b"{}")
+            mode = read_mode()
+            if self.path == "/api/generate":
+                if mode == "genfail":
+                    self.reply({"error": "model requires more system memory (24 GiB)"}, 500)
+                else:
+                    self.reply({"model": req.get("model"), "done": True,
+                                "response": "Hello there, my dear friend."})
+            elif self.path == "/api/chat":
+                if mode == "prose":
+                    msg = {"role": "assistant",
+                           "content": "The weather in Toronto is sunny and mild."}
+                else:
+                    msg = {"role": "assistant", "content": "",
+                           "tool_calls": [{"function": {"name": "get_weather",
+                                           "arguments": {"city": "Toronto"}}}]}
+                self.reply({"model": req.get("model"), "done": True, "message": msg})
+            else:
+                self.reply({"error": "not found"}, 404)
+
+    try:
+        server = HTTPServer(("127.0.0.1", 11434), H)
+    except OSError as e:
+        print(f"mock-ollama: cannot bind 11434: {e}", file=sys.stderr)
+        sys.exit(1)
+    server.serve_forever()
+
+
+def main():
+    args = sys.argv[1:]
+    if not args:
+        print("usage: ollama <command>")
+        return 0
+    cmd = args[0]
+    if cmd == "--version":
+        print("ollama version is 0.9.9-mock")
+    elif cmd == "serve":
+        serve()
+    elif cmd == "list":
+        print(f"{'NAME':<28}{'ID':<16}{'SIZE':<10}MODIFIED")
+        for m in read_models():
+            print(f"{m:<28}{'abc123def456':<16}{'4.7 GB':<10}2 days ago")
+    elif cmd == "ps":
+        print(f"{'NAME':<28}{'ID':<16}{'SIZE':<10}{'PROCESSOR':<12}UNTIL")
+        models = read_models()
+        if models:
+            print(f"{models[0]:<28}{'abc123def456':<16}{'6.0 GB':<10}{'100% GPU':<12}forever")
+    elif cmd == "rm" and len(args) > 1:
+        models = read_models()
+        if args[1] not in models:
+            print(f"Error: model '{args[1]}' not found", file=sys.stderr)
+            return 1
+        write_models([m for m in models if m != args[1]])
+        print(f"deleted '{args[1]}'")
+    elif cmd == "pull" and len(args) > 1:
+        time.sleep(1)
+        models = read_models()
+        if args[1] not in models:
+            models.append(args[1])
+        write_models(models)
+        print(f"pulling {args[1]}... success")
+    else:
+        print(f"mock: unhandled command {args!r}", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
