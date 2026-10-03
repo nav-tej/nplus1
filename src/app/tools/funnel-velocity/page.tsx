@@ -113,7 +113,7 @@ export default function FunnelVelocityPage() {
             <CTASection title="Want the plan to close the gap?">
               <div className="na-cta-act">
                 <Button href={BOOK} arrow>
-                  Book a free GTM audit
+                  Book a GTM audit
                 </Button>
               </div>
             </CTASection>

@@ -112,7 +112,7 @@ The flywheel: organic acquisition → community activation → lifecycle convers
 *Nav Singh is the founder of n+α Ventures and was Head of Revenue Operations at HeyGen from April 2024 to January 2026.*
 
 [→ n+α Growth Marketing Services](https://nplusalpha.com/services#growth-marketing)
-[→ Book a free GTM audit](https://nplusalpha.com/book)
+[→ Book a GTM audit](https://nplusalpha.com/book)
 `,
 
   // ── POST 2 ─────────────────────────────────────────────────────────────────
@@ -234,7 +234,7 @@ Don't try to build all six layers at once. The right sequence is:
 *Nav Singh is the founder of n+α Ventures. He built AI-native GTM systems at HeyGen and Semgrep.*
 
 [→ n+α Revenue Operations Services](https://nplusalpha.com/services#revenue-operations)
-[→ Book a free GTM audit](https://nplusalpha.com/book)
+[→ Book a GTM audit](https://nplusalpha.com/book)
 `,
 
   // ── POST 3 ─────────────────────────────────────────────────────────────────
@@ -366,7 +366,7 @@ The PLG-to-enterprise transition takes 12 to 18 months to show meaningful revenu
 *Nav Singh is the founder of n+α Ventures. He built [PLG-to-enterprise motions](/services#growth-marketing) at Semgrep and HeyGen.*
 
 [→ n+α Product-Led Growth Services](https://nplusalpha.com/services#growth-marketing)
-[→ Book a free GTM audit](https://nplusalpha.com/book)
+[→ Book a GTM audit](https://nplusalpha.com/book)
 `,
 
   // ── POST 4 ─────────────────────────────────────────────────────────────────
@@ -497,7 +497,7 @@ The flywheel: content builds authority → SEO generates organic demand → ABM 
 *Nav Singh is the founder of n+α Ventures. He generated $400M+ in marketing-sourced pipeline across HeyGen, Semgrep, and Egnyte.*
 
 [→ n+α Demand Generation Services](https://nplusalpha.com/services#demand-generation)
-[→ Book a free GTM audit](https://nplusalpha.com/book)
+[→ Book a GTM audit](https://nplusalpha.com/book)
 `,
 
   // ── POST 5 ─────────────────────────────────────────────────────────────────
@@ -617,7 +617,7 @@ You can't improve what you can't measure, but most RevOps teams measure the wron
 *Nav Singh is the founder of n+α Ventures. He built [RevOps systems](/services#revenue-operations) at HeyGen, Semgrep, and Egnyte.*
 
 [→ n+α Revenue Operations Services](https://nplusalpha.com/services#revenue-operations)
-[→ Book a free GTM audit](https://nplusalpha.com/book)
+[→ Book a GTM audit](https://nplusalpha.com/book)
 `,
 
   // ── POST 6 ─────────────────────────────────────────────────────────────────
@@ -712,7 +712,7 @@ Live sessions drove single-session traffic spikes, but more importantly, they cr
 *Nav Singh is the founder of n+α Ventures. He launched and scaled HeyGen's community from zero to 100,000 members.*
 
 [→ n+α Growth Marketing Services](https://nplusalpha.com/services#growth-marketing)
-[→ Book a free GTM audit](https://nplusalpha.com/book)
+[→ Book a GTM audit](https://nplusalpha.com/book)
 `,
 
   // ── POST 7 ─────────────────────────────────────────────────────────────────
@@ -841,7 +841,7 @@ Based on [ABM programs](/services#demand-generation) across multiple companies, 
 *Nav Singh is the founder of n+α Ventures. He built ABM programs that generated substantial enterprise pipeline at HeyGen and 3× pipeline efficiency at Egnyte.*
 
 [→ n+α Demand Generation Services](https://nplusalpha.com/services#demand-generation)
-[→ Book a free GTM audit](https://nplusalpha.com/book)
+[→ Book a GTM audit](https://nplusalpha.com/book)
 `,
 
   // ── POST 8 ─────────────────────────────────────────────────────────────────
@@ -1006,7 +1006,7 @@ Content alone doesn't rank in competitive verticals. You also need backlinks, wh
 *Nav Singh is the founder of n+α Ventures. He built [SEO programs](/services#growth-marketing) at HeyGen and Semgrep, driving 50%+ YoY organic growth.*
 
 [→ n+α Growth Marketing Services](https://nplusalpha.com/services#growth-marketing)
-[→ Book a free GTM audit](https://nplusalpha.com/book)
+[→ Book a GTM audit](https://nplusalpha.com/book)
 `,
 };
 

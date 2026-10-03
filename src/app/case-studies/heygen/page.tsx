@@ -280,7 +280,7 @@ export default function CaseStudyPage() {
         </section>
         <section className="na-section">
           <div className="na-wrap">
-            <CTASection title="Want these systems at your company?" primary={["Book a free GTM audit", "/book"]} />
+            <CTASection title="Want these systems at your company?" primary={["Book a GTM audit", "/book"]} />
           </div>
         </section>
         <MobileStickyCTA href="/book" />

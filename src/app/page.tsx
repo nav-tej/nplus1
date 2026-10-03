@@ -46,7 +46,7 @@ export default function Home() {
             </>
           }
           lede="I scaled HeyGen from $20M to $100M+ ARR in 21 months. Before that, Semgrep, Egnyte and a16z. Now I build the same systems inside your company, with AI agents doing the ops work."
-          primary={["Book a free GTM audit", BOOK]}
+          primary={["Book a GTM audit", BOOK]}
           secondary={["See the work", "/case-studies"]}
           note="Working with 2 to 3 companies at a time."
           panel={<HeroPanel />}

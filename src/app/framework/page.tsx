@@ -22,11 +22,11 @@ import {
 export const metadata: Metadata = {
   // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
   title: { absolute: "The AI-Native GTM Framework | n+α Ventures" },
-  description: "The proprietary 5-pillar GTM architecture used to scale HeyGen to $100M ARR. Learn how we build AI-native revenue engines.",
+  description: "The proprietary 5-pillar GTM architecture used to scale HeyGen to $100M ARR. Learn how I build AI-native revenue engines.",
   alternates: { canonical: "https://nplusalpha.com/framework" },
   openGraph: {
     title: "The AI-Native GTM Framework | n+α Ventures",
-    description: "The proprietary 5-pillar GTM architecture used to scale HeyGen to $100M ARR. Learn how we build AI-native revenue engines.",
+    description: "The proprietary 5-pillar GTM architecture used to scale HeyGen to $100M ARR. Learn how I build AI-native revenue engines.",
     url: "https://nplusalpha.com/framework",
     type: "article",
   },
@@ -43,7 +43,7 @@ const FRAMEWORK_FAQS = [
   },
   {
     question: "How fast can we see results from this framework?",
-    answer: "We start shipping optimization sprints within the first 14 days. Most companies see a measurable lift in pipeline efficiency and inbound volume within the first 90 days."
+    answer: "I start shipping optimization sprints within the first 14 days. Most companies see a measurable lift in pipeline efficiency and inbound volume within the first 90 days."
   }
 ];
 
@@ -91,7 +91,7 @@ export default function FrameworkPage() {
       <JsonLd 
         type="WebPage"
         title="The AI-Native GTM Framework | n+α Ventures"
-        description="The proprietary 5-pillar GTM architecture used to scale HeyGen to $100M ARR. Learn how we build AI-native revenue engines."
+        description="The proprietary 5-pillar GTM architecture used to scale HeyGen to $100M ARR. Learn how I build AI-native revenue engines."
         path="/framework"
         faqs={FRAMEWORK_FAQS}
         breadcrumbs={[
@@ -246,7 +246,7 @@ export default function FrameworkPage() {
               </div>
               <div className="glass-card rounded-2xl p-6 opacity-0 animate-fade-in-up" style={{ animationDelay: "400ms" }}>
                 <h3 className="font-bold text-white mb-2">How fast can we see results from this framework?</h3>
-                <p className="text-sm text-muted">We start shipping optimization sprints within the first 14 days. Most companies see a measurable lift in pipeline efficiency and inbound volume within the first 90 days.</p>
+                <p className="text-sm text-muted">I start shipping optimization sprints within the first 14 days. Most companies see a measurable lift in pipeline efficiency and inbound volume within the first 90 days.</p>
               </div>
             </div>
           </section>
@@ -259,7 +259,7 @@ export default function FrameworkPage() {
             <div className="relative z-10 max-w-3xl mx-auto space-y-10">
               <h2 className="text-4xl lg:text-7xl font-black tracking-tighter leading-[0.9]">Ready to build your <span className="italic underline decoration-accent">unfair advantage</span>?</h2>
               <p className="text-xl font-medium opacity-80 leading-relaxed">
-                We partner with 1-2 companies at a time to implement this framework directly into your GTM architecture. There is no long discovery period; we start shipping within 14 days.
+                I work with two or three companies at a time and build this framework directly into your GTM architecture. There is no long discovery period; work starts shipping within 14 days.
               </p>
               <div className="pt-4">
                 <Link prefetch={false}
