@@ -125,19 +125,19 @@ export default async function VideoWatchPage({ params }: Props) {
             <aside className="space-y-6">
               <div className="p-8 rounded-3xl bg-alpha/10 border border-alpha/20 text-center">
                 <h3 className="text-lg font-bold text-alpha-text mb-2">Want to build this?</h3>
-                <p className="text-sm text-muted mb-6">Learn how we architect these GTM engines for B2B SaaS teams.</p>
+                <p className="text-sm text-muted mb-6">See how I build these GTM engines inside B2B SaaS teams.</p>
                 <Link prefetch={false}
                   href="/book"
                   className="inline-flex items-center justify-center w-full rounded-xl bg-accent px-6 py-3 text-sm font-bold text-[var(--on-alpha)] transition-all"
                 >
-                  Book a free GTM audit
+                  Book a GTM audit
                 </Link>
               </div>
 
               <div className="p-8 rounded-3xl bg-white/[0.03] border border-white/10">
                 <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-widest">Full Context</h3>
                 <p className="text-xs text-muted mb-4 leading-relaxed">
-                  This video is a component of our detailed {video.articleTitle}. Read the full playbook to see the complete architecture.
+                  This video goes with the full playbook, {video.articleTitle}. Read the full playbook to see the complete architecture.
                 </p>
                 <Link
                   href={video.articleUrl}

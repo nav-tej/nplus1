@@ -134,7 +134,7 @@ export default function AboutPage() {
                     href="/book"
                     className="inline-flex items-center gap-2 h-11 rounded-lg bg-accent px-5 text-sm font-medium text-[var(--on-alpha)] hover:bg-[var(--alpha-fill-hover)] transition-colors"
                   >
-                    Book a free GTM audit <span aria-hidden="true">→</span>
+                    Book a GTM audit <span aria-hidden="true">→</span>
                   </Link>
                 </div>
               </div>
@@ -302,14 +302,14 @@ export default function AboutPage() {
               Building Revenue Engines from $1M to $200M+
             </h2>
             <p className="text-muted mb-10 max-w-2xl">
-              What makes working with Nav different: operators who have done it,
-              not advisors who theorize about it.
+              What makes working with Nav different: he has held the operating seat
+              for every system he installs.
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               {[
                 {
                   title: "Operator, Not Just Advisor",
-                  body: "Nav has built and led GTM functions inside high-growth companies. Every framework is battle-tested from first-hand experience, not theory.",
+                  body: "Nav built and led GTM functions at HeyGen, Semgrep and Egnyte. Every framework he uses comes from running it in one of those seats.",
                 },
                 {
                   title: "Hands-On Through Execution",
@@ -382,7 +382,7 @@ export default function AboutPage() {
               href="/book"
               className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300"
             >
-              Book a free GTM audit →
+              Book a GTM audit →
             </Link>
           </div>
         </section>

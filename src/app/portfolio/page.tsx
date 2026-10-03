@@ -137,9 +137,9 @@ export default function PortfolioPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
-                { n: "01", title: "Diagnose", desc: "We audit your GTM motion to find where pipeline is leaking, identify messaging gaps, and pinpoint why systems aren't talking to each other." },
-                { n: "02", title: "Architect", desc: "We build the strategy, systems, and frameworks. This includes messaging architecture, persona research, funnel design, and tech stack rationalization." },
-                { n: "03", title: "Accelerate", desc: "We execute and iterate on the strategy. Whether it's campaigns, enablement programs, or pricing, we focus on driving the next growth lever." },
+                { n: "01", title: "Diagnose", desc: "I audit your GTM motion to find where pipeline is leaking, identify messaging gaps, and pinpoint why systems aren't talking to each other." },
+                { n: "02", title: "Architect", desc: "I build the strategy, systems, and frameworks. This includes messaging architecture, persona research, funnel design, and tech stack rationalization." },
+                { n: "03", title: "Accelerate", desc: "I execute and iterate on the strategy with your team. Whether it's campaigns, enablement programs, or pricing, the focus is the next growth lever." },
               ].map((s, i) => (
                 <div
                   key={i}
@@ -176,7 +176,7 @@ export default function PortfolioPage() {
               I work with 2-3 companies at a time. Currently accepting new engagements.
             </div>
             <a href="/book" className="inline-flex items-center gap-2 bg-accent text-[var(--on-alpha)] px-8 py-3.5 rounded-full font-bold text-sm tracking-wide hover:brightness-110 transition-all duration-300 active:scale-95">
-              Book a free GTM audit →
+              Book a GTM audit →
             </a>
           </div>
         </div>

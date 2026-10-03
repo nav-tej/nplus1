@@ -136,7 +136,7 @@ export default async function BlogPostPage({ params }: Props) {
               <span className="text-alpha-text">your GTM?</span>
             </h2>
             <p className="text-muted text-base mb-8 max-w-lg mx-auto leading-relaxed">
-              Book a free GTM audit. I&apos;ll review your current motion and
+              Book a GTM audit. I&apos;ll review your current motion and
               share 3–5 high-leverage opportunities specific to your stage and
               market.
             </p>
@@ -144,7 +144,7 @@ export default async function BlogPostPage({ params }: Props) {
               href="/book"
               className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300"
             >
-              Book a free GTM audit
+              Book a GTM audit
               <svg
                 width="14"
                 height="14"
