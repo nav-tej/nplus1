@@ -6,9 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **Design system (source of truth):** the n+α Design System artifact, https://claude.ai/artifact/LkJFJ1m81KYet9EeMNzd3z. Read `project/README.md`, `project/tokens.json` and `project/guidelines/*.md` with the Artifact tool (read action) before touching UI, motion or copy. The site's port lives in `src/app/brand.css` and `src/components/brand.tsx`. When the two disagree, fix the site or update the artifact, and say which.
 - **Brand voice:** every word on the site goes through the humanizer skill (https://github.com/blader/humanizer, 25 AI-writing patterns). Sentence case, no em dashes, short sentences, numbers first, "I" for Nav. Full rules: the Obsidian note "nPlusAlpha Brand Voice" and the design system's Writing rules section.
-- **Working notes:** Obsidian vault at `~/Documents/Obsidian Vault`. Start at `Welcome`. Append what you did to the top of `Log` (newest first). Site status lives in `nPlus1 Ventures`, the platform in `nPlusAlpha Platform`. Never put secrets there.
+- **Working notes:** Obsidian vault at `~/Documents/Obsidian Vault`. Start at `Welcome`. Append what you did to the top of `Log` (newest first). Site status lives in `nPlus1 Ventures`; `nPlusAlpha Platform` holds the platform and the map of all n+α workstreams (Nav's entry point). Never put secrets there.
 - **Sister repo:** `~/nplusalpha-app` is app.nplusalpha.com, the growth-ops platform (Supabase, Ahrefs, agents). Separate Vercel project and codebase. Don't mix them up.
-- **Deploys:** Vercel project `nplus1`. Every pushed branch builds a preview. Production has been deployed from the local working tree with `vercel --prod`, so check what is live before pushing `main`.
+- **Deploys:** Vercel project `nplus1` (team `navtejs-6321s-projects`). Every pushed branch builds a preview; **merging to `main` deploys production** (git integration, since 2026-09-30). Ship as a branch plus PR, and don't `vercel --prod` from a working tree. The GitHub repo is public: no secrets, client-confidential docs or engagement data in commits.
+- **Positioning and terms (Nav, 2026-10-03):** three engagement types (fractional VP Marketing + RevOps, system build, advisory), 3-month minimum, monthly fee scoped by type, part equity for companies Nav believes in. **Never publish a price or price range.** Only HeyGen, Semgrep and Egnyte appear on the homepage; the 2026 engagements stay on /case-studies until they have outcome numbers. CTAs say "Book a GTM audit", never "free". Never name competitors on the site.
 - **Settled facts:** all six case study companies may be named, Charta Health included (confirmed 2026-09-27). The portrait is the New York Times photo by Michael Swensen; keep the credit on /about.
 - **Structured data rules:** no aggregateRating or Review markup for our own testimonials (self-serving, never eligible). Emit FAQPage only where the FAQs are visible on the page. Author is the Person `/about#navsingh`, not the company. `datePublished` is the date a page went live, not an engagement start.
 - **Cowork agents:** the Cowork VM has no GitHub credentials, so Nav pushes. Git there can't delete its own lock files unless delete permission is granted on this folder; remove `.git/index.lock` after any git write or Nav's next command fails.
@@ -81,11 +82,11 @@ curl -s https://nplusalpha.com/ | grep -c '<h1'   # must be >= 1
 ### SEO notes
 
 - OG image routes serve `X-Robots-Tag: noindex` via `next.config.ts`; Google was crawling them as pages.
-- `src/proxy.ts` 301s everything to the apex except `localhost` and `*.vercel.app` previews.
+- `src/proxy.ts` 301s everything to the apex except `localhost` and `*.vercel.app` previews. `next start` sends `x-forwarded-proto: http`, which still trips the redirect locally: curl with `-H 'x-forwarded-proto: https'`, or check on the preview.
 - `scripts/indexnow.mjs` submits the live sitemap to Bing, Yandex and DuckDuckGo. Google does not participate in IndexNow, so Google needs Search Console.
 
 ### Performance patterns
 
-- `Services` and `Testimonials` are dynamically imported on the homepage (below-fold split)
+- `ContactForm` is dynamically imported on the homepage (below-fold client island)
 - Inter font loaded via `next/font/google` with `display: swap`
 - SEO: `opengraph-image.tsx` files generate OG images; `JsonLd` component emits structured data
