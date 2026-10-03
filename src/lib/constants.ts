@@ -12,27 +12,68 @@ export const SITE_CONFIG = {
 
 export const NAV_LINKS = [
   { label: "Work", href: "/case-studies" },
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/services" },
   { label: "Tools", href: "/tools/funnel-velocity" },
   { label: "Writing", href: "/blog" },
   { label: "About", href: "/about" },
 ];
 
-export const SERVICE_PAGES = [
+/** How to work together. Each engagement has an anchor on /services. */
+export const ENGAGEMENTS = [
   {
-    label: "Growth Marketing",
-    href: "/services/growth-marketing",
-    description: "Fractional VP Marketing for B2B SaaS",
+    id: "fractional",
+    label: "Fractional VP Marketing + RevOps",
+    summary: "I run marketing and revenue operations from inside your leadership team.",
+    body: "I join the leadership meeting, manage the team and the agencies, and own the pipeline number with you. It is the seat I held at HeyGen and Semgrep, part time. It fits when you need a GTM leader before you are ready to hire one full time.",
+    terms: "3-month minimum",
   },
   {
-    label: "Demand Generation",
-    href: "/services/demand-generation",
-    description: "ABM, content, SEO, paid, and lifecycle programs",
+    id: "build",
+    label: "System build",
+    summary: "One GTM system, designed and shipped with your team.",
+    body: "A demand engine, a RevOps stack, an attribution model or a growth analytics foundation, scoped before we start. I build it with your team, agents do the research and ops work, and it is handed off with documentation and an owner.",
+    terms: "3 months, fixed scope",
   },
   {
-    label: "Revenue Operations",
-    href: "/services/revenue-operations",
-    description: "GTM systems architecture, forecasting, and pipeline analytics",
+    id: "advisory",
+    label: "Advisory",
+    summary: "A weekly working session with the founder and GTM leads.",
+    body: "For teams that already have operators and want someone who has run the next stage. We meet weekly, I review the team's work between sessions, and I help you hire the next GTM leaders.",
+    terms: "3-month minimum",
+  },
+];
+
+/** What the work covers. The ids keep the old /services/<slug> URLs pointing somewhere useful. */
+export const SERVICE_AREAS = [
+  {
+    id: "growth-marketing",
+    label: "Growth marketing",
+    body: "Positioning, brand, SEO, community and lifecycle. The programs behind HeyGen's growth from $20M to $100M+ ARR in 21 months.",
+  },
+  {
+    id: "demand-generation",
+    label: "Demand generation",
+    body: "ABM, signal-based outbound, content and paid, measured in pipeline. $400M+ in marketing-sourced pipeline across my operating roles.",
+  },
+  {
+    id: "revenue-operations",
+    label: "Revenue operations",
+    body: "GTM systems architecture, forecasting, attribution and pipeline analytics. At Egnyte I ran marketing ops while marketing-sourced pipeline grew from $50M to $250M.",
+  },
+];
+
+export const ENGAGEMENT_TERMS = [
+  {
+    title: "Three-month minimum",
+    body: "A quarter is long enough to diagnose, build and see the first numbers move. After that we go month to month.",
+  },
+  {
+    title: "A scoped monthly fee",
+    body: "The fee depends on the engagement type and how much of my week it takes. I share numbers on the first call, once I understand the problem.",
+  },
+  {
+    title: "Equity, for companies I believe in",
+    body: "When I want to bet on a company, I take part of the fee as equity, which lowers the cash fee.",
   },
 ];
 
@@ -112,22 +153,27 @@ export const FAQS = [
   {
     question: "What types of companies do you work with?",
     answer:
-      "We primarily work with B2B SaaS companies and technology startups from seed stage through Series C. Our sweet spot is companies with product-market fit that are ready to scale their go-to-market engine.",
+      "B2B SaaS and AI companies from Series A through C. They have product-market fit and need the go-to-market engine to keep up with the product.",
   },
   {
-    question: "How does an engagement typically work?",
+    question: "How does an engagement work?",
     answer:
-      "We start with a discovery phase to understand your business, market, and goals. From there, we design a tailored strategy and work alongside your team to execute it. Engagements typically run 3-6 months with clear milestones and deliverables.",
+      "Every engagement starts with a three-week diagnosis of the funnel, the data and the team. Then I design the system and build it with your team, with a milestone every two weeks. The minimum is three months.",
   },
   {
     question: "What makes n+α different from other consultancies?",
     answer:
-      "We're operators, not just advisors. Our team has built and scaled GTM functions at high-growth companies. We bring frameworks that are battle-tested, not theoretical, and we stay hands-on through execution.",
+      "You work with me directly. I ran these systems from the operating seat at HeyGen, Semgrep and Egnyte, and I stay in the work through execution, with AI agents doing the research and ops work that usually needs a bigger team.",
+  },
+  {
+    question: "How do you charge?",
+    answer:
+      "A monthly fee with a three-month minimum, scoped to the engagement type. For companies I believe in, I take part of the fee as equity. I share numbers on the first call.",
   },
   {
     question: "What are the next steps to get started?",
     answer:
-      "Book a call with us to discuss your current challenges and goals. We'll assess fit, share relevant case studies, and outline a potential engagement scope. No commitment required.",
+      "Book the 15-minute call. If there is a fit, I send a short scope with the engagement type, the first three months and the terms.",
   },
 ];
 

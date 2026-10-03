@@ -17,7 +17,7 @@ ${postMeta("heygen-gtm-playbook-20m-to-100m-arr")}
 
 When I joined HeyGen in April 2024, the company had product-market fit, extraordinary organic growth, and a user base approaching 15 to 20 million registered users globally. It also had almost no marketing infrastructure.
 
-No SEO program, no content engine, no community, and no structured lifecycle automation. There was no enterprise GTM motion. The brand had outgrown its early-stage positioning, and the [revenue operations](/services/revenue-operations) architecture wasn't built to support the enterprise motion the company was moving toward.
+No SEO program, no content engine, no community, and no structured lifecycle automation. There was no enterprise GTM motion. The brand had outgrown its early-stage positioning, and the [revenue operations](/services#revenue-operations) architecture wasn't built to support the enterprise motion the company was moving toward.
 
 What followed was 18 months of systematic GTM construction. We built five interlocking systems that collectively drove 5× ARR growth from $20M to $100M+.
 
@@ -75,7 +75,7 @@ HeyGen's free-to-paid conversion was strong but unsystematic. We built a structu
 **Result:** We saw meaningful improvement in free-to-paid conversion rates across all plan tiers.
 ### 5. Enterprise ABM Motion
 
-The final pillar was building an [enterprise sales motion](/services/demand-generation) on top of the existing PLG base.
+The final pillar was building an [enterprise sales motion](/services#demand-generation) on top of the existing PLG base.
 
 **Target account selection:** We combined intent signal data from 6sense, ICP firmographic criteria, and existing user presence within target accounts to build a prioritized account list.
 
@@ -111,7 +111,7 @@ The flywheel: organic acquisition → community activation → lifecycle convers
 
 *Nav Singh is the founder of n+α Ventures and was Head of Revenue Operations at HeyGen from April 2024 to January 2026.*
 
-[→ n+α Growth Marketing Services](https://nplusalpha.com/services/growth-marketing)
+[→ n+α Growth Marketing Services](https://nplusalpha.com/services#growth-marketing)
 [→ Book a free GTM audit](https://nplusalpha.com/book)
 `,
 
@@ -122,7 +122,7 @@ ${postMeta("ai-native-gtm-marketing-operations-2025")}
 
 "AI-native" has become one of the most overused terms in B2B SaaS. Every company claims it, but most have simply bolted a few AI-powered tools onto their existing stack and called it transformation.
 
-Real [AI-native GTM](/services/revenue-operations) looks different. It's not about the tools; it's about rebuilding your go-to-market workflows from the ground up with intelligence at the core. At HeyGen and Semgrep, I built AI-native marketing and RevOps systems from scratch. Here's what it actually looks like in practice.
+Real [AI-native GTM](/services#revenue-operations) looks different. It's not about the tools; it's about rebuilding your go-to-market workflows from the ground up with intelligence at the core. At HeyGen and Semgrep, I built AI-native marketing and RevOps systems from scratch. Here's what it actually looks like in practice.
 
 ## What "AI-Native" Actually Means
 
@@ -233,7 +233,7 @@ Don't try to build all six layers at once. The right sequence is:
 
 *Nav Singh is the founder of n+α Ventures. He built AI-native GTM systems at HeyGen and Semgrep.*
 
-[→ n+α Revenue Operations Services](https://nplusalpha.com/services/revenue-operations)
+[→ n+α Revenue Operations Services](https://nplusalpha.com/services#revenue-operations)
 [→ Book a free GTM audit](https://nplusalpha.com/book)
 `,
 
@@ -363,9 +363,9 @@ The PLG-to-enterprise transition takes 12 to 18 months to show meaningful revenu
 
 ---
 
-*Nav Singh is the founder of n+α Ventures. He built [PLG-to-enterprise motions](/services/growth-marketing) at Semgrep and HeyGen.*
+*Nav Singh is the founder of n+α Ventures. He built [PLG-to-enterprise motions](/services#growth-marketing) at Semgrep and HeyGen.*
 
-[→ n+α Product-Led Growth Services](https://nplusalpha.com/services/growth-marketing)
+[→ n+α Product-Led Growth Services](https://nplusalpha.com/services#growth-marketing)
 [→ Book a free GTM audit](https://nplusalpha.com/book)
 `,
 
@@ -376,7 +376,7 @@ ${postMeta("demand-generation-b2b-saas-pipeline-framework")}
 
 Demand generation is not a tactic; it's a system. Individual tactics like a webinar, an ABM campaign, or a content piece can generate spikes of activity, but only a coordinated system builds the compounding, predictable pipeline that scales a B2B business.
 
-Over ten years of building [demand generation engines](/services/demand-generation) across HeyGen, Semgrep, and Egnyte, I've generated over $400M in marketing-sourced pipeline. Here's the complete framework.
+Over ten years of building [demand generation engines](/services#demand-generation) across HeyGen, Semgrep, and Egnyte, I've generated over $400M in marketing-sourced pipeline. Here's the complete framework.
 
 ## The Five-Component Framework
 
@@ -496,7 +496,7 @@ The flywheel: content builds authority → SEO generates organic demand → ABM 
 
 *Nav Singh is the founder of n+α Ventures. He generated $400M+ in marketing-sourced pipeline across HeyGen, Semgrep, and Egnyte.*
 
-[→ n+α Demand Generation Services](https://nplusalpha.com/services/demand-generation)
+[→ n+α Demand Generation Services](https://nplusalpha.com/services#demand-generation)
 [→ Book a free GTM audit](https://nplusalpha.com/book)
 `,
 
@@ -509,7 +509,7 @@ Revenue operations today looks fundamentally different from what it looked like 
 
 But the core challenge hasn't changed. It's still about aligning marketing, sales, and customer success around shared data, processes, and goals to maximize revenue efficiency.
 
-Here's what actually moves the needle in [modern RevOps](/services/revenue-operations), and distinguishing it from what's just noise.
+Here's what actually moves the needle in [modern RevOps](/services#revenue-operations), and distinguishing it from what's just noise.
 
 ## The Five Capability Areas That Drive Revenue
 
@@ -614,9 +614,9 @@ You can't improve what you can't measure, but most RevOps teams measure the wron
 
 ---
 
-*Nav Singh is the founder of n+α Ventures. He built [RevOps systems](/services/revenue-operations) at HeyGen, Semgrep, and Egnyte.*
+*Nav Singh is the founder of n+α Ventures. He built [RevOps systems](/services#revenue-operations) at HeyGen, Semgrep, and Egnyte.*
 
-[→ n+α Revenue Operations Services](https://nplusalpha.com/services/revenue-operations)
+[→ n+α Revenue Operations Services](https://nplusalpha.com/services#revenue-operations)
 [→ Book a free GTM audit](https://nplusalpha.com/book)
 `,
 
@@ -705,13 +705,13 @@ Live sessions drove single-session traffic spikes, but more importantly, they cr
 
 **The product team's genuine participation.** When community members see that their feedback actually influences the product, they deepen their investment. We ran weekly community feedback reviews with the product team and explicitly referenced community input in product updates.
 
-**Treating it as a channel, not a campaign.** [Community-led growth](/services/growth-marketing) compounds over time but requires consistent investment. Teams that launch a community as a project and then move on miss most of the value.
+**Treating it as a channel, not a campaign.** [Community-led growth](/services#growth-marketing) compounds over time but requires consistent investment. Teams that launch a community as a project and then move on miss most of the value.
 
 ---
 
 *Nav Singh is the founder of n+α Ventures. He launched and scaled HeyGen's community from zero to 100,000 members.*
 
-[→ n+α Growth Marketing Services](https://nplusalpha.com/services/growth-marketing)
+[→ n+α Growth Marketing Services](https://nplusalpha.com/services#growth-marketing)
 [→ Book a free GTM audit](https://nplusalpha.com/book)
 `,
 
@@ -826,7 +826,7 @@ Not all intent signals are equal. Here are the ones that reliably predict buy-re
 
 ## What Converts in ABM: The Honest Data
 
-Based on [ABM programs](/services/demand-generation) across multiple companies, here is what actually drives conversion:
+Based on [ABM programs](/services#demand-generation) across multiple companies, here is what actually drives conversion:
 
 **Champion presence is the number one predictor of ABM success.** Accounts where an existing or former user is an internal champion convert at three to four times the rate of cold accounts. Identify and activate internal champions before sales touches the account.
 
@@ -840,7 +840,7 @@ Based on [ABM programs](/services/demand-generation) across multiple companies, 
 
 *Nav Singh is the founder of n+α Ventures. He built ABM programs that generated substantial enterprise pipeline at HeyGen and 3× pipeline efficiency at Egnyte.*
 
-[→ n+α Demand Generation Services](https://nplusalpha.com/services/demand-generation)
+[→ n+α Demand Generation Services](https://nplusalpha.com/services#demand-generation)
 [→ Book a free GTM audit](https://nplusalpha.com/book)
 `,
 
@@ -849,7 +849,7 @@ Based on [ABM programs](/services/demand-generation) across multiple companies, 
 
 ${postMeta("seo-from-zero-b2b-saas-organic-growth")}
 
-When I joined HeyGen in April 2024, organic search was essentially not a channel. The site had domain authority but no systematic [SEO program](/services/growth-marketing). It lacked a keyword strategy, content infrastructure, and technical optimization framework.
+When I joined HeyGen in April 2024, organic search was essentially not a channel. The site had domain authority but no systematic [SEO program](/services#growth-marketing). It lacked a keyword strategy, content infrastructure, and technical optimization framework.
 
 Eighteen months later, organic search had become one of HeyGen's top three acquisition channels. We saw 50%+ year-over-year organic traffic growth, which reversed a previously declining baseline.
 
@@ -1003,9 +1003,9 @@ Content alone doesn't rank in competitive verticals. You also need backlinks, wh
 
 ---
 
-*Nav Singh is the founder of n+α Ventures. He built [SEO programs](/services/growth-marketing) at HeyGen and Semgrep, driving 50%+ YoY organic growth.*
+*Nav Singh is the founder of n+α Ventures. He built [SEO programs](/services#growth-marketing) at HeyGen and Semgrep, driving 50%+ YoY organic growth.*
 
-[→ n+α Growth Marketing Services](https://nplusalpha.com/services/growth-marketing)
+[→ n+α Growth Marketing Services](https://nplusalpha.com/services#growth-marketing)
 [→ Book a free GTM audit](https://nplusalpha.com/book)
 `,
 };

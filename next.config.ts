@@ -14,6 +14,12 @@ const nextConfig: NextConfig = {
         destination: "https://cal.com/navtej-singh/15min",
         permanent: false,
       },
+      // 2026-10-03: the three service pages merged into /services, one section each.
+      ...["growth-marketing", "demand-generation", "revenue-operations"].map((slug) => ({
+        source: `/services/${slug}`,
+        destination: `/services#${slug}`,
+        permanent: true,
+      })),
     ];
   },
   async headers() {
