@@ -16,13 +16,13 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: "Portfolio: Case Studies & GTM Frameworks",
-  description: "Explore selected work and stylized GTM frameworks by n+α. See how we architect growth marketing and revenue operations for B2B SaaS companies.",
+  description: "Explore selected work and stylized GTM frameworks by n+α. See how I architect growth marketing and revenue operations for B2B SaaS companies.",
   alternates: {
     canonical: "https://nplusalpha.com/portfolio",
   },
   openGraph: {
     title: "Portfolio | Case Studies & GTM Frameworks | n+α",
-    description: "Explore selected work and stylized GTM frameworks by n+α. See how we architect growth marketing and revenue operations for B2B SaaS companies.",
+    description: "Explore selected work and stylized GTM frameworks by n+α. See how I architect growth marketing and revenue operations for B2B SaaS companies.",
     url: "https://nplusalpha.com/portfolio",
     type: "website",
   },

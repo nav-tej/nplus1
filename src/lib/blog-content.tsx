@@ -76,7 +76,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         No SEO program, no content engine, no community, and no structured lifecycle
         automation. There was no enterprise GTM motion. The brand had outgrown its
-        early-stage positioning, and the <Link href="/services/revenue-operations" className="text-alpha-text hover:underline">revenue operations</Link> architecture
+        early-stage positioning, and the <Link href="/services#revenue-operations" className="text-alpha-text hover:underline">revenue operations</Link> architecture
         wasn&apos;t built to support the enterprise motion the company was moving
         toward.
       </P>
@@ -119,7 +119,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       <P>
         <Bold>3. No enterprise motion.</Bold> HeyGen had enormous enterprise
         potential: L&D teams, marketing agencies, enterprise video production.
-        But there was no targeted <Link href="/services/demand-generation" className="text-alpha-text hover:underline">enterprise GTM</Link>, no ABM program, and no
+        But there was no targeted <Link href="/services#demand-generation" className="text-alpha-text hover:underline">enterprise GTM</Link>, no ABM program, and no
         enterprise-specific positioning.
       </P>
       <P>
@@ -338,7 +338,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         systems, not one-off campaigns, is universal.
       </P>
 
-      <InternalCta href="/services/growth-marketing">
+      <InternalCta href="/services#growth-marketing">
         → See how I can help build this for your company
       </InternalCta>
     </>
@@ -353,7 +353,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         it, but almost nobody has actually built it.
       </P>
       <P>
-        Here&apos;s what I&apos;ve learned building <Link href="/services/revenue-operations" className="text-alpha-text hover:underline">AI-native GTM systems</Link> at
+        Here&apos;s what I&apos;ve learned building <Link href="/services#revenue-operations" className="text-alpha-text hover:underline">AI-native GTM systems</Link> at
         HeyGen and Semgrep: what it actually means in practice, what the stack
         looks like, and what results it delivers.
       </P>
@@ -587,7 +587,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
       </P>
       <P>Start now.</P>
 
-      <InternalCta href="/services/revenue-operations">
+      <InternalCta href="/services#revenue-operations">
         → How I build AI-native GTM systems for B2B SaaS companies
       </InternalCta>
     </>
@@ -827,7 +827,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         now have two compounding flywheels running simultaneously.
       </P>
 
-      <InternalCta href="/services/growth-marketing">
+      <InternalCta href="/services#growth-marketing">
         → How I help B2B SaaS companies build the PLG-to-enterprise transition
       </InternalCta>
     </>
@@ -1082,7 +1082,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         there, the work is optimization and scale.
       </P>
 
-      <InternalCta href="/services/demand-generation">
+      <InternalCta href="/services#demand-generation">
         → Work with me to build your demand gen program
       </InternalCta>
     </>
@@ -1294,7 +1294,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         select tools that fit the architecture.
       </P>
 
-      <InternalCta href="/services/revenue-operations">
+      <InternalCta href="/services#revenue-operations">
         → How I approach RevOps architecture for B2B SaaS companies
       </InternalCta>
     </>
@@ -1497,7 +1497,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         energy.
       </P>
 
-      <InternalCta href="/services/growth-marketing">
+      <InternalCta href="/services#growth-marketing">
         → How I build community-led growth programs
       </InternalCta>
     </>
@@ -1714,7 +1714,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         audiences with distinct problems and distinct value propositions.
       </P>
 
-      <InternalCta href="/services/demand-generation">
+      <InternalCta href="/services#demand-generation">
         → How I build ABM programs for B2B SaaS companies
       </InternalCta>
     </>
@@ -1995,7 +1995,7 @@ export const BLOG_CONTENT: Record<string, React.ReactNode> = {
         </Li>
       </Ul>
 
-      <InternalCta href="/services/demand-generation">
+      <InternalCta href="/services#demand-generation">
         → How I build SEO programs for B2B SaaS companies
       </InternalCta>
     </>

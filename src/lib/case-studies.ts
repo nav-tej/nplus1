@@ -60,15 +60,15 @@ export interface CaseStudy {
 
 const GROWTH_MARKETING = {
   label: "Growth Marketing",
-  href: "/services/growth-marketing",
+  href: "/services#growth-marketing",
 };
 const DEMAND_GEN = {
   label: "Demand Generation",
-  href: "/services/demand-generation",
+  href: "/services#demand-generation",
 };
 const REVOPS = {
   label: "Revenue Operations",
-  href: "/services/revenue-operations",
+  href: "/services#revenue-operations",
 };
 
 export const CASE_STUDIES: CaseStudy[] = [

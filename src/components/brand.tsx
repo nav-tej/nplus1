@@ -573,7 +573,7 @@ export function CTASection({
       Find the <em>α</em> in your funnel.
     </>
   ),
-  body = "A free 15-minute GTM audit. You bring the numbers. I bring the pattern library from HeyGen, Semgrep, Egnyte and a16z. You leave with the three moves I would make first.",
+  body = "A 15-minute GTM audit. You bring the numbers. I bring the pattern library from HeyGen, Semgrep, Egnyte and a16z. You leave with the three moves I would make first.",
   children,
   primary,
   note = "Working with 2 to 3 companies at a time. Currently open.",

@@ -4,26 +4,23 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { X, Menu, Plus, ArrowRight } from "lucide-react";
 
-import { NAV_LINKS, SERVICE_PAGES, SITE_CONFIG } from "@/lib/constants";
+import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
 import { Wordmark } from "@/components/brand";
 
 /** `theme="paper"` puts the nav on the paper tokens, for long-read pages. */
 export default function Navbar({ theme }: { theme?: "paper" } = {}) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         if (mobileOpen) setMobileOpen(false);
-        if (servicesOpen) setServicesOpen(false);
         if (toolsOpen) setToolsOpen(false);
       }
     },
-    [mobileOpen, servicesOpen, toolsOpen]
+    [mobileOpen, toolsOpen]
   );
 
   useEffect(() => {
@@ -71,36 +68,6 @@ export default function Navbar({ theme }: { theme?: "paper" } = {}) {
             {/* Desktop Nav */}
             <ul className="hidden md:flex items-center gap-8 list-none p-0 m-0">
               {NAV_LINKS.map((link) => {
-                if (link.label === "Services") {
-                  return (
-                    <li key="services" className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-                      <button 
-                        className="flex items-center gap-1.5 text-sm text-muted hover:text-foreground transition-colors py-2"
-                        aria-expanded={servicesOpen}
-                        aria-haspopup="true"
-                        title="Explore our AI-Native GTM Services"
-                      >
-                        Services
-                        <Plus className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-45" : ""}`} />
-                      </button>
-                      <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-[300px] transition-all duration-200 ${servicesOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}>
-                        <div className="bg-surface border border-line rounded-[14px] overflow-hidden shadow-[var(--shadow-pop)]">
-                          {SERVICE_PAGES.map((page) => (
-                            <Link 
-                              key={page.href} 
-                              href={page.href} 
-                              className="flex flex-col gap-0.5 px-5 py-4 hover:bg-[var(--surface-2)] transition-colors border-b border-line last:border-0 group"
-                              title={page.label}
-                            >
-                              <span className="text-sm font-semibold text-foreground group-hover:text-alpha-text transition-colors">{page.label}</span>
-                              <span className="text-[11px] text-muted leading-tight">{page.description}</span>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </li>
-                  );
-                }
                 if (link.label === "Tools") {
                   return (
                     <li key="tools" className="relative" onMouseEnter={() => setToolsOpen(true)} onMouseLeave={() => setToolsOpen(false)}>
@@ -144,7 +111,7 @@ export default function Navbar({ theme }: { theme?: "paper" } = {}) {
                 <Link prefetch={false} 
                   href={SITE_CONFIG.calendarLink} 
                   className="inline-flex items-center h-[38px] bg-accent text-[var(--on-alpha)] px-4 rounded-lg text-sm font-medium hover:bg-[var(--alpha-fill-hover)] transition-colors"
-                  title="Book a free GTM audit"
+                  title="Book a GTM audit"
                 >
                   Book a GTM audit
                 </Link>
@@ -191,39 +158,6 @@ export default function Navbar({ theme }: { theme?: "paper" } = {}) {
         {/* Mobile Content */}
         <nav className="flex flex-col h-[calc(100dvh-var(--nav-height))] overflow-y-auto px-6 py-10 space-y-4" aria-label="Mobile Navigation Links">
           {NAV_LINKS.map((link) => {
-            if (link.label === "Services") {
-              return (
-                <div key="services" className="space-y-3">
-                  <button 
-                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                    className={`flex items-center justify-between w-full p-5 rounded-2xl border transition-all ${
-                      mobileServicesOpen ? "bg-surface border-[var(--line-strong)] text-alpha-text" : "bg-surface border-line text-foreground"
-                    }`}
-                    aria-expanded={mobileServicesOpen}
-                    title="Toggle Services Menu"
-                  >
-                    <span className="text-2xl font-serif">Services</span>
-                    <Plus className={`w-5 h-5 transition-transform duration-300 ${mobileServicesOpen ? "rotate-45" : ""}`} />
-                  </button>
-                  {mobileServicesOpen && (
-                    <div className="grid grid-cols-1 gap-3 pl-4 animate-in slide-in-from-top-2 duration-200">
-                      {SERVICE_PAGES.map((page) => (
-                        <Link 
-                          key={page.href} 
-                          href={page.href} 
-                          onClick={() => setMobileOpen(false)} 
-                          className="flex flex-col p-4 rounded-xl bg-surface border border-line"
-                          title={page.label}
-                        >
-                          <span className="font-medium text-foreground">{page.label}</span>
-                          <span className="text-xs text-muted leading-tight">{page.description}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              );
-            }
             if (link.label === "Tools") {
               return (
                 <div key="tools" className="space-y-3">
@@ -282,7 +216,7 @@ export default function Navbar({ theme }: { theme?: "paper" } = {}) {
               href={SITE_CONFIG.calendarLink}
               onClick={() => setMobileOpen(false)}
               className="flex items-center justify-center gap-3 w-full h-12 rounded-lg bg-accent text-[var(--on-alpha)] text-base font-medium"
-              title="Book a free GTM audit"
+              title="Book a GTM audit"
             >
               Book a GTM audit
               <ArrowRight className="w-5 h-5" />

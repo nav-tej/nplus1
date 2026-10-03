@@ -178,7 +178,7 @@ export default function ContactForm() {
           htmlFor="message"
           className="block text-sm font-medium text-muted mb-2"
         >
-          How can we help? *
+          Where is the funnel stuck? *
         </label>
         <textarea
           id="message"
@@ -188,7 +188,7 @@ export default function ContactForm() {
           value={form.message}
           onChange={handleChange}
           className="w-full rounded-lg border border-[var(--line-strong)] bg-[var(--bg)] px-4 py-3 text-foreground placeholder:text-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors resize-none"
-          placeholder="Tell us about your growth challenges and goals..."
+          placeholder="Your stage, rough ARR, and what you have already tried..."
         />
       </div>
 
@@ -197,7 +197,7 @@ export default function ContactForm() {
         disabled={status === "sending"}
         className="w-full rounded-lg bg-accent px-8 py-4 text-base font-medium text-[var(--on-alpha)] hover:brightness-110 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {status === "sending" ? "Sending..." : "Request a free GTM audit"}
+        {status === "sending" ? "Sending..." : "Request a GTM audit"}
       </button>
 
       <p className="text-[11px] text-muted text-center px-4 leading-relaxed">
@@ -211,12 +211,12 @@ export default function ContactForm() {
       <div aria-live="polite" role="status">
         {status === "sent" && (
           <p className="text-accent text-sm text-center">
-            Thanks! We&apos;ll be in touch shortly.
+            Thanks. I&apos;ll be in touch shortly.
           </p>
         )}
         {status === "error" && (
           <p className="text-red-400 text-sm text-center" role="alert">
-            Something went wrong. Please try again or email us directly.
+            Something went wrong. Please try again or email me directly.
           </p>
         )}
       </div>

@@ -29,11 +29,14 @@ ${FOUNDER.advisory.join(", ")}
 - Avg ARR Growth: ${FOUNDER.stats[3].value}
 `;
 
-  const servicesSection = `# GTM Consulting Services
+  const servicesSection = `# Services (${base}/services)
 
-- Growth Marketing: Fractional VP Marketing for B2B SaaS. Strategy, brand, PLG, and community construction.
-- Revenue Operations: GTM systems architecture, forecasting, and pipeline analytics.
-- Demand Generation: ABM, content engines, and signal-based outbound.
+Three engagement types, each with a three-month minimum:
+- Fractional VP Marketing + RevOps: Nav runs marketing and revenue operations from inside the leadership team.
+- System build: one GTM system (demand engine, RevOps stack, attribution model or growth analytics foundation), scoped up front and handed off with an owner.
+- Advisory: a weekly working session with the founder and GTM leads, plus async review of the team's work.
+
+Functions covered: growth marketing, demand generation and revenue operations. Fees are monthly and scoped to the engagement; for companies Nav believes in, part of the fee is taken as equity.
 `;
 
   const posts = BLOG_POSTS.map((post) => {

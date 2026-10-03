@@ -20,7 +20,7 @@ import {
   SectionHeader,
   TrackRecord,
 } from "@/components/brand";
-import { FAQS, SERVICE_PAGES, SITE_CONFIG } from "@/lib/constants";
+import { ENGAGEMENTS, FAQS, SITE_CONFIG } from "@/lib/constants";
 import { CASES } from "@/lib/brand-data";
 
 export const metadata: Metadata = {
@@ -46,7 +46,7 @@ export default function Home() {
             </>
           }
           lede="I scaled HeyGen from $20M to $100M+ ARR in 21 months. Before that, Semgrep, Egnyte and a16z. Now I build the same systems inside your company, with AI agents doing the ops work."
-          primary={["Book a free GTM audit", BOOK]}
+          primary={["Book a GTM audit", BOOK]}
           secondary={["See the work", "/case-studies"]}
           note="Working with 2 to 3 companies at a time."
           panel={<HeroPanel />}
@@ -98,7 +98,8 @@ export default function Home() {
             <div className="na-cards" style={{ marginBottom: 8 }}>
               <CaseStudyCard index="01" wide {...CASES[0]} />
             </div>
-            <CaseIndex cases={CASES.slice(1)} start={2} />
+            {/* The 2026 engagements live on /case-studies until they have outcome numbers. */}
+            <CaseIndex cases={CASES.slice(1, 3)} start={2} />
           </div>
         </section>
 
@@ -140,16 +141,21 @@ export default function Home() {
               index="05"
               eyebrow="Services"
               title="Three ways to work together."
-              lede="Most engagements combine two. All of them start with the audit."
+              lede="Each one starts with the same diagnosis and a three-month commitment."
+              action={
+                <Button variant="secondary" href="/services" arrow>
+                  Engagements and terms
+                </Button>
+              }
             />
-            <div className="na-steps" style={{ "--n": 3 } as React.CSSProperties}>
-              {SERVICE_PAGES.map((s, i) => (
-                <Link key={s.href} href={s.href} className="na-step na-step-link">
+            <div className="na-steps" style={{ "--n": ENGAGEMENTS.length } as React.CSSProperties}>
+              {ENGAGEMENTS.map((e, i) => (
+                <Link key={e.id} href={`/services#${e.id}`} className="na-step na-step-link">
                   <span className="na-step-n">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="na-step-t">{s.label.charAt(0) + s.label.slice(1).toLowerCase()}</h3>
-                  <p>{s.description}</p>
+                  <h3 className="na-step-t">{e.label}</h3>
+                  <p>{e.summary}</p>
                   <span className="na-step-w">
-                    How it works <span aria-hidden="true">→</span>
+                    {e.terms} <span aria-hidden="true">→</span>
                   </span>
                 </Link>
               ))}
