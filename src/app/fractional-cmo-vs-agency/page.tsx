@@ -287,7 +287,7 @@ export default function ComparisonPage() {
                 If a fractional engagement is the answer
               </h2>
               <p className="text-muted leading-relaxed mb-6">
-                Six engagements, written up with what was built and what moved.
+                Five engagements, written up with what was built and what moved.
                 Read those before you talk to anyone, including me.
               </p>
               <div className="flex flex-wrap gap-3">

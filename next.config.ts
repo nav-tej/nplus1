@@ -20,6 +20,17 @@ const nextConfig: NextConfig = {
         destination: `/services#${slug}`,
         permanent: true,
       })),
+      // 2026-11-16: Charta Health case study taken down.
+      {
+        source: "/case-studies/charta-health/:path*",
+        destination: "/case-studies",
+        permanent: true,
+      },
+      {
+        source: "/case-studies/charta-health",
+        destination: "/case-studies",
+        permanent: true,
+      },
     ];
   },
   async headers() {

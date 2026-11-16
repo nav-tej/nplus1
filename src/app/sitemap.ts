@@ -7,7 +7,7 @@ import { VIDEOS } from "@/lib/videos";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = `https://${SITE_CONFIG.domain}`;
 
-  // 2026-09-17: case study cluster (hub page + Comfy + Charta Health).
+  // 2026-09-17: case study cluster (hub page + Comfy). Charta Health removed 2026-11-16.
   const caseStudyRefresh = new Date("2026-09-17");
 
   // Static dates — update when page content meaningfully changes.
