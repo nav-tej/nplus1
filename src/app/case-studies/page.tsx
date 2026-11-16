@@ -9,7 +9,7 @@ import { Breadcrumbs, CaseIndex, CaseStudyCard, CTASection, MobileStickyCTA } fr
 
 const TITLE = "B2B SaaS Growth & SEO Case Studies";
 const DESCRIPTION =
-  "Case studies from inside the work: scaling HeyGen from $20M to $100M+ ARR, rebuilding organic growth and analytics at Comfy, and building an AI-agent SEO engine at Charta Health.";
+  "Case studies from inside the work: scaling HeyGen from $20M to $100M+ ARR and rebuilding organic growth and analytics at Comfy.";
 
 export const metadata: Metadata = {
   // The root layout template appends " | n+α Ventures"; absolute stops it doubling.
