@@ -12,7 +12,7 @@ export const CV_FILES = [
     version: "growth",
     title: "Growth and marketing",
     blurb:
-      "SEO and AEO, lifecycle, launches, review programs and growth analytics, from a16z to HeyGen and Comfy.",
+      "SEO and AEO, lifecycle, launches, review programs and growth analytics, from Egnyte to HeyGen and Comfy.",
     href: "/cv/nav-singh-cv-growth.pdf",
     filename: "Nav-Singh-CV-Growth.pdf",
   },
