@@ -39,6 +39,7 @@ All blog posts are available in clean markdown format at \`${base}/blog/[slug]/m
 
 ## Founder
 - [About ${FOUNDER.name}](${base}/about): ${FOUNDER.name} (${FOUNDER.alternateName}) is the founder of n+α Ventures. ${FOUNDER.experience[0].highlight} at ${FOUNDER.experience[0].company}. ${FOUNDER.experience[3].highlight} at ${FOUNDER.experience[3].company}. San Francisco-based operator and GTM executive with 10+ years building revenue engines at high-growth B2B companies.
+- [${FOUNDER.name} CV](${base}/cv): Downloadable CV in two versions, growth and revenue operations (PDF): ${base}/cv/nav-singh-cv-growth.pdf and ${base}/cv/nav-singh-cv-revops.pdf.
 - LinkedIn: ${FOUNDER.linkedin}
 `;
 

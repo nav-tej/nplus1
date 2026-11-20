@@ -28,6 +28,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/tools/funnel-velocity`, lastModified: brandRefresh, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/resources/agentic-outbound`, lastModified: brandRefresh, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/portfolio`, lastModified: brandRefresh, changeFrequency: "monthly", priority: 0.85 },
+    // 2026-11-20: CV page with growth and RevOps PDF downloads.
+    { url: `${baseUrl}/cv`, lastModified: new Date("2026-11-20"), changeFrequency: "monthly", priority: 0.7 },
   ];
 
   const routes = staticRoutes;
