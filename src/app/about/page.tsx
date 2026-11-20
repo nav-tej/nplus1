@@ -4,6 +4,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import CvDownloads from "@/components/CvDownloads";
 import { FOUNDER, TESTIMONIALS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -238,6 +239,28 @@ export default function AboutPage() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ── CV downloads ── */}
+        <section
+          className="py-16 border-b border-white/5"
+          aria-label="Download CV"
+          id="cv"
+        >
+          <div className="mx-auto max-w-7xl px-6 lg:px-10">
+            <h2 className="text-2xl font-bold text-foreground mb-2">
+              Download my CV
+            </h2>
+            <p className="text-muted mb-8 max-w-2xl">
+              Two versions of the same history, one for growth and one for
+              revenue operations.{" "}
+              <Link href="/cv" className="text-foreground underline underline-offset-4 hover:text-alpha-text">
+                More on the CV page
+              </Link>
+              .
+            </p>
+            <CvDownloads location="about" />
           </div>
         </section>
 
