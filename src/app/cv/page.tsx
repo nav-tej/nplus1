@@ -47,10 +47,10 @@ export default function CvPage() {
               Nav Singh, CV
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted leading-relaxed">
-              The last decade of my work, in two versions. One leads with
-              growth, the other with revenue operations. Both run from my
-              first stint at Egnyte in 2016 to nPlusAlpha today, with a16z,
-              Semgrep, HeyGen and Comfy in between.
+              Ten years of work, from my first stint at Egnyte in 2016
+              through a16z, Semgrep, HeyGen and Comfy to nPlusAlpha today.
+              One version leads with growth, the other with revenue
+              operations.
             </p>
             <div className="mt-10">
               <CvDownloads location="cv" />
